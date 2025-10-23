@@ -1,0 +1,16 @@
+/**
+ *
+ * Theme  : Achromatic
+ * Author : SUDOER1337
+ *
+ **/
+
+* {
+    background:     #303030;   
+    background-alt: #202020;    
+    foreground:     #D4D4D4;          
+    selected:       #D4D4D4FF;           
+    active:         #BFBFBFFF;          
+    urgent:         #C0C0C0FF;          
+
+}

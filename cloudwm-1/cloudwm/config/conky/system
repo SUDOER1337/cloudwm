@@ -1,0 +1,43 @@
+conky.config = {
+    alignment = 'bottom_left',
+    gap_x = 50,
+    gap_y = 50,
+    background = false,
+    border_width = 2,
+    cpu_avg_samples = 2,
+    double_buffer = true,
+    draw_shades = false,
+    minimum_width = 350,
+    maximum_width = 350,
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 255,
+    own_window_hints = 'undecorated,above,sticky,skip_taskbar,skip_pager',
+    update_interval = 1,
+    use_xft = true,
+    font = 'Iosevka Nerd Font:bold:size=14',
+    xftalpha = 1,
+    draw_outline = false,
+    draw_borders = true,
+    border_inner_margin = 10,
+    border_outer_margin = 5,
+};
+
+conky.text = [[
+${color #d4af7f}[ SYSTEM INFO ] ${hr 2}
+${color #d4af7f}[ $nodename $kernel $machine ]
+${color #d4af7f}[   Uptime $uptime ]
+${color #d4af7f}[   CPU ] ${execi 60 lscpu | grep "Model name" | sed -E 's/Model name:[ \t]*//' | sed -E 's/.*(Ryzen [0-9]+ [0-9]+).*/\1/'}
+${color #d4af7f}${cpubar cpu0 50,170} ${color #d4af7f}${cpubar cpu1 50,170}
+${color #d4af7f}${cpubar cpu2 50,170} ${color #d4af7f}${cpubar cpu3 50,170}
+${color #d4af7f}${cpubar cpu4 50,170} ${color #d4af7f}${cpubar cpu5 50,170}
+${color #d4af7f}[   RAM ] ${goto 110}${membar 15,50} ${mem}/${memmax} (${memperc}%)
+${color #d4af7f}[   Swap] ${goto 110}${swapbar 15,50} ${swap}/${swapmax} (${swapperc}%)
+${color #d4af7f}[ 󰋊  Disk] ${goto 110}${fs_bar 15,50 /} ${fs_used /}/${fs_size /}
+${hr 2}
+${color #d4af7f}[NOW PLAYING] ${hr 2}
+${color #d4af7f} ${scroll 36 10 ${exec playerctl metadata --format "{{artist}} - {{title}} - {{album}}"}}
+]];
+

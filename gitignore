@@ -1,0 +1,12 @@
+# Ignore build files
+*.o
+*.out
+*.swp
+
+# Ignore backups
+cloudwm_backups/
+*.tar.gz
+
+# Ignore personal/system-specific files
+.xinitrc.backup
+
