@@ -18,15 +18,14 @@ Lock screen: slock with readpw() and draw_time() modded originally from ['DPatel
 
 Fonts: Cozette, Iosevka Nerd Font, JetBrainsMono Nerd Fonts
 
-GTK theme: Graphite-Square a Custom Graphite with radius set to 0 
+GTK theme: Carbon-Square 
 
 Cursor theme: Bibata-Modern-Classic
 
-Icons: Tela Circle Black
+Icons: YAMIS
 
 Dotfiles: Configuration files, scripts, wallpapers & more
 
-Custom startpage: Flask startpage
 
 Launchers: My Editted ['adi1090x collection of Rofi custom Applets, Launchers & Powermenus'](https://github.com/adi1090x/rofi)
 
