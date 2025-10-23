@@ -1,3 +1,4 @@
+```
    _____  _       ____   _    _  _____ __          __ __  __ 
   / ____|| |     / __ \ | |  | ||  __ \\ \        / /|  \/  |
  | |     | |    | |  | || |  | || |  | |\ \  /\  / / | \  / |
@@ -5,6 +6,7 @@
  | |____ | |____| |__| || |__| || |__| |  \  /\  /   | |  | |
   \_____||______|\____/  \____/ |_____/    \/  \/    |_|  |_|
                                                              
+```
 
 > Forked from [`namishh's bedwm`](https://github.com/namishh/dwm)
 
@@ -42,6 +44,7 @@ Run the installation script:
 ```bash
 ./install.sh
 
+```
 
 ## Patches
 + ActualFullscreen
@@ -70,9 +73,9 @@ All configuration is done by editing the source code files:
     scripts/ – Helper scripts for automation
 
 After making changes:
-
+```
 make clean install
-
+```
 Feel free to forks!
                                                              
                                                              
