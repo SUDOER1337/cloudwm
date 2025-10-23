@@ -77,12 +77,3 @@ After making changes:
 make clean install
 ```
 Feel free to forks!
-                                                             
-                                                             
-                                                             
-                                                             
-                                                             
-                                                             
-                                                             
-# cloudwm
-# cloudwm
