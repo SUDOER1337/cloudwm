@@ -1,0 +1,120 @@
+#!/bin/bash
+
+## Playerctl version of your music info script
+COVER="/tmp/.music_cover.jpg"
+DEFAULT_COVER="images/music.png"
+
+## Nerd Font Icons
+ICON_PLAY="󰐊"      # Play
+ICON_PAUSE="󰏤"     # Pause
+ICON_STOP="󰓛"      # Stop
+ICON_OFFLINE="󰟢"   # Music Off / Offline
+
+get_cover() {
+    COVER="/tmp/.music_cover.jpg"
+    ART_URL="$(playerctl -p spotify,mpd,vlc metadata mpris:artUrl 2>/dev/null)"
+
+    if [[ -n "$ART_URL" ]]; then
+        # Handle file:// URLs (local files)
+        if [[ "$ART_URL" == file://* ]]; then
+            ART_PATH="${ART_URL#file://}"
+            cp "$ART_PATH" "$COVER"
+        else
+            # Remote image (Spotify, etc.)
+            convert "$COVER" -resize 32x32 -scale 512x512 "$COVER"
+            curl -sL "$ART_URL" -o "$COVER"
+        fi
+        echo "$COVER"
+    else
+        echo "~/.config/eww/dashboard/images/nomusic.png"
+    fi
+}
+
+## Get status
+get_status() {
+	status=$(playerctl status 2>/dev/null)
+	case "$status" in
+		"Playing") echo "$ICON_PLAY" ;;
+		"Paused") echo "$ICON_PAUSE" ;;
+		"Stopped") echo "$ICON_STOP" ;;
+		*) echo "$ICON_OFFLINE" ;;
+	esac
+}
+
+## Get song
+get_song() {
+	song=$(playerctl metadata --format '{{title}}' 2>/dev/null)
+	[[ -z "$song" ]] && echo "Offline" || echo "$song"
+}
+
+## Get artist
+get_artist() {
+	artist=$(playerctl metadata --format '{{artist}}' 2>/dev/null)
+	[[ -z "$artist" ]] && echo "Offline" || echo "$artist"
+}
+
+## Get total time
+get_ttime() {
+	length_us=$(playerctl metadata --format '{{mpris:length}}' 2>/dev/null)
+	if [[ -z "$length_us" || "$length_us" -eq 0 ]]; then
+		echo "0:00"
+	else
+		length_s=$((length_us / 1000000))
+		printf "%d:%02d\n" $((length_s / 60)) $((length_s % 60))
+	fi
+}
+
+## Get current time
+get_ctime() {
+	position_s=$(playerctl position 2>/dev/null | awk '{print int($1)}')
+	if [[ -z "$position_s" ]]; then
+		echo "0:00"
+	else
+		printf "%d:%02d\n" $((position_s / 60)) $((position_s % 60))
+	fi
+}
+
+## Get progress percentage
+get_time() {
+	position_s=$(playerctl position 2>/dev/null | awk '{print int($1)}')
+	length_us=$(playerctl metadata --format '{{mpris:length}}' 2>/dev/null)
+	length_s=$((length_us / 1000000))
+	if [[ -z "$length_s" || "$length_s" -eq 0 ]]; then
+		echo "0"
+	else
+		echo $((100 * position_s / length_s))
+	fi
+}
+
+## Get cover art
+get_cover() {
+	art_url=$(playerctl metadata --format '{{mpris:artUrl}}' 2>/dev/null)
+	if [[ -z "$art_url" ]]; then
+		echo "$DEFAULT_COVER"
+	elif [[ "$art_url" =~ ^file:// ]]; then
+		local_file="${art_url#file://}"
+		echo "$local_file"
+	else
+		curl -s -L "$art_url" -o "$COVER"
+		if [[ -f "$COVER" ]]; then
+			echo "$COVER"
+		else
+			echo "$DEFAULT_COVER"
+		fi
+	fi
+}
+
+## Controls
+case "$1" in
+	--song) get_song ;;
+	--artist) get_artist ;;
+	--status) get_status ;;
+	--time) get_time ;;
+	--ctime) get_ctime ;;
+	--ttime) get_ttime ;;
+	--cover) get_cover ;;
+	--toggle) playerctl play-pause ;;
+	--next) playerctl next ;;
+	--prev) playerctl previous ;;
+esac
+
