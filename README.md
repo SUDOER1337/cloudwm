@@ -7,6 +7,11 @@
   \_____||______|\____/  \____/ |_____/    \/  \/    |_|  |_|
                                                              
 ```
+# warning! this have unfinished setup script , maybe manually copy or complies for now
+
+``cloudwm`` source folder have one that are customized for my laptop and desktop , running setup.sh on diffence folder will install those version with specfic slstatus
+Rofi are stored in ``cloudwm`` folder itself but there is ``config.rasi`` that go into ``~/.config/rofi``
+
 
 Forked from [`namishh's bedwm`](https://github.com/namishh/dwm)
 
@@ -37,16 +42,18 @@ Launchers: My Editted ['adi1090x collection of Rofi custom Applets, Launchers & 
 
 ## Recommandation
 
+```udiskie``` automount drive
 ```nwg-look``` for gtk settings
 
 ## Installation
 
 Run the installation script:
 
-```bash
-./setup.sh
+### for the laptop version
+```cd ~/cloudwm/cloudwm-laptop/setup.sh```
 
-```
+### for the desktop version
+```cd ~/cloudwm/cloudwm-desktop/setup.sh```
 
 ## Patches
 + ActualFullscreen
