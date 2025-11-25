@@ -135,8 +135,7 @@ static const char *rofi_brightness[]    = {"sh", "-c", "$HOME/cloudwm/rofi/brigh
 static const char *rofi_note[]          = {"sh", "-c", "$HOME/cloudwm/rofi/note/note.sh", NULL};
 static const char *rofi_stretchly[]     = {"sh", "-c", "$HOME/cloudwm/rofi/stretchly/stretchly.sh", NULL};
 static const char *rofi_bluetooth[]     = {"sh", "-c", "$HOME/cloudwm/rofi/bluetooth/rofi-bluetooth", NULL};
-static const char *rofi_clipboard[]     = {"sh", "-c", "$HOME/cloudwm/rofi/clipboard/clipboard.sh", NULL};
-
+static const char *rofi_clipboard[] = { "rofi", "-modi", "clipboard:greenclip print", "-show", "clipboard", "-run-command", "{cmd}", NULL };
 /* playerctl commands */
 static const char *playerctl_playpause[] = { "playerctl", "play-pause", NULL };
 static const char *playerctl_next[]      = { "playerctl", "next", NULL };
@@ -214,7 +213,7 @@ static const Key keys[] = {
 
     /* Tags */
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2)
-    TAGKEYS(XK_4, 3) TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5)
+    TAGKEYS(XK_4, 3)
 };
 
 /* button definitions */

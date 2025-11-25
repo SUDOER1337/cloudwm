@@ -81,6 +81,7 @@ run_cmd() {
             mpc -q pause
             amixer set Master mute
             systemctl suspend
+            slock
         elif [[ "$1" == '--logout' ]]; then
             notify-send "Rofi Logout" "Attempting logout... Detected DESKTOP_SESSION=$DESKTOP_SESSION, XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP"
 
