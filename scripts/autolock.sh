@@ -12,6 +12,7 @@ DPMS_TIMERS="600 900 1200"   # Screen standby/suspend/off times in seconds
 
 # --- SAFETY RESET ----------------------------------------------
 killall xautolock 2>/dev/null
+setxkbmap us
 xset s off                   # Disable legacy screensaver
 xset +dpms
 xset dpms $DPMS_TIMERS       # Configure DPMS
