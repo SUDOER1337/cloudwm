@@ -19,22 +19,22 @@ set_sink_volume() {
     for i in {1..5}; do
         SINK_NAME=$(pactl list short sinks | grep -F "$BT_MAC" | awk '{print $2}')
         if [ -n "$SINK_NAME" ]; then
-            log "🎚️  Setting sink '$SINK_NAME' volume to $TARGET_VOLUME"
+            log "  Setting sink '$SINK_NAME' volume to $TARGET_VOLUME"
             pactl set-sink-volume "$SINK_NAME" "$TARGET_VOLUME"
             return
         fi
-        log "⏳ Sink not found (attempt $i)..."
+        log " Sink not found (attempt $i)..."
         sleep 2
     done
-    log "⚠️  Failed to find sink for $BT_MAC after retries."
+    log "  Failed to find sink for $BT_MAC after retries."
 }
 
 connect_bt_device() {
-    log "🔌 Attempting to connect to $BT_MAC..."
+    log " Attempting to connect to $BT_MAC..."
     bluetoothctl connect "$BT_MAC" >/dev/null 2>&1
     sleep 3
     if bluetoothctl info "$BT_MAC" | grep -q "Connected: yes"; then
-        log "✅ Connected to device $BT_MAC"
+        log " Connected to device $BT_MAC"
         set_sink_volume
     else
         log "❌ Failed to connect. Scanning + pairing..."
@@ -46,7 +46,7 @@ connect_bt_device() {
         bluetoothctl scan off >/dev/null 2>&1
 
         if bluetoothctl info "$BT_MAC" | grep -q "Connected: yes"; then
-            log "✅ Connected after scan!"
+            log " Connected after scan!"
             set_sink_volume
         else
             log "❌ Still couldn’t connect. Retrying in $RETRY_DELAY sec..."

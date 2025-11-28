@@ -9,6 +9,15 @@
 ```
 # warning! this have unfinished setup script , maybe manually copy or complies for now
 
+### Screenshots
+ 
+![Terminals](screenshots/cloudwmkitty.png)
+![Slock](screenshots/slock.png)
+![Zen-Browser](screenshots/zenlook.png)
+![gtk-theme](screenshots/cloudwmgtk.png)
+![RofiAndDunst](screenshots/rofi_and_dunst.png)
+
+
 ``cloudwm`` source folder have one that are customized for my laptop and desktop , running setup.sh on diffence folder will install those version with specfic slstatus
 Rofi are stored in ``cloudwm`` folder itself but there is ``config.rasi`` that go into ``~/.config/rofi``
 
@@ -23,7 +32,7 @@ Lock screen: slock with readpw() and draw_time() modded originally from ['DPatel
 
 Fonts: Cozette, Iosevka Nerd Font, JetBrainsMono Nerd Fonts
 
-GTK theme: ```Carbon-Square``` a honestly pretty terrible dark only boxy gtk theme using oomox
+GTK theme: ```Carbon-Square``` a honestly pretty lazily created dark boxy gtk theme using oomox
 
 Cursor theme: ```Bibata-Modern-Classic```
 
@@ -32,7 +41,7 @@ Icons: YAMIS
 Dotfiles: Configuration files, scripts, wallpapers & more
 
 
-Launchers: My Editted ['adi1090x collection of Rofi custom Applets, Launchers & Powermenus'](https://github.com/adi1090x/rofi)
+Launchers: Editted ['adi1090x collection of Rofi custom Applets, Launchers & Powermenus'](https://github.com/adi1090x/rofi)
 
 # Themes
 
@@ -42,6 +51,8 @@ Launchers: My Editted ['adi1090x collection of Rofi custom Applets, Launchers & 
 
 ## Recommandation
 
+```nm-applet``` wifi tray icon
+```flameshot``` screenshot tool
 ```udiskie``` automount drive
 ```nwg-look``` for gtk settings
 

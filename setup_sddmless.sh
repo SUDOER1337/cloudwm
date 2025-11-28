@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# ─── CloudWM Setup Script ────────────────────────────────────────────────
-# Purpose: Clean install and build CloudWM (dwm + suckless tools)
+# ─── cloudwm Setup Script ────────────────────────────────────────────────
 # Author: You
 # ─────────────────────────────────────────────────────────────────────────
 
