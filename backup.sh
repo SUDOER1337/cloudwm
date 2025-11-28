@@ -21,11 +21,11 @@ backup_folder="$BACKUP_DIR/cloudwm-$next_num"
 mkdir -p "$backup_folder"
 
 # === Copy files ===
-echo "📦 Backing up to $backup_folder..."
+echo " Backing up to $backup_folder..."
 cp -r "$SOURCE_DIR" "$backup_folder/"
 cp "$XINITRC" "$backup_folder/"
 
 # === Confirmation ===
-echo "✅ Backup complete!"
+echo " Backup complete!"
 echo "   - Folder: $backup_folder"
 
