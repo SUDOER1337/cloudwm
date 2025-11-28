@@ -1,56 +1,67 @@
-#!/usr/bin/env bash
-# ─── CloudWM Setup Script ────────────────────────────────────────────────
-# Purpose: Clean install and build CloudWM (dwm + suckless tools)
-# Author: You
-# ─────────────────────────────────────────────────────────────────────────
+#!/bin/bash
+# setup.sh - Setup / Update DWM and configs using fzf
 
-# Exit immediately if a command fails
-set -e
+REPO_BASE=~/cloudwm
+CONFIG_SRC=~/dotfiles
 
-# ─── Paths ───────────────────────────────────────────────────────────────
-CLOUDWM="$HOME/cloudwm"
-DWM_DIR="$CLOUDWM"
-SUCKLESS_DIR="$CLOUDWM/suckless"
-XSESSION_DIR="/usr/share/xsessions"
-XSESSION_FILE="$XSESSION_DIR/dwm.desktop"
+# Ensure fzf is installed
+if ! command -v fzf &>/dev/null; then
+    echo "fzf is not installed. Install it first (sudo pacman -S fzf)"
+    exit 1
+fi
 
-# ─── Install dependencies ────────────────────────────────────────────────
-echo "Installing required packages..."
-sudo pacman -Syu --noconfirm \
-    base-devel git gcc make pkg-config xorg-server xorg-xinit \
+clear
+echo "=== CloudWM Setup / Update ==="
 
-# ─── Build and install dwm ───────────────────────────────────────────────
-echo "Building dwm..."
-cd "$DWM_DIR"
-make clean
-make
-sudo make install
+# 1. Select machine version
+MACHINE=$(printf "Desktop\nLaptop\nCancel" | fzf --height 10 --border --prompt="Select machine: ")
 
-# ─── Build and install suckless tools ────────────────────────────────────
-for tool in slock slstatus; do
-    echo "Building $tool..."
-    cd "$SUCKLESS_DIR/$tool"
-    make clean
-    make
-    sudo make install
-done
+case $MACHINE in
+    Desktop) DWMDIR="$REPO_BASE/cloudwm-desktop" ;;
+    Laptop) DWMDIR="$REPO_BASE/cloudwm-laptop" ;;
+    Cancel|"") echo "Cancelled"; exit 0 ;;
+esac
 
-# ─── Create dwm.desktop for Display Managers ─────────────────────────────
-echo "Creating dwm.desktop for display managers..."
-echo "[Desktop Entry]
-Encoding=UTF-8
-Name=CLOUDWM (xinitrc)
-Comment=CLOUDWM via xinitrc
-Exec=$HOME/.xinitrc
-Icon=dwm
-Type=XSession" | sudo tee "$XSESSION_FILE" > /dev/null
+# 2. Check for Git updates
+cd "$DWMDIR" || exit
+echo "Checking for updates..."
+git fetch origin
+LOCAL=$(git rev-parse HEAD)
+REMOTE=$(git rev-parse origin/main)
 
-sudo chmod 644 "$XSESSION_FILE"
-echo "dwm.desktop created at $XSESSION_FILE"
+if [ "$LOCAL" != "$REMOTE" ]; then
+    UPDATE=$(printf "Yes\nNo" | fzf --height 5 --border --prompt="Updates found! Pull now? ")
+    if [ "$UPDATE" == "Yes" ]; then
+        git pull origin main
+        echo "Pulled latest changes."
+    else
+        echo "Skipping update."
+    fi
+else
+    echo "Already up-to-date."
+fi
 
-# ─── Optional: Copy .xinitrc ─────────────────────────────────────────────
-# Uncomment the line below if you want to copy your .xinitrc
-# cp .xinitrc $HOME/.xinitrc
+# 3. Build and install DWM
+echo "Building and installing DWM..."
+sudo make clean install
+echo "DWM installation complete."
 
-echo "cloudwm setup complete!"
+# 4. Deploy configs
+DEPLOY=$(printf "Yes\nNo" | fzf --height 5 --border --prompt="Deploy configs (~/.config)? ")
+if [ "$DEPLOY" == "Yes" ]; then
+    # Backup existing configs
+    TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+    mkdir -p ~/.config_backup/$TIMESTAMP
+    echo "Backing up existing configs..."
+    for d in $(ls -d ~/.config/*); do
+        cp -r "$d" ~/.config_backup/$TIMESTAMP/
+    done
+
+    # Copy new configs
+    echo "Copying configs..."
+    cp -r "$CONFIG_SRC/"* ~/.config/
+    echo "Configs deployed!"
+fi
+
+echo "=== Setup / Update finished ==="
 
