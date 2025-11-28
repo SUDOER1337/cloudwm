@@ -132,11 +132,7 @@ case ${chosen} in
         run_cmd --reboot
         ;;
     $lock)
-        if [[ -x '/usr/bin/slock' ]]; then
-            slock
-        else
-            notify-send "No lockscreen found!" "Please install hyprlock, slock, or i3lock."
-        fi
+        ~/cloudwm/scripts/lock-wrapper.sh
         ;;
     $suspend)
         run_cmd --suspend

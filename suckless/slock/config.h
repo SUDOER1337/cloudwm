@@ -10,7 +10,7 @@ static const char *colorname[NUMCOLS] = {
 
 static const char *lock_message = "";
 static const char *wrong_message = "";
-static const char *message_font = "Cozette:pixelsize=12:antialias=false:autohint=false";
+static const char *message_font = "Cozette:pixelsize=14:antialias=false:autohint=false";
 
 /* treat a cleared input like a wrong password (color) */
 static const int failonclear = 1;
@@ -37,13 +37,13 @@ static const int pixelSize=0;
 //static const double textcolorblue=255;
 
 /* Time display settings */
-static const char *time_font   = "Iosevka Nerd Font:style=Bold:size=85";
+static const char *time_font   = "Iosevka Nerd Font:style=ExtraBold:size=85";
 static const char *time_color  = "#bbbbbb";      /* lighter so it stands out */
 static const char *time_format = "%H|%M|%S";        /* 24-hour format */
 static const int time_y_off    = 0;              /* pixels relative to center */
 
 /* Date display settings */
-static const char *date_font   = "Iosevka Nerd Font:style=Regular:size=25";
+static const char *date_font   = "Iosevka Nerd Font:style=Bold:size=25";
 static const char *date_color  = "#bbbbbb";      /* softer contrast */
 static const char *date_format = "%a %d.%m.%Y";  /* re-enabled for clarity */
 static const int date_y_off    = 60;             /* pixels relative to center */
