@@ -45,7 +45,8 @@ Launchers: Editted ['adi1090x collection of Rofi custom Applets, Launchers & Pow
 
 # Themes
 
-```cp ~/cloudwm/Themes/Carbon-Square in ~/.themes/ #run this to put the gtk theme into```
+```cp ~/cloudwm/Themes/Carbon-Square in ~/.themes/ #run this to put the gtk theme into ~/.theme```
+
 > Zen Browser custom .css (just feel line of userChrome.css to make it square tho)
 > Discord theme based on System24 for Betterdiscord 
 
