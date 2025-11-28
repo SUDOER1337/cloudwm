@@ -1,11 +1,10 @@
 #!/bin/bash
 # ────────────────────────────────────────────────
 # Bluetooth Auto Connect + Sink Volume Manager
-# Works even after switching between phone and PC
 # ────────────────────────────────────────────────
 
 BT_MAC="91:AE:2A:52:DA:94"
-TARGET_VOLUME="10%"
+TARGET_VOLUME="6%"
 LOG_FILE="$HOME/.local/share/bt-autopause.log"
 RETRY_DELAY=10
 

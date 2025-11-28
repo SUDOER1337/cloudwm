@@ -28,7 +28,7 @@ static const unsigned int systrayiconsize = 16;
 static int showsystray = 1;
 
 static const char *fonts[] = {
-    "Iosevka Nerd Font:size=11:style=Bold",
+    "Iosevka Nerd Font:size=11:style=ExtraBold",
     "Noto Sans Thai:size=11",
     "Noto Color Emoji:pixelsize=10:antialias=true:autohint=true",
     "Material Design Icons Desktop:size=11"
