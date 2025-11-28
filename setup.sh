@@ -2,7 +2,7 @@
 # setup.sh - Setup / Update DWM and configs using fzf
 
 REPO_BASE=~/cloudwm
-CONFIG_SRC=~/dotfiles
+CONFIG_SRC=~/cloudwm/config/
 
 # Ensure fzf is installed
 if ! command -v fzf &>/dev/null; then
