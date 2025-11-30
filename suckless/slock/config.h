@@ -43,7 +43,7 @@ static const char *time_format = "%H|%M|%S";        /* 24-hour format */
 static const int time_y_off    = 0;              /* pixels relative to center */
 
 /* Date display settings */
-static const char *date_font   = "Iosevka Nerd Font:style=Bold:size=25";
+static const char *date_font   = "Iosevka Nerd Font:style=Regular:size=25";
 static const char *date_color  = "#bbbbbb";      /* softer contrast */
 static const char *date_format = "%a %d.%m.%Y";  /* re-enabled for clarity */
 static const int date_y_off    = 60;             /* pixels relative to center */
@@ -54,4 +54,4 @@ static const int date_y_off    = 60;             /* pixels relative to center */
 // Refresh intervals (in seconds)
 static const int tw_refr_int = 10;   // thread_wrapper() interval. Should be the lowest one.
 static const int tm_refr_int = 10;   // interval for draw_time()
-static const int dt_refr_int = 3600; // interval for draw_date()
+static const int dt_refr_int = 1111100; // interval for draw_date()

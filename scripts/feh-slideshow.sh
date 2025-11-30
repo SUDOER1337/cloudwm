@@ -1,8 +1,5 @@
-#!/usr/bin/env bash
-
-# --- hardcoded settings ---
 WALLDIR="$HOME/cloudwm/wallpapers/"   # change to your folder
-INTERVAL=300                          # seconds between swaps
+INTERVAL=530                          # seconds between swaps
 FEH_MODE="--bg-fill"                  # --bg-fill / --bg-scale / etc.
 # ---------------------------
 
@@ -17,7 +14,12 @@ while true; do
 
   # loop through each image
   for img in "${IMGS[@]}"; do
+    # kill any existing feh instances
+    pkill -x feh 2>/dev/null || true
+
+    # set new wallpaper
     feh $FEH_MODE --no-fehbg "$img" 2>/dev/null
+
     sleep "$INTERVAL"
   done
 done

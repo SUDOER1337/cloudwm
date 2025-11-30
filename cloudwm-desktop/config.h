@@ -8,8 +8,8 @@ static const int swallowfloating = 0;
 static const unsigned int snap = 1;
 static const unsigned int gappih = 5;
 static const unsigned int gappiv = 5;
-static const unsigned int gappoh = 5;
-static const unsigned int gappov = 5;
+static const unsigned int gappoh = 7;
+static const unsigned int gappov = 7;
 static const char buttonbar[] = "󰅣 ";
 static int smartgaps = 0;
 static const int showbar = 1;
@@ -189,7 +189,7 @@ static const Key keys[] = {
     
     /*Meta + Space*/
     {MODKEY,                       XK_space,  spawn,          {.v = toggle_layout_cmd}},
-
+    
     /* Applications */
     {MODKEY,                       XK_b,      spawn, SHCMD("zen-browser")},
     {MODKEY,                       XK_e,      spawn, SHCMD("nemo")},
