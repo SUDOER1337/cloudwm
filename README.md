@@ -11,8 +11,9 @@
 
 ### Screenshots
  
-![Terminals](screenshots/cloudwmkitty.png)
-![Slock](screenshots/slock.png)
+![terminal1](screenshots/cloudwmnvim.png)
+![terminal2](screenshots/cloudwmkitty.png)
+![slock](screenshots/slock.png)
 ![Zen-Browser](screenshots/zenlook.png)
 ![gtk-theme](screenshots/cloudwmgtk.png)
 
