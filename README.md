@@ -15,7 +15,6 @@
 ![Slock](screenshots/slock.png)
 ![Zen-Browser](screenshots/zenlook.png)
 ![gtk-theme](screenshots/cloudwmgtk.png)
-![RofiAndDunst](screenshots/rofi_and_dunst.png)
 
 
 ``cloudwm`` source folder have one that are customized for my laptop and desktop , running setup.sh on diffence folder will install those version with specfic slstatus
