@@ -175,6 +175,7 @@ static const Key keys[] = {
 
     /* Flameshot */
     {MODKEY|ShiftMask,             XK_s,      spawn, {.v = flameshot_gui}},
+    {MODKEY,                       XK_p,      spawn, {.v = flameshot_gui}},
 
     /* Media controls */
     {0, XF86XK_AudioPlay,   spawn, {.v = playerctl_playpause}},
