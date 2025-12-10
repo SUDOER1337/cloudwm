@@ -37,34 +37,38 @@ static const char dmenufont[] = "Iosevka Nerd Font:size=12";
 
 /* Backgrounds and UI */
 static const char col_back[]   = "#303030";
-static const char col_gray1[]  = "#383838";
+static const char col_gray1[]  = "#353535";
 static const char col_gray2[]  = "#444444";
 static const char col_gray3[]  = "#B0B0B0";
 static const char col_gray4[]  = "#E0E0E0";
 
-static const char col_blue[]   = "#81A1C1";
-static const char col_orange[] = "#D4AF7F";
-static const char col_red[]    = "#BF616A";
-static const char col_green[]  = "#A3BE8C";
-static const char col_cyan[]   = "#8FBCBB";
-static const char col_yellow[] = "#D4AF7F";
-static const char col_magenta[]= "#B48EAD";
+// --- Nordic Accent Colors ---
+static const char col_nordcyan[]    = "#88C0D0"; 
+static const char col_nordgreen[]   = "#A3BE8C"; 
+static const char col_nordblue[]    = "#81A1C1"; 
+static const char col_nordorange[]  = "#D08770";
+
+// --- Existing non-accent vars (unchanged) ---
+static const char col_red[]         = "#BF616A"; 
+static const char col_yellow[]      = "#EBCB8B"; 
+static const char col_magenta[]     = "#B48EAD";
+
 
 static const char *colors[][3] = {
-  /*               fg           bg         border   */
-    [SchemeNorm] = { col_gray3, col_back,  col_gray2 },
-    [SchemeBtn]  = { col_blue,  col_gray1, col_gray2 },
-    [SchemeLt]   = { col_gray4, col_back,  col_gray2 },
-    [SchemeSel]  = { col_gray4, col_blue,  col_gray4 },
+  /*               fg           bg            border   */
+    [SchemeNorm] = { col_gray3,  col_back,     col_gray2 },
+    [SchemeBtn]  = { col_nordblue, col_gray1,  col_gray2 },
+    [SchemeLt]   = { col_gray4,  col_back,     col_gray2 },
+    [SchemeSel]  = { col_gray4,  col_nordblue, col_gray4 },
 };
 
 static const char *tagsel[][2] = {
-    { col_green, col_back }, 
-    { col_red, col_back }, 
-    { col_yellow, col_back },
-    { col_blue,  col_back }, 
-    { col_magenta, col_back }, 
-    { col_cyan, col_back },
+    { col_nordgreen,  col_back },
+    { col_red,        col_back },
+    { col_yellow,     col_back },
+    { col_nordblue,   col_back },
+    { col_nordgreen,    col_back },
+    { col_nordcyan,   col_back },
 };
 
 /* scratchpads */
@@ -137,7 +141,6 @@ static const char *rofi_stretchly[]     = {"sh", "-c", "$HOME/cloudwm/rofi/stret
 static const char *rofi_bluetooth[]     = {"sh", "-c", "$HOME/cloudwm/rofi/bluetooth/rofi-bluetooth", NULL};
 static const char *rofi_clipboard[] = { "rofi", "-modi", "clipboard:greenclip print", "-show", "clipboard", "-run-command", "{cmd}", NULL };
 
-
 /* playerctl commands */
 static const char *playerctl_playpause[] = { "playerctl", "play-pause", NULL };
 static const char *playerctl_next[]      = { "playerctl", "next", NULL };
@@ -172,6 +175,7 @@ static const Key keys[] = {
     {ControlMask|Mod1Mask,         XK_s,      spawn, {.v = rofi_stretchly}},
     {MODKEY,                       XK_v,      spawn, {.v = rofi_clipboard}},
     {MODKEY,                       XK_n,      spawn, {.v = rofi_note}},
+    {MODKEY,                       XK_y,      spawn, SHCMD("ytsurf --audio --download")},
 
     /* Flameshot */
     {MODKEY|ShiftMask,             XK_s,      spawn, {.v = flameshot_gui}},
@@ -199,8 +203,8 @@ static const Key keys[] = {
     
     /*Bar*/
     {MODKEY,                       XK_0,      togglebar,       {0}},
-    {MODKEY,                       XK_y,      togglesystray,   {0}},
-
+    {MODKEY,                       XK_8,      togglesystray,   {0}},
+    
     /* Window management */
     {MODKEY|ShiftMask,             XK_l,      cyclelayout,    {.i = +1}},
     {MODKEY,                       XK_j,      focusstack,     {.i = +1}},
