@@ -11,11 +11,11 @@
 
 ### Screenshots
  
-![Terminals](screenshots/cloudwmkitty.png)
-![Slock](screenshots/slock.png)
+![terminal1](screenshots/cloudwmnvim.png)
+![terminal2](screenshots/cloudwmkitty.png)
+![slock](screenshots/slock.png)
 ![Zen-Browser](screenshots/zenlook.png)
 ![gtk-theme](screenshots/cloudwmgtk.png)
-![RofiAndDunst](screenshots/rofi_and_dunst.png)
 
 
 ``cloudwm`` source folder have one that are customized for my laptop and desktop , running setup.sh on diffence folder will install those version with specfic slstatus
@@ -53,19 +53,22 @@ Launchers: Editted ['adi1090x collection of Rofi custom Applets, Launchers & Pow
 ## Recommandation
 
 ```nm-applet``` wifi tray icon
+
 ```flameshot``` screenshot tool
+
 ```udiskie``` automount drive
+
 ```nwg-look``` for gtk settings
 
 ## Installation
 
 Run the installation script:
 
-### for the laptop version
-```cd ~/cloudwm/cloudwm-laptop/setup.sh```
+```~/cloudwm/setup.sh```
 
-### for the desktop version
-```cd ~/cloudwm/cloudwm-desktop/setup.sh```
+a fzf prompt should pops up
+
+and ask if you want to install Desktop or Laptop version and will build and clone config automatically
 
 ## Patches
 + ActualFullscreen
@@ -93,8 +96,4 @@ All configuration is done by editing the source code files:
 
     scripts/ – Helper scripts for automation
 
-After making changes:
-```
-cd ~/cloudwm && sudo make clean install
-```
 Feel free to forks!

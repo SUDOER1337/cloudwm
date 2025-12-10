@@ -8,8 +8,8 @@ static const int swallowfloating = 0;
 static const unsigned int snap = 1;
 static const unsigned int gappih = 5;
 static const unsigned int gappiv = 5;
-static const unsigned int gappoh = 5;
-static const unsigned int gappov = 5;
+static const unsigned int gappoh = 7;
+static const unsigned int gappov = 7;
 static const char buttonbar[] = "󰅣 ";
 static int smartgaps = 0;
 static const int showbar = 1;
@@ -175,6 +175,7 @@ static const Key keys[] = {
 
     /* Flameshot */
     {MODKEY|ShiftMask,             XK_s,      spawn, {.v = flameshot_gui}},
+    {MODKEY,                       XK_p,      spawn, {.v = flameshot_gui}},
 
     /* Media controls */
     {0, XF86XK_AudioPlay,   spawn, {.v = playerctl_playpause}},
@@ -189,7 +190,7 @@ static const Key keys[] = {
     
     /*Meta + Space*/
     {MODKEY,                       XK_space,  spawn,          {.v = toggle_layout_cmd}},
-
+    
     /* Applications */
     {MODKEY,                       XK_b,      spawn, SHCMD("zen-browser")},
     {MODKEY,                       XK_e,      spawn, SHCMD("nemo")},
