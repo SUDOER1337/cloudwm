@@ -85,8 +85,8 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static char *tags[]    = {"  Internet", "  Terminal", "  Works", "󰍡  Chat", "  System", "󰊖  Game"};
-static char *alttags[] = {"[   Internet ]", "[   Terminal ]", "[    Works ]", "[ 󰍡  Chat ]", "[   System ]", "[ 󰊖  Game ]"};
+static char *tags[]    = {"  Browse", "  Term", "  Works", "󱌣 Dev", "󰍡 Chat", "󰊖  Game"};
+static char *alttags[] = {"[   Browse ]", "[   Term ]", "[    Works ]", "[ 󱌣 Dev ]", "[ 󰍡 Chat ]", "[ 󰊖  Game ]"};
 static const unsigned int ulinepad = 2;
 static const unsigned int ulinestroke = 2;
 static const unsigned int ulinevoffset = 0;
@@ -94,7 +94,7 @@ static const int ulineall = 0;
 
 /* rules */
 static const Rule rules[] = {
-    {"discord",   "discord",       NULL,   1 << 3,       0,           -1 },
+    {"discord",   "discord",       NULL,   1 << 4,       0,           -1 },
     {"steam",     "steamwebhelper",NULL,   1 << 5,       0,},
     {"Gimp", NULL, NULL, 0, 1, 0, 0, -1},
     {"zen-browser", NULL, NULL, 1 << 8, 0, 0, -1, -1},
@@ -216,7 +216,7 @@ static const Key keys[] = {
     {MODKEY,                       XK_Return, zoom,           {0}},
     {Mod1Mask,                     XK_Tab,    view,           {0}},
     {MODKEY,                       XK_q,      killclient,     {0}},
-    {MODKEY|ShiftMask,             XK_q,      quit,           {0}},
+    /*{MODKEY|ShiftMask,             XK_q,      quit,           {0}},*/
 
     /* Tags */
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2)

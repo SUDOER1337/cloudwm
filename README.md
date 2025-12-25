@@ -52,6 +52,8 @@ Launchers: Editted ['adi1090x collection of Rofi custom Applets, Launchers & Pow
 
 ## Recommandation
 
+```deadbeef deadbeef-mpris2-plugin``` personally my fav gui music player
+
 ```nm-applet``` wifi tray icon
 
 ```flameshot``` screenshot tool
