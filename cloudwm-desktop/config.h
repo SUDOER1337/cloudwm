@@ -35,40 +35,40 @@ static const char *fonts[] = {
 };
 static const char dmenufont[] = "Iosevka Nerd Font:size=12";
 
-/* Backgrounds and UI */
+// [ Backgrounds and UI ]
+
 static const char col_back[]   = "#303030";
 static const char col_gray1[]  = "#353535";
 static const char col_gray2[]  = "#444444";
 static const char col_gray3[]  = "#B0B0B0";
-static const char col_gray4[]  = "#E0E0E0";
+static const char col_gray4[]  = "#BBBBBB";
+////////////////////////////////////////////
 
-// --- Nordic Accent Colors ---
-static const char col_nordcyan[]    = "#88C0D0"; 
-static const char col_nordgreen[]   = "#A3BE8C"; 
-static const char col_nordblue[]    = "#81A1C1"; 
-static const char col_nordorange[]  = "#D08770";
+// --- Accent Colors ---
 
-// --- Existing non-accent vars (unchanged) ---
-static const char col_red[]         = "#BF616A"; 
-static const char col_yellow[]      = "#EBCB8B"; 
-static const char col_magenta[]     = "#B48EAD";
-
+static const char col_green[]   = "#8FA07A";  // muted moss, readable
+static const char col_red[]     = "#a4575f";
+static const char col_yellow[]  = "#C1A86B";  // autumn wheat
+static const char col_orange[]  = "#a96d3d";  // burnt leaf
+static const char col_blue[]    = "#7A92A6";  // foggy steel blue
+static const char col_cyan[]    = "#8AA6A6";  // river mist
+////////////////////////////////////////////
 
 static const char *colors[][3] = {
   /*               fg           bg            border   */
     [SchemeNorm] = { col_gray3,  col_back,     col_gray2 },
-    [SchemeBtn]  = { col_nordblue, col_gray1,  col_gray2 },
+    [SchemeBtn]  = { col_blue,   col_gray1,    col_gray2 },
     [SchemeLt]   = { col_gray4,  col_back,     col_gray2 },
-    [SchemeSel]  = { col_gray4,  col_nordblue, col_gray4 },
+    [SchemeSel]  = { col_gray4,  col_blue,     col_gray4 },
 };
 
 static const char *tagsel[][2] = {
-    { col_nordgreen,  col_back },
+    { col_green,      col_back },
     { col_red,        col_back },
     { col_yellow,     col_back },
-    { col_nordblue,   col_back },
-    { col_nordgreen,    col_back },
-    { col_nordcyan,   col_back },
+    { col_orange,     col_back },
+    { col_blue,       col_back },
+    { col_cyan,       col_back },
 };
 
 /* scratchpads */
@@ -94,6 +94,11 @@ static const int ulineall = 0;
 
 /* rules */
 static const Rule rules[] = {
+    {"obsidian", NULL, NULL, 0, 1, -1 },
+    {"Thunar", NULL, NULL, 0, 1, -1 },
+    {"Nemo", NULL, NULL, 0, 1, -1 },
+    { NULL, NULL, "File Operation Progress", 0, 1, -1 },
+    { NULL, NULL, "Properties",              0, 1, -1 },
     {"discord",   "discord",       NULL,   1 << 4,       0,           -1 },
     {"steam",     "steamwebhelper",NULL,   1 << 5,       0,},
     {"Gimp", NULL, NULL, 0, 1, 0, 0, -1},
@@ -175,8 +180,6 @@ static const Key keys[] = {
     {ControlMask|Mod1Mask,         XK_s,      spawn, {.v = rofi_stretchly}},
     {MODKEY,                       XK_v,      spawn, {.v = rofi_clipboard}},
     {MODKEY,                       XK_n,      spawn, {.v = rofi_note}},
-    {MODKEY,                       XK_y,      spawn, SHCMD("ytsurf --audio --download")},
-
     /* Flameshot */
     {MODKEY|ShiftMask,             XK_s,      spawn, {.v = flameshot_gui}},
     {MODKEY,                       XK_p,      spawn, {.v = flameshot_gui}},
@@ -200,6 +203,7 @@ static const Key keys[] = {
     {MODKEY,                       XK_e,      spawn, SHCMD("nemo")},
     {MODKEY|ShiftMask,             XK_e,      spawn, SHCMD("thunar")},
     {MODKEY,                       XK_t,      spawn, SHCMD("kitty")},
+    {MODKEY,                       XK_y,      spawn, SHCMD("obsidian")},
     
     /*Bar*/
     {MODKEY,                       XK_0,      togglebar,       {0}},
@@ -215,7 +219,7 @@ static const Key keys[] = {
     {MODKEY,                       XK_F11,    togglefullscr,  {0}},
     {MODKEY,                       XK_Return, zoom,           {0}},
     {Mod1Mask,                     XK_Tab,    view,           {0}},
-    {MODKEY,                       XK_q,      killclient,     {0}},
+    {MODKEY|ShiftMask,             XK_q,      killclient,     {0}},
     /*{MODKEY|ShiftMask,             XK_q,      quit,           {0}},*/
 
     /* Tags */
