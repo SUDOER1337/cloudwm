@@ -1,0 +1,44 @@
+{
+	"name": "le-grand-nord",
+	"displayName": "Le Grand Nord",
+	"description": "For a clear, undistracted vision – Le Grand Nord is a beautiful, minimalist theme designed for visual ease and focus. Inspired and inspiring with its cool Nordic tones and simple palette, this theme offers a serene space to immerse yourself in — like a Zen garden where creativity flows naturally. 🌱",
+	"version": "1.5.3",
+	"publisher": "ncodefun",
+	"engines": {
+		"vscode": "^1.19.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Le Grand Nord",
+				"uiTheme": "vs-dark",
+				"path": "./themes/le-grand-nord.color-theme.json"
+			},
+			{
+				"label": "Le Grand Nord – Higher Contrast",
+				"uiTheme": "vs-dark",
+				"path": "./themes/le-grand-nord--higher-contrast.color-theme.json"
+			}
+		]
+	},
+	"homepage": "https://github.com/ncodefun/le-grand-nord/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/ncodefun/le-grand-nord/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ncodefun/le-grand-nord.git"
+	},
+	"icon": "icon.png",
+	"__metadata": {
+		"id": "",
+		"publisherId": "2ee05c01-1e1a-4434-9c5b-b8a92ddddb92",
+		"publisherDisplayName": "ncode fun",
+		"size": 3352224,
+		"installedTimestamp": 1764068397193,
+		"targetPlatform": "universal"
+	}
+}

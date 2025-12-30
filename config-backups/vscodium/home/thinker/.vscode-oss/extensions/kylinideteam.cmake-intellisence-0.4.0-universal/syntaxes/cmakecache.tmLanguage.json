@@ -1,0 +1,81 @@
+{
+  "fileTypes": [
+    "cmakecache",
+    "CMakeCache.txt"
+  ],
+  "scopeName": "source.cmakecache",
+  "repository": {
+    "variable-reference": {
+      "name": "variable.other.cmake",
+      "begin": "\\$(ENV|CACHE)?{",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.variable-ref.start.cmake"
+        }
+      },
+      "end": "}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.variable-ref.end.cmake"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#variable-reference"
+        }
+      ]
+    }
+  },
+  "patterns": [
+    {
+      "name": "comment.line.number-sign.cmakecache",
+      "match": "#.*$"
+    },
+    {
+      "name": "comment.line.double-slash.cmakecache",
+      "match": "//.*$"
+    },
+    {
+      "name": "asign.cmakecache",
+      "match": "\\s*([\\w-]+):(\\w+)(=)(.+)?",
+      "captures": {
+        "1": {
+          "name": "variable.cmakecache"
+        },
+        "2": {
+          "name": "entity.name.type.cmakecache"
+        },
+        "3": {
+          "name": "asign.cmakecache"
+        },
+        "4": {
+          "name": "value.cmakecache",
+          "patterns": [
+            {
+              "name": "string.quoted.double.cmake",
+              "begin": "\"",
+              "end": "\"",
+              "patterns": [
+                {
+                  "include": "#variable-reference"
+                },
+                {
+                  "name": "constant.character.escape.cmake",
+                  "match": "\\\\."
+                }
+              ]
+            },
+            {
+              "name": "constant.numeric.cmakecache",
+              "match": "\\b[0-9\\.]+\\b"
+            },
+            {
+              "name": "constant.language.bool.cmakecache",
+              "match": "\\b(?i:\\w*-NOTFOUND|NOTFOUND|ON|YES|TRUE|Y|OFF|NO|FALSE|N|IGNORE)$"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

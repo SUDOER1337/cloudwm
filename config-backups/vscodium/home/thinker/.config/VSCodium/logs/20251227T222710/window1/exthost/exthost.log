@@ -1,0 +1,110 @@
+2025-12-27 22:27:11.401 [info] Extension host with pid 152984 started
+2025-12-27 22:27:11.401 [info] Skipping acquiring lock for /home/thinker/.config/VSCodium/User/workspaceStorage/c03a761542229bce55111d613db5ec8f.
+2025-12-27 22:27:11.474 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-27 22:27:11.496 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-27 22:27:11.568 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-12-27 22:27:11.570 [info] ExtensionService#_doActivateExtension be5invis.vscode-custom-css, startup: true, activationEvent: '*'
+2025-12-27 22:27:11.578 [info] ExtensionService#_doActivateExtension Janne252.fontawesome-autocomplete, startup: true, activationEvent: '*'
+2025-12-27 22:27:11.703 [info] Extension host with pid 153019 started
+2025-12-27 22:27:11.703 [info] Skipping acquiring lock for /home/thinker/.config/VSCodium/User/workspaceStorage/c03a761542229bce55111d613db5ec8f.
+2025-12-27 22:27:11.720 [info] Eager extensions activated
+2025-12-27 22:27:11.725 [info] ExtensionService#_doActivateExtension asvetliakov.vscode-neovim, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:11.742 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-12-27 22:27:11.779 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-12-27 22:27:11.844 [info] Eager extensions activated
+2025-12-27 22:27:11.886 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:11.888 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:11.900 [info] ExtensionService#_doActivateExtension castrogusttavo.symbols, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:11.902 [info] ExtensionService#_doActivateExtension esdmr.mpctl, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:11.950 [info] ExtensionService#_doActivateExtension formulahendry.code-runner, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:11.958 [info] ExtensionService#_doActivateExtension ms-dotnettools.vscode-dotnet-runtime, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:12.012 [info] ExtensionService#_doActivateExtension rasyid-kurniawan.live-server-extension, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:12.014 [info] ExtensionService#_doActivateExtension sainnhe.everforest, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:12.021 [info] ExtensionService#_doActivateExtension sainnhe.gruvbox-material, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:12.026 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:12.098 [info] ExtensionService#_doActivateExtension willasm.project-notes, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:12.180 [info] ExtensionService#_doActivateExtension vscode.terminal-suggest, startup: false, activationEvent: 'onTerminalShellIntegration:*'
+2025-12-27 22:27:12.243 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-12-27 22:27:12.249 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-12-27 22:27:12.290 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-12-27 22:27:17.970 [error] Error: nvim_win_close: Vim:E444: Cannot close last window
+	at /home/thinker/.vscode-oss/extensions/asvetliakov.vscode-neovim-1.18.24-universal/dist/extension.js:2:320808
+	at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-12-27 22:27:56.291 [info] Extension host terminating: renderer closed the MessagePort
+2025-12-27 22:27:56.297 [info] Extension host with pid 153019 exiting with code 0
+2025-12-27 22:27:56.314 [info] Extension host terminating: renderer closed the MessagePort
+2025-12-27 22:27:56.321 [error] An error occurred when disposing the subscriptions for extension 'willasm.project-notes':
+2025-12-27 22:27:56.321 [error] AggregateError: Encountered errors while disposing of store
+	at Qi (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:822)
+	at j3._fn (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:18595)
+	at j3.dispose (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:1261)
+	at xX._deactivate (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:14860)
+	at file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:12146
+	at Array.map (<anonymous>)
+	at xX._deactivateAll (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:12134)
+	at xX.terminate (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:12487)
+	at nM.terminate (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:1082)
+	at $s (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:11092)
+	at MessagePortMain.<anonymous> (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:7538)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+2025-12-27 22:27:56.323 [info] Extension host with pid 152984 exiting with code 0
+2025-12-27 22:27:57.059 [info] Extension host with pid 155380 started
+2025-12-27 22:27:57.059 [info] Skipping acquiring lock for /home/thinker/.config/VSCodium/User/workspaceStorage/ce172dfa5a0b1739f1440a38d37f34ad.
+2025-12-27 22:27:57.159 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-27 22:27:57.181 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-27 22:27:57.250 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-12-27 22:27:57.251 [info] ExtensionService#_doActivateExtension be5invis.vscode-custom-css, startup: true, activationEvent: '*'
+2025-12-27 22:27:57.259 [info] ExtensionService#_doActivateExtension Janne252.fontawesome-autocomplete, startup: true, activationEvent: '*'
+2025-12-27 22:27:57.324 [info] Extension host with pid 155406 started
+2025-12-27 22:27:57.324 [info] Skipping acquiring lock for /home/thinker/.config/VSCodium/User/workspaceStorage/ce172dfa5a0b1739f1440a38d37f34ad.
+2025-12-27 22:27:57.330 [info] Eager extensions activated
+2025-12-27 22:27:57.331 [info] ExtensionService#_doActivateExtension asvetliakov.vscode-neovim, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.450 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-12-27 22:27:57.488 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-12-27 22:27:57.567 [info] Eager extensions activated
+2025-12-27 22:27:57.572 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.574 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.585 [info] ExtensionService#_doActivateExtension castrogusttavo.symbols, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.588 [info] ExtensionService#_doActivateExtension esdmr.mpctl, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.631 [info] ExtensionService#_doActivateExtension formulahendry.code-runner, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.639 [info] ExtensionService#_doActivateExtension ms-dotnettools.vscode-dotnet-runtime, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.692 [info] ExtensionService#_doActivateExtension rasyid-kurniawan.live-server-extension, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.693 [info] ExtensionService#_doActivateExtension sainnhe.everforest, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.696 [info] ExtensionService#_doActivateExtension sainnhe.gruvbox-material, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.701 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.759 [info] ExtensionService#_doActivateExtension willasm.project-notes, startup: false, activationEvent: 'onStartupFinished'
+2025-12-27 22:27:57.823 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-12-27 22:27:57.835 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-12-27 22:27:57.888 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-12-27 22:28:03.509 [error] Error: nvim_win_close: Vim:E444: Cannot close last window
+	at /home/thinker/.vscode-oss/extensions/asvetliakov.vscode-neovim-1.18.24-universal/dist/extension.js:2:320808
+	at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-12-27 22:28:05.962 [warning] Illegal argument: TextEditor(vs.editor.ICodeEditor:2,$model17)
+2025-12-27 22:33:44.720 [warning] TextEditor is closed/disposed
+2025-12-27 22:33:44.720 [warning] TextEditor is closed/disposed
+2025-12-27 22:33:44.736 [warning] ExtHostTextEditorOptions 'setCursorStyle' failed:'
+2025-12-27 22:33:44.737 [warning] Illegal argument: TextEditor(vs.editor.ICodeEditor:3,$model20)
+2025-12-27 22:33:44.740 [warning] ExtHostTextEditorOptions 'setCursorStyle' failed:'
+2025-12-27 22:33:44.740 [warning] Illegal argument: TextEditor(vs.editor.ICodeEditor:3,$model20)
+2025-12-27 22:33:52.970 [info] Extension host terminating: renderer closed the MessagePort
+2025-12-27 22:33:52.980 [warning] ExtHostTextEditorOptions 'setCursorStyle' failed:'
+2025-12-27 22:33:52.981 [warning] Canceled
+2025-12-27 22:33:52.981 [info] Extension host with pid 155406 exiting with code 0
+2025-12-27 22:33:53.098 [info] Extension host terminating: renderer closed the MessagePort
+2025-12-27 22:33:53.105 [error] An error occurred when disposing the subscriptions for extension 'willasm.project-notes':
+2025-12-27 22:33:53.106 [error] AggregateError: Encountered errors while disposing of store
+	at Qi (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:822)
+	at j3._fn (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:18595)
+	at j3.dispose (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:25:1261)
+	at xX._deactivate (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:14860)
+	at file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:12146
+	at Array.map (<anonymous>)
+	at xX._deactivateAll (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:12134)
+	at xX.terminate (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:12487)
+	at nM.terminate (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:120:1082)
+	at $s (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:11092)
+	at MessagePortMain.<anonymous> (file:///usr/share/vscodium/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:7538)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+2025-12-27 22:33:53.107 [info] Extension host with pid 155380 exiting with code 0

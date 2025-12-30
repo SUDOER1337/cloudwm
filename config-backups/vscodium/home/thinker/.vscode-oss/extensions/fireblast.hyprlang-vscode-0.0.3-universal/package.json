@@ -1,0 +1,73 @@
+{
+	"name": "hyprlang-vscode",
+	"displayName": "Hyprlang",
+	"description": "Hyprland configuration syntax highlighting",
+	"icon": "hyprland.png",
+	"version": "0.0.3",
+	"license": "MIT",
+	"publisher": "fireblast",
+	"repository": {
+		"url": "https://github.com/TheFireBlast/hyprlang-vscode"
+	},
+	"engines": {
+		"vscode": "^1.86.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "hyprlang",
+				"filenamePatterns": [
+					"**/.config/hypr/**/*.conf"
+				],
+				"configuration": "./language-configuration.json",
+				"icon": {
+					"dark": "hyprland.png",
+					"light": "hyprland.png"
+				}
+			}
+		],
+		"grammars": [
+			{
+				"language": "hyprlang",
+				"scopeName": "source.hyprlang",
+				"path": "./syntaxes/hyprlang.tmGrammar.json"
+			}
+		]
+	},
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "pnpm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "pnpm run compile && pnpm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "vscode-test",
+		"package": "pnpm vsce package --no-dependencies",
+		"publish": "pnpm vsce publish --no-dependencies"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.86.0",
+		"@types/mocha": "^10.0.6",
+		"@types/node": "18.x",
+		"@typescript-eslint/eslint-plugin": "^6.19.1",
+		"@typescript-eslint/parser": "^6.19.1",
+		"eslint": "^8.56.0",
+		"typescript": "^5.3.3",
+		"@vscode/test-cli": "^0.0.4",
+		"@vscode/test-electron": "^2.3.9"
+	},
+	"__metadata": {
+		"installedTimestamp": 1759982488663,
+		"targetPlatform": "universal",
+		"size": 128540
+	}
+}

@@ -1,0 +1,48 @@
+2025-12-28 09:25:21.545 [info] [main] Log level: Info
+2025-12-28 09:25:21.545 [info] [main] Validating found git in: "git"
+2025-12-28 09:25:21.545 [info] [main] Using git "2.52.0" from "git"
+2025-12-28 09:25:21.545 [info] [Model][doInitialScan] Initial repository scan started
+2025-12-28 09:25:21.545 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-28 09:25:21.545 [info] > git rev-parse --git-dir --git-common-dir --show-superproject-working-tree [2ms]
+2025-12-28 09:25:21.545 [info] [Model][openRepository] Opened repository (path): /home/thinker/JACKDAWS
+2025-12-28 09:25:21.545 [info] [Model][openRepository] Opened repository (real path): /home/thinker/JACKDAWS
+2025-12-28 09:25:21.545 [info] [Model][openRepository] Opened repository (kind): repository
+2025-12-28 09:25:21.545 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-28 09:25:21.545 [info] > git config --get commit.template [3ms]
+2025-12-28 09:25:21.545 [info] > git rev-parse --show-toplevel [3ms]
+2025-12-28 09:25:21.545 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-28 09:25:21.545 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-28 09:25:21.545 [info] > git for-each-ref --format %(refname)%00%(objectname)%00%(*objectname) refs/tags [7ms]
+2025-12-28 09:25:21.545 [info] > git rev-parse --show-toplevel [4ms]
+2025-12-28 09:25:21.545 [info] > git status -z -uall [18ms]
+2025-12-28 09:25:21.545 [info] > git rev-parse --show-toplevel [6ms]
+2025-12-28 09:25:21.546 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [17ms]
+2025-12-28 09:25:21.568 [info] > git config --get commit.template [4ms]
+2025-12-28 09:25:21.568 [info] > git rev-parse --show-toplevel [8ms]
+2025-12-28 09:25:21.573 [info] > git rev-parse --show-toplevel [2ms]
+2025-12-28 09:25:21.576 [info] > git for-each-ref --format %(refname)%00%(objectname)%00%(*objectname) refs/tags [3ms]
+2025-12-28 09:25:21.582 [info] > git rev-parse --show-toplevel [6ms]
+2025-12-28 09:25:21.584 [info] > git rev-parse --show-toplevel [0ms]
+2025-12-28 09:25:21.587 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [5ms]
+2025-12-28 09:25:21.588 [info] > git rev-parse --show-toplevel [2ms]
+2025-12-28 09:25:21.591 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-28 09:25:21.593 [info] > git status -z -uall [15ms]
+2025-12-28 09:25:21.595 [info] > git rev-parse --show-toplevel [2ms]
+2025-12-28 09:25:21.598 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-28 09:25:21.600 [info] > git rev-parse --show-toplevel [0ms]
+2025-12-28 09:25:21.601 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-12-28 09:25:22.077 [info] > git check-ignore -v -z --stdin [5ms]
+2025-12-28 09:25:22.134 [info] > git fetch [631ms]
+2025-12-28 09:25:22.139 [info] > git config --get commit.template [2ms]
+2025-12-28 09:25:22.142 [info] > git for-each-ref --format %(refname)%00%(objectname)%00%(*objectname) refs/tags [4ms]
+2025-12-28 09:25:22.151 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [5ms]
+2025-12-28 09:25:22.157 [info] > git status -z -uall [13ms]
+2025-12-28 09:25:23.214 [info] > git config --get commit.template [2ms]
+2025-12-28 09:25:23.217 [info] > git for-each-ref --format %(refname)%00%(objectname)%00%(*objectname) refs/tags [3ms]
+2025-12-28 09:25:23.227 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [5ms]
+2025-12-28 09:25:23.232 [info] > git status -z -uall [13ms]
+2025-12-28 09:25:24.400 [info] > git check-ignore -v -z --stdin [2ms]
+2025-12-28 09:26:05.591 [info] > git config --get commit.template [3ms]
+2025-12-28 09:26:05.595 [info] > git for-each-ref --format %(refname)%00%(objectname)%00%(*objectname) refs/tags [4ms]
+2025-12-28 09:26:05.605 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [5ms]
+2025-12-28 09:26:05.610 [info] > git status -z -uall [13ms]

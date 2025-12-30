@@ -1,0 +1,39 @@
+2025-12-27 23:39:46.525 [info] [main] Log level: Info
+2025-12-27 23:39:46.525 [info] [main] Validating found git in: "git"
+2025-12-27 23:39:46.525 [info] [main] Using git "2.52.0" from "git"
+2025-12-27 23:39:46.525 [info] [Model][doInitialScan] Initial repository scan started
+2025-12-27 23:39:46.525 [info] > git rev-parse --show-toplevel [49ms]
+2025-12-27 23:39:46.525 [info] > git rev-parse --git-dir --git-common-dir --show-superproject-working-tree [142ms]
+2025-12-27 23:39:46.525 [info] [Model][openRepository] Opened repository (path): /home/thinker/JACKDAWS
+2025-12-27 23:39:46.525 [info] [Model][openRepository] Opened repository (real path): /home/thinker/JACKDAWS
+2025-12-27 23:39:46.525 [info] [Model][openRepository] Opened repository (kind): repository
+2025-12-27 23:39:46.525 [info] > git config --get commit.template [12ms]
+2025-12-27 23:39:46.539 [info] > git for-each-ref --format %(refname)%00%(objectname)%00%(*objectname) refs/tags [6ms]
+2025-12-27 23:39:46.561 [info] > git status -z -uall [18ms]
+2025-12-27 23:39:46.561 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [15ms]
+2025-12-27 23:39:46.658 [info] > git config --get commit.template [84ms]
+2025-12-27 23:39:46.667 [info] > git rev-parse --show-toplevel [10ms]
+2025-12-27 23:39:46.680 [info] > git rev-parse --show-toplevel [6ms]
+2025-12-27 23:39:46.689 [info] > git for-each-ref --format %(refname)%00%(objectname)%00%(*objectname) refs/tags [18ms]
+2025-12-27 23:39:46.695 [info] > git rev-parse --show-toplevel [6ms]
+2025-12-27 23:39:46.698 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.701 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [7ms]
+2025-12-27 23:39:46.702 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.705 [info] > git status -z -uall [14ms]
+2025-12-27 23:39:46.710 [info] > git rev-parse --show-toplevel [5ms]
+2025-12-27 23:39:46.714 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.717 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.720 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.723 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.726 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.729 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.732 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.735 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.738 [info] > git rev-parse --show-toplevel [1ms]
+2025-12-27 23:39:46.738 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-12-27 23:39:47.029 [info] > git check-ignore -v -z --stdin [5ms]
+2025-12-27 23:39:47.335 [info] > git fetch [626ms]
+2025-12-27 23:39:47.341 [info] > git config --get commit.template [3ms]
+2025-12-27 23:39:47.344 [info] > git for-each-ref --format %(refname)%00%(objectname)%00%(*objectname) refs/tags [3ms]
+2025-12-27 23:39:47.353 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [4ms]
+2025-12-27 23:39:47.359 [info] > git status -z -uall [13ms]

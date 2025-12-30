@@ -1,0 +1,20 @@
+# base style
+BasedOnStyle: LLVM
+
+# indent
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# header/using sort
+SortIncludes: CaseInsensitive
+SortUsingDeclarations: true
+
+# constructor initializer settings
+PackConstructorInitializers: Never
+BreakConstructorInitializersBeforeComma: true
+
+# line length settings
+ColumnLimit: 0
+
+# for more options, type ctrl + space to bring up the auto-completion list

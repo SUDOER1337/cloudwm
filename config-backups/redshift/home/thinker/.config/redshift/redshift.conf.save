@@ -1,0 +1,13 @@
+[redshift]
+temp-day=6500
+temp-night=3000
+transition=1
+gamma=0.8
+brightness=1.0
+location-provider=manual
+adjustment-method=randr
+
+[manual]
+lat=13.75
+lon=100.50
+

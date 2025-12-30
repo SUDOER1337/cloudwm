@@ -1,0 +1,15 @@
+{
+    "symbols.hidesExplorerArrows": false,
+    "workbench.colorTheme": "Everforest Dark",
+    "workbench.activityBar.location": "top",
+    "project-notes.globalNotesFolder": "/home/thinker/.pnotes",
+    "editor.minimap.enabled": false,
+    "window.titleSeparator": "0",
+    "workbench.navigationControl.enabled": false,
+    "editor.accessibilitySupport": "on",
+    "editor.fontFamily": "'Iosevka Nerd Font', 'monospace', monospace",
+    "workbench.sideBar.location": "right",
+    "editor.fontSize": 16,
+    "window.customTitleBarVisibility": "windowed",
+    "window.titleBarStyle": "native"
+}

@@ -1,0 +1,28 @@
+{
+    "deb":{
+        "default_arch":{
+            "default_os":{
+                "gdb":{
+                    "relations":[{
+						"relation": ">=",
+						"version": "8.0.0"
+					}
+                    ]
+                }
+            }
+        }
+    },
+    "rpm":{
+        "default_arch":{
+            "default_os":{
+                "gdb":{
+                    "relations":[{
+						"relation": ">=",
+						"version": "8.0.0"
+					}
+                    ]
+                }
+            }
+        }
+    }
+}

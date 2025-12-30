@@ -1,0 +1,70 @@
+{
+	"name": "let-icons",
+	"displayName": "Let Icons",
+	"description": "A minimalist pretty icon theme inspired on charmed icons",
+	"icon": "src/assets/let-dev-icon.png",
+	"publisher": "scalet",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"packageManager": "pnpm@9.15.2",
+	"type": "module",
+	"author": {
+		"name": "Rafael Scalet",
+		"email": "rafaelscalet2018@gmail.com",
+		"url": "https://github.com/rafaScalet"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rafaScalet/Let-Icons"
+	},
+	"version": "2.0.4",
+	"engines": {
+		"vscode": "^1.94.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"scripts": {
+		"build": "tsx src/app/index.ts",
+		"build:dev": "tsx watch src/app/index.ts",
+		"lint": "pnpm run --parallel '/^lint:*/'",
+		"lint:biome": "biome check --fix",
+		"lint:svgo": "svgo -f src/icons/",
+		"pub": "pnpm run --parallel '/^pub:*/'",
+		"pub:vsce": "vsce publish",
+		"pub:ovsx": "ovsx publish",
+		"prepare": "husky",
+		"prepub": "pnpm build",
+		"lint-staged": "lint-staged"
+	},
+	"lint-staged": {
+		"*.js": "pnpm lint:biome",
+		"*.ts": "pnpm lint:biome",
+		"*.json": "pnpm lint:biome"
+	},
+	"contributes": {
+		"iconThemes": [
+			{
+				"id": "let-icons",
+				"label": "Let Icons",
+				"path": "./src/let-icon.json"
+			}
+		]
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/node": "^22.13.0",
+		"@vscode/vsce": "^3.2.2",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.4.3",
+		"ovsx": "^0.10.1",
+		"svgo": "^3.3.2",
+		"tsx": "^4.19.2",
+		"typescript": "^5.7.3",
+		"vsc-icon-maker": "^2.0.0"
+	},
+	"__metadata": {
+		"installedTimestamp": 1748095726595,
+		"targetPlatform": "universal",
+		"size": 1006804
+	}
+}

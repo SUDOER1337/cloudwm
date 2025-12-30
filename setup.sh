@@ -1,67 +1,86 @@
-#!/bin/bash
-# setup.sh - Setup / Update DWM and configs using fzf
+#!/usr/bin/env bash
+set -euo pipefail
 
-REPO_BASE=~/cloudwm
-CONFIG_SRC=~/cloudwm/config/
+# Resolve cloudwm root reliably
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SCRIPT_DIR="$ROOT_DIR/scripts"
 
-# Ensure fzf is installed
-if ! command -v fzf &>/dev/null; then
-    echo "fzf is not installed. Install it first (sudo pacman -S fzf)"
-    exit 1
+echo "====================================="
+echo "    Welcome to cloudwm Setup Menu"
+echo "====================================="
+echo
+
+sleep 1
+
+# ─────────────────────────────────────────────
+# fzf check
+# ─────────────────────────────────────────────
+
+if ! command -v fzf >/dev/null; then
+    echo "fzf not found."
+    read -rp "Install fzf now? [Y/n]: " ANS
+    case "$ANS" in
+        n|N|no|NO)
+            echo "fzf is required. Exiting."
+            exit 1
+            ;;
+        *)
+            paru -S --noconfirm fzf
+            ;;
+    esac
 fi
 
-clear
-echo "=== CloudWM Setup / Update ==="
+# ─────────────────────────────────────────────
+# Menu
+# ─────────────────────────────────────────────
 
-# 1. Select machine version
-MACHINE=$(printf "Desktop\nLaptop\nCancel" | fzf --height 10 --border --prompt="Select machine: ")
+OPTIONS=(
+    "Restore dotfiles"
+    "Install packages"
+    "Build & install dwm"
+    "Setup shell"
+    "Post-setup tasks"
+    "Run ALL"
+    "Exit"
+)
 
-case $MACHINE in
-    Desktop) DWMDIR="$REPO_BASE/cloudwm-desktop" ;;
-    Laptop) DWMDIR="$REPO_BASE/cloudwm-laptop" ;;
-    Cancel|"") echo "Cancelled"; exit 0 ;;
-esac
+CHOICE="$(printf '%s\n' "${OPTIONS[@]}" | fzf --prompt="Select setup task: ")"
+echo
 
-# 2. Check for Git updates
-cd "$DWMDIR" || exit
-echo "Checking for updates..."
-git fetch origin
-LOCAL=$(git rev-parse HEAD)
-REMOTE=$(git rev-parse origin/main)
-
-if [ "$LOCAL" != "$REMOTE" ]; then
-    UPDATE=$(printf "Yes\nNo" | fzf --height 5 --border --prompt="Updates found! Pull now? ")
-    if [ "$UPDATE" == "Yes" ]; then
-        git pull origin main
-        echo "Pulled latest changes."
-    else
-        echo "Skipping update."
+run() {
+    local script="$SCRIPT_DIR/$1"
+    if [[ ! -x "$script" ]]; then
+        echo "❌ Script not found or not executable:"
+        echo "   $script"
+        exit 1
     fi
-else
-    echo "Already up-to-date."
-fi
+    "$script"
+}
 
-# 3. Build and install DWM
-echo "Building and installing DWM..."
-sudo make clean install
-echo "DWM installation complete."
-
-# 4. Deploy configs
-DEPLOY=$(printf "Yes\nNo" | fzf --height 5 --border --prompt="Deploy configs (~/.config)? ")
-if [ "$DEPLOY" == "Yes" ]; then
-    # Backup existing configs
-    TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-    mkdir -p ~/.config_backup/$TIMESTAMP
-    echo "Backing up existing configs..."
-    for d in $(ls -d ~/.config/*); do
-        cp -r "$d" ~/.config_backup/$TIMESTAMP/
-    done
-
-    # Copy new configs
-    echo "Copying configs..."
-    cp -r "$CONFIG_SRC/"* ~/.config/
-    echo "Configs deployed!"
-fi
-
-echo "=== Setup / Update finished ==="
-
+case "$CHOICE" in
+    "Restore dotfiles")
+        run restore-dotfiles.sh
+        ;;
+    "Install packages")
+        run install-packages.sh
+        ;;
+    "Build & install dwm")
+        run build-suckless.sh
+        ;;
+    "Setup shell")
+        run setup-shell.sh
+        ;;
+    "Post-setup tasks")
+        run post-setup.sh
+        ;;
+    "Run ALL")
+        run restore-dotfiles.sh
+        run install-packages.sh
+        run build-dwm.sh
+        run setup-shell.sh
+        run post-setup.sh
+        ;;
+    *)
+        echo "Exiting."
+        ;;
+esac

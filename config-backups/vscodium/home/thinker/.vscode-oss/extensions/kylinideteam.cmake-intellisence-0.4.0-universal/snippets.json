@@ -1,0 +1,25 @@
+{
+	"Project Command": {
+		"prefix": "project",
+		"body": [
+			"project($1",
+			"        VERSION $2",
+			"        LANGUAGES C CXX",
+			"        DESCRIPTION \"$3\")"
+		]
+	},
+	"Template CMakeLists.txt": {
+		"prefix": "cmake_minimum_required",
+		"body": [
+			"cmake_minimum_required(VERSION 3.16)",
+			"",
+			"project($1)",
+			"",
+			"set(CMAKE_CXX_STANDARD 11)",
+			"set(CMAKE_CXX_STANDARD_REQUIRED ON)",
+			"set(CMAKE_CXX_EXTENSIONS OFF)",
+			"",
+			"add_executable($1 $2)"
+		]
+	}
+}

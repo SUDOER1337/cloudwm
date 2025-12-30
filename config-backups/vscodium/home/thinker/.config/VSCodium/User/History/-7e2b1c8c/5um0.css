@@ -1,0 +1,143 @@
+/**
+ * @name achromatic24
+ * @description system24 but in a low-color achromatic style and Iosevka.
+ * @author refact0r
+ * @modifier sudoer1337
+ * @version 1.0.0
+*/
+
+/* import base system24 styles */
+@import url('https://refact0r.github.io/system24/build/system24.css');
+
+body {
+    --font: 'IosevkaTerm Nerd Font';
+    --code-font: 'IosevkaTerm Nerd Font';
+    font-weight: 300;
+    letter-spacing: -0.05ch;
+
+    --gap: 12px;
+    --divider-thickness: 2px;
+    --border-thickness: 2px;
+    --border-hover-transition: 0.2s ease;
+
+    --animations: on;
+    --list-item-transition: 0.2s ease;
+    --dms-icon-svg-transition: 0.4s ease;
+
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: on;
+
+    --custom-window-controls: off;
+    --window-control-size: 14px;
+
+    --custom-dms-icon: off;
+    --dms-icon-svg-url: url('');
+    --dms-icon-svg-size: 90%;
+    --dms-icon-color-before: var(--icon-secondary);
+    --dms-icon-color-after: var(--white);
+    --custom-dms-background: off;
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    --dms-background-color: #bbbbbb;
+
+    --background-image: off;
+    --background-image-url: url('');
+
+    --transparency-tweaks: off;
+    --remove-bg-layer: off;
+    --panel-blur: off;
+    --blur-amount: 12px;
+    --bg-floating: var(--bg-3);
+
+    --small-user-panel: on;
+    --unrounding: on;
+
+    --custom-spotify-bar: on;
+    --ascii-titles: on;
+    --ascii-loader: system24;
+
+    --panel-labels: on;
+    --label-color: var(--text-muted);
+    --label-font-weight: 500;
+}
+
+/* Achromatic color palette */
+:root {
+    --colors: on;
+
+    /* text */
+    --text-0: #ffffff;      /* text on bright elements */
+    --text-1: #bbbbbb;      /* primary text */
+    --text-2: #dddddd;      /* headers/important */
+    --text-3: #bbbbbb;      /* normal text */
+    --text-4: #999999;      /* icons/channels */
+    --text-5: #777777;      /* muted/timestamps */
+
+    /* backgrounds */
+    --bg-1: #303030;
+    --bg-2: #303030;
+    --bg-3: #303030;
+    --bg-4: #202020;
+    --hover: rgba(187,187,187,0.08);
+    --active: rgba(187,187,187,0.16);
+    --active-2: rgba(187,187,187,0.24);
+    --message-hover: var(--hover);
+
+    /* accents (kept very subtle) */
+    --accent-1: #bbbbbb;
+    --accent-2: #bbbbbb;
+    --accent-3: #a6a6a6;
+    --accent-4: #bbbbbb;
+    --accent-5: #929292;
+    --accent-new: #cccccc;
+    --mention: linear-gradient(to right, rgba(187,187,187,0.1) 40%, transparent);
+    --mention-hover: linear-gradient(to right, rgba(187,187,187,0.15) 40%, transparent);
+    --reply: linear-gradient(to right, rgba(187,187,187,0.1) 40%, transparent);
+    --reply-hover: linear-gradient(to right, rgba(187,187,187,0.15) 40%, transparent);
+
+    /* status indicators – all neutral */
+    --online: #999999;
+    --dnd: #888888;
+    --idle: #777777;
+    --streaming: #666666;
+    --offline: #555555;
+
+    /* borders */
+    --border-light: var(--hover);
+    --border: var(--active);
+    --border-hover: #bbbbbb;
+    --button-border: rgba(255,255,255,0.1);
+
+    /* remove old color bases */
+    --red-1: #bbbbbb;
+    --red-2: #bbbbbb;
+    --red-3: #aaaaaa;
+    --red-4: #999999;
+    --red-5: #888888;
+
+    --green-1: #bbbbbb;
+    --green-2: #bbbbbb;
+    --green-3: #aaaaaa;
+    --green-4: #999999;
+    --green-5: #888888;
+
+    --blue-1: #bbbbbb;
+    --blue-2: #bbbbbb;
+    --blue-3: #aaaaaa;
+    --blue-4: #999999;
+    --blue-5: #888888;
+
+    --yellow-1: #bbbbbb;
+    --yellow-2: #bbbbbb;
+    --yellow-3: #aaaaaa;
+    --yellow-4: #999999;
+    --yellow-5: #888888;
+
+    --purple-1: #bbbbbb;
+    --purple-2: #bbbbbb;
+    --purple-3: #aaaaaa;
+    --purple-4: #999999;
+    --purple-5: #888888;
+}

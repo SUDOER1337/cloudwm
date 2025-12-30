@@ -1,0 +1,90 @@
+{
+  "symbols.hidesExplorerArrows": false,
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+
+  "workbench.activityBar.location": "top",
+  "project-notes.globalNotesFolder": "/home/thinker/.pnotes",
+  "editor.minimap.enabled": false,
+  "window.titleSeparator": "0",
+  "workbench.navigationControl.enabled": false,
+  "editor.accessibilitySupport": "on",
+  "editor.fontFamily": "'JetbrainsMono Nerd Font', 'monospace', monospace",
+  "workbench.sideBar.location": "right",
+  "editor.fontSize": 16,
+  "workbench.editor.showTabs": "single",
+
+  // ───────────────────────────────────────────────────────────────
+  //  UI COLOR OVERRIDES (all backgrounds = #303030)
+  // ───────────────────────────────────────────────────────────────
+  "workbench.colorCustomizations": {
+    "*": {
+      "editor.background": "#303030",
+      "editor.foreground": "#BBBBBB",
+
+      "activityBar.background": "#303030",
+      "activityBar.foreground": "#BBBBBB",
+      "activityBarBadge.background": "#88C0D0",
+      "activityBarBadge.foreground": "#303030",
+
+      "sideBar.background": "#303030",
+      "sideBar.foreground": "#BBBBBB",
+
+      "statusBar.background": "#303030",
+      "statusBar.foreground": "#BBBBBB",
+
+      "titleBar.activeBackground": "#303030",
+      "titleBar.activeForeground": "#BBBBBB",
+
+      "editorGroupHeader.tabsBackground": "#303030",
+      "tab.activeBackground": "#303030",
+      "tab.inactiveBackground": "#303030",
+      "tab.border": "#303030",
+      "tab.inactiveForeground": "#8F9BA8",
+      "tab.activeForeground": "#FFFFFF",
+
+      "panel.background": "#303030",
+      "panel.border": "#3A3A3A",
+
+      "editor.lineHighlightBackground": "#3A3A3A",
+      "editor.selectionBackground": "#4A4A4A",
+      "editor.inactiveSelectionBackground": "#454545",
+
+      "dropdown.background": "#303030",
+      "dropdown.foreground": "#BBBBBB",
+      "dropdown.listBackground": "#303030",
+
+      "input.background": "#303030",
+      "input.border": "#3A3A3A",
+
+      "terminal.background": "#303030",
+      "terminal.foreground": "#BBBBBB"
+    }
+  },
+
+  // ───────────────────────────────────────────────────────────────
+  //  SYNTAX COLORS (Pastel Nord)
+  // ───────────────────────────────────────────────────────────────
+  "editor.tokenColorCustomizations": {
+    "*": {
+      "comments": "#616E87",
+      "keywords": "#81A1C1",
+      "strings": "#A3BE8C",
+      "numbers": "#B48EAD",
+
+      "types": "#88C0D0",
+      "functions": "#8FC5E8",
+      "variables": "#D8DEE9",
+      "constants": "#8FBCBB",
+
+      "textMateRules": [
+        {
+          "scope": ["constant.language", "variable.language"],
+          "settings": {
+            "foreground": "#D08770"
+          }
+        }
+      ]
+    }
+  }
+}
+

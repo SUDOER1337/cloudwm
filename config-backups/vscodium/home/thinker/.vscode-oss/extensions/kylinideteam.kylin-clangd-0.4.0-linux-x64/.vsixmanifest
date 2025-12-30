@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+		<Metadata>
+			<Identity Language="en-US" Id="kylin-clangd" Version="0.4.0" Publisher="KylinIdeTeam" TargetPlatform="linux-x64"/>
+			<DisplayName>Kylin Clangd</DisplayName>
+			<Description xml:space="preserve">Fork of clangd, add schema validation for .clangd, .clang-format, .clang-tidy files</Description>
+			<Tags>C,C++,clang-tidy,clang-format,clangd,KylinIdeDev,KylinIdeDevCYuYan,KylinIdeDevCPlusPlus,KylinIdeDevEdit,keybindings,cpp,yaml,c,cuda-cpp,objective-c,objective-cpp</Tags>
+			<Categories>Programming Languages,Linters,Formatters</Categories>
+			<GalleryFlags>Public</GalleryFlags>
+			
+			<Properties>
+				<Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.65.0" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="redhat.vscode-yaml" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionKind" Value="workspace" />
+				<Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+				
+				
+				<Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://gitee.com/openKylin/kylin-clangd.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://gitee.com/openKylin/kylin-clangd.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Repository" Value="https://gitee.com/openKylin/kylin-clangd.git" />
+				
+				<Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="https://gitee.com/openKylin/kylin-clangd" />
+				
+				
+				<Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+				<Property Id="Microsoft.VisualStudio.Services.Content.Pricing" Value="Free"/>
+
+				<Property Id="Microsoft.VisualStudio.Services.EnableMarketplaceQnA" Value="true" />
+				
+			</Properties>
+			<License>extension/LICENSE.txt</License>
+			<Icon>extension/icon.png</Icon>
+		</Metadata>
+		<Installation>
+			<InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+		</Installation>
+		<Dependencies/>
+		<Assets>
+			<Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+			<Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Content.Changelog" Path="extension/CHANGELOG.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Content.License" Path="extension/LICENSE.txt" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/icon.png" Addressable="true" />
+		</Assets>
+	</PackageManifest>

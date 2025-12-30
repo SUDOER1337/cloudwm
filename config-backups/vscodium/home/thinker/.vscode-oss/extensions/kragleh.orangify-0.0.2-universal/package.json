@@ -1,0 +1,54 @@
+{
+	"name": "orangify",
+	"displayName": "Orangify VSCode Theme",
+	"description": "An Orange VSCode Theme",
+	"version": "0.0.2",
+	"publisher": "kragleh",
+	"icon": "images/icon.png",
+	"homepage": "https://kragleh.com/",
+	"repository": {
+		"url": "https://github.com/kragleh/orangify"
+	},
+	"keywords": [
+		"theme",
+		"orange",
+		"orange-theme",
+		"kragleh",
+		"vscode orange",
+		"vscode orange theme"
+	],
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"galleryBanner": {
+		"color": "#ff9900",
+		"theme": "dark"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Orangify VSCode Deep Dark",
+				"uiTheme": "vs-dark",
+				"path": "./themes/OrangifyVSCodeDeepDark.json"
+			},
+			{
+				"label": "Orangify VSCode Soft Dark",
+				"uiTheme": "vs-dark",
+				"path": "./themes/OrangifyVSCodeSoftDark.json"
+			},
+			{
+				"label": "Orangify VSCode Dark Highlight",
+				"uiTheme": "vs-dark",
+				"path": "./themes/OrangifyVSCodeDarkHightLight.json"
+			}
+		]
+	},
+	"__metadata": {
+		"installedTimestamp": 1747809952911,
+		"targetPlatform": "universal",
+		"size": 221716
+	}
+}

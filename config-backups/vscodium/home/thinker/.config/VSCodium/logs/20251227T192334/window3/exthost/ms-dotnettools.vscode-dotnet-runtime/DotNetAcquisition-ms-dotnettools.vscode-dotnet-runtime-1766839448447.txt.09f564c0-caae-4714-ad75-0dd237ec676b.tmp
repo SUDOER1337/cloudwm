@@ -1,0 +1,197 @@
+12/27/2025, 7:44:08 PM 448 AutomaticUpdateCheck
+Checking for updates after 300000. Last Update Date: 2025-12-26T13:15:24.496Z. Current Date: 2025-12-27T12:44:08.447Z
+
+12/27/2025, 7:44:08 PM 448 AutomaticUpdateCheck
+Skipping update check as the last successful update was within 24 hours: 84523951 ms vs 86400000
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension vscode.csharp for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension vscode.dotenv for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension vscode.mermaid-chat-features for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension vscode.prompt for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension 3ash.nord-flat for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension anhoder.gruvbox-anhoder for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension arcticicestudio.nord-visual-studio-code for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension be5invis.vscode-custom-css for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension castrogusttavo.symbols for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension esdmr.mpctl for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension evaera.vscode-rojo for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension ewen-lbh.hyprland for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension ewen-lbh.vscode-hyprls for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension fireblast.hyprlang-vscode for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension formulahendry.code-runner for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension geequlim.godot-tools for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension Janne252.fontawesome-autocomplete for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension jdinhlife.gruvbox for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension JohnnyMorganz.stylua for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension kevingamer3d2.selene-vscode for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension Kochan.vs-nord-theme for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension kragleh.orangify for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension KylinIdeTeam.cmake-intellisence for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension KylinIdeTeam.cppdebug for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension KylinIdeTeam.kylin-clangd for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension KylinIdeTeam.kylin-cmake-tools for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension KylinIdeTeam.kylin-cpp-pack for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension KylinIdeTeam.kylin-debug for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension marlosirapuan.nord-deep for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension ms-dotnettools.csharp for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension ms-dotnettools.vscode-dotnet-runtime for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension ms-vscode.mono-debug for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension muhammad-sammy.csharp for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension ncodefun.le-grand-nord for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension neikeq.godot-csharp-vscode for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension undefined_publisher.notquiteanonymous-nord for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension rasyid-kurniawan.live-server-extension for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension rintoj.json-organizer for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension rogalmic.bash-debug for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension sainnhe.everforest for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension sainnhe.gruvbox-material for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension scalet.let-icons for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension ucsoftware.css-organizer for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension vscodevim.vim for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension willasm.project-notes for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension XadillaX.viml for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension Yukina.yukinord for .NET installation requests
+
+12/27/2025, 7:44:08 PM 450 DotnetVSCodeExtensionFound
+true
+Checking extension ZainChen.json for .NET installation requests

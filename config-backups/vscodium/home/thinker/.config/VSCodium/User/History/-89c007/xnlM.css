@@ -1,0 +1,71 @@
+:root {
+	--shimmer-urlbar-rounding: 1px !important;
+	--shimmer-urlbar-inner-rounding: 1px !important;
+	--shimmer-tab-border-radius: 1px !important;
+	--shimmer-browser-border-radius: 1px !important;
+	--arrowpanel-border-radius: 1px !important;
+	--arrowpanel-menuitem-border-radius: 1px !important;
+}
+
+/* URL BAR */
+#urlbar-background,
+#identity-box > box,
+#tracking-protection-icon-container,
+#page-action-buttons > *,
+#urlbar-revert-button-container,
+#urlbar-searchmode-switcher,
+.urlbarView-row {
+	border-radius: 1px !important;
+}
+
+/* URL BAR FOCUS BORDER */
+#urlbar[focused="true"]:not([suppress-focus-border]) > #urlbar-background {
+	box-shadow: 0 0 0 1px color-mix(in srgb, currentColor 21%, transparent) !important;
+}
+
+/* URL BAR INNER */
+.urlbarView-row-inner {
+	border-radius: 1px !important;
+}
+
+/* TABS */
+.tab-background {
+	border-radius: 1px !important;
+}
+
+.tab-close-button {
+	border-radius: 1px !important;
+}
+
+/* FINDBAR */
+findbar {
+	border-radius: 1px !important;
+}
+
+.findbar-textbox {
+	border-radius: 1px !important;
+}
+
+/* STATUS BAR */
+#statuspanel-label {
+	border-radius: 1px !important;
+}
+
+/* BUTTONS */
+#nav-bar toolbarbutton > stack,
+#nav-bar toolbarbutton > image {
+	border-radius: 1px !important;
+}
+
+/* SIDEBAR */
+#sidebar-box,
+#sidebar-main {
+	border-radius: 1px !important;
+	clip-path: none !important;
+}
+
+/* BROWSER */
+#browser {
+	border-radius: 1px !important;
+	clip-path: none !important;
+}

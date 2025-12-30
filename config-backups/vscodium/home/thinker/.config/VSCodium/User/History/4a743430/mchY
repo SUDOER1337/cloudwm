@@ -1,0 +1,27 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+	modified:   README.md
+	deleted:    Screenshots/cloudwmgtk.png
+	renamed:    Screenshots/clipboard.png -> screenshots/clipboard.png
+	new file:   screenshots/cloudwmgtk.png
+	renamed:    Screenshots/cloudwmkitty.png -> screenshots/cloudwmkitty.png
+	renamed:    Screenshots/idle.png -> screenshots/idle.png
+	new file:   screenshots/rofi_and_dunst.png
+	renamed:    Screenshots/rofical.png -> screenshots/rofical.png
+	renamed:    Screenshots/roficontrolcenter.png -> screenshots/roficontrolcenter.png
+	renamed:    Screenshots/rofiemoji.png -> screenshots/rofiemoji.png
+	renamed:    Screenshots/rofinote.png -> screenshots/rofinote.png
+	new file:   screenshots/slock.png
+	renamed:    Screenshots/togglesystray.png -> screenshots/togglesystray.png
+	renamed:    Screenshots/togglesystrayfunction.png -> screenshots/togglesystrayfunction.png
+	new file:   screenshots/zenlook.png
+	modified:   scripts/bt-autopause.sh
+	modified:   setup.sh
+	new file:   setup_sddmless.sh
+#

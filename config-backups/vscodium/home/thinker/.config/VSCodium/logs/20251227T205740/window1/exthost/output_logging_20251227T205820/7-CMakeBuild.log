@@ -1,0 +1,4 @@
+[proc] Executing command: /usr/bin/cmake --version
+[proc] Executing command: /usr/bin/cmake -E capabilities
+[kit] Successfully loaded 3 kits from /home/thinker/.local/share/CMakeTools/cmake-tools-kits.json
+[variant] Loaded new set of variants

@@ -1,0 +1,16 @@
+2025-12-27 23:01:09.834 [info] MainController: Starting nvim: /usr/bin/nvim -N --embed --cmd source /home/thinker/.vscode-oss/extensions/asvetliakov.vscode-neovim-1.18.24-universal/runtime/vscode-neovim.vim
+2025-12-27 23:01:09.848 [info] MainController: Nvim info: {
+  configFile: '/home/thinker/.config/nvim/init.lua',
+  nvimVersion: {
+    api_prerelease: false,
+    major: 0,
+    minor: 11,
+    patch: 5,
+    build: 'v0.11.5',
+    prerelease: false,
+    api_compatible: 0,
+    api_level: 13
+  },
+  logFile: '/home/thinker/.local/state/nvim/log',
+  configDir: '/home/thinker/.config/nvim'
+}

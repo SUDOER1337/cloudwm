@@ -1,0 +1,56 @@
+{
+	"name": "json-organizer",
+	"displayName": "JSON Organizer",
+	"description": "Help you organize JSON",
+	"version": "0.0.4",
+	"publisher": "rintoj",
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rintoj/json-organizer.git"
+	},
+	"activationEvents": [
+		"onCommand:jsono.toggleFormat"
+	],
+	"main": "./out/src/json-organizer",
+	"contributes": {
+		"commands": [
+			{
+				"command": "jsono.toggleFormat",
+				"title": "Toggle between JSON and Object"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "jsono.toggleFormat",
+				"title": "Toggle between JSON and Object",
+				"key": "ctrl+Y",
+				"mac": "cmd+Y"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^1.8.5",
+		"vscode": "^0.11.0"
+	},
+	"dependencies": {
+		"js-beautify": "^1.8.6"
+	},
+	"__metadata": {
+		"installedTimestamp": 1748533676120,
+		"targetPlatform": "undefined",
+		"size": 2473293
+	}
+}

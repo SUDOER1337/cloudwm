@@ -1,0 +1,16 @@
+{
+    "deb": {
+        "default_arch": {
+            "default_os": {
+                "gdb": {}
+            }
+        }
+    },
+    "rpm": {
+        "default_arch": {
+            "default_os": {
+                "gdb": {}
+            }
+        }
+    }
+}
