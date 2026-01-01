@@ -7,16 +7,14 @@
   \_____||______|\____/  \____/ |_____/    \/  \/    |_|  |_|
                                                              
 ```
-# warning! this have unfinished setup script , maybe manually copy or complies for now
-
 ### Screenshots
  
 ![terminal1](screenshots/cloudwmnvim.png)
 ![slock](screenshots/slock.png)
 ![gtk-theme](screenshots/cloudwmgtk.png)
+![vscodium](screenshots/cloudwm-vscodium.png)
 
-
-``cloudwm`` source folder have one that are customized for my laptop and desktop , running setup.sh on diffence folder will install those version with specfic slstatus
+``cloudwm`` source folder have one that are customized for my laptop and desktop 
 Rofi are stored in ``cloudwm`` folder itself but there is ``config.rasi`` that go into ``~/.config/rofi``
 
 
@@ -43,7 +41,7 @@ Launchers: Editted ['adi1090x collection of Rofi custom Applets, Launchers & Pow
 
 # Themes
 
-```cp ~/cloudwm/Themes/Carbon-Square in ~/.themes/ #run this to put the gtk theme into ~/.theme```
+```cp ~/cloudwm/themes/Carbon-Square in ~/.themes/ #run this to put the gtk theme into ~/.theme```
 
 > Zen Browser custom .css (just feel line of userChrome.css to make it square tho)
 > Discord theme based on System24 for Betterdiscord 

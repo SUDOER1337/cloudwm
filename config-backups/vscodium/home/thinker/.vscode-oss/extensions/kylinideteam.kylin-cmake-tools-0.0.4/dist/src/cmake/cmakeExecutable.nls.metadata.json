@@ -1,9 +1,0 @@
-{
-	"messages": [
-		"CMake executable not found in cache. Checking again."
-	],
-	"keys": [
-		"cmake.exe.not.found.in.cache"
-	],
-	"filePath": "src/cmake/cmakeExecutable"
-}

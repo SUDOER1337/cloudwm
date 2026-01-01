@@ -3,7 +3,16 @@ set -euo pipefail
 
 # Resolve cloudwm root reliably
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SCRIPT_DIR="$ROOT_DIR/scripts"
+SCRIPT_DIR="$ROOT_DIR/suckless"
+
+
+# ─────────────────────────────────────────────
+# Ensure scripts are executable
+# ─────────────────────────────────────────────
+
+if [[ -d "$SCRIPT_DIR" ]]; then
+    chmod +x "$SCRIPT_DIR"/*.sh 2>/dev/null || true
+fi
 
 echo "====================================="
 echo "    Welcome to cloudwm Setup Menu"
@@ -13,7 +22,7 @@ echo
 sleep 1
 
 # ─────────────────────────────────────────────
-# fzf check
+# fzf check (setup menu dependency only)
 # ─────────────────────────────────────────────
 
 if ! command -v fzf >/dev/null; then
@@ -21,11 +30,15 @@ if ! command -v fzf >/dev/null; then
     read -rp "Install fzf now? [Y/n]: " ANS
     case "$ANS" in
         n|N|no|NO)
-            echo "fzf is required. Exiting."
+            echo "fzf is required to continue. Exiting."
             exit 1
             ;;
         *)
-            paru -S --noconfirm fzf
+            if command -v paru >/dev/null; then
+                paru -S --noconfirm fzf
+            else
+                sudo pacman -S --noconfirm fzf
+            fi
             ;;
     esac
 fi
@@ -35,13 +48,11 @@ fi
 # ─────────────────────────────────────────────
 
 OPTIONS=(
-    "Restore dotfiles"
+    "Run ALL"
     "Install packages"
     "Build & install dwm"
     "Setup shell"
     "Post-setup tasks"
-    "Run ALL"
-    "Exit"
 )
 
 CHOICE="$(printf '%s\n' "${OPTIONS[@]}" | fzf --prompt="Select setup task: ")"
@@ -50,16 +61,18 @@ echo
 run() {
     local script="$SCRIPT_DIR/$1"
     if [[ ! -x "$script" ]]; then
-        echo "❌ Script not found or not executable:"
+        echo " Script not found or not executable:"
         echo "   $script"
         exit 1
     fi
     "$script"
 }
 
-case "$CHOICE" in
-    "Restore dotfiles")
-        run restore-dotfiles.sh
+case "$CHOICE" in 
+    "Run ALL")
+        run install-packages.sh
+        run build-suckless.sh
+        run setup-shell.sh
         ;;
     "Install packages")
         run install-packages.sh
@@ -69,16 +82,6 @@ case "$CHOICE" in
         ;;
     "Setup shell")
         run setup-shell.sh
-        ;;
-    "Post-setup tasks")
-        run post-setup.sh
-        ;;
-    "Run ALL")
-        run restore-dotfiles.sh
-        run install-packages.sh
-        run build-dwm.sh
-        run setup-shell.sh
-        run post-setup.sh
         ;;
     *)
         echo "Exiting."

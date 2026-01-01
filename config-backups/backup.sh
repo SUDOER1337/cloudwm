@@ -1,49 +1,45 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# -----------------------------
-# Backup root folder
-# -----------------------------
+# -------------------------------------------------
+# Paths
+# -------------------------------------------------
 BACKUP_ROOT="$HOME/cloudwm/config-backups"
-mkdir -p "$BACKUP_ROOT"
-
-# -----------------------------
-# apps.conf location
-# -----------------------------
+CONFIG_BACKUP="$BACKUP_ROOT/.config"
 CONF_FILE="$BACKUP_ROOT/apps.conf"
 
+mkdir -p "$CONFIG_BACKUP"
+
+# -------------------------------------------------
+# Validate apps.conf
+# -------------------------------------------------
 if [[ ! -f "$CONF_FILE" ]]; then
-    echo "apps.conf not found at $CONF_FILE"
-    echo "Please create it with lines like: zsh=\$HOME/.zshrc|\$HOME/.oh-my-zsh"
+    echo "󰅙 apps.conf not found at $CONF_FILE"
     exit 1
 fi
 
-# -----------------------------
+# -------------------------------------------------
 # Show available apps
-# -----------------------------
+# -------------------------------------------------
 echo "Available apps:"
 grep -Ev '^\s*(#|$)' "$CONF_FILE" | cut -d= -f1
 echo
 
-# -----------------------------
-# Ask which apps to backup
-# -----------------------------
+# -------------------------------------------------
+# Selection
+# -------------------------------------------------
 read -rp "Enter app names to backup (space-separated or 'all'): " SELECTION
 read -ra SELECTED <<< "$SELECTION"
 
-# -----------------------------
-# Read apps.conf
-# -----------------------------
 mapfile -t APPS < <(grep -Ev '^\s*(#|$)' "$CONF_FILE")
 
-# -----------------------------
+# -------------------------------------------------
 # Backup loop
-# -----------------------------
+# -------------------------------------------------
 for line in "${APPS[@]}"; do
     APP="${line%%=*}"
     PATHS="${line#*=}"
 
-    # Skip if not selected
     if [[ "$SELECTION" != "all" ]]; then
         match=false
         for s in "${SELECTED[@]}"; do
@@ -52,31 +48,37 @@ for line in "${APPS[@]}"; do
         $match || continue
     fi
 
-    DEST="$BACKUP_ROOT/$APP"
-    mkdir -p "$DEST"
-    echo "Backing up $APP..."
+    echo " Processing $APP"
 
-    # Split paths and expand environment variables
-    IFS='|' read -r -a PATH_ARRAY <<< "$PATHS"
-    RSYNC_PATHS=()
-    for i in "${PATH_ARRAY[@]}"; do
-        expanded=$(eval echo "$i")  # expands $HOME, $XDG_CONFIG_HOME, etc.
-        if [[ -e "$expanded" ]]; then
-            RSYNC_PATHS+=("${expanded%/}/")  # trailing slash ensures contents copied
-        else
-            echo "⚠ Warning: Path does not exist: $expanded"
+    IFS='|' read -r -a PARTS <<< "$PATHS"
+
+    for raw in "${PARTS[@]}"; do
+        # Expand $HOME, etc.
+        SRC="$(eval echo "$raw")"
+
+        # Only accept ~/.config paths
+        if [[ "$SRC" != "$HOME/.config/"* ]]; then
+            continue
         fi
+
+        if [[ ! -d "$SRC" ]]; then
+            echo "  ⚠ Skipping non-directory: $SRC"
+            continue
+        fi
+
+        REL="${SRC#$HOME/.config/}"
+        DEST="$CONFIG_BACKUP/$REL"
+
+        mkdir -p "$DEST"
+
+        echo "  → .config/$REL"
+
+        rsync -aAX --delete \
+            --info=stats1 \
+            "$SRC/" "$DEST/"
     done
-
-    if [[ ${#RSYNC_PATHS[@]} -eq 0 ]]; then
-        echo "⚠ No valid paths found for $APP, skipping..."
-        continue
-    fi
-
-    # Perform backup
-    rsync -aAX --relative "${RSYNC_PATHS[@]}" "$DEST/"
-
-    echo "✔ $APP backed up to $DEST"
 done
 
-echo "Backup completed!"
+echo
+echo " Backup completed!"
+

@@ -1,4 +1,0 @@
-npm run compile
-vsce package
-
-vsce publish (berbayar)
