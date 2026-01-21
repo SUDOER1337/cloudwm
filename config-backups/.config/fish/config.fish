@@ -11,15 +11,15 @@ function ardour-helper --wraps ~/.local/bin/ardour-helper
     command bash ~/.local/bin/ardour-helper $argv
 end
 
-
-# ─── Autostart X on TTY1 ──────────────────────────────────────────────────
+ # ─── Autostart X on TTY1 ─────────────────────────────────────────────
 if test (tty) = /dev/tty1
-     Prevent infinite loops when X exits
-        if not set -q DISPLAY
-         fastfetch
+    # Prevent infinite loops when X exits
+    if not set -q DISPLAY
+        fastfetch
         exec startx
     end
- end
+end
+
 
 
 # pnpm
@@ -28,3 +28,4 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+alias sudo doas

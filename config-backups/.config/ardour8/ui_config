@@ -10,18 +10,18 @@
     <Option name="blink-rec-arm" value="0"/>
     <Option name="blink-alert-indicators" value="1"/>
     <Option name="waveform-gradient-depth" value="0"/>
-    <Option name="timeline-item-gradient-depth" value="0"/>
+    <Option name="timeline-item-gradient-depth" value="0.10000000149011612"/>
     <Option name="all-floating-windows-are-dialogs" value="1"/>
-    <Option name="floating-monitor-section" value="1"/>
-    <Option name="transients-follow-front" value="1"/>
+    <Option name="floating-monitor-section" value="0"/>
+    <Option name="transients-follow-front" value="0"/>
     <Option name="allow-to-resize-engine-dialog" value="0"/>
     <Option name="color-regions-using-track-color" value="0"/>
-    <Option name="use-route-color-widely" value="1"/>
-    <Option name="vertical-region-gap" value="0"/>
+    <Option name="use-route-color-widely" value="0"/>
+    <Option name="vertical-region-gap" value="4"/>
     <Option name="editor-stereo-only-meters" value="1"/>
     <Option name="show-waveform-clipping" value="1"/>
-    <Option name="lock-gui-after-seconds" value="33"/>
-    <Option name="screen-saver-mode" value="InhibitNever"/>
+    <Option name="lock-gui-after-seconds" value="0"/>
+    <Option name="screen-saver-mode" value="InhibitWhileRecording"/>
     <Option name="sensitize-playhead" value="0"/>
     <Option name="draggable-playhead-speed" value="0.5"/>
     <Option name="extra-ui-extents-time" value="1"/>
@@ -35,19 +35,19 @@
     <Option name="autoplay-files" value="0"/>
     <Option name="autoplay-clips" value="1"/>
     <Option name="highlight-auditioned-clips" value="1"/>
-    <Option name="default-narrow_ms" value="1"/>
+    <Option name="default-narrow_ms" value="0"/>
     <Option name="name-new-markers" value="0"/>
     <Option name="rubberbanding-snaps-to-grid" value="0"/>
-    <Option name="font-scale" value="102400"/>
+    <Option name="font-scale" value="122018"/>
     <Option name="show-waveforms" value="1"/>
     <Option name="show-waveforms-while-recording" value="1"/>
-    <Option name="waveform-scale" value="Linear"/>
+    <Option name="waveform-scale" value="Logarithmic"/>
     <Option name="waveform-shape" value="Traditional"/>
     <Option name="update-editor-during-summary-drag" value="1"/>
     <Option name="never-display-periodic-midi" value="1"/>
     <Option name="sound-midi-notes" value="1"/>
     <Option name="select-last-drawn-note-only" value="1"/>
-    <Option name="show-plugin-scan-window" value="0"/>
+    <Option name="show-plugin-scan-window" value="1"/>
     <Option name="show-manager-if-plugins-are-missing" value="1"/>
     <Option name="show-zoom-tools" value="1"/>
     <Option name="use-mouse-position-as-zoom-focus-on-scroll" value="1"/>
@@ -56,30 +56,30 @@
     <Option name="use-double-click-to-zoom-to-selection" value="0"/>
     <Option name="widget-prelight" value="1"/>
     <Option name="use-tooltips" value="1"/>
-    <Option name="mixer-element-visibility" value="Input,PhaseInvert,RecMon,SoloIsoLock,Output,Comments,TriggerGrid,TriggerMaster"/>
+    <Option name="mixer-element-visibility" value="Input,PhaseInvert,RecMon,Output,Comments"/>
     <Option name="allow-non-quarter-pulse" value="0"/>
     <Option name="show-region-gain" value="0"/>
     <Option name="show-region-xrun-markers" value="1"/>
     <Option name="show-region-cue-markers" value="1"/>
-    <Option name="show-name-highlight" value="1"/>
+    <Option name="show-name-highlight" value="0"/>
     <Option name="primary-clock-delta-mode" value="NoDelta"/>
     <Option name="secondary-clock-delta-mode" value="NoDelta"/>
     <Option name="clock-display-limit" value="359999"/>
     <Option name="show-track-meters" value="1"/>
-    <Option name="follow-edits" value="0"/>
+    <Option name="follow-edits" value="1"/>
     <Option name="after-section-op" value="SectionSelectRetainAndMovePlayhead"/>
-    <Option name="super-rapid-clock-update" value="1"/>
+    <Option name="super-rapid-clock-update" value="0"/>
     <Option name="autoscroll-editor" value="1"/>
     <Option name="link-region-and-track-selection" value="0"/>
     <Option name="meter-hold" value="100"/>
     <Option name="meter-vu-standard" value="MeteringVUstandard"/>
     <Option name="meter-line-up-level" value="MeteringLineUp18"/>
     <Option name="meter-line-up-din" value="MeteringLineUp15"/>
-    <Option name="input-meter-layout" value="LayoutVertical"/>
+    <Option name="input-meter-layout" value="LayoutAutomatic"/>
     <Option name="input-meter-scopes" value="1"/>
     <Option name="meter-peak" value="0"/>
     <Option name="meter-style-led" value="1"/>
-    <Option name="show-editor-meter" value="0"/>
+    <Option name="show-editor-meter" value="1"/>
     <Option name="show-toolbar-recpunch" value="1"/>
     <Option name="show-toolbar-monitoring" value="0"/>
     <Option name="show-toolbar-selclock" value="0"/>
@@ -87,13 +87,13 @@
     <Option name="show-toolbar-cuectrl" value="1"/>
     <Option name="show-toolbar-monitor-info" value="0"/>
     <Option name="show-mini-timeline" value="1"/>
-    <Option name="show-secondary-clock" value="0"/>
-    <Option name="waveform-clip-level" value="-5.5"/>
+    <Option name="show-secondary-clock" value="1"/>
+    <Option name="waveform-clip-level" value="-0.093396699999999999"/>
     <Option name="no-new-session-dialog" value="1"/>
     <Option name="buggy-gradients" value="0"/>
-    <Option name="cairo-image-surface" value="1"/>
+    <Option name="cairo-image-surface" value="0"/>
     <Option name="nsgl-view-mode" value="NSGLHiRes"/>
-    <Option name="waveform-cache-size" value="1024"/>
+    <Option name="waveform-cache-size" value="100"/>
     <Option name="recent-session-sort" value="1"/>
     <Option name="save-export-analysis-image" value="0"/>
     <Option name="save-export-mixer-screenshot" value="0"/>
@@ -115,9 +115,9 @@
     <Option name="use-note-bars-for-velocity" value="1"/>
     <Option name="use-note-color-for-velocity" value="1"/>
     <Option name="show-snapped-cursor" value="1"/>
-    <Option name="snap-threshold" value="35"/>
+    <Option name="snap-threshold" value="25"/>
     <Option name="ruler-granularity" value="25"/>
-    <Option name="snap-target" value="SnapTargetOther"/>
+    <Option name="snap-target" value="SnapTargetGrid"/>
     <Option name="snap-to-marks" value="1"/>
     <Option name="snap-to-playhead" value="1"/>
     <Option name="snap-to-region-sync" value="1"/>
@@ -127,8 +127,8 @@
     <Option name="show-grids-ruler" value="1"/>
     <Option name="rulers-follow-grid" value="0"/>
     <Option name="grid-follows-internal" value="0"/>
-    <Option name="show-region-name" value="0"/>
-    <Option name="time-axis-name-ellipsize-mode" value="1"/>
+    <Option name="show-region-name" value="1"/>
+    <Option name="time-axis-name-ellipsize-mode" value="0"/>
     <Option name="one-plugin-window-only" value="0"/>
     <Option name="default-lower-midi-note" value="60"/>
     <Option name="default-upper-midi-note" value="71"/>
@@ -144,7 +144,7 @@
     <Option name="insert-at-position" value="3"/>
     <Option name="note-name-display" value="Always"/>
     <Option name="scroll-velocity-editing" value="1"/>
-    <Option name="no-strobe" value="1"/>
+    <Option name="no-strobe" value="0"/>
   </UI>
   <Canvas>
     <Option name="small font" value=" 7"/>

@@ -498,7 +498,7 @@
   </ColorAliases>
   <Modifiers>
     <Modifier name="audio bus base" modifier="= alpha:0.10453648915187377"/>
-    <Modifier name="audio track base" modifier="= alpha:0.29999999999999999"/>
+    <Modifier name="audio track base" modifier="= alpha:0.56175298804780871"/>
     <Modifier name="automation line fill" modifier="= alpha:0.29999999999999999"/>
     <Modifier name="automation track fill" modifier="= alpha:0.5"/>
     <Modifier name="covered region base" modifier="= alpha:0.67999999999999994"/>
@@ -527,12 +527,12 @@
     <Modifier name="scroomer alpha" modifier="= alpha:0.25"/>
     <Modifier name="selected midi note" modifier="= alpha:0.49704142011834318"/>
     <Modifier name="selection rect" modifier="= alpha:0.50670611439842217"/>
-    <Modifier name="silence" modifier="= alpha:0.47999999999999998"/>
+    <Modifier name="silence" modifier="= alpha:0.67928286852589637"/>
     <Modifier name="stereo panner inverted" modifier="= alpha:0.69999999999999996"/>
     <Modifier name="stereo panner inverted bg" modifier="= alpha:0.69999999999999996"/>
     <Modifier name="time axis view item base" modifier="= alpha:0.69999999999999996"/>
     <Modifier name="time stretch fill" modifier="= alpha:0.5"/>
-    <Modifier name="transparent region base" modifier="= alpha:1"/>
+    <Modifier name="transparent region base" modifier="= alpha:0.74701195219123506"/>
     <Modifier name="verbose canvas cursor" modifier="= alpha:0.5"/>
   </Modifiers>
 </Ardour>
