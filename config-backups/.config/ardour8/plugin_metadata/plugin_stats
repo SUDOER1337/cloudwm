@@ -3,24 +3,27 @@
   <Plugin type="VST3" id="E8FAB71815ED46E38B5983101E12993F" lru="1767354653" use-count="1"/>
   <Plugin type="VST3" id="C9DA927443794873A900ED81D1946115" lru="1767356385" use-count="4"/>
   <Plugin type="VST3" id="C4D8BD1A074B1188285DC2AA09B619A4" lru="1767192287" use-count="2"/>
+  <Plugin type="VST3" id="ABCDEF019182FAEB566D624153675854" lru="1769848697" use-count="5"/>
   <Plugin type="VST3" id="647370206B7A3173202020206B6A7733" lru="1767356354" use-count="2"/>
-  <Plugin type="VST3" id="2046504473616C637073577300000000" lru="1767794792" use-count="1"/>
+  <Plugin type="VST3" id="6473702067653332732020206E767364" lru="1769849570" use-count="1"/>
+  <Plugin type="VST3" id="2046504473616C637073577300000000" lru="1769244081" use-count="2"/>
   <Plugin type="VST3" id="2046504473616C636E64436400000000" lru="1767400420" use-count="3"/>
   <Plugin type="VST3" id="2046504473616C63536E436400000000" lru="1767348985" use-count="1"/>
   <Plugin type="Lua" id="ab0881f761420ca67ad08856c7daf5c2b13a0d49" lru="1767544907" use-count="9"/>
   <Plugin type="LXVST" id="1784967984" lru="1766501440" use-count="3"/>
-  <Plugin type="LXVST" id="1768385586" lru="1767796500" use-count="10"/>
+  <Plugin type="LXVST" id="1768385586" lru="1769244040" use-count="14"/>
   <Plugin type="LXVST" id="1399420001" lru="1766502046" use-count="2"/>
   <Plugin type="LXVST" id="1131572325" lru="1767764673" use-count="1"/>
   <Plugin type="LXVST" id="1131572323" lru="1767353541" use-count="1"/>
   <Plugin type="LV2" id="urn:juced:DrumSynth" lru="1766224088" use-count="6"/>
   <Plugin type="LV2" id="urn:dragonfly:room" lru="1767545172" use-count="12"/>
   <Plugin type="LV2" id="urn:dragonfly:plate" lru="1767545140" use-count="1"/>
-  <Plugin type="LV2" id="urn:ardour:a-eq" lru="1767545735" use-count="1"/>
+  <Plugin type="LV2" id="urn:ardour:a-eq" lru="1769849549" use-count="2"/>
   <Plugin type="LV2" id="urn:ardour:a-delay" lru="1767465120" use-count="2"/>
   <Plugin type="LV2" id="urn:ardour:a-comp#stereo" lru="1767545429" use-count="27"/>
-  <Plugin type="LV2" id="urn:ardour:a-comp" lru="1766505053" use-count="4"/>
+  <Plugin type="LV2" id="urn:ardour:a-comp" lru="1769849447" use-count="5"/>
   <Plugin type="LV2" id="https://github.com/michaelwillis/dragonfly-reverb" lru="1766827136" use-count="6"/>
+  <Plugin type="LV2" id="https://distrho.kx.studio/plugins/cardinal#fx" lru="1769239665" use-count="1"/>
   <Plugin type="LV2" id="https://community.ardour.org/node/7596" lru="1766418485" use-count="5"/>
   <Plugin type="LV2" id="http://www.openavproductions.com/artyfx#bitta" lru="1767545832" use-count="1"/>
   <Plugin type="LV2" id="http://sfztools.github.io/sfizz-multi" lru="1766827421" use-count="1"/>
@@ -38,7 +41,7 @@
   <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_mxrdist_#_mxrdist_" lru="1767794612" use-count="4"/>
   <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_mbdistortion_#_mbdistortion_" lru="1767545444" use-count="2"/>
   <Plugin type="LV2" id="http://gareus.org/oss/lv2/meters#NORstereo" lru="1767354284" use-count="1"/>
-  <Plugin type="LV2" id="http://gareus.org/oss/lv2/gmsynth" lru="1767622606" use-count="14"/>
+  <Plugin type="LV2" id="http://gareus.org/oss/lv2/gmsynth" lru="1769244184" use-count="68"/>
   <Plugin type="LV2" id="http://eq10q.sourceforge.net/gate" lru="1767538406" use-count="1"/>
   <Plugin type="LV2" id="http://eq10q.sourceforge.net/eq/eq10qm" lru="1766504207" use-count="5"/>
   <Plugin type="LV2" id="http://drumkv1.sourceforge.net/lv2" lru="1764608247" use-count="4"/>
@@ -46,6 +49,7 @@
   <Plugin type="LV2" id="http://drobilla.net/plugins/mda/Stereo" lru="1767523233" use-count="18"/>
   <Plugin type="LV2" id="http://drobilla.net/plugins/mda/Splitter" lru="1765550363" use-count="6"/>
   <Plugin type="LV2" id="http://drobilla.net/plugins/mda/Shepard" lru="1765727680" use-count="2"/>
+  <Plugin type="LV2" id="http://drobilla.net/plugins/mda/RingMod" lru="1768997904" use-count="1"/>
   <Plugin type="LV2" id="http://drobilla.net/plugins/mda/RePsycho" lru="1767794511" use-count="1"/>
   <Plugin type="LV2" id="http://drobilla.net/plugins/mda/Overdrive" lru="1767529669" use-count="5"/>
   <Plugin type="LV2" id="http://drobilla.net/plugins/mda/MultiBand" lru="1767373806" use-count="1"/>
@@ -55,9 +59,12 @@
   <Plugin type="LV2" id="http://drobilla.net/plugins/mda/Degrade" lru="1765727882" use-count="9"/>
   <Plugin type="LV2" id="http://drobilla.net/plugins/mda/Ambience" lru="1767360098" use-count="3"/>
   <Plugin type="LV2" id="http://drobilla.net/plugins/fomp/parametric1" lru="1767114180" use-count="1"/>
+  <Plugin type="LV2" id="http://drobilla.net/plugins/blop/lp4pole" lru="1769849447" use-count="1"/>
   <Plugin type="LV2" id="http://distrho.sf.net/plugins/MaBitcrush" lru="1767545832" use-count="1"/>
+  <Plugin type="LV2" id="http://calf.sourceforge.net/plugins/Equalizer12Band" lru="1769849447" use-count="1"/>
   <Plugin type="LV2" id="http://calf.sourceforge.net/plugins/Crusher" lru="1767890751" use-count="2"/>
   <Plugin type="LADSPA" id="1430" lru="1767524182" use-count="1"/>
   <Plugin type="LADSPA" id="1202" lru="1767524183" use-count="1"/>
-  <Plugin type="LADSPA" id="1068" lru="1767545287" use-count="3"/>
+  <Plugin type="LADSPA" id="1196" lru="1769009786" use-count="1"/>
+  <Plugin type="LADSPA" id="1068" lru="1769009796" use-count="4"/>
 </PluginStats>

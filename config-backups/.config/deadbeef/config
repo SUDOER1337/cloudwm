@@ -1,16 +1,16 @@
-alsa_soundcard pipewire
+alsa_soundcard default
 ape.write_apev2 1
 cli_add_playlist_name Default
 close_send_to_tray 1
 converter.dsp_preset -1
-converter.encoder_preset 12
-converter.lastdir file:///home/thinker/Music
-converter.output_file_tf drum
-converter.output_folder /home/thinker/Music
+converter.encoder_preset 4
+converter.lastdir file:///mnt/Storages/Audio/Speeches
+converter.output_file_tf NVIDIA Fuck You
+converter.output_folder /mnt/Storages/Audio/Speeches
 converter.output_format 0
 converter.overwrite_action 0
 deadbeef_version 1.10.0
-filechooser.lastdir file:///mnt/Storages/Audio
+filechooser.lastdir file:///home/thinker/Music/Untitled-2026-01-24-14-23-27/export
 filechooser.playlist.lastdir file:///home/thinker/Music
 gtkui.autoresize_columns 0
 gtkui.color.bar_background 12336 12336 12336
@@ -26,7 +26,7 @@ gtkui.columns.playlist [{"title":"♫","id":"1","format":"%playstatus%","sort_fo
 gtkui.columns.search [{"title":"Artist / Album","id":"-1","format":"$if(%artist%,%artist%,Unknown Artist)[ - %album%]","sort_format":"","size":"150","align":"0","color_override":"0","color":"#ff000000"},{"title":"Track No","id":"-1","format":"%tracknumber%","sort_format":"","size":"50","align":"1","color_override":"0","color":"#ff000000"},{"title":"Title","id":"-1","format":"%title%","sort_format":"","size":"150","align":"0","color_override":"0","color":"#ff000000"},{"title":"Duration","id":"-1","format":"%length%","sort_format":"","size":"50","align":"0","color_override":"0","color":"#ff000000"}]
 gtkui.embolden_current_track 1
 gtkui.embolden_selected_tracks 0
-gtkui.eq.visible 1
+gtkui.eq.visible 0
 gtkui.font.listview_text JetBrains Mono Bold 10
 gtkui.font.tabstrip_text IosevkaTerm Nerd Font Propo Ultra-Bold 10
 gtkui.hide_remove_from_disk 0
@@ -87,14 +87,14 @@ hotkey.key32 "Ctrl k" 0 0 toggle_stop_after_album
 hotkey.key33 "Ctrl z" 0 0 undo
 hotkey.key34 "Ctrl Shift z" 0 0 redo
 hotkeys_created 1
-logwindow.geometry.h 727
-logwindow.geometry.w 1335
-logwindow.geometry.x 243
-logwindow.geometry.y 120
+logwindow.geometry.h 916
+logwindow.geometry.w 1233
+logwindow.geometry.x 394
+logwindow.geometry.y 73
 mainwin.geometry.h 1006
 mainwin.geometry.maximized 0
-mainwin.geometry.w 1864
-mainwin.geometry.x 25
+mainwin.geometry.w 740
+mainwin.geometry.x -1492
 mainwin.geometry.y 48
 medialib.deadbeef.enabled 1
 mp3.id3v1_encoding iso8859-1
@@ -102,32 +102,32 @@ mp3.id3v2_version 3
 mp3.write_id3v1 1
 mp3.write_id3v2 1
 network.proxy.port 8080
-output_plugin alsa
+output_plugin pipewire
 playback.loop 0
-playback.order 0
-playback.volume.normalized 1.0000000
+playback.order 1
+playback.volume.normalized 0.4098070
 playlist.current 1
 playlist.cursor.0 0
-playlist.cursor.1 0
+playlist.cursor.1 2
 playlist.cursor.10 0
-playlist.cursor.2 21
-playlist.cursor.3 8
-playlist.cursor.4 2
+playlist.cursor.2 27
+playlist.cursor.3 2
+playlist.cursor.4 7
 playlist.cursor.5 1
 playlist.cursor.6 0
-playlist.cursor.7 9
+playlist.cursor.7 0
 playlist.cursor.8 0
 playlist.cursor.9 99
 playlist.groups.spacing 12
 playlist.scroll.0 0
-playlist.scroll.1 0
+playlist.scroll.1 -2
 playlist.scroll.10 0
-playlist.scroll.2 -21
+playlist.scroll.2 0
 playlist.scroll.3 0
-playlist.scroll.4 -2
+playlist.scroll.4 -7
 playlist.scroll.5 -1
 playlist.scroll.6 0
-playlist.scroll.7 -11
+playlist.scroll.7 0
 playlist.scroll.8 0
 playlist.scroll.9 -99
 playlist.scroll.cursorfollowplayback 1
@@ -144,12 +144,12 @@ playlist.tab.00009 Dave And Bambi
 playlist.tab.00010 SAR023
 prefwin.geometry.h 582
 prefwin.geometry.w 758
-prefwin.geometry.x 789
-prefwin.geometry.y 355
+prefwin.geometry.x 687
+prefwin.geometry.y 277
 resume.paused 0
 resume.playlist 1
 resume.position 0.0445200
-resume.track 8
+resume.track 25
 searchwin.geometry.h 150
 searchwin.geometry.w 450
 searchwin.geometry.x 735

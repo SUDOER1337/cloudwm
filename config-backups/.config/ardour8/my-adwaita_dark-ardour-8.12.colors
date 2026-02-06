@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Ardour>
   <Colors>
-    <Color name="alert:blue" value="698780ff"/>
+    <Color name="alert:blue" value="616b6fff"/>
     <Color name="alert:cyan" value="698780ff"/>
     <Color name="alert:green" value="698780ff"/>
     <Color name="alert:greenish" value="56735bff"/>
-    <Color name="alert:orange" value="d08770d6"/>
+    <Color name="alert:orange" value="b9a390ff"/>
     <Color name="alert:red" value="85555aff"/>
     <Color name="alert:ruddy" value="85555aff"/>
     <Color name="alert:yellow" value="698780ff"/>
     <Color name="meter color0" value="85555aff"/>
-    <Color name="meter color1" value="41584caf"/>
+    <Color name="meter color1" value="90b3b9af"/>
     <Color name="meter color2" value="a3be8cff"/>
     <Color name="meter color3" value="495934ff"/>
     <Color name="meter color4" value="556d59ff"/>
     <Color name="meter color5" value="3a4f44ff"/>
-    <Color name="meter color6" value="d08770ff"/>
-    <Color name="meter color7" value="c0a76bff"/>
+    <Color name="meter color6" value="b9a390ff"/>
+    <Color name="meter color7" value="7d6d51ff"/>
     <Color name="meter color8" value="d08770ff"/>
     <Color name="meter color9" value="85555ad6"/>
-    <Color name="midi meter 52" value="62786fff"/>
-    <Color name="midi meter 53" value="637b71ff"/>
-    <Color name="midi meter 54" value="62786fff"/>
-    <Color name="midi meter 55" value="54675fff"/>
+    <Color name="midi meter 52" value="616b6fff"/>
+    <Color name="midi meter 53" value="556c79ff"/>
+    <Color name="midi meter 54" value="7d6d51ff"/>
+    <Color name="midi meter 55" value="bbbbbbff"/>
     <Color name="midi meter 56" value="62786f4e"/>
-    <Color name="neutral:background" value="303030ff"/>
-    <Color name="neutral:background2" value="303030ff"/>
-    <Color name="neutral:backgroundest" value="222222ff"/>
+    <Color name="neutral:background" value="464646ff"/>
+    <Color name="neutral:background2" value="464646ff"/>
+    <Color name="neutral:backgroundest" value="3e3e3eff"/>
     <Color name="neutral:foreground" value="bbbbbbff"/>
     <Color name="neutral:foreground2" value="797979ff"/>
     <Color name="neutral:foregroundest" value="bbbbbbd7"/>
     <Color name="neutral:midground" value="636f76ff"/>
-    <Color name="theme:bg" value="303030ff"/>
-    <Color name="theme:bg1" value="272727ff"/>
-    <Color name="theme:bg2" value="252525ff"/>
+    <Color name="theme:bg" value="414141ff"/>
+    <Color name="theme:bg1" value="383838ff"/>
+    <Color name="theme:bg2" value="383838ff"/>
     <Color name="theme:contrasting" value="637b71ff"/>
     <Color name="theme:contrasting alt" value="637b71ff"/>
     <Color name="theme:contrasting clock" value="698780ff"/>
     <Color name="theme:contrasting less" value="779387d5"/>
     <Color name="theme:contrasting selection" value="617d6eff"/>
-    <Color name="widget:bg" value="262626ff"/>
-    <Color name="widget:blue" value="46658bff"/>
+    <Color name="widget:bg" value="454545ff"/>
+    <Color name="widget:blue" value="556c79ff"/>
     <Color name="widget:blue darker" value="698780ff"/>
     <Color name="widget:blue lighter" value="5a83b5ff"/>
     <Color name="widget:gray" value="454545ff"/>
     <Color name="widget:green" value="698780ff"/>
-    <Color name="widget:green darker" value="3f5e4fff"/>
+    <Color name="widget:green darker" value="90b3b9ff"/>
     <Color name="widget:green lighter" value="8dac98ff"/>
     <Color name="widget:orange" value="85555aff"/>
     <Color name="widget:ruddy" value="c0a76bff"/>
-    <Color name="widget:yellow" value="d08770ff"/>
+    <Color name="widget:yellow" value="b99690ff"/>
   </Colors>
   <ColorAliases>
     <ColorAlias name="active crossfade" alias="neutral:foreground"/>
