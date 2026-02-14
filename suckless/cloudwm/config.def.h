@@ -94,11 +94,6 @@ static const char *const autostart[] = {
 	NULL /* terminate */
 };
 
-static const char *const autostart[] = {
-	"st", NULL,
-	NULL /* terminate */
-};
-
 /* tagging */
 static char *tags[] = {"cmd", "www", "dev", "chat", "sys", "med"};
 static char *alttags[] = {"[cmd]",  "[www]", "[dev]",

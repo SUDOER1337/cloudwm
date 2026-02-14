@@ -1,10 +1,34 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Security check - don't run as root
+if [[ $EUID -eq 0 ]]; then
+    echo "This script should not be run as root"
+    exit 1
+fi
+
+# Error handling
+trap 'echo "Error on line $LINENO: Command failed with exit code $?"' ERR
+
 # Resolve cloudwm root reliably
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SCRIPT_DIR="$ROOT_DIR/suckless"
 
+
+# ─────────────────────────────────────────────
+# Backup existing configurations
+# ─────────────────────────────────────────────
+
+backup_configs() {
+    local backup_script="$ROOT_DIR/scripts/backup-configs.sh"
+    if [[ -f "$backup_script" ]]; then
+        echo "Creating backup of existing configurations..."
+        "$backup_script"
+        echo
+    else
+        echo "Warning: Backup script not found, skipping backup"
+    fi
+}
 
 # ─────────────────────────────────────────────
 # Ensure scripts are executable
@@ -63,24 +87,29 @@ run() {
     if [[ ! -x "$script" ]]; then
         echo " Script not found or not executable:"
         echo "   $script"
+        echo "Make sure the script exists and has execute permissions"
         exit 1
     fi
+    echo "Running: $script"
     "$script"
 }
 
 case "$CHOICE" in 
     "Run ALL")
+        backup_configs
         run install-packages.sh
         run build-suckless.sh
         run setup-shell.sh
         ;;
     "Install packages")
+        backup_configs
         run install-packages.sh
         ;;
     "Build & install dwm")
         run build-suckless.sh
         ;;
     "Setup shell")
+        backup_configs
         run setup-shell.sh
         ;;
     *)

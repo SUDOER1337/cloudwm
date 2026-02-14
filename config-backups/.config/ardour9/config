@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ardour>
+  <Config>
+    <Option name="capture-buffer-seconds" value="10"/>
+    <Option name="playback-buffer-seconds" value="10"/>
+    <Option name="use-master-volume" value="1"/>
+    <Option name="default-session-parent-dir" value="/home/thinker"/>
+    <Option name="clip-library-dir" value="/home/thinker/.local/share/sounds/clips"/>
+    <Option name="default-automation-time-domain" value="BeatTime"/>
+    <Option name="plugin-cache-version" value="7002"/>
+    <Option name="plugin-path-vst" value="/usr/local/lib/vst:/usr/lib/vst"/>
+    <Option name="plugin-path-lxvst" value="/usr/local/lib64/lxvst:/usr/local/lib/lxvst:/usr/lib64/lxvst:/usr/lib/lxvst:/usr/local/lib64/linux_vst:/usr/local/lib/linux_vst:/usr/lib64/linux_vst:/usr/lib/linux_vst:/usr/lib/vst:/usr/local/lib/vst"/>
+    <Option name="plugin-path-vst3" value="/home/thinker/.vst3"/>
+  </Config>
+  <Metadata/>
+  <Extra>
+    <Keyboard copy-modifier="4" edit-button="3" edit-modifier="4" delete-button="3" delete-modifier="1" snap-modifier="8" snap-delta-modifier="67108936" insert-note-button="1" insert-note-modifier="4" constraint-modifier="1" slip-contents-modifier="5" trim-overlap-modifier="1" trim-anchored-modifier="5" fine-adjust-modifier="12" push-points-modifier="67108932" note-size-relative-modifier="1"/>
+    <UI status-bar="Audio,Disk,DSP">
+      <Window name="key-editor" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="session-options-editor" visible="0" x-off="0" y-off="279" x-size="804" y-size="483"/>
+      <Window name="speaker-config" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="about" visible="0" x-off="0" y-off="0" x-size="424" y-size="635"/>
+      <Window name="add-routes" visible="0" x-off="-1" y-off="-1" x-size="770" y-size="515"/>
+      <Window name="add-video" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="inspector" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="audio-midi-setup" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="video-export" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="script-manager" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="bundle-manager" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="locations" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="big-clock" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="big-transport" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="virtual-keyboard" visible="0" x-off="172" y-off="703" x-size="750" y-size="194"/>
+      <Window name="library-downloader" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="audio-connection-manager" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="midi-connection-manager" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="luawindow" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="rtawindow" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="idle-o-meter" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="io-plugins" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="plugin-manager" visible="0" x-off="1037" y-off="433" x-size="1028" y-size="850"/>
+      <Window name="plugin-dsp-load" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="dsp-statistics" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="transport-masters" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="RPM-78" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="RPM-181" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="P-181-283" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1" custom-ui="1"/>
+      <Window name="PM-181-283" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Tearoffs>
+        <monitor-section tornoff="0"/>
+      </Tearoffs>
+    </UI>
+    <AudioMIDISetup>
+      <EngineStates>
+        <State backend="JACK/Pipewire" driver="" device="HD-Audio Generic" input-device="" output-device="" sample-rate="48000" buffer-size="1024" n-periods="2" input-latency="0" output-latency="0" lm-input="" lm-output="" active="1" use-buffered-io="0" midi-option="" lru="1771061923">
+          <MIDIDevices/>
+        </State>
+        <State backend="PulseAudio" driver="" device="Default Playback" input-device="" output-device="" sample-rate="48000" buffer-size="1024" n-periods="0" input-latency="0" output-latency="0" lm-input="" lm-output="" active="0" use-buffered-io="0" midi-option="None" lru="1766997669">
+          <MIDIDevices/>
+        </State>
+        <State backend="ALSA" driver="" device="" input-device="HD-Audio Generic" output-device="HD-Audio Generic" sample-rate="48000" buffer-size="1024" n-periods="2" input-latency="0" output-latency="0" lm-input="" lm-output="" active="0" use-buffered-io="0" midi-option="ALSA sequencer" lru="1766939362">
+          <MIDIDevices/>
+        </State>
+      </EngineStates>
+    </AudioMIDISetup>
+  </Extra>
+  <ControlProtocols>
+    <Protocol name="Ableton Push 2" active="0" session-state="0"/>
+    <Protocol name="ContourDesign" feedback="0" keep-rolling="1" shuttle-speeds="0.5 0.75 1 1.5 2 5 10" jog-distance="1" jog-unit="beats" active="1">
+      <button-1 type="action" path="MIDI/panic"/>
+      <button-2 type="action" path="Editor/remove-last-capture"/>
+      <button-3 type="action" path="Editor/undo"/>
+      <button-4 type="action" path="Editor/redo"/>
+      <button-5 type="action" path="Common/jump-backward-to-mark"/>
+      <button-6 type="action" path="Transport/Record"/>
+      <button-7 type="action" path="Transport/Stop"/>
+      <button-8 type="action" path="Transport/Roll"/>
+      <button-9 type="action" path="Common/jump-forward-to-mark"/>
+      <button-10 type="jump" distance="-4" unit="bars"/>
+      <button-11 type="jump" distance="4" unit="bars"/>
+      <button-12 type="action" path=""/>
+      <button-13 type="action" path="Common/add-location-from-playhead"/>
+      <button-14 type="action" path="Transport/GotoStart"/>
+      <button-15 type="action" path="Transport/GotoEnd"/>
+    </Protocol>
+    <Protocol name="Generic MIDI" feedback="0" feedback-interval="10000" threshold="10" motorized="0" active="1">
+      <Input>
+        <Port name="MIDI Control In" type="midi" direction="Input"/>
+      </Input>
+      <Output>
+        <Port name="MIDI Control Out" type="midi" direction="Output"/>
+      </Output>
+      <Controls/>
+    </Protocol>
+    <Protocol name="Mackie" active="0" session-state="0"/>
+    <Protocol name="Novation Launch Control XL" active="0" session-state="0"/>
+    <Protocol name="Novation LaunchPad Mini" active="0" session-state="0"/>
+    <Protocol name="Novation LaunchPad Pro" active="0" session-state="0"/>
+    <Protocol name="Novation LaunchPad X" active="0" session-state="0"/>
+    <Protocol name="Novation Launchkey 4" active="0" session-state="0"/>
+    <Protocol name="Open Sound Control (OSC)" feedback="0" debugmode="0" address-only="1" remote-port="8000" banksize="0" striptypes="31" gainmode="0" send-page-size="0" plug-page-size="0" active="1"/>
+    <Protocol name="PreSonus FaderPort" active="0" session-state="0"/>
+    <Protocol name="PreSonus FaderPort16" active="0" session-state="0"/>
+    <Protocol name="PreSonus FaderPort2" active="0" session-state="0"/>
+    <Protocol name="PreSonus FaderPort8" active="0" session-state="0"/>
+    <Protocol name="SSL 360: UF8 UF1" active="0" session-state="0"/>
+    <Protocol name="Softube Console1" active="0" session-state="0"/>
+    <Protocol name="Steinberg CC121" active="0" session-state="0"/>
+    <Protocol name="Tascam US-2400" active="0" session-state="0"/>
+    <Protocol name="WebSockets Server (Experimental)" active="0" session-state="0"/>
+  </ControlProtocols>
+  <TransportMasters current="MIDI Clock">
+    <TransportMaster type="JACK" removeable="0" name="JACK" sclock_synced="0" collect="1" allowed_transport_requests=""/>
+    <TransportMaster type="MTC" removeable="0" name="MTC" fr2997="0" sclock_synced="0" collect="1" allowed_transport_requests="">
+      <Port/>
+    </TransportMaster>
+    <TransportMaster type="LTC" removeable="0" name="LTC" fr2997="0" sclock_synced="0" collect="1" allowed_transport_requests="">
+      <Port/>
+    </TransportMaster>
+    <TransportMaster type="MIDIClock" removeable="0" name="MIDI Clock" sclock_synced="0" collect="1" allowed_transport_requests="">
+      <Port/>
+    </TransportMaster>
+  </TransportMasters>
+</Ardour>

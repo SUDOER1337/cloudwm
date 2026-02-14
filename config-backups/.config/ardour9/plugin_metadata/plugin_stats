@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PluginStats>
+  <Plugin type="VST3" id="C9DA927443794873A900ED81D1946115" lru="1770973543" use-count="2"/>
+  <Plugin type="VST3" id="ABCDEF019182FAEB566D624153675854" lru="1770969623" use-count="4"/>
+  <Plugin type="VST3" id="7B791499693F5465B590BA9435E6D873" lru="1770971608" use-count="2"/>
+  <Plugin type="VST3" id="6473702067653332732020206E767364" lru="1770980714" use-count="1"/>
+  <Plugin type="VST3" id="5653545252445872656E6F6973652072" lru="1770994114" use-count="1"/>
+  <Plugin type="LV2" id="http://lsp-plug.in/plugins/lv2/surge_filter_mono" lru="1768584572" use-count="2"/>
+  <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gxts9#ts9sim" lru="1770981977" use-count="1"/>
+  <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_graphiceq_#_graphiceq_" lru="1770981025" use-count="1"/>
+  <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_duck_delay_st_#_duck_delay_st_" lru="1770981195" use-count="2"/>
+  <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_digital_delay_#_digital_delay_" lru="1770981817" use-count="1"/>
+  <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_compressor#_compressor" lru="1770981295" use-count="2"/>
+  <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_bossds1_#_bossds1_" lru="1770981161" use-count="1"/>
+  <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_amp#GUITARIX" lru="1770981779" use-count="1"/>
+  <Plugin type="LV2" id="http://gareus.org/oss/lv2/gmsynth" lru="1770968699" use-count="4"/>
+  <Plugin type="LV2" id="http://gareus.org/oss/lv2/fat1" lru="1770978818" use-count="1"/>
+  <Plugin type="LV2" id="http://eq10q.sourceforge.net/bassup" lru="1770978807" use-count="1"/>
+  <Plugin type="LV2" id="http://drumgizmo.org/lv2" lru="1770973746" use-count="1"/>
+  <Plugin type="LV2" id="http://drobilla.net/plugins/mda/Detune" lru="1770980655" use-count="3"/>
+  <Plugin type="LV2" id="http://drobilla.net/plugins/blop/lp4pole" lru="1770980464" use-count="9"/>
+  <Plugin type="LADSPA" id="1891" lru="1770980766" use-count="1"/>
+  <Plugin type="LADSPA" id="1068" lru="1770980523" use-count="3"/>
+</PluginStats>

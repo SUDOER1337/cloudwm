@@ -7,93 +7,239 @@
   \_____||______|\____/  \____/ |_____/    \/  \/    |_|  |_|
                                                              
 ```
-### Screenshots
- 
-![terminal1](screenshots/cloudwmnvim.png)
-![slock](screenshots/slock.png)
-![gtk-theme](screenshots/cloudwmgtk.png)
-![vscodium](screenshots/cloudwm-vscodium.png)
+### A reproducible minimalistic dwm repo for you to fork and customize
 
-``cloudwm`` source folder have one that are customized for my laptop and desktop 
-Rofi are stored in ``cloudwm`` folder itself but there is ``config.rasi`` that go into ``~/.config/rofi``
+cloudwm is a customized version of [suckless's dwm](https://git.suckless.org/dwm) (Dynamic Window Manager) configuration with extensive patches, themes, and automation scripts for a complete desktop experience.
 
+The cloudwm source folder has configurations customized for both laptop and desktop setups. Rofi configurations are stored in the cloudwm folder, with only `config.rasi` that goes into `~/.config/rofi`
 
 Forked from [`namishh's bedwm`](https://github.com/namishh/dwm)
 
-Compositor: ```picom```
+## Table of Contents
+- [📸 Gallery & Screenshots](#-gallery--screenshots)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Patches](#patches)
+- [Troubleshooting](#troubleshooting)
+- [Backup & Restore](#backup--restore)
 
-Terminal: ```kitty```
+## Features
 
-Lock screen: slock with readpw() and draw_time() modded originally from ['DPatel0211's dotfiles](https://github.com/DPatel0211/dotfiles)
+- **Custom DWM Build**: Selective pick of patch originally by [namishh](https://github.com/namishh/dwm)
+- **Automated Setup**: One-command installation with profile selection via TUI
+- **Theme**: GTK theme, icons, and cursor theme
+- **Backup System**: Automatic configuration backup before changes
+- **Status Bar**: Clean slstatus with custom modules
+- **Application Launcher**: Custom Rofi themes and launchers
+- **Window Management**: Fixed but adjustable layouts, gaps, and scratchpads
 
-Fonts: Cozette, Iosevka Nerd Font, JetBrainsMono Nerd Fonts
+## 📸 Gallery & Screenshots
 
-GTK theme: ```Carbon-Square``` a honestly pretty lazily created dark boxy gtk theme using oomox
+### Desktop Experience Overview
+<div align="center">
 
-Cursor theme: ```Bibata-Modern-Classic```
+| ![Terminal Setup](screenshots/terminals.png) | ![Development](screenshots/cloudwm-vscodium.png) |
+|-------------------------------------|--------------------------------------|
+| **Multi-terminal workspace** with efficient tiling | **VS Codium** with the "Nullfjord" theme |
 
-Icons: YAMIS
+| ![Application Launcher](screenshots/rofical.png) | ![Control Center](screenshots/roficontrolcenter.png) |
+|-------------------------------------|--------------------------------------|
+| **Rofi Launcher** with custom styling | **System Control** for quick settings |
 
-Dotfiles: Configuration files, scripts, wallpapers & more
+| ![Lock Screen](screenshots/slock.png) | ![System Tray](screenshots/togglesystray.png) |
+|-------------------------------------|--------------------------------------|
+| **Custom Lock Screen** with time display | **Tray Management** with toggle functionality |
+
+</div>
+
+### Interactive Elements
+
+| ![Emoji Picker](screenshots/rofiemoji.png) | ![Clipboard Manager](screenshots/clipboard.png) |
+|-------------------------------------|--------------------------------------|
+| **Emoji Selection** integrated into launcher | **Clipboard History** management |
+
+| ![Systray Functions](screenshots/togglesystrayfunction.png) |
+|-------------------------------------|
+| **Advanced Tray Controls** for system components |
 
 
-Launchers: Editted ['adi1090x collection of Rofi custom Applets, Launchers & Powermenus'](https://github.com/adi1090x/rofi)
+## System Components
 
-# Themes
+- **Window Manager**: [dwm](https://git.suckless.org/dwm) with custom patches
+- **Compositor**: `picom` for transparency and effects
+- **Terminal**: `kitty` with custom configuration
+- **Lock Screen**: slock with readpw() and draw_time() modified from ['DPatel0211's dotfiles'](https://github.com/DPatel0211/dotfiles)
+- **Fonts**: Cozette, Iosevka Nerd Font, JetBrainsMono Nerd Fonts
+- **GTK Theme**: `Carbon-Square` - a dark boxy GTK theme created using oomox
+- **Cursor Theme**: `Bibata-Modern-Classic`
+- **Icons**: YAMIS icon set
+- **Launchers**: Edited ['adi1090x collection of Rofi custom Applets, Launchers & Powermenus'](https://github.com/adi1090x/rofi)
 
-```cp ~/cloudwm/themes/Carbon-Square in ~/.themes/ #run this to put the gtk theme into ~/.theme```
+## Themes
 
-> Zen Browser custom .css (just feel line of userChrome.css to make it square tho)
-> Discord theme based on System24 for Betterdiscord 
+### GTK Theme Installation
+```bash
+cp -r ~/cloudwm/themes/Carbon-Square ~/.themes/
+```
 
-## Recommandation
+### Additional Customizations
+- **Zen Browser**: Custom userChrome.css for square interface
+- **Discord**: Theme based on System24 for BetterDiscord
 
-```nm-applet``` wifi tray icon
+## Recommended Applications
 
-```redshift``` best x11 nightlight
-
-```flameshot``` screenshot tool
-
-```udiskie``` automount drive
-
-```nwg-look``` for gtk settings
-
-```deadbeef deadbeef-mpris2-plugin``` personally my fav gui music player
+| Application | Purpose | Package Name |
+|-------------|---------|--------------|
+| Network Manager | WiFi tray icon | `nm-applet` |
+| Hide cursor | Auto-hide cursor when idle | `unclutter` |
+| Night Light | Blue light filter | `redshift` |
+| Screenshots | Screen capture tool | `flameshot` |
+| Auto-mount | USB drive mounting | `udiskie` |
+| GTK Settings | Theme configuration | `nwg-look` |
+| Music Player | GUI audio player | `deadbeef deadbeef-mpris2-plugin` |
 
 ## Installation
 
-Run the installation script:
+### Prerequisites
+- Arch Linux-based distribution (or compatible)
+- Basic development tools: `gcc`, `make`, `git`
+- `fzf` for interactive menus
+- `sudo` or `doas` access for system-wide installation
 
-```~/cloudwm/setup.sh```
+### Quick Install
+```bash
+git clone https://github.com/SUDOER1337/cloudwm.git
+cd cloudwm
+./setup.sh
+```
 
-a fzf prompt should pops up
+### Installation Process
+1. Run the installation script: `~/cloudwm/setup.sh`
+2. An fzf prompt will pop up asking you to select:
+   - **Desktop**: Full-featured configuration
+   - **Laptop**: Optimized for battery life and space
+3. The script will automatically build and configure the selected profile
 
-and ask if you want to install Desktop or Laptop version and will build and clone config automatically
+> **Note**: The setup automatically creates backups of existing configurations. See [BACKUP_README.md](BACKUP_README.md) for backup/restore information.
 
 ## Patches
-+ ActualFullscreen
-+ AltTagsDecoration
-+ Alwayscenter
-+ BarPadding
-+ BarHeight
-+ Cfacts
-+ CycleLayouts
-+ NoTitle
-+ RainbowTags
-+ ScratchPads
-+ Status2d
-+ StatusButton
-+ StatusPadding
-+ StatusCmd
-+ Swallow
-+ Systray-Iconsize
-+ UnderlineTags
-+ Vanitygaps
 
-All configuration is done by editing the source code files:
+| Patch | Description |
+|--------|-------------|
+| ActualFullscreen | Proper fullscreen support without decorations |
+| AltTagsDecoration | Alternative tag decoration style |
+| Alwayscenter | Center new windows by default |
+| BarPadding | Add padding around status bar |
+| BarHeight | Customizable status bar height |
+| Cfacts | Client factoring for proportional resizing |
+| CycleLayouts | Cycle through available layouts |
+| NoTitle | Remove window title bars |
+| RainbowTags | Colored tag indicators |
+| ScratchPads | Dropdown terminal and music player |
+| Status2d | Enhanced status bar with 2D graphics |
+| StatusButton | Clickable status bar items |
+| StatusPadding | Padding around status text |
+| StatusCmd | Custom status bar commands |
+| Swallow | Parent-child window management |
+| Systray-Iconsize | Customizable system tray icon size |
+| UnderlineTags | Underline active tags instead of highlighting |
+| Vanitygaps | Configurable window gaps |
 
-    config.h – Main configuration file
+## Configuration
 
-    scripts/ – Helper scripts for automation
+### Main Configuration File
+Edit `suckless/cloudwm/config.def.h` for:
+- Colors and themes
+- Keybindings and shortcuts
+- Layout preferences
+- Application rules
+- Status bar components
+- Scratchpad configurations
 
-Feel free to forks!
+### Profile Differences
+- **Desktop**: Full feature set with all status bar modules
+- **Laptop**: Optimized settings for mobile use
+
+### Customization Examples
+```c
+// Change colors
+static const char col_back[] = "#1a1a1a";
+static const char col_fore[] = "#ffffff";
+
+// Add custom keybinding
+{ MODKEY, XK_w, spawn, SHCMD("firefox") },
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Build fails with permission errors**
+```bash
+sudo chown -R $USER:$USER ~/cloudwm
+chmod +x ~/cloudwm/scripts/*.sh
+```
+
+**Sudo not working in container**
+The build script offers alternatives:
+- Use "Build only" option for manual installation
+- Install to `~/.local/bin` for user-level installation
+
+**Status bar not updating**
+```bash
+# Restart slstatus
+killall slstatus && slstatus &
+# Or restart dwm entirely
+modkey + shift + q
+```
+
+**Window decorations missing**
+Check that GTK theme is properly installed:
+```bash
+ls ~/.themes/Carbon-Square
+cp -r ~/cloudwm/themes/Carbon-Square ~/.themes/
+```
+
+**Keybindings not working**
+Verify DWM is running (not another WM):
+```bash
+echo $XDG_CURRENT_DESKTOP
+echo $DESKTOP_SESSION
+```
+
+## Backup & Restore
+
+CloudWM includes an automatic backup system that protects your existing configurations. See [BACKUP_README.md](BACKUP_README.md) for detailed instructions.
+
+### Manual Backup
+```bash
+./scripts/backup-configs.sh
+```
+
+### Manual Restore
+```bash
+./scripts/restore-configs.sh
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is open source. Feel free to fork, modify, and distribute according to your preferred license.
+
+## Support
+
+For issues and questions:
+- Check the [Troubleshooting](#troubleshooting) section first
+- Review existing GitHub issues
+- Create detailed bug reports with system information
+
+---
+
+Feel free to fork! 🚀

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<PortMeta version="1">
-  <PortID backend="JACK/Pipewire" device-name="" port-name="Midi-Bridge:Midi Through Port-0 (capture)" data-type="midi" input="1" pretty-name="" properties=""/>
-  <PortID backend="JACK/Pipewire" device-name="" port-name="Midi-Bridge:Midi Through Port-0 (playback)" data-type="midi" input="0" pretty-name="" properties=""/>
-  <PortID backend="JACK/Pipewire" device-name="" port-name="Midi-Bridge:Renoise MIDI OutputMidi Through Port-0 (capture)" data-type="midi" input="1" pretty-name="" properties=""/>
-</PortMeta>

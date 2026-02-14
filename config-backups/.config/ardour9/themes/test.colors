@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ardour theme-name="test1">
+  <Colors>
+
+    <!-- ===== Base UI ===== -->
+    <ui:bg value="2e3440ff"/>
+    <ui:bg:secondary value="3b4252ff"/>
+    <ui:bg:tertiary value="434c5eff"/>
+    <ui:fg value="d8dee9ff"/>
+    <ui:fg:secondary value="e5e9f0ff"/>
+    <ui:border value="4c566aff"/>
+  
+    <!-- ===== Alerts ===== -->
+    <alert:info value="5e81acff"/>      <!-- old alert:blue -->
+    <alert:success value="a3be8cff"/>   <!-- old alert:greenish -->
+    <alert:warning value="ebcb8bff"/>   <!-- unchanged -->
+    <alert:error value="bf616aff"/>     <!-- old alert:ruddy -->
+    <alert:attention value="88c0d0ff"/> <!-- old alert:cyan -->
+
+    <alert:text value="eceff4ff"/>
+    <alert:bg value="3b4252ff"/>
+
+    <!-- ===== Meter Gradient ===== -->
+<meter:low value="a3be8cff"/>        <!-- green -->
+<meter:mid value="ebcb8bff"/>        <!-- yellow -->
+<meter:high value="d08770ff"/>       <!-- orange -->
+<meter:clip value="bf616aff"/>       <!-- red -->
+
+<meter:bg value="2e3440ff"/>
+<meter:border value="4c566aff"/>
+<meter:text value="d8dee9ff"/>
+
+    <!-- ===== Accent / Highlights ===== -->
+    <ui:accent value="5e81acff"/>
+    <ui:accent:alt value="81a1c1ff"/>
+    <ui:warning value="ebcb8bff"/>
+    <ui:error value="bf616aff"/>
+    <ui:success value="a3be8cff"/>
+
+    <!-- ===== Selection ===== -->
+    <selection:bg value="5e81acff"/>
+    <selection:fg value="eceff4ff"/>
+    <selection:outline value="88c0d0ff"/>
+
+    <!-- ===== Text & Labels ===== -->
+    <text:normal value="d8dee9ff"/>
+    <text:inactive value="7a8599ff"/>
+    <text:disabled value="616e88ff"/>
+    <text:highlight value="eceff4ff"/>
+
+    <!-- ===== Editor ===== -->
+    <editor:bg value="2e3440ff"/>
+    <editor:grid value="3b4252ff"/>
+    <editor:playhead value="bf616aff"/>
+    <editor:range value="5e81acff"/>
+    <editor:marker value="88c0d0ff"/>
+
+    <!-- ===== Timeline ===== -->
+    <timeline:bg value="2e3440ff"/>
+    <timeline:grid value="434c5eff"/>
+    <timeline:text value="d8dee9ff"/>
+
+    <!-- ===== Mixer ===== -->
+    <mixer:bg value="2e3440ff"/>
+    <mixer:strip value="3b4252ff"/>
+    <mixer:text value="d8dee9ff"/>
+    <mixer:fader value="81a1c1ff"/>
+    <mixer:meter value="a3be8cff"/>
+
+    <!-- ===== Transport ===== -->
+    <transport:bg value="3b4252ff"/>
+    <transport:text value="d8dee9ff"/>
+    <transport:button value="5e81acff"/>
+    <transport:button:active value="88c0d0ff"/>
+
+    <!-- ===== Automation ===== -->
+    <automation:line value="81a1c1ff"/>
+    <automation:point value="88c0d0ff"/>
+    <automation:bg value="2e3440ff"/>
+
+    <!-- ===== Plugins ===== -->
+    <plugin:bg value="3b4252ff"/>
+    <plugin:text value="d8dee9ff"/>
+    <plugin:border value="4c566aff"/>
+
+    <!-- ===== Misc ===== -->
+    <tooltip:bg value="434c5eff"/>
+    <tooltip:text value="eceff4ff"/>
+    <menu:bg value="3b4252ff"/>
+    <menu:text value="d8dee9ff"/>
+
+  </Colors>
+</Ardour>
+

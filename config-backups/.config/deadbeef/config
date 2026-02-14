@@ -10,18 +10,24 @@ converter.output_folder /mnt/Storages/Audio/Speeches
 converter.output_format 0
 converter.overwrite_action 0
 deadbeef_version 1.10.0
-filechooser.lastdir file:///home/thinker/Music/Untitled-2026-01-24-14-23-27/export
+filechooser.lastdir file:///run/media/thinker/DoNotOpen
 filechooser.playlist.lastdir file:///home/thinker/Music
 gtkui.autoresize_columns 0
 gtkui.color.bar_background 12336 12336 12336
-gtkui.color.bar_foreground 48059 48059 48059
-gtkui.color.listview_cursor 48059 48059 48059
+gtkui.color.bar_foreground 54484 48830 39064
+gtkui.color.listview_column_text 54484 48830 39064
+gtkui.color.listview_cursor 54484 48830 39064
 gtkui.color.listview_even_row 12336 12336 12336
-gtkui.color.listview_odd_row 16036 16036 16036
+gtkui.color.listview_group_text 54484 48830 39064
+gtkui.color.listview_odd_row 12336 12336 12336
+gtkui.color.listview_playing_text 54484 48830 39064
 gtkui.color.listview_selected_text 12335 12335 12335
-gtkui.color.listview_selection 49344 49087 48316
+gtkui.color.listview_selection 54484 48830 39064
+gtkui.color.listview_text 54484 48830 39064
 gtkui.color.tabstrip_light 16036 16036 16036
-gtkui.color.tabstrip_playing_text 49344 49087 48316
+gtkui.color.tabstrip_playing_text 54484 48830 39064
+gtkui.color.tabstrip_selected_text 54484 48830 39064
+gtkui.color.tabstrip_text 54484 48830 39064
 gtkui.columns.playlist [{"title":"♫","id":"1","format":"%playstatus%","sort_format":"","size":"38","align":"0","color_override":"0","color":"#ff000000"},{"title":"Title","id":"-1","format":"%title%","sort_format":"","size":"569","align":"0","color_override":"0","color":"#ff000000"},{"title":"Duration","id":"-1","format":"%length%","sort_format":"","size":"105","align":"0","color_override":"0","color":"#ff000000"}]
 gtkui.columns.search [{"title":"Artist / Album","id":"-1","format":"$if(%artist%,%artist%,Unknown Artist)[ - %album%]","sort_format":"","size":"150","align":"0","color_override":"0","color":"#ff000000"},{"title":"Track No","id":"-1","format":"%tracknumber%","sort_format":"","size":"50","align":"1","color_override":"0","color":"#ff000000"},{"title":"Title","id":"-1","format":"%title%","sort_format":"","size":"150","align":"0","color_override":"0","color":"#ff000000"},{"title":"Duration","id":"-1","format":"%length%","sort_format":"","size":"50","align":"0","color_override":"0","color":"#ff000000"}]
 gtkui.embolden_current_track 1
@@ -32,7 +38,7 @@ gtkui.font.tabstrip_text IosevkaTerm Nerd Font Propo Ultra-Bold 10
 gtkui.hide_remove_from_disk 0
 gtkui.hide_tray_icon 0
 gtkui.last_playlist_save_name /home/thinker/Music/untitled.dbpl
-gtkui.layout.1.9.0 {"type":"vbox","legacy_params":" expand=\"0 1\" fill=\"1 1\" homogeneous=0","children":[{"type":"hbox","legacy_params":" expand=\"0 1 0\" fill=\"1 1 1\" homogeneous=0","children":[{"type":"playtb"},{"type":"seekbar"},{"type":"volumebar","settings":{"scale":"db"}}]},{"type":"tabbed_playlist","legacy_params":" hideheaders=0 width=1900"}]}
+gtkui.layout.1.9.0 {"type":"vbox","legacy_params":" expand=\"0 1\" fill=\"1 1\" homogeneous=0","children":[{"type":"hbox","legacy_params":" expand=\"0 1 0\" fill=\"1 1 1\" homogeneous=0","children":[{"type":"playtb"},{"type":"seekbar"},{"type":"volumebar","settings":{"scale":"db"}}]},{"type":"tabbed_playlist","legacy_params":" hideheaders=0 width=926"}]}
 gtkui.log.autoopen 1
 gtkui.override_bar_colors 1
 gtkui.override_listview_colors 1
@@ -49,7 +55,7 @@ gtkui.tabstrip_italic_playing 0
 gtkui.titlebar_playing_tf DeaDBeeF - %artist% - %title%
 gtkui.titlebar_stopped_tf DeaDBeeF
 gtkui.vis.custom_background_color 16036 16036 16036
-gtkui.vis.custom_base_color 48059 48059 48059
+gtkui.vis.custom_base_color 54484 48830 39064
 gtkui.vis.use_custom_background_color 1
 gtkui.vis.use_custom_base_color 1
 gui_plugin GTK3
@@ -93,8 +99,8 @@ logwindow.geometry.x 394
 logwindow.geometry.y 73
 mainwin.geometry.h 1006
 mainwin.geometry.maximized 0
-mainwin.geometry.w 740
-mainwin.geometry.x -1492
+mainwin.geometry.w 926
+mainwin.geometry.x 25
 mainwin.geometry.y 48
 medialib.deadbeef.enabled 1
 mp3.id3v1_encoding iso8859-1
@@ -104,52 +110,55 @@ mp3.write_id3v2 1
 network.proxy.port 8080
 output_plugin pipewire
 playback.loop 0
-playback.order 1
-playback.volume.normalized 0.4098070
-playlist.current 1
+playback.order 0
+playback.volume.normalized 1.0000000
+playlist.current 2
 playlist.cursor.0 0
-playlist.cursor.1 2
-playlist.cursor.10 0
-playlist.cursor.2 27
-playlist.cursor.3 2
-playlist.cursor.4 7
-playlist.cursor.5 1
-playlist.cursor.6 0
+playlist.cursor.1 9
+playlist.cursor.10 99
+playlist.cursor.11 26
+playlist.cursor.2 1
+playlist.cursor.3 27
+playlist.cursor.4 2
+playlist.cursor.5 7
+playlist.cursor.6 10
 playlist.cursor.7 0
-playlist.cursor.8 0
-playlist.cursor.9 99
+playlist.cursor.8 1
+playlist.cursor.9 0
 playlist.groups.spacing 12
 playlist.scroll.0 0
-playlist.scroll.1 -2
+playlist.scroll.1 73
 playlist.scroll.10 0
-playlist.scroll.2 0
+playlist.scroll.11 83
+playlist.scroll.2 -7
 playlist.scroll.3 0
-playlist.scroll.4 -7
-playlist.scroll.5 -1
-playlist.scroll.6 0
+playlist.scroll.4 0
+playlist.scroll.5 -7
+playlist.scroll.6 -1
 playlist.scroll.7 0
 playlist.scroll.8 0
-playlist.scroll.9 -99
+playlist.scroll.9 0
 playlist.scroll.cursorfollowplayback 1
 playlist.tab.00000 Default
 playlist.tab.00001 While Works
-playlist.tab.00002 Nonsense Playlist
-playlist.tab.00003 Breakcore
-playlist.tab.00004 Hakita - Anyone Tennis?
-playlist.tab.00005 Distorded Eliminator
-playlist.tab.00006 Drumcorps
-playlist.tab.00007 Cybergrinds
-playlist.tab.00008 Extratone
-playlist.tab.00009 Dave And Bambi
-playlist.tab.00010 SAR023
+playlist.tab.00002 WhileWorkAlt
+playlist.tab.00003 Nonsense Playlist
+playlist.tab.00004 Breakcore
+playlist.tab.00005 Hakita - Anyone Tennis?
+playlist.tab.00006 Distorded Eliminator
+playlist.tab.00007 Drumcorps
+playlist.tab.00008 Cybergrinds
+playlist.tab.00009 Extratone
+playlist.tab.00010 Dave And Bambi
+playlist.tab.00011 SAR023
 prefwin.geometry.h 582
 prefwin.geometry.w 758
-prefwin.geometry.x 687
-prefwin.geometry.y 277
-resume.paused 0
-resume.playlist 1
-resume.position 0.0445200
-resume.track 25
+prefwin.geometry.x -144
+prefwin.geometry.y 609
+resume.paused 1
+resume.playlist 2
+resume.position 46.826847
+resume.track 7
 searchwin.geometry.h 150
 searchwin.geometry.w 450
 searchwin.geometry.x 735

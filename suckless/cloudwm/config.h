@@ -36,7 +36,8 @@ static const char dmenufont[] = "Iosevka Nerd Font:size=12";
 // [ Backgrounds and UI ]
 
 //static const char col_back[] = "#303030";
-static const char col_back[] = "#323232";
+//static const char col_back[] = "#323232";
+static const char col_back[] = "#292828";
 static const char col_tagfg[] = "#D0D5CF";
 
 static const char col_gray1[] = "#353535";
