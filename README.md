@@ -189,8 +189,6 @@ The build script offers alternatives:
 ```bash
 # Restart slstatus
 killall slstatus && slstatus &
-# Or restart dwm entirely
-modkey + shift + q
 ```
 
 **Window decorations missing**
@@ -209,7 +207,7 @@ echo $DESKTOP_SESSION
 
 ## Backup & Restore
 
-CloudWM includes an automatic backup system that protects your existing configurations. See [BACKUP_README.md](BACKUP_README.md) for detailed instructions.
+cloudwm includes an automatic backup system that protects your existing configurations. See [BACKUP_README.md](BACKUP_README.md) for detailed instructions.
 
 ### Manual Backup
 ```bash
@@ -220,19 +218,6 @@ CloudWM includes an automatic backup system that protects your existing configur
 ```bash
 ./scripts/restore-configs.sh
 ```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is open source. Feel free to fork, modify, and distribute according to your preferred license.
-
 ## Support
 
 For issues and questions:
