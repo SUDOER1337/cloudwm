@@ -46,15 +46,15 @@
     <Color name="theme:contrasting alt" value="d8a657ff"/>
     <Color name="theme:contrasting clock" value="a89984ff"/>
     <Color name="theme:contrasting less" value="928374ff"/>
-    <Color name="theme:contrasting selection" value="7daea3ff"/>
+    <Color name="theme:contrasting selection" value="546d68ff"/>
     <Color name="widget:bg" value="45403dff"/>
-    <Color name="widget:blue" value="7daea3ff"/>
+    <Color name="widget:blue" value="546d68ff"/>
     <Color name="widget:blue darker" value="32302fff"/>
-    <Color name="widget:blue lighter" value="7daea3ff"/>
+    <Color name="widget:blue lighter" value="546d68ff"/>
     <Color name="widget:gray" value="4f4842ff"/>
     <Color name="widget:green" value="a9b665ff"/>
-    <Color name="widget:green darker" value="8f9d6aff"/>
-    <Color name="widget:green lighter" value="a9b665ff"/>
+    <Color name="widget:green darker" value="413939ff"/>
+    <Color name="widget:green lighter" value="8f9d6aff"/>
     <Color name="widget:orange" value="e78a4eff"/>
     <Color name="widget:ruddy" value="c14a4aff"/>
     <Color name="widget:yellow" value="d8a657ff"/>

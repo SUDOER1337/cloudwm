@@ -4,6 +4,7 @@
     <Option name="color-file" value="gruvboxmaterial"/>
     <Option name="flat-buttons" value="1"/>
     <Option name="timeline-item-gradient-depth" value="0.30000001192092896"/>
+    <Option name="all-floating-windows-are-dialogs" value="1"/>
     <Option name="use-route-color-widely" value="1"/>
     <Option name="vertical-region-gap" value="2"/>
     <Option name="font-scale" value="114931"/>

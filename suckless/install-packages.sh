@@ -33,6 +33,9 @@ CORE_PKGS=(
     # File managers
     thunar
     nemo
+    tumbler 
+    gdk-pixbuf2 
+    ffmpegthumbnailer
 
     # CLI tools
     ripgrep
@@ -85,6 +88,10 @@ fi
 
 $AUR -Syu --noconfirm
 $AUR -S --noconfirm "${CORE_PKGS[@]}" "${OPTIONALS_SELECTED[@]}"
+
+# For Nemo thumbnails to works
+gsettings set org.nemo.preferences show-image-thumbnails 'always'
+gsettings set org.nemo.preferences thumbnail-limit 10737418240
 
 echo
 echo "✔ Package installation complete"

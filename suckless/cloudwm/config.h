@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+/* See LICENSE file for copyright and license etails. */
 
 /* appearance */
 #include <X11/XF86keysym.h>
@@ -48,7 +48,6 @@ static const char col_gray4[] = "#BBBBBB";
 
 // --- Accent Colors ---
 
-// --- Accent Colors (darker, muted, fog-safe) ---
 static const char col_1[] = "#6F8160";
 static const char col_2[] = "#725548";
 static const char col_3[] = "#7D6D51";
@@ -116,9 +115,10 @@ static const int ulineall = 0;
 
 /* rules */
 static const Rule rules[] = {
-    {"obsidian", NULL, NULL, 0, 1, -1},
-    {"Thunar", NULL, NULL, 0, 1, -1},
-    {"Nemo", NULL, NULL, 0, 1, -1},
+    {"Virt-viewer", NULL, NULL, 1 << 8, 0, 0, 1, -1},
+    {"obsidian", NULL, NULL, 0, 1, 0, 0, -1},
+    {"Thunar", NULL, NULL, 0, 1, 0, 0, -1},
+    {"Nemo", NULL, NULL, 0, 1, 0, 0, -1},
     {NULL, NULL, "File Operation Progress", 0, 1, -1},
     {NULL, NULL, "Properties", 0, 1, -1},
     {"discord", NULL, NULL, 0, 1, -1},
@@ -232,12 +232,12 @@ static const char* playerctl_stop[] = {"playerctl", "stop", NULL};
 /* flameshot commands */
 static const char* flameshot_gui[] = {"flameshot", "gui", NULL};
 
-/* XF86 volume controls */
-static const char* vol_up[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@",
-                               "+5%", NULL};
-static const char* vol_down[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@",
-                                 "-5%", NULL};
-static const char* vol_mute[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@",
+/* XF86 volume controls (PipeWire via wpctl) */
+static const char* vol_up[] = {"wpctl", "set-volume", "--limit", "1.0",
+                               "@DEFAULT_AUDIO_SINK@", "1%+", NULL};
+static const char* vol_down[] = {"wpctl", "set-volume",
+                                 "@DEFAULT_AUDIO_SINK@", "1%-", NULL};
+static const char* vol_mute[] = {"wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@",
                                  "toggle", NULL};
 
 /*Language Switcher*/
@@ -267,7 +267,7 @@ static const Key keys[] = {
     {0, XF86XK_AudioNext, spawn, {.v = playerctl_next}},
     {0, XF86XK_AudioPrev, spawn, {.v = playerctl_prev}},
     {0, XF86XK_AudioStop, spawn, {.v = playerctl_stop}},
-
+    
     /* Volume controls */
     {0, XF86XK_AudioRaiseVolume, spawn, {.v = vol_up}},
     {0, XF86XK_AudioLowerVolume, spawn, {.v = vol_down}},
@@ -300,15 +300,18 @@ static const Key keys[] = {
     {Mod1Mask, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_q, killclient, {0}},
 
-    {MODKEY, XK_9, setnogaps, {0}},   // focus
-    {MODKEY, XK_8, setmingaps, {0}},  // gappy
-    {MODKEY, XK_7, setwidegaps, {0}}, // ULTRAGAPPY
+    {MODKEY, XK_g, setnogaps, {0}},   // focus
+    {MODKEY | ShiftMask , XK_g, setmingaps, {0}},  // gappy
+    {MODKEY | ControlMask, XK_g, setwidegaps, {0}}, // ULTRAGAPPY
 
     /*{MODKEY|ShiftMask,             XK_q,      quit,           {0}},*/
 
+    { MODKEY, XK_F1, view, {.ui = 1 << 0 } },
+    { MODKEY, XK_F2, view, {.ui = 1 << 8 } }, // Windows tag
+                                              
     /* Tags */
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
-        TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5)};
+    TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5)};
 
 /* button definitions */
 static const Button buttons[] = {
