@@ -119,17 +119,8 @@ build_pkg() {
     make clean
     make
     
-    # Handle installation based on mode
-    if [[ "${BUILD_ONLY:-false}" == "true" ]]; then
-        echo "Skipping installation (build-only mode)"
-        return
-    fi
-    
-    # Check if using local installation
-    if [[ -n "${PREFIX:-}" ]]; then
-        echo "Installing $name to $PREFIX/bin…"
-        make install PREFIX="$PREFIX"
-    elif [[ $EUID -ne 0 ]]; then
+    # Check if installation requires privileges
+    if [[ $EUID -ne 0 ]]; then
         echo "Installing $name (requires sudo)…"
         sudo make install
     else

@@ -8,12 +8,10 @@ static const int user_bh = 27; /* 0 means that dwm will calculate bar height, >=
 static const int swallowfloating =
     0; /* 1 means swallow floating windows by default */
 static const unsigned int snap = 1;   /* snap pixel */
-static const unsigned int gappih = 6; /* horiz inner gap between windows */
-static const unsigned int gappiv = 6; /* vert inner gap between windows */
-static const unsigned int gappoh =
-    6; /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov =
-    6; /* vert outer gap between windows and screen edge */
+static const unsigned int gappih = 20; /* horiz inner gap between windows */
+static const unsigned int gappiv = 25; /* vert inner gap between windows */
+static const unsigned int gappoh = 5; /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov = 5; /* vert outer gap between windows and screen edge */
 static const char buttonbar[] = " ";
 static int smartgaps =
     0; /* 1 means no outer gap when there is only one window */
@@ -88,6 +86,11 @@ static const StatusCmd statuscmds[] = {
 };
 
 static const char *statuscmd[] = {"/bin/bash", "-c", NULL, NULL};
+
+static const char *const autostart[] = {
+	"st", NULL,
+	NULL /* terminate */
+};
 
 static const char *const autostart[] = {
 	"st", NULL,

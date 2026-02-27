@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eo pipefail
+set -euo pipefail
 
 # CloudWM Configuration Backup Script
 # Creates timestamped backup before installation
@@ -34,7 +34,7 @@ backup_path() {
         mkdir -p "$(dirname "$dest")"
         cp -r "$src" "$dest"
         echo "  ✓ Backed up: ${src#$HOME/}"
-        backup_count=$((backup_count + 1))
+        ((backup_count++))
     fi
 }
 

@@ -45,7 +45,7 @@ static const int time_y_off    = 0;              /* pixels relative to center */
 /* Date display settings */
 static const char *date_font   = "Iosevka Nerd Font:style=Regular:size=25";
 static const char *date_color  = "#bbbbbb";      /* softer contrast */
-// static const char *date_format = "%a %d.%m.%Y";  /* re-enabled for clarity - commented out to remove unused warning */
+static const char *date_format = "%a %d.%m.%Y";  /* re-enabled for clarity */
 static const int date_y_off    = 60;             /* pixels relative to center */
 
 /* Input indicator settings */

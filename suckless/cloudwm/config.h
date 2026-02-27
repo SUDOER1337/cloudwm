@@ -204,8 +204,7 @@ static const char* rofi_launcher[] = {
     "sh", "-c", "$HOME/cloudwm/rofi/launchers/launcher.sh", NULL};
 static const char* rofi_emoji[] = {"sh", "-c",
                                    "$HOME/cloudwm/rofi/emoji/emoji.sh", NULL};
-static const char* rofi_powermenu[] = {
-    "sh", "-c", "$HOME/cloudwm/rofi/powermenu/powermenu.sh", NULL};
+static const char* rofi_powermenu[] = {"/home/thinker/cloudwm/test_powermenu.sh", NULL};
 static const char* rofi_calc[] = {"sh", "-c", "$HOME/cloudwm/rofi/calc/calc.sh",
                                   NULL};
 static const char* rofi_controlcenter[] = {
@@ -240,9 +239,6 @@ static const char* vol_down[] = {"wpctl", "set-volume",
 static const char* vol_mute[] = {"wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@",
                                  "toggle", NULL};
 
-/*Language Switcher*/
-static const char* toggle_layout_cmd[] = {
-    "/bin/sh", "-c", "$HOME/cloudwm/scripts/toggle-layout.sh", NULL};
 
 /* keybindings */
 static const Key keys[] = {
@@ -273,9 +269,7 @@ static const Key keys[] = {
     {0, XF86XK_AudioLowerVolume, spawn, {.v = vol_down}},
     {0, XF86XK_AudioMute, spawn, {.v = vol_mute}},
 
-    /*Meta + Space*/
-    {MODKEY, XK_space, spawn, {.v = toggle_layout_cmd}},
-
+    
     /* Applications */
     {MODKEY, XK_b, spawn, SHCMD("zen-browser")},
     {MODKEY, XK_e, spawn, SHCMD("nemo")},
@@ -283,6 +277,11 @@ static const Key keys[] = {
     {MODKEY, XK_t, spawn, SHCMD("kitty")},
     {MODKEY, XK_o, spawn, SHCMD("obsidian")},
 
+    /* warpd: keyboard pointer (z/x/c cluster) */
+    { MODKEY|ShiftMask, XK_z, spawn, SHCMD("warpd --hint")   },
+    { MODKEY|ShiftMask, XK_x, spawn, SHCMD("warpd --grid")   },
+    { MODKEY|ShiftMask, XK_c, spawn, SHCMD("warpd --normal") },
+    
     /*Bar*/
     {MODKEY, XK_0, togglebar, {0}},
     {MODKEY, XK_y, togglesystray, {0}},

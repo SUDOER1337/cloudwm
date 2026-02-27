@@ -90,6 +90,7 @@ cp -r ~/cloudwm/themes/Carbon-Square ~/.themes/
 
 | Application | Purpose | Package Name |
 |-------------|---------|--------------|
+| Vim-way of moving cursor | Control cursor with keyboard | `warpd` |
 | Network Manager | WiFi tray icon | `nm-applet` |
 | Hide cursor | Auto-hide cursor when idle | `unclutter` |
 | Night Light | Blue light filter | `redshift` |
