@@ -46,7 +46,7 @@ gtkui.override_tabstrip_colors 1
 gtkui.playlist.group_by_tf 
 gtkui.refresh_rate 5
 gtkui.search.group_by_tf 
-gtkui.start_hidden 0
+gtkui.start_hidden 1
 gtkui.statusbar.visible 1
 gtkui.tabscroll 0
 gtkui.tabstrip_embolden_playing 1
@@ -96,7 +96,7 @@ hotkeys_created 1
 logwindow.geometry.h 916
 logwindow.geometry.w 1233
 logwindow.geometry.x 394
-logwindow.geometry.y 73
+logwindow.geometry.y 110
 mainwin.geometry.h 1028
 mainwin.geometry.maximized 0
 mainwin.geometry.w 1900
@@ -112,53 +112,57 @@ output_plugin pipewire
 playback.loop 0
 playback.order 0
 playback.volume.normalized 1.0000000
-playlist.current 2
-playlist.cursor.0 -1
-playlist.cursor.1 9
-playlist.cursor.10 99
-playlist.cursor.11 26
-playlist.cursor.2 13
-playlist.cursor.3 27
-playlist.cursor.4 2
-playlist.cursor.5 7
-playlist.cursor.6 10
-playlist.cursor.7 0
-playlist.cursor.8 9
-playlist.cursor.9 0
+playlist.current 3
+playlist.cursor.0 0
+playlist.cursor.1 30
+playlist.cursor.10 0
+playlist.cursor.11 99
+playlist.cursor.12 26
+playlist.cursor.2 20
+playlist.cursor.3 18
+playlist.cursor.4 27
+playlist.cursor.5 2
+playlist.cursor.6 7
+playlist.cursor.7 10
+playlist.cursor.8 0
+playlist.cursor.9 9
 playlist.groups.spacing 12
 playlist.scroll.0 0
-playlist.scroll.1 73
+playlist.scroll.1 -30
 playlist.scroll.10 0
-playlist.scroll.11 59
-playlist.scroll.2 -13
-playlist.scroll.3 275
-playlist.scroll.4 0
-playlist.scroll.5 -7
-playlist.scroll.6 -1
-playlist.scroll.7 0
+playlist.scroll.11 0
+playlist.scroll.12 59
+playlist.scroll.2 -20
+playlist.scroll.3 -19
+playlist.scroll.4 275
+playlist.scroll.5 0
+playlist.scroll.6 -7
+playlist.scroll.7 -1
 playlist.scroll.8 0
 playlist.scroll.9 0
 playlist.scroll.cursorfollowplayback 1
 playlist.tab.00000 Default
-playlist.tab.00001 While Works
-playlist.tab.00002 While Work Alt
-playlist.tab.00003 Nonsense Playlist
-playlist.tab.00004 Breakcore
-playlist.tab.00005 Hakita - Anyone Tennis?
-playlist.tab.00006 Distorded Eliminator
-playlist.tab.00007 Drumcorps
-playlist.tab.00008 Cybergrinds
-playlist.tab.00009 Extratone
-playlist.tab.00010 Dave And Bambi
-playlist.tab.00011 SAR023
+playlist.tab.00001 While Works 1
+playlist.tab.00002 While Work 2
+playlist.tab.00003 Brutally Working
+playlist.tab.00004 Nonsense Playlist
+playlist.tab.00005 Breakcore
+playlist.tab.00006 Hakita - Anyone Tennis?
+playlist.tab.00007 Distorded Eliminator
+playlist.tab.00008 Drumcorps
+playlist.tab.00009 Cybergrinds
+playlist.tab.00010 Extratone
+playlist.tab.00011 Dave And Bambi
+playlist.tab.00012 SAR023
 prefwin.geometry.h 582
 prefwin.geometry.w 758
 prefwin.geometry.x 581
 prefwin.geometry.y 498
-resume.paused 1
-resume.playlist 2
-resume.position 30.006355
-resume.track 13
+replaygain.processing_flags 1
+resume.paused 0
+resume.playlist 3
+resume.position 0.0445200
+resume.track 5
 searchwin.geometry.h 150
 searchwin.geometry.w 450
 searchwin.geometry.x 735

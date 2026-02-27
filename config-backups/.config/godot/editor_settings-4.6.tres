@@ -1,8 +1,5 @@
 [gd_resource type="EditorSettings" format=3]
 
-[sub_resource type="InputEventKey" id="InputEventKey_fuij1"]
-keycode = 4194326
-
 [sub_resource type="InputEventKey" id="InputEventKey_nyeng"]
 command_or_control_autoremap = true
 alt_pressed = true
@@ -96,12 +93,6 @@ _export_preset_advanced_mode = true
 export/android/scrcpy/screen_size = "1920x1080/120"
 export/macos/actool = ""
 shortcuts = [{
-"name": "spatial_editor/viewport_zoom_modifier_1",
-"shortcuts": [SubResource("InputEventKey_fuij1")]
-}, {
-"name": "spatial_editor/viewport_zoom_modifier_2",
-"shortcuts": []
-}, {
 "name": "editor/clear_output",
 "shortcuts": [SubResource("InputEventKey_nyeng")]
 }]
