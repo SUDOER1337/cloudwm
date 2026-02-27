@@ -1,0 +1,65 @@
+# Build artifacts
+*.o
+*.out
+*.so
+*.a
+*.tar.gz
+dwm
+slock
+slstatus
+compiledwm
+
+# Object files and build artifacts
+**/*.o
+**/*.out
+**/dwm
+**/slock
+**/slstatus
+
+# Backup and temporary files
+*.bak
+*.backup
+*.bk
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+.vimrc
+
+# Personal/system-specific files
+.xinitrc.backup
+.pnotes/
+test_*.sh
+
+# Logs and runtime files
+*.log
+*.pid
+
+# Cache and temporary directories
+cache/
+tmp/
+temp/
+
+# Compiled binaries (keep source)
+**/dwm
+**/slock  
+**/slstatus
+
+# Package manager files
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+*.pyo
+
+# Development files
+*.rej
+*.orig
