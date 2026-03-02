@@ -1,8 +1,6 @@
+<img src="cloudwm.png" alt="cloudwm logo" width="100%">
 
-<img src="cloudwm.png" style="width: 100%; max-width: 100vw; height: auto;" />
-
-customized dwm build
-==============================
+# customized renamed dwm build
 
 cloudwm is a customized version of suckless dwm with patches, themes, and scripts.
 Forked from namishh's bedwm.
@@ -28,11 +26,11 @@ Screenshots
 
 | Terminal Setup | Development |
 |----------------|-------------|
-| ![Terminal Setup](screenshots/terminals.png) | ![Development](screenshots/cloudwm-vscodium.png) |
+| ![Terminal Setup](screenshots/terminals.gif) | ![Development](screenshots/cloudwm-vscodium.png) |
 
-| Application Launcher | Control Center |
-|---------------------|----------------|
-| ![Application Launcher](screenshots/rofical.png) | ![Control Center](screenshots/roficontrolcenter.png) |
+| Application Launcher | Lock Screen |
+|---------------------|-------------|
+| ![Application Launcher](screenshots/rofilauncher.gif) | ![Lock Screen](screenshots/slock.png) |
 
 Configuration
 -------------

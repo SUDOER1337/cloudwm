@@ -9,10 +9,11 @@
   <Plugin type="Lua" id="cbf2433c611d0849cbb198719a5ad05d2f69d24a" lru="1771133337" use-count="1"/>
   <Plugin type="Lua" id="c488487e95183ecc1648e38d8a728ed3f67f7e6c" lru="1771509256" use-count="1"/>
   <Plugin type="LV2" id="urn:ardour:a-delay" lru="1771500953" use-count="1"/>
+  <Plugin type="LV2" id="https://github.com/lucianodato/noise-repellent-stereo#new" lru="1772267404" use-count="1"/>
   <Plugin type="LV2" id="https://github.com/lucianodato/noise-repellent#adaptive" lru="1771518538" use-count="2"/>
   <Plugin type="LV2" id="http://lsp-plug.in/plugins/lv2/surge_filter_mono" lru="1768584572" use-count="2"/>
   <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gxts9#ts9sim" lru="1770981977" use-count="1"/>
-  <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gxmetal_head#metal_head" lru="1771500421" use-count="2"/>
+  <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gxmetal_head#metal_head" lru="1772267556" use-count="3"/>
   <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gxmetal_amp#metal_amp" lru="1771500420" use-count="2"/>
   <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_graphiceq_#_graphiceq_" lru="1770981025" use-count="1"/>
   <Plugin type="LV2" id="http://guitarix.sourceforge.net/plugins/gx_duck_delay_st_#_duck_delay_st_" lru="1770981195" use-count="2"/>

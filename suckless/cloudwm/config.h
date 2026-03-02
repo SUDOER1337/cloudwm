@@ -185,7 +185,7 @@ static const char *rofi_launcher[] = {
 static const char *rofi_emoji[]     = {"sh", "-c",
                                        "$HOME/cloudwm/rofi/emoji/emoji.sh", NULL};
 static const char *rofi_powermenu[] = {
-    "/home/thinker/cloudwm/test_powermenu.sh", NULL};
+    "$HOME/cloudwm/rofi/powermenu/powermenu.sh", NULL};
 static const char *rofi_calc[] = {"sh", "-c", "$HOME/cloudwm/rofi/calc/calc.sh",
                                   NULL};
 static const char *rofi_controlcenter[] = {

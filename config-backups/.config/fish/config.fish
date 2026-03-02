@@ -47,7 +47,7 @@ set -U fish_color_operator FE8019
 set -U fish_color_escape B16286
 set -U fish_color_autosuggestion 7C6F64
 
-# === Aliases (Practical) ===
+# === Aliases ===
 alias ls "exa --icons --group-directories-first"
 alias ll "exa -lh --icons"
 alias la "exa -lha --icons"
