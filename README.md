@@ -1,5 +1,5 @@
 
-<img src="cloudwm.png" style="max-width: 300px; height: auto;" />
+<img src="cloudwm.png" style="width: 100%; max-width: 100vw; height: auto;" />
 
 customized dwm build
 ==============================
