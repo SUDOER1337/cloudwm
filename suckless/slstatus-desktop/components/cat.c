@@ -5,28 +5,28 @@
 #include "../slstatus.h"
 #include "../util.h"
 
-const char *
-cat(const char *path)
+const char *cat(const char *path)
 {
-        char *f;
-        FILE *fp;
+    char *f;
+    FILE *fp;
 
-        if (!(fp = fopen(path, "r"))) {
-                warn("fopen '%s':", path);
-                return NULL;
-        }
+    if (!(fp = fopen(path, "r")))
+    {
+        warn("fopen '%s':", path);
+        return NULL;
+    }
 
-        f = fgets(buf, sizeof(buf) - 1, fp);
-        if (fclose(fp) < 0) {
-                warn("fclose '%s':", path);
-                return NULL;
-        }
-        if (!f)
-                return NULL;
+    f = fgets(buf, sizeof(buf) - 1, fp);
+    if (fclose(fp) < 0)
+    {
+        warn("fclose '%s':", path);
+        return NULL;
+    }
+    if (!f)
+        return NULL;
 
-        if ((f = strrchr(buf, '\n')))
-                f[0] = '\0';
+    if ((f = strrchr(buf, '\n')))
+        f[0] = '\0';
 
-        return buf[0] ? buf : NULL;
+    return buf[0] ? buf : NULL;
 }
-

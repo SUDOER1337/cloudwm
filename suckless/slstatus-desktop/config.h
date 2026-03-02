@@ -64,11 +64,14 @@ static const char unknown_str[] = "[ n/a ]";
  */
 
 static const struct arg args[] = {
-    { run_command, "%s ]", "sh -c 'playerctl metadata --format \"[ 󰝚  {{title}}\" || echo [ No music '" },
-    { run_command, "[   %s ]", "$HOME/cloudwm/scripts/cpu_status.sh" },
-    { ram_used,    "[   %s ]",   NULL },
+    {run_command, "%s ]",
+     "sh -c 'playerctl metadata --format \"[ 󰝚  {{title}}\" || echo [ No "
+     "music '"},
+    {run_command, "[   %s ]", "$HOME/cloudwm/scripts/cpu_status.sh"},
+    {ram_used, "[   %s ]", NULL},
     /*{ run_command, "[ %s ]",      "xkb-switch" },*/
-    { run_command, "[   %s ]",   "sh -c 'pamixer --get-mute | grep true >/dev/null && echo muted || pamixer --get-volume-human'" },
-    { datetime,    "[   %s ] ",   "%A, %d %B %Y %H:%M:%S" },
+    {run_command, "[   %s ]",
+     "sh -c 'pamixer --get-mute | grep true >/dev/null && echo muted || "
+     "pamixer --get-volume-human'"},
+    {datetime, "[   %s ] ", "%A, %d %B %Y %H:%M:%S"},
 };
-

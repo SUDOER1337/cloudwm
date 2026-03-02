@@ -1,231 +1,123 @@
-```
-   _____  _       ____   _    _  _____ __          __ __  __ 
-  / ____|| |     / __ \ | |  | ||  __ \\ \        / /|  \/  |
- | |     | |    | |  | || |  | || |  | |\ \  /\  / / | \  / |
- | |     | |    | |  | || |  | || |  | | \ \/  \/ /  | |\/| |
- | |____ | |____| |__| || |__| || |__| |  \  /\  /   | |  | |
-  \_____||______|\____/  \____/ |_____/    \/  \/    |_|  |_|
-                                                             
-```
-### A reproducible minimalistic dwm repo for you to fork and customize
+![cloudwm](cloudwm.png)
 
-cloudwm is a customized version of [suckless's dwm](https://git.suckless.org/dwm) (Dynamic Window Manager) configuration with extensive patches, themes, and automation scripts for a complete desktop experience.
+customized dwm build
+==============================
 
-The cloudwm source folder has configurations customized for both laptop and desktop setups. Rofi configurations are stored in the cloudwm folder, with only `config.rasi` that goes into `~/.config/rofi`
+cloudwm is a customized version of suckless dwm with patches, themes, and scripts.
+Forked from namishh's bedwm.
 
-Forked from [`namishh's bedwm`](https://github.com/namishh/dwm)
+Requirements
+------------
+- gcc, make, git
+- fzf
+- sudo or doas
 
-## Table of Contents
-- [📸 Gallery & Screenshots](#-gallery--screenshots)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Patches](#patches)
-- [Troubleshooting](#troubleshooting)
-- [Backup & Restore](#backup--restore)
+Installation
+------------
+    git clone https://github.com/SUDOER1337/cloudwm.git
+    cd cloudwm
+    ./setup.sh
 
-## Features
+The setup script will prompt for profile selection:
+- Desktop: full configuration
+- Laptop: optimized for mobile use
 
-- **Custom DWM Build**: Selective pick of patch originally by [namishh](https://github.com/namishh/dwm)
-- **Automated Setup**: One-command installation with profile selection via TUI
-- **Theme**: GTK theme, icons, and cursor theme
-- **Backup System**: Automatic configuration backup before changes
-- **Status Bar**: Clean slstatus with custom modules
-- **Application Launcher**: Custom Rofi themes and launchers
-- **Window Management**: Fixed but adjustable layouts, gaps, and scratchpads
+Screenshots
+----------
 
-## 📸 Gallery & Screenshots
-
-### Desktop Experience Overview
-<div align="center">
-
+| Terminal Setup | Development |
+|----------------|-------------|
 | ![Terminal Setup](screenshots/terminals.png) | ![Development](screenshots/cloudwm-vscodium.png) |
-|-------------------------------------|--------------------------------------|
-| **Multi-terminal workspace** with efficient tiling | **VS Codium** with the "Nullfjord" theme |
 
+| Application Launcher | Control Center |
+|---------------------|----------------|
 | ![Application Launcher](screenshots/rofical.png) | ![Control Center](screenshots/roficontrolcenter.png) |
-|-------------------------------------|--------------------------------------|
-| **Rofi Launcher** with custom styling | **System Control** for quick settings |
 
-| ![Lock Screen](screenshots/slock.png) | ![System Tray](screenshots/togglesystray.png) |
-|-------------------------------------|--------------------------------------|
-| **Custom Lock Screen** with time display | **Tray Management** with toggle functionality |
+Configuration
+-------------
+Edit suckless/cloudwm/config.def.h for colors, keybindings, layouts, and rules.
 
-</div>
+Profiles
+--------
+- Desktop: all status bar modules enabled
+- Laptop: optimized settings for battery life
 
-### Interactive Elements
-
-| ![Emoji Picker](screenshots/rofiemoji.png) | ![Clipboard Manager](screenshots/clipboard.png) |
-|-------------------------------------|--------------------------------------|
-| **Emoji Selection** integrated into launcher | **Clipboard History** management |
-
-| ![Systray Functions](screenshots/togglesystrayfunction.png) |
-|-------------------------------------|
-| **Advanced Tray Controls** for system components |
-
-
-## System Components
-
-- **Window Manager**: [dwm](https://git.suckless.org/dwm) with custom patches
-- **Compositor**: `picom` for transparency and effects
-- **Terminal**: `kitty` with custom configuration
-- **Lock Screen**: slock with readpw() and draw_time() modified from ['DPatel0211's dotfiles'](https://github.com/DPatel0211/dotfiles)
-- **Fonts**: Cozette, Iosevka Nerd Font, JetBrainsMono Nerd Fonts
-- **GTK Theme**: `Carbon-Square` - a dark boxy GTK theme created using oomox
-- **Cursor Theme**: `Bibata-Modern-Classic`
-- **Icons**: YAMIS icon set
-- **Launchers**: Edited ['adi1090x collection of Rofi custom Applets, Launchers & Powermenus'](https://github.com/adi1090x/rofi)
-
-## Themes
-
-### GTK Theme Installation
-```bash
-cp -r ~/cloudwm/themes/Carbon-Square ~/.themes/
-```
-
-### Additional Customizations
-- **Zen Browser**: Custom userChrome.css for square interface
-- **Discord**: Theme based on System24 for BetterDiscord
-
-## Recommended Applications
-
-| Application | Purpose | Package Name |
-|-------------|---------|--------------|
-| Vim-way of moving cursor | Control cursor with keyboard | `warpd` |
-| Network Manager | WiFi tray icon | `nm-applet` |
-| Hide cursor | Auto-hide cursor when idle | `unclutter` |
-| Night Light | Blue light filter | `redshift` |
-| Screenshots | Screen capture tool | `flameshot` |
-| Auto-mount | USB drive mounting | `udiskie` |
-| GTK Settings | Theme configuration | `nwg-look` |
-| Music Player | GUI audio player | `deadbeef deadbeef-mpris2-plugin` |
-
-## Installation
-
-### Prerequisites
-- Arch Linux-based distribution (or compatible)
-- Basic development tools: `gcc`, `make`, `git`
-- `fzf` for interactive menus
-- `sudo` or `doas` access for system-wide installation
-
-### Quick Install
-```bash
-git clone https://github.com/SUDOER1337/cloudwm.git
-cd cloudwm
-./setup.sh
-```
-
-### Installation Process
-1. Run the installation script: `~/cloudwm/setup.sh`
-2. An fzf prompt will pop up asking you to select:
-   - **Desktop**: Full-featured configuration
-   - **Laptop**: Optimized for battery life and space
-3. The script will automatically build and configure the selected profile
-
-> **Note**: The setup automatically creates backups of existing configurations. See [BACKUP_README.md](BACKUP_README.md) for backup/restore information.
-
-## Patches
+Patches
+-------
 
 | Patch | Description |
-|--------|-------------|
-| ActualFullscreen | Proper fullscreen support without decorations |
-| AltTagsDecoration | Alternative tag decoration style |
-| Alwayscenter | Center new windows by default |
-| BarPadding | Add padding around status bar |
-| BarHeight | Customizable status bar height |
-| Cfacts | Client factoring for proportional resizing |
-| CycleLayouts | Cycle through available layouts |
-| NoTitle | Remove window title bars |
+|-------|-------------|
+| ActualFullscreen | Proper fullscreen without decorations |
+| AltTagsDecoration | Alternative tag decoration |
+| Alwayscenter | Center new windows |
+| BarPadding | Padding around status bar |
+| BarHeight | Customizable bar height |
+| Cfacts | Client factoring for resizing |
+| CycleLayouts | Cycle through layouts |
+| NoTitle | Remove window titles |
 | RainbowTags | Colored tag indicators |
 | ScratchPads | Dropdown terminal and music player |
-| Status2d | Enhanced status bar with 2D graphics |
-| StatusButton | Clickable status bar items |
+| Status2d | Enhanced status bar graphics |
+| StatusButton | Clickable status items |
 | StatusPadding | Padding around status text |
-| StatusCmd | Custom status bar commands |
+| StatusCmd | Custom status commands |
 | Swallow | Parent-child window management |
-| Systray-Iconsize | Customizable system tray icon size |
-| UnderlineTags | Underline active tags instead of highlighting |
+| Systray-Iconsize | Customizable tray icons |
+| UnderlineTags | Underline active tags |
 | Vanitygaps | Configurable window gaps |
 
-## Configuration
+Components
+----------
+- Window manager: dwm with patches
+- Status bar: slstatus with custom modules
+- Application launcher: rofi with custom themes
+- GTK theme: Carbon-Square
+- Terminal: kitty
+- Compositor: picom
+- Lock screen: slock
 
-### Main Configuration File
-Edit `suckless/cloudwm/config.def.h` for:
-- Colors and themes
-- Keybindings and shortcuts
-- Layout preferences
-- Application rules
-- Status bar components
-- Scratchpad configurations
+Recommendations
+--------------
 
-### Profile Differences
-- **Desktop**: Full feature set with all status bar modules
-- **Laptop**: Optimized settings for mobile use
+| Application | Purpose | Package |
+|-------------|---------|---------|
+| nwg-look | GTK settings | nwg-look |
+| warpd | Vim-style cursor control | warpd |
+| nm-applet | Network tray icon | network-manager-applet |
+| unclutter | Hide idle cursor | unclutter |
+| redshift | Blue light filter | redshift |
+| flameshot | Screenshots | flameshot |
+| udiskie | USB auto-mount | udiskie |
+| deadbeef | Music player with mpris2 | deadbeef deadbeef-mpris2-plugin |
 
-### Customization Examples
-```c
-// Change colors
-static const char col_back[] = "#1a1a1a";
-static const char col_fore[] = "#ffffff";
+Build
+-----
+After config changes:
 
-// Add custom keybinding
-{ MODKEY, XK_w, spawn, SHCMD("firefox") },
-```
+    cd suckless/cloudwm
+    make clean install
 
-## Troubleshooting
+Troubleshooting
+---------------
 
-### Common Issues
+Build fails with permissions:
+    sudo chown -R $USER:$USER ~/cloudwm
+    chmod +x ~/cloudwm/scripts/*.sh
 
-**Build fails with permission errors**
-```bash
-sudo chown -R $USER:$USER ~/cloudwm
-chmod +x ~/cloudwm/scripts/*.sh
-```
+Status bar not updating:
+    killall slstatus && slstatus &
 
-**Sudo not working in container**
-The build script offers alternatives:
-- Use "Build only" option for manual installation
-- Install to `~/.local/bin` for user-level installation
+GTK theme missing:
+    cp -r ~/cloudwm/themes/Carbon-Square ~/.themes/
 
-**Status bar not updating**
-```bash
-# Restart slstatus
-killall slstatus && slstatus &
-```
+Keybindings not working:
+    echo $XDG_CURRENT_DESKTOP
+    echo $DESKTOP_SESSION
 
-**Window decorations missing**
-Check that GTK theme is properly installed:
-```bash
-ls ~/.themes/Carbon-Square
-cp -r ~/cloudwm/themes/Carbon-Square ~/.themes/
-```
-
-**Keybindings not working**
-Verify DWM is running (not another WM):
-```bash
-echo $XDG_CURRENT_DESKTOP
-echo $DESKTOP_SESSION
-```
-
-## Backup & Restore
-
-cloudwm includes an automatic backup system that protects your existing configurations. See [BACKUP_README.md](BACKUP_README.md) for detailed instructions.
-
-### Manual Backup
-```bash
-./scripts/backup-configs.sh
-```
-
-### Manual Restore
-```bash
-./scripts/restore-configs.sh
-```
-## Support
-
-For issues and questions:
-- Check the [Troubleshooting](#troubleshooting) section first
-- Review existing GitHub issues
-- Create detailed bug reports with system information
-
----
-
-Feel free to fork! 🚀
+Files
+-----
+- suckless/cloudwm/config.def.h - main configuration
+- suckless/cloudwm/config.h - active configuration
+- scripts/ - utility scripts
+- rofi/ - application launcher configurations
+- themes/ - GTK theme files
