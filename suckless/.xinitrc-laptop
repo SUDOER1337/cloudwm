@@ -28,5 +28,5 @@ greenclip daemon &
 
 # using slock login screen lol
 slock
-# Finally, start dwm
-exec dwm
+# Finally, start cloudwm
+exec cloudwm

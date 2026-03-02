@@ -6,7 +6,7 @@ set -euo pipefail
 
 CONFIG_FILE="$HOME/cloudwm/suckless/cloudwm/config.def.h"
 
-echo "🔧 CloudWM Gap Configuration"
+echo "cloudwm Gap Configuration"
 echo "============================"
 
 # Function to update gaps in config
@@ -31,7 +31,7 @@ update_gaps() {
     sed -i "s/static const unsigned int gappov = [0-9]*/static const unsigned int gappov = $gappov;/" "$CONFIG_FILE"
     
     echo "✅ Configuration updated!"
-    echo "🔄 Restart DWM to apply changes (Mod+Shift+q)"
+    echo "🔄 Restart CloudWM to apply changes (Mod+Shift+q)"
 }
 
 # Gap presets
@@ -83,12 +83,12 @@ else
 fi
 
 echo ""
-echo "💡 Tip: Use keybindings in DWM:"
+echo "Tip: Use keybindings in CloudWM:"
 echo "  Mod+g           - Toggle gaps on/off"
 echo "  Mod+Shift+g     - Set gappy gaps"  
 echo "  Mod+Control+g   - Set ULTRAGAPPY gaps"
 echo ""
-echo "🔧 Manual gap adjustment:"
+echo "Manual gap adjustment:"
 echo "  Mod+Shift+6/7  - Increase/decrease inner horizontal gaps"
 echo "  Mod+Shift+8/9  - Increase/decrease inner vertical gaps" 
 echo "  Mod+Control+6/7 - Increase/decrease outer horizontal gaps"

@@ -74,7 +74,7 @@ fi
 OPTIONS=(
     "Run ALL"
     "Install packages"
-    "Build & install dwm"
+    "Build & install cloudwm"
     "Setup shell"
     "Post-setup tasks"
 )
@@ -105,7 +105,7 @@ case "$CHOICE" in
         backup_configs
         run install-packages.sh
         ;;
-    "Build & install dwm")
+    "Build & install cloudwm")
         run build-suckless.sh
         ;;
     "Setup shell")

@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/.xinitrc - auto-start apps and settings for DWM
+# ~/.xinitrc - auto-start apps and settings for cloudwm
 
 # ─── Environment Variables ─────────────────────────────────────────────
 
@@ -9,8 +9,8 @@ dbus-launch --sh-syntax --exit-with-session
 
 # Make sure environment variables are sane
 export XDG_SESSION_TYPE=x11
-export XDG_CURRENT_DESKTOP=dwm
-export XDG_SESSION_DESKTOP=dwm
+export XDG_CURRENT_DESKTOP=cloudwm
+export XDG_SESSION_DESKTOP=cloudwm
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 export XCURSOR_THEME=Bibata-Modern-Classic
@@ -75,4 +75,4 @@ feh --bg-scale ~/cloudwm/wallpapers/forest1.jpg
 sleep 1
 #slock # basically using slock as login screen
 
-exec dwm
+exec cloudwm

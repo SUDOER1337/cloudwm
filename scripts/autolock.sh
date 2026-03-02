@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ────────────────────────────────
 # ~/cloudwm/scripts/auto-lock.sh
-# DWM AutoLock + DPMS Manager
+# CloudWM AutoLock + DPMS Manager
 # ────────────────────────────────
 
 # --- CONFIG -----------------------------------------------------
