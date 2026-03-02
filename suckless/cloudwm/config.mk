@@ -1,4 +1,4 @@
-# dwm version
+# cloudwm version
 VERSION = 6.3
 
 # Customize below to fit your system
