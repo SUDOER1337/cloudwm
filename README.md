@@ -1,4 +1,5 @@
-![cloudwm](cloudwm.png)
+
+<img src="cloudwm.png" style="max-width: 95%; height: 95%;" />
 
 customized dwm build
 ==============================
