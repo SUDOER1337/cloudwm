@@ -38,7 +38,7 @@ gtkui.font.tabstrip_text IosevkaTerm Nerd Font Propo Ultra-Bold 10
 gtkui.hide_remove_from_disk 0
 gtkui.hide_tray_icon 0
 gtkui.last_playlist_save_name /home/thinker/Music/untitled.dbpl
-gtkui.layout.1.9.0 {"type":"vbox","legacy_params":" expand=\"0 1\" fill=\"1 1\" homogeneous=0","children":[{"type":"hbox","legacy_params":" expand=\"0 1 0\" fill=\"1 1 1\" homogeneous=0","children":[{"type":"playtb"},{"type":"seekbar"},{"type":"volumebar","settings":{"scale":"db"}}]},{"type":"tabbed_playlist","legacy_params":" hideheaders=0 width=1900"}]}
+gtkui.layout.1.9.0 {"type":"vbox","legacy_params":" expand=\"0 1\" fill=\"1 1\" homogeneous=0","children":[{"type":"hbox","legacy_params":" expand=\"0 1 0\" fill=\"1 1 1\" homogeneous=0","children":[{"type":"playtb"},{"type":"seekbar"},{"type":"volumebar","settings":{"scale":"db"}}]},{"type":"tabbed_playlist","legacy_params":" hideheaders=0 width=1113"}]}
 gtkui.log.autoopen 1
 gtkui.override_bar_colors 1
 gtkui.override_listview_colors 1
@@ -95,13 +95,13 @@ hotkey.key34 "Ctrl Shift z" 0 0 redo
 hotkeys_created 1
 logwindow.geometry.h 916
 logwindow.geometry.w 1233
-logwindow.geometry.x 394
-logwindow.geometry.y 110
-mainwin.geometry.h 1028
+logwindow.geometry.x 341
+logwindow.geometry.y 79
+mainwin.geometry.h 1006
 mainwin.geometry.maximized 0
-mainwin.geometry.w 1039
-mainwin.geometry.x 7
-mainwin.geometry.y 37
+mainwin.geometry.w 1864
+mainwin.geometry.x 25
+mainwin.geometry.y 48
 medialib.deadbeef.enabled 1
 mp3.id3v1_encoding iso8859-1
 mp3.id3v2_version 3
@@ -112,14 +112,14 @@ output_plugin pipewire
 playback.loop 0
 playback.order 0
 playback.volume.normalized 1.0000000
-playlist.current 2
+playlist.current 3
 playlist.cursor.0 0
 playlist.cursor.1 7
 playlist.cursor.10 0
 playlist.cursor.11 111
 playlist.cursor.12 26
 playlist.cursor.2 20
-playlist.cursor.3 4
+playlist.cursor.3 5
 playlist.cursor.4 27
 playlist.cursor.5 2
 playlist.cursor.6 7
@@ -133,7 +133,7 @@ playlist.scroll.10 0
 playlist.scroll.11 -111
 playlist.scroll.12 59
 playlist.scroll.2 -20
-playlist.scroll.3 -4
+playlist.scroll.3 -5
 playlist.scroll.4 -27
 playlist.scroll.5 0
 playlist.scroll.6 0
@@ -160,7 +160,7 @@ prefwin.geometry.x 581
 prefwin.geometry.y 498
 replaygain.processing_flags 1
 resume.paused 0
-resume.playlist 2
+resume.playlist 3
 resume.position 0.0445200
 resume.track 19
 searchwin.geometry.h 150

@@ -5,6 +5,7 @@
 *.a
 *.tar.gz
 dwm
+cloudwm
 slock
 slstatus
 compiledwm
