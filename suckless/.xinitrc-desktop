@@ -31,6 +31,17 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=24
 
+# Make X11/session vars visible to systemd --user and DBus-activated services
+# (needed for portal backends like xdg-desktop-portal-gtk).
+if command -v systemctl >/dev/null 2>&1; then
+  systemctl --user import-environment DISPLAY XAUTHORITY \
+    XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE
+fi
+if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+  dbus-update-activation-environment --systemd DISPLAY XAUTHORITY \
+    XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE
+fi
+
 # KDE vars are usually unnecessary unless you specifically need KDE integration.
 # If you keep them, it can confuse some apps into thinking you're in KDE.
 # export KDE_FULL_SESSION=true

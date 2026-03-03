@@ -83,7 +83,7 @@ switch_to_laptop() {
 # ─── Environment Variables ─────────────────────────────────────────────
 
 # Start a session bus
-dbus-launch --sh-syntax --exit-with-session
+eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
 # Make sure environment variables are sane
 export XDG_SESSION_TYPE=x11
@@ -94,6 +94,17 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=24
 export XDG_MENU_PREFIX=arch-
+
+# Make X11/session vars visible to systemd --user and DBus-activated services
+# (needed for portal backends like xdg-desktop-portal-gtk).
+if command -v systemctl >/dev/null 2>&1; then
+  systemctl --user import-environment DISPLAY XAUTHORITY \
+    XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE
+fi
+if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+  dbus-update-activation-environment --systemd DISPLAY XAUTHORITY \
+    XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE
+fi
 
 export KDE_FULL_SESSION=true
 export KDE_SESSION_VERSION=5
