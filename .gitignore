@@ -63,3 +63,4 @@ __pycache__/
 # Development files
 *.rej
 *.orig
+suckless/cloudwm/cloudwm

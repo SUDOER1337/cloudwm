@@ -49,11 +49,11 @@
     background = "#303030"
     foreground = "#bbbbbb"
     frame_color = "#bbbbbb"
-    timeout = 8
+    timeout = 5
 
 [urgency_critical]
     background = "#303030"
     foreground = "#bbbbbb"
     frame_color = "#bbbbbb"
-    timeout = 0
+    timeout = 5
 

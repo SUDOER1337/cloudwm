@@ -65,13 +65,15 @@ static const char unknown_str[] = "[ n/a ]";
 
 static const struct arg args[] = {
     {run_command, "%s ]",
-     "sh -c 'playerctl metadata --format \"[ 󰝚  {{title}}\" || echo [ No "
-     "music '"},
-    {run_command, "[   %s ]", "$HOME/cloudwm/scripts/cpu_status.sh"},
+     "timeout 0.25s playerctl metadata --format \"[ 󰝚  {{title}}\" || "
+     "echo [ No music"},
+    {run_command, "[   %s ]",
+     "timeout 0.35s $HOME/cloudwm/scripts/cpu_status.sh || echo n/a"},
     {ram_used, "[   %s ]", NULL},
     /*{ run_command, "[ %s ]",      "xkb-switch" },*/
     {run_command, "[   %s ]",
-     "sh -c 'pamixer --get-mute | grep true >/dev/null && echo muted || "
-     "pamixer --get-volume-human'"},
+     "timeout 0.25s pamixer --get-mute 2>/dev/null | grep -q true && echo "
+     "muted || timeout 0.25s pamixer --get-volume-human 2>/dev/null || "
+     "echo n/a"},
     {datetime, "[   %s ] ", "%A, %d %B %Y %H:%M:%S"},
 };

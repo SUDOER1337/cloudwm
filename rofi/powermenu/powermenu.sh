@@ -2,7 +2,7 @@
 
 ## Author : Aditya Shakya (adi1090x)
 ## Github : @adi1090x
-## Edited by SUDOER1337 for Hyprland, AwesomeWM, and DWM Support
+## Edited by SUDOER1337 for Hyprland, AwesomeWM, and dwm & cloudwm Support
 #
 ## Rofi   : Power Menu
 #
@@ -58,14 +58,18 @@ run_rofi() {
     echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
-# dwm logout logic
-dwm_logout() {
-    if pgrep -x "dwm" > /dev/null; then
-        # Send SIGTERM to dwm to log out
+# cloudwm/dwm logout logic
+cloudwm_logout() {
+    if pgrep -x "cloudwm" > /dev/null; then
+        # Send SIGTERM to cloudwm to log out
+        pkill -x cloudwm
+        notify-send "cloudwm" "Logged out successfully."
+    elif pgrep -x "dwm" > /dev/null; then
+        # Fallback for classic dwm binary name
         pkill -x dwm
         notify-send "dwm" "Logged out successfully."
     else
-        notify-send "dwm" "dwm not running. Cannot logout."
+        notify-send "cloudwm" "cloudwm/dwm not running. Cannot logout."
     fi
 }
 
@@ -113,8 +117,8 @@ run_cmd() {
                 else
                     notify-send "Hyprland" "hyprctl not found. Cannot logout safely."
                 fi
-            elif [[ "$DESKTOP_SESSION" == 'dwm' || "$XDG_CURRENT_DESKTOP" == "dwm" || "$(pgrep -x dwm)" ]]; then
-                dwm_logout
+            elif [[ "$DESKTOP_SESSION" == 'cloudwm' || "$XDG_CURRENT_DESKTOP" == "cloudwm" || "$(pgrep -x cloudwm)" || "$DESKTOP_SESSION" == 'dwm' || "$XDG_CURRENT_DESKTOP" == "dwm" || "$(pgrep -x dwm)" ]]; then
+                cloudwm_logout
             else
                 notify-send "Logout" "No known WM detected. Please check your config."
             fi
@@ -132,7 +136,7 @@ case ${chosen} in
         run_cmd --reboot
         ;;
     $lock)
-        ~/cloudwm/scripts/lock-wrapper.sh
+        "$HOME/cloudwm/scripts/lock-wrapper.sh"
         ;;
     $suspend)
         run_cmd --suspend
@@ -141,4 +145,3 @@ case ${chosen} in
         run_cmd --logout
         ;;
 esac
-

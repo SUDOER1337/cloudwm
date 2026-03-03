@@ -26,7 +26,6 @@
 #include <X11/Xutil.h>
 #include <X11/cursorfont.h>
 #include <X11/keysym.h>
-#include <errno.h>
 #include <locale.h>
 #include <signal.h>
 #include <stdarg.h>
@@ -581,7 +580,7 @@ void swallow(Client *p, Client *c)
 
     if (c->noswallow || c->isterminal)
         return;
-    if (c->noswallow && !swallowfloating && c->isfloating)
+    if (c->isfloating && !swallowfloating)
         return;
 
     detach(c);

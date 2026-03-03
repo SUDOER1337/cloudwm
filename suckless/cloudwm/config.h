@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license etails. */
+/* See LICENSE file for copyright and license details. */
 
 /* appearance */
 #include <X11/XF86keysym.h>
@@ -6,11 +6,10 @@ static const unsigned int borderpx        = 3;
 static const int          user_bh         = 27;
 static const int          swallowfloating = 0;
 static const unsigned int snap            = 1;
+static const unsigned int gappoh          = 20;
+static const unsigned int gappov          = 25;
 static const unsigned int gappih          = 5;
 static const unsigned int gappiv          = 5;
-static const unsigned int gappoh          = 9;
-static const unsigned int gappov          = 7;
-static const char         buttonbar[]     = " ";
 static int                smartgaps       = 0;
 static const int          showbar         = 1;
 static const int          topbar          = 1;
@@ -18,13 +17,14 @@ static const int          horizpadbar     = 2;
 static const int          vertpadbar      = 1;
 static const int          vertpad         = 0;
 static const int          sidepad         = 0;
+static const char         buttonbar[]     = " ";
 
 /*systray*/
-static const unsigned int systraypinning          = 1;
+static const unsigned int systraypinning          = 0;
 static const unsigned int systrayonleft           = 0;
 static const unsigned int systrayspacing          = 5;
 static const int          systraypinningfailfirst = 1;
-static const unsigned int systrayiconsize         = 14;
+static const unsigned int systrayiconsize         = 15;
 static const int          showsystray             = 1;
 
 static const char *fonts[] = {
@@ -116,7 +116,7 @@ static const Rule rules[] = {
     },
     {"Gimp", NULL, NULL, 0, 1, 0, 0, -1},
     {"zen-browser", NULL, NULL, 1 << 8, 0, 0, -1, -1},
-    {"st-256color", NULL, NULL, 0, 0, 1, 0, -1},
+    {"St", "st-256color", NULL, 0, 0, 1, 0, -1},
     {NULL, NULL, "Event Tester", 0, 0, 0, 1, -1},
     {NULL, "spterm", NULL, SPTAG(0), 1, 1, 0, -1},
     {NULL, "spmpd", NULL, SPTAG(1), 1, 1, 0, -1},
@@ -182,10 +182,10 @@ static const Layout layouts[] = {
 /* commands (use $HOME for portability) */
 static const char *rofi_launcher[] = {
     "sh", "-c", "$HOME/cloudwm/rofi/launchers/launcher.sh", NULL};
-static const char *rofi_emoji[]     = {"sh", "-c",
-                                       "$HOME/cloudwm/rofi/emoji/emoji.sh", NULL};
+static const char *rofi_emoji[] = {"sh", "-c",
+                                   "$HOME/cloudwm/rofi/emoji/emoji.sh", NULL};
 static const char *rofi_powermenu[] = {
-    "$HOME/cloudwm/rofi/powermenu/powermenu.sh", NULL};
+    "sh", "-c", "$HOME/cloudwm/rofi/powermenu/powermenu.sh", NULL};
 static const char *rofi_calc[] = {"sh", "-c", "$HOME/cloudwm/rofi/calc/calc.sh",
                                   NULL};
 static const char *rofi_controlcenter[] = {

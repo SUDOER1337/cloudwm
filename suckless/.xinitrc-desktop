@@ -1,78 +1,110 @@
-#!/bin/bash
+#!/bin/sh
 # ~/.xinitrc - auto-start apps and settings for cloudwm
+set -eu
 
-# ─── Environment Variables ─────────────────────────────────────────────
+# Small helper: start program only if it's installed and not already running
+run_once() {
+  command -v "$1" >/dev/null 2>&1 || return 0
+  pgrep -x "$1" >/dev/null 2>&1 && return 0
+  "$@" &
+}
 
-# Start a session bus
+# --- DBus session (IMPORTANT) ---
+# Use dbus-run-session if available: it cleanly wraps the whole X session
+if command -v dbus-run-session >/dev/null 2>&1; then
+  export _USE_DBUS_RUN_SESSION=1
+else
+  # Fallback: properly eval dbus-launch output
+  if command -v dbus-launch >/dev/null 2>&1; then
+    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+  fi
+fi
 
-dbus-launch --sh-syntax --exit-with-session
-
-# Make sure environment variables are sane
+# --- Environment ---
 export XDG_SESSION_TYPE=x11
-export XDG_CURRENT_DESKTOP=cloudwm
-export XDG_SESSION_DESKTOP=cloudwm
+export XDG_CURRENT_DESKTOP=dwm
+export XDG_SESSION_DESKTOP=dwm
+export WM_NICKNAME=cloudwm
+export XDG_MENU_PREFIX=arch-
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=24
-export XDG_MENU_PREFIX=arch-
 
-export KDE_FULL_SESSION=true
-export KDE_SESSION_VERSION=5
+# KDE vars are usually unnecessary unless you specifically need KDE integration.
+# If you keep them, it can confuse some apps into thinking you're in KDE.
+# export KDE_FULL_SESSION=true
+# export KDE_SESSION_VERSION=5
 
+# --- KWallet (KDE wallet daemon) ---
+if command -v kwalletd6 >/dev/null 2>&1; then
+  run_once kwalletd6
+elif command -v kwalletd5 >/dev/null 2>&1; then
+  run_once kwalletd5
+fi
 
-# ─── Services & Daemons ─────────────────────────────────
+# --- X resources ---
+[ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
 
-/usr/lib/polkit-kde-authentication-agent-1 &
-/usr/lib/xdg-desktop-portal-gtk &
-/usr/lib/xdg-desktop-portal &
-/opt/Synergy/synergy-service &
-~/cloudwm/scripts/autolock.sh &
-udiskie &
-kdeconnectd &
+# --- Display / power ---
+command -v xrandr >/dev/null 2>&1 && xrandr -r 120 || true
+xset s off
+xset s noblank
+# xset -dpms  # uncomment if you truly want DPMS off
 
-# Merge Xresources
-xrdb -merge ~/.Xresources
+# --- Audio ---
+command -v pactl >/dev/null 2>&1 && pactl set-sink-volume @DEFAULT_SINK@ 100% || true
 
-# Volume
-pactl set-sink-volume @DEFAULT_SINK@ 100%
+# --- Polkit agent (pick ONE) ---
+# KDE agent:
+run_once /usr/lib/polkit-kde-authentication-agent-1
+# Alternative (GNOME):
+# run_once /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# ─── Screen Settings ──────────────────────────────────────────────────
-xrandr -r 120
-xset s off          # Disable screen saver
-xset s noblank      # Prevent blanking
-xset -dpms          # Disable DPMS (Energy Star) features
+# --- Portals (usually not needed on pure X11 WMs; can cause oddities) ---
+# If you rely on portals (flatpak, file pickers, screenshare), keep them:
+run_once /usr/lib/xdg-desktop-portal
+run_once /usr/lib/xdg-desktop-portal-gtk
 
-# ─── Autostart Programs ──────────────────────────────────────────────
-python3 ~/FantechX9ThorDriverCLI/driver_backend.py preset #My mouse driver
+# --- Background services ---
+run_once udiskie
+run_once kdeconnectd
+run_once nm-applet
+# run_once blueman-applet
 
-greenclip daemon &
-flameshot &
-dunst &
-stretchly &
-discord &
+# Your custom stuff (start once)
+[ -x "$HOME/cloudwm/scripts/autolock.sh" ] && run_once "$HOME/cloudwm/scripts/autolock.sh"
+[ -x /opt/Synergy/synergy-service ] && run_once /opt/Synergy/synergy-service
+
+# --- Tray/UX apps ---
+run_once greenclip daemon
+run_once flameshot
+run_once dunst
+run_once stretchly
+run_once discord
+run_once deadbeef
+
 # Compositor
-picom &
+run_once picom
 
-# Screen temperature adjustment
-redshift -v &
+# Screen temperature
+run_once redshift -v
 
 # Status bar
-slstatus &
+run_once slstatus
 
-# ─── Optional: Other scripts or applets ─────────────────────────────
-# Example: Network, Bluetooth, etc.
-nm-applet &
-# blueman-applet &
-
-# ─── Start Window Manager ────────────────────────────────────────────
+# Extra
+run_once fantech-driver preset
 
 # Wallpaper
-#(~/cloudwm/scripts/feh-slideshow.sh &)
-feh --bg-scale ~/cloudwm/wallpapers/forest1.jpg
+command -v feh >/dev/null 2>&1 && feh --bg-scale "$HOME/cloudwm/wallpapers/forest1.jpg" || true
 
+# Give background daemons a moment (optional; usually not needed)
+# sleep 1
 
-sleep 1
-#slock # basically using slock as login screen
-
-exec cloudwm
+# --- Start WM ---
+if [ "${_USE_DBUS_RUN_SESSION:-0}" = "1" ]; then
+  exec dbus-run-session -- cloudwm
+else
+  exec cloudwm
+fi
