@@ -8,8 +8,8 @@ static const int          swallowfloating = 0;
 static const unsigned int snap            = 1;
 static const unsigned int gappoh          = 20;
 static const unsigned int gappov          = 25;
-static const unsigned int gappih          = 5;
-static const unsigned int gappiv          = 5;
+static const unsigned int gappih          = 2;
+static const unsigned int gappiv          = 2;
 static int                smartgaps       = 0;
 static const int          showbar         = 1;
 static const int          topbar          = 1;
@@ -132,28 +132,28 @@ static const int   lockfullscreen = 1;
 #include "vanitygaps.c"
 
 /* setgaps(ov, oh, ih, iv)
- * oh = outer horizontal gap (left + right screen edge)
  * ov = outer vertical gap   (top + bottom screen edge)
+ * oh = outer horizontal gap (left + right screen edge)
  * ih = inner horizontal gap (between side-by-side windows)
  * iv = inner vertical gap   (between stacked windows)
  */
 
 // least gap
-static void setnogaps(const Arg *arg)
+static void setgaps1(const Arg *arg)
 {
-    setgaps(2, 2, 2, 2);
+    setgaps(22, 92, 2, 2);
 }
 
 // gappy
-static void setmingaps(const Arg *arg)
+static void setgaps2(const Arg *arg)
 {
-    setgaps(8, 8, 5, 5);
+    setgaps(8, 8, 2, 2);
 }
 
 // ULTRAGAPPY
-static void setwidegaps(const Arg *arg)
+static void setgaps3(const Arg *arg)
 {
-    setgaps(20, 25, 5, 5);
+    setgaps(20, 25, 2, 2);
 }
 
 static const Layout layouts[] = {
@@ -278,9 +278,9 @@ static const Key keys[] = {
     {Mod1Mask, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_q, killclient, {0}},
 
-    {MODKEY, XK_g, setnogaps, {0}},                 // focus
-    {MODKEY | ShiftMask, XK_g, setmingaps, {0}},    // gappy
-    {MODKEY | ControlMask, XK_g, setwidegaps, {0}}, // ULTRAGAPPY
+    {MODKEY, XK_g, setgaps1, {0}},    
+    {MODKEY | ShiftMask, XK_g, setgaps2, {0}},
+    {MODKEY | ControlMask, XK_g, setgaps3, {0}},
 
     /*{MODKEY|ShiftMask,             XK_q,      quit,           {0}},*/
 

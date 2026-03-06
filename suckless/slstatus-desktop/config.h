@@ -64,9 +64,18 @@ static const char unknown_str[] = "[ n/a ]";
  */
 
 static const struct arg args[] = {
-    {run_command, "%s ]",
-     "timeout 0.25s playerctl metadata --format \"[ 󰝚  {{title}}\" || "
-     "echo [ No music"},
+    {run_command, "%s",
+ "sh -c '"
+ "st=$(timeout 0.20s playerctl status 2>/dev/null) || { echo \"[ No Music ]\"; exit 0; }; "
+ "meta=$(timeout 0.20s playerctl metadata --format \"{{artist}} - {{title}}\" 2>/dev/null) || { echo \"[ No Music ]\"; exit 0; }; "
+ "[ -z \"$meta\" ] && { echo \"[ No Music ]\"; exit 0; }; "
+ "case \"$st\" in "
+ "  Playing) ic=\" \" ;; "
+ "  Paused)  ic=\"⏸\" ;; "
+ "  *)       ic=\"♪\" ;; "
+ "esac; "
+ "echo \"[ $ic  $meta ]\""
+ "'"},
     {run_command, "[   %s ]",
      "timeout 0.35s $HOME/cloudwm/scripts/cpu_status.sh || echo n/a"},
     {ram_used, "[   %s ]", NULL},

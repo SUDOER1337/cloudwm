@@ -19,6 +19,8 @@ compiledwm
 
 # Backup and temporary files
 *.bak
+*.bak.*
+*.baks
 *.backup
 *.bk
 *.orig

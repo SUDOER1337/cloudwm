@@ -34,11 +34,20 @@ if [ -z "${DBUS_SESSION_BUS_ADDRESS:-}" ] \
 fi
 
 # --- Environment ---
+#
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 export XDG_SESSION_TYPE=x11
 export XDG_CURRENT_DESKTOP=dwm
 export XDG_SESSION_DESKTOP=dwm
 export WM_NICKNAME=cloudwm
 export XDG_MENU_PREFIX=arch-
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+# Keep XKB on a single layout so fcitx5 owns EN/TH switching.
+command -v setxkbmap >/dev/null 2>&1 && setxkbmap -layout us -option ""
+fcitx5 -dr &
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 export XCURSOR_THEME=Bibata-Modern-Classic
