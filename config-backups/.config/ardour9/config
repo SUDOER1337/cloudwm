@@ -23,7 +23,7 @@
       <Window name="add-routes" visible="0" x-off="-1" y-off="-1" x-size="788" y-size="515"/>
       <Window name="add-video" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
       <Window name="inspector" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="audio-midi-setup" visible="0" x-off="0" y-off="0" x-size="679" y-size="413"/>
+      <Window name="audio-midi-setup" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
       <Window name="video-export" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
       <Window name="script-manager" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
       <Window name="bundle-manager" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
@@ -42,47 +42,19 @@
       <Window name="plugin-dsp-load" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
       <Window name="dsp-statistics" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
       <Window name="transport-masters" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-134" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-365" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-6440" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-10201" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-37274" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-38531" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-41991" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42141" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42214" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42287" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42360" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42433" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42506" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42579" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42652" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42725" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42798" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42871" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-42944" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-43017" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-43090" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-43163" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-43236" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-43479" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-43603" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="RPM-43939" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="P-365-31340" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1" custom-ui="1"/>
-      <Window name="PM-365-31340" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="P-6440-31388" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1" custom-ui="1"/>
-      <Window name="PM-6440-31388" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="P-10201-31179" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1" custom-ui="1"/>
-      <Window name="PM-10201-31179" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
-      <Window name="P-41991-42131" visible="0" x-off="534" y-off="0" x-size="750" y-size="776" custom-ui="1"/>
-      <Window name="PM-41991-42131" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="RPM-78" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="RPM-180" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="P-180-324" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1" custom-ui="1"/>
+      <Window name="P-180-254" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1" custom-ui="1"/>
+      <Window name="PM-180-324" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
+      <Window name="PM-180-254" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1"/>
       <Tearoffs>
         <monitor-section tornoff="0"/>
       </Tearoffs>
     </UI>
     <AudioMIDISetup>
       <EngineStates>
-        <State backend="JACK/Pipewire" driver="" device="HD-Audio Generic" input-device="HD-Audio Generic" output-device="HD-Audio Generic" sample-rate="48000" buffer-size="512" n-periods="2" input-latency="0" output-latency="0" lm-input="" lm-output="" active="1" use-buffered-io="0" midi-option="ALSA sequencer" lru="1772388133">
+        <State backend="JACK/Pipewire" driver="" device="HD-Audio Generic" input-device="" output-device="" sample-rate="48000" buffer-size="1024" n-periods="2" input-latency="0" output-latency="0" lm-input="" lm-output="" active="1" use-buffered-io="0" midi-option="" lru="1772788417">
           <MIDIDevices/>
         </State>
         <State backend="ALSA" driver="" device="" input-device="HD-Audio Generic" output-device="HD-Audio Generic" sample-rate="48000" buffer-size="1024" n-periods="2" input-latency="0" output-latency="0" lm-input="" lm-output="" active="0" use-buffered-io="0" midi-option="ALSA sequencer" lru="1772294129">

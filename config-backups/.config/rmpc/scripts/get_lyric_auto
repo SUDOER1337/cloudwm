@@ -1,0 +1,64 @@
+#!/usr/bin/env sh
+set -eu
+
+LRCLIB_INSTANCE="https://lrclib.net"
+
+remote_cmd() {
+    if [ -n "${PID:-}" ]; then
+        rmpc remote --pid "$PID" "$@"
+    else
+        rmpc remote "$@"
+    fi
+}
+
+fetch_lyrics() {
+    artist_name="$1"
+    track_name="$2"
+    album_name="$3"
+
+    curl -X GET -sG \
+        -H "Lrclib-Client: rmpc-${VERSION:-unknown}" \
+        --data-urlencode "artist_name=$artist_name" \
+        --data-urlencode "track_name=$track_name" \
+        --data-urlencode "album_name=$album_name" \
+        "$LRCLIB_INSTANCE/api/get" | jq -r '.syncedLyrics'
+}
+
+if [ "${HAS_LRC:-false}" != "false" ]; then
+    exit 0
+fi
+
+if [ -z "${LRC_FILE:-}" ] || [ -z "${ARTIST:-}" ] || [ -z "${TITLE:-}" ]; then
+    exit 0
+fi
+
+mkdir -p "$(dirname "$LRC_FILE")"
+
+LYRICS="$(fetch_lyrics "$ARTIST" "$TITLE" "${ALBUM:-}")"
+
+if [ -z "$LYRICS" ] || [ "$LYRICS" = "null" ]; then
+    STRIPPED_TITLE="$(printf '%s' "$TITLE" | sed -E 's/ *\([^)]*\)//g')"
+    if [ "$STRIPPED_TITLE" != "$TITLE" ]; then
+        LYRICS="$(fetch_lyrics "$ARTIST" "$STRIPPED_TITLE" "${ALBUM:-}")"
+    fi
+fi
+
+if [ -z "$LYRICS" ]; then
+    remote_cmd status "Failed to download lyrics for $ARTIST - $TITLE" --level error
+    exit 0
+fi
+
+if [ "$LYRICS" = "null" ]; then
+    remote_cmd status "Lyrics not found for $ARTIST - $TITLE" --level warn
+    exit 0
+fi
+
+{
+    printf '[ar:%s]\n' "$ARTIST"
+    printf '[al:%s]\n' "${ALBUM:-}"
+    printf '[ti:%s]\n' "$TITLE"
+    printf '%s\n' "$LYRICS" | sed -E '/^\[(ar|al|ti):/d'
+} > "$LRC_FILE"
+
+remote_cmd indexlrc --path "$LRC_FILE"
+remote_cmd status "Downloaded lyrics for $ARTIST - $TITLE" --level info

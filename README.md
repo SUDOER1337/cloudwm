@@ -87,7 +87,7 @@ Recommendations
 | redshift | Blue light filter | redshift |
 | flameshot | Screenshots | flameshot |
 | udiskie | USB auto-mount | udiskie |
-| deadbeef | Music player with mpris2 | deadbeef deadbeef-mpris2-plugin |
+| rmpc | rust tui music player + mpris | mpd rmpc mpd-mpris |
 
 Build
 -----

@@ -1,0 +1,490 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    cache_dir: Some("/tmp/rmpc/cache"),
+    lyrics_dir: Some("~/Music/mpd"),
+    password: None,
+    theme: "gruvfjord",
+    enable_config_hot_reload: true,
+    enable_lyrics_hot_reload: true,
+
+    on_song_change: ["~/.config/rmpc/scripts/get_lyric_auto"],
+    volume_step: 5,
+    max_fps: 30,
+    scrolloff: 0,
+    wrap_navigation: false,
+    enable_mouse: true,
+    status_update_interval_ms: 1000,
+    select_current_song_on_change: false,
+    browser_column_widths: [20, 38, 42],
+
+    album_art: (
+    method: Kitty,
+    effect: Rotate,
+    rotation_speed_dps: 8.0,
+    rotation_fps: 24,
+),
+
+    cava: (
+        framerate: 60,
+        autosens: true,
+        sensitivity: 150,
+        lower_cutoff_freq: 50,
+        higher_cutoff_freq: 10000,
+        input: (method: Fifo, source: "/tmp/mpd.fifo", sample_rate: 44100, channels: 2, sample_bits: 16),
+        smoothing: (noise_reduction: 25, monstercat: false, waves: false),
+        eq: [],
+    ),
+    keybinds: (
+        global: {
+            ":":       CommandMode,
+            ",":       VolumeDown,
+            "s":       Stop,
+            ".":       VolumeUp,
+            "<Tab>":   NextTab,
+            "<S-Tab>": PreviousTab,
+            "1":       SwitchToTab("󰡎"),
+            "2":       SwitchToTab(" Directories"),
+            "3":       SwitchToTab(" Artists"),
+            "4":       SwitchToTab(" Album Artists"),
+            "5":       SwitchToTab(" Albums"),
+            "6":       SwitchToTab(" Playlists"),
+            "7":       SwitchToTab(" Search"),
+            "8":       SwitchToTab("󰨖 Lyrics"),
+            "!":       SwitchToTab("󰎇"),
+            "@":       SwitchToTab("󰡎"),
+            "q":       Quit,
+            ">":       NextTrack,
+            "p":       TogglePause,
+            "<":       PreviousTrack,
+            "f":       SeekForward,
+            "z":       ToggleRepeat,
+            "x":       ToggleRandom,
+            "c":       ToggleConsume,
+            "v":       ToggleSingle,
+            "b":       SeekBack,
+            "~":       ShowHelp,
+            "I":       ShowCurrentSongInfo,
+            "O":       ShowOutputs,
+            "P":       ShowDecoders,
+        },
+        navigation: {
+            "k":         Up,
+            "j":         Down,
+            "h":         Left,
+            "l":         Right,
+            "<Up>":      Up,
+            "<Down>":    Down,
+            "<Left>":    Left,
+            "<Right>":   Right,
+            "<C-k>":     PaneUp,
+            "<C-j>":     PaneDown,
+            "<C-h>":     PaneLeft,
+            "<C-l>":     PaneRight,
+            "<C-u>":     UpHalf,
+            "N":         PreviousResult,
+            "a":         Add,
+            "A":         AddAll,
+            "r":         Rename,
+            "n":         NextResult,
+            "g":         Top,
+            "<Space>":   Select,
+            "<C-Space>": InvertSelection,
+            "G":         Bottom,
+            "<CR>":      Confirm,
+            "i":         FocusInput,
+            "J":         MoveDown,
+            "<C-d>":     DownHalf,
+            "/":         EnterSearch,
+            "<C-c>":     Close,
+            "<Esc>":     Close,
+            "K":         MoveUp,
+            "D":         Delete,
+        },
+        queue: {
+            "D":       DeleteAll,
+            "<CR>":    Play,
+            "<C-s>":   Save,
+            "a":       AddToPlaylist,
+            "d":       Delete,
+            "i":       ShowInfo,
+            "C":       JumpToCurrent,
+        },
+    ),
+    search: (
+        case_sensitive: false,
+        mode: Contains,
+        tags: [
+            (value: "any",         label: "Any Tag"),
+            (value: "artist",      label: "Artist"),
+            (value: "album",       label: "Album"),
+            (value: "title",       label: "Title"),
+            (value: "filename",    label: "Filename"),
+            (value: "genre",       label: "Genre"),
+            (value: "albumartist", label: "Featured"),
+        ],
+    ),
+    artists: (
+        album_display_mode: SplitByDate,
+        album_sort_by: Date,
+    ),
+    tabs: [
+        (
+            name: " Queue",
+            pane: Split(
+                direction: Vertical,
+                panes: [
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "100%",
+                        pane: Split(
+                            direction: Horizontal,
+                            panes: [
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty()),
+                                ),
+                                (
+                                    size: "35%",
+                                    pane: Split(
+                                        direction: Vertical,
+                                        panes: [
+                                            (
+                                                size: "100%",
+                                                pane: Pane(AlbumArt),
+                                            ),
+                                            (
+                                                size: "1",
+                                                pane: Pane(Empty()),
+                                            ),
+                                            (
+                                                size: "8",
+                                                pane: Split(
+                                                    direction: Vertical,
+                                                    panes: [
+                                                        (
+                                                            size: "2",
+                                                            pane: Pane(Lyrics),
+                                                        ),
+                                                        (
+                                                            size: "1",
+                                                            pane: Pane(Empty()),
+                                                        ),
+                                                        (
+                                                            size: "100%",
+                                                            pane: Split(
+                                                                direction: Horizontal,
+                                                                panes: [
+                                                                    (
+                                                                        size: "2",
+                                                                        pane: Pane(Empty()),
+                                                                    ),
+                                                                    (
+                                                                        size: "100%",
+                                                                        pane: Pane(Cava),
+                                                                    ),
+                                                                    (
+                                                                        size: "2",
+                                                                        pane: Pane(Empty()),
+                                                                    ),
+                                                                ],
+                                                            ),
+                                                        ),
+                                                    ],
+                                                ),
+                                            ),
+                                        ],
+                                    ),
+                                ),
+                                (
+                                    size: "2",
+                                    pane: Pane(Empty()),
+                                ),
+                                (
+                                    size: "62%",
+                                    pane: Split(
+                                        direction: Vertical,
+                                        panes: [
+                                            (
+                                                size: "1",
+                                                pane: Pane(QueueHeader()),
+                                            ),
+                                            (
+                                                size: "100%",
+                                                pane: Pane(Queue),
+                                            ),
+                                        ],
+                                    ),
+                                ),
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty()),
+                                ),
+                            ],
+                        ),
+                    ),
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "2",
+                        pane: Pane(ProgressBar),
+                    ),
+                ],
+            ),
+        ),
+        (
+            name: "󰡎",
+            pane: Split(
+                direction: Vertical,
+                panes: [
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "100%",
+                        pane: Split(
+                            direction: Horizontal,
+                            panes: [
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty()),
+                                ),
+                                (
+                                    size: "35%",
+                                    pane: Split(
+                                        direction: Vertical,
+                                        panes: [
+                                            (
+                                                size: "100%",
+                                                pane: Pane(AlbumArt),
+                                            ),
+                                            (
+                                                size: "1",
+                                                pane: Pane(Empty()),
+                                            ),
+                                            (
+                                                size: "8",
+                                                pane: Split(
+                                                    direction: Horizontal,
+                                                    panes: [
+                                                        (
+                                                            size: "2",
+                                                            pane: Pane(Empty()),
+                                                        ),
+                                                        (
+                                                            size: "100%",
+                                                            pane: Pane(Lyrics),
+                                                        ),
+                                                        (
+                                                            size: "2",
+                                                            pane: Pane(Empty()),
+                                                        ),
+                                                    ],
+                                                ),
+                                            ),
+                                        ],
+                                    ),
+                                ),
+                                (
+                                    size: "2",
+                                    pane: Pane(Empty()),
+                                ),
+                                (
+                                    size: "62%",
+                                    pane: Split(
+                                        direction: Vertical,
+                                        panes: [
+                                            (
+                                                size: "1",
+                                                pane: Pane(QueueHeader()),
+                                            ),
+                                            (
+                                                size: "100%",
+                                                pane: Pane(Queue),
+                                            ),
+                                        ],
+                                    ),
+                                ),
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty()),
+                                ),
+                            ],
+                        ),
+                    ),
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "2",
+                        pane: Pane(ProgressBar),
+                    ),
+                ],
+            ),
+        ),
+        (
+            name: "󰎇",
+            pane: Split(
+                direction: Vertical,
+                panes: [
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "100%",
+                        pane: Split(
+                            direction: Horizontal,
+                            panes: [
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty()),
+                                ),
+                                (
+                                    size: "35%",
+                                    pane: Pane(AlbumArt),
+                                ),
+                                (
+                                    size: "2",
+                                    pane: Pane(Empty()),
+                                ),
+                                (
+                                    size: "62%",
+                                    pane: Split(
+                                        direction: Vertical,
+                                        panes: [
+                                            (
+                                                size: "1",
+                                                pane: Pane(QueueHeader()),
+                                            ),
+                                            (
+                                                size: "100%",
+                                                pane: Pane(Queue),
+                                            ),
+                                        ],
+                                    ),
+                                ),
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty()),
+                                ),
+                            ],
+                        ),
+                    ),
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "2",
+                        pane: Pane(ProgressBar),
+                    ),
+                ],
+            ),
+        ),
+        (
+            name: " Directories",
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Directories), size: "100%")],
+            ),
+        ),
+        (
+            name: " Artists",
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Artists), size: "100%")],
+            ),
+        ),
+        (
+            name: " Album Artists",
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(AlbumArtists), size: "100%")],
+            ),
+        ),
+        (
+            name: " Albums",
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Albums), size: "100%")],
+            ),
+        ),
+        (
+            name: " Playlists",
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Playlists), size: "100%")],
+            ),
+        ),
+        (
+            name: " Search",
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Search), size: "100%")],
+            ),
+        ),
+        (
+            name: "󰨖 Lyrics",
+            pane: Split(
+                direction: Vertical,
+                panes: [
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "100%",
+                        pane: Split(
+                            direction: Horizontal,
+                            panes: [
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty()),
+                                ),
+                                (
+                                    size: "35%",
+                                    pane: Pane(AlbumArt),
+                                ),
+                                (
+                                    size: "2",
+                                    pane: Pane(Empty()),
+                                ),
+                                (
+                                    size: "62%",
+                                    pane: Pane(Lyrics),
+                                ),
+                                (
+                                    size: "1",
+                                    pane: Pane(Empty()),
+                                ),
+                            ],
+                        ),
+                    ),
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "2",
+                        pane: Pane(ProgressBar),
+                    ),
+                ],
+            ),
+        ),
+    ],
+)

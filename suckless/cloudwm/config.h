@@ -100,6 +100,7 @@ static const int          ulineall     = 0;
 
 /* rules */
 static const Rule rules[] = {
+    {"rmpc-float", NULL, NULL, 0, 1, -1 },
     {"Virt-viewer", NULL, NULL, 1 << 8, 0, 0, 1, -1},
     {"Thunar", NULL, NULL, 0, 1, 0, 0, -1},
     {"Nemo", NULL, NULL, 0, 1, 0, 0, -1},
@@ -180,6 +181,16 @@ static const Layout layouts[] = {
     }
 
 /* commands (use $HOME for portability) */
+
+static const char *rmpccmd[] = {
+    "kitty",
+    "--class", "rmpc-float",
+    "--title", "rmpc",
+    "-o", "initial_window_width=1248",
+    "-o", "initial_window_height=683",
+    "-e", "rmpc",
+    NULL
+};
 static const char *rofi_launcher[] = {
     "sh", "-c", "$HOME/cloudwm/rofi/launchers/launcher.sh", NULL};
 static const char *rofi_emoji[] = {"sh", "-c",
@@ -256,6 +267,7 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_e, spawn, SHCMD("thunar")},
     {MODKEY, XK_t, spawn, SHCMD("kitty")},
     {MODKEY, XK_o, spawn, SHCMD("obsidian")},
+    {MODKEY|Mod1Mask, XK_r, spawn, {.v = rmpccmd } },
 
     /* warpd: keyboard pointer (z/x/c cluster) */
     {Mod1Mask | ShiftMask, XK_z, spawn, SHCMD("warpd --hint")},

@@ -119,8 +119,11 @@ run_once flameshot
 run_once dunst
 run_once stretchly
 run_once discord
-run_once deadbeef
 
+# MPD
+run_once mpd
+run_once mpd
+( sleep 2; mpd-mpris >> "$HOME/.local/share/mpd-mpris.log" 2>&1 ) &
 # Compositor
 run_once picom
 
