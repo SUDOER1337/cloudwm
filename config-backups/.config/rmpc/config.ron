@@ -22,8 +22,9 @@
     album_art: (
     method: Kitty,
     effect: Rotate,
-    rotation_speed_dps: 8.0,
-    rotation_fps: 24,
+    rotation_speed_dps: 6,
+    rotation_fps: 2,
+    rotation_profile: Performance,
 ),
 
     cava: (

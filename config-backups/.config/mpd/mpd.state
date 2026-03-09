@@ -1,11 +1,11 @@
 sw_volume: 100
 audio_device_state:1:PipeWire Pulse
 audio_device_state:1:rmpc-cava
-state: play
-current: 5
-time: 13.874
+state: pause
+current: 4
+time: 50.195
 random: 0
-repeat: 1
+repeat: 0
 single: 0
 consume: 0
 crossfade: 0
@@ -13,30 +13,23 @@ mixrampdb: 0
 mixrampdelay: -1
 lastloadedplaylist: 
 playlist_begin
-0:A Heart of Cold.mp3
-1:Cybergrinds/Igorrr & Ruby My Dear - Alain.mp3
-2:Cybergrinds/Amon Tobin - Player - Angel of Theft.opus
-3:backroom labyrinth.mp3
-4:Cybergrinds/DJ Skull Vomit/DJ Skull Vomit - Bell Tower Massacre.mp3
-5:Meshuggah - Bleed.mp3
-6:Burn This Moment Into the Retina of My Eye.mp3
-7:Cadmium Colors.mp3
-8:Cybergrinds/Coming Home - Elena Siegman.opus
-9:Cybergrinds/DJ Skull Vomit/DJ Skull Vomit & Stazma The Junglechrist - Dark Tarzan.mp3
-10:The Berzerker - Forever.mp3
-11:Porter Robinson - Goodbye To A World.mp3
-12:Human ft. Kasane Teto SV & UTAU.mp3
-13:Meshuggah - Obzen.mp3
-14:Napalm Death - On The Brink Of Extinction.mp3
-15:Cybergrinds/Bong Ra vs Igorrr - Pallbearer.mp3
-16:Cybergrinds/Meshuggah - Bleed [Igorrr's Remix].opus
-17:The Bug.mp3
-18:There are stars inside of.mp3
-19:Tristam - Till It's Over.mp3
-20:IGORRR - VERY NOISE.mp3
-21:Cybergrinds/Ladyscraper - Wolves (The Wizard).opus
-22:Kasane Teto - Ochame Kinou.mp3
-23:Human ft. SF-A2 Miki.mp3
-24:Car Bomb - Tiles Whisper Dreams.mp3
-25:Insect Warfare - Endless Execution Thru Violent Restitution/Insect Warfare_00.mp3
+0:XÄCKSECKS - XÄCKSECKS - DEN LEDES KOSMONAUT-MCR-016/XÄCKSECKS - XÄCKSECKS - DEN LEDES KOSMONAUT-MCR-016 - 03 XÄCKSECKS vs OZIGIRI - ABBADON STREAMING.ogg
+1:Car Bomb - Third Revelation [ft. Joseph Duplantier].mp3
+2:DaveNBambi/SPURGLEVILLE.ogg
+3:Insect Warfare - Endless Execution Thru Violent Restitution/Insect Warfare_03.mp3
+4:Car Bomb - Blindsides.mp3
+5:Frontcore - Frontcore-Even More-MCR-077/Frontcore - Frontcore-Even More-MCR-077 - 01 Choose.ogg
+6:Human ft. SF-A2 Miki.mp3
+7:Brickmason - Caroline- Another Aperture Experience/Brickmason - Caroline- Another Aperture Experience - 02 Caroline, May 14, 21-.ogg
+8:XÄCKSECKS - XÄCKSECKS - DEN LEDES KOSMONAUT-MCR-016/XÄCKSECKS - XÄCKSECKS - DEN LEDES KOSMONAUT-MCR-016 - 01 DEN LEDES KOSMONAUT.ogg
+9:Car Bomb - Tiles Whisper Dreams.mp3
+10:Insect Warfare - Endless Execution Thru Violent Restitution/28 Insect Warfare - At War With Grindcore (2004).mp3
+11:Brickmason - Caroline- Another Aperture Experience/Brickmason - Caroline- Another Aperture Experience - 01 Caroline, 1982.ogg
+12:Frontcore - Frontcore-Even More-MCR-077/Frontcore - Frontcore-Even More-MCR-077 - 02 Even More (ft. IIIia Maliuk).ogg
+13:Breakcore Gives Me Wood - Various _– Breakcore Gives Me Wood/Breakcore Gives Me Wood - Various ‎– Breakcore Gives Me Wood - 10 FFF - Goin' Nowhere.ogg
+14:ChillMusic/[ lo-fi 16-bit Snes Cover ] .ogg
+15:Flashcore/Xanopticon - Neurve.mp3
+16:XÄCKSECKS - XÄCKSECKS - DEN LEDES KOSMONAUT-MCR-016/XÄCKSECKS - XÄCKSECKS - DEN LEDES KOSMONAUT-MCR-016 - 02 FÖRHÄRJNING & MYSTISKA RITUALER.ogg
+17:Insect Warfare - Endless Execution Thru Violent Restitution/Insect Warfare_00.mp3
+18:Rory in early 20s - Various Types Of Ads.mp3
 playlist_end

@@ -34,7 +34,7 @@ Screenshots
 
 Configuration
 -------------
-Edit suckless/cloudwm/config.def.h for colors, keybindings, layouts, and rules.
+Edit suckless/cloudwm/config.h for colors, keybindings, layouts, and rules.
 
 Profiles
 --------
@@ -87,7 +87,7 @@ Recommendations
 | redshift | Blue light filter | redshift |
 | flameshot | Screenshots | flameshot |
 | udiskie | USB auto-mount | udiskie |
-| rmpc | rust tui music player + mpris | mpd rmpc mpd-mpris |
+| rmpc | Rust TUI MPD client | mpd rmpc mpd-mpris |
 
 Build
 -----
@@ -115,8 +115,7 @@ Keybindings not working:
 
 Files
 -----
-- suckless/cloudwm/config.def.h - main configuration
-- suckless/cloudwm/config.h - active configuration
+- suckless/cloudwm/config.h - main configuration
 - scripts/ - utility scripts
 - rofi/ - application launcher configurations
 - themes/ - GTK theme files
