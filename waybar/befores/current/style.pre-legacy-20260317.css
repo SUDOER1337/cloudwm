@@ -1,0 +1,260 @@
+/* =========================
+   SPACING TUNING
+   ========================= */
+
+/* Adjust this to change top/bottom height of modules */
+@define-color _dummy transparent;
+/* VERTICAL_PADDING = 3px */
+
+
+/* =========================
+   COLOR PALETTE
+   ========================= */
+
+@define-color bg              #303030;
+@define-color bg-alt          #2e2e2e;
+
+@define-color fg              #bbbbbb;
+@define-color fg-muted        #9aa0a6;
+@define-color fg-faded        #7f858a;
+
+@define-color accent          #bbbbbb;
+@define-color accent-muted    #808080;
+
+@define-color border-light    rgba(255,255,255,0);
+@define-color border-dark     rgba(10,10,10,0.40);
+
+@define-color warn            #ebcb8b;
+@define-color crit            #bf616a;
+
+
+/* =========================
+   GLOBAL RESET
+   ========================= */
+
+* {
+  border: none;
+
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+
+  font-family: "Iosevka Nerd Font";
+  font-weight: Bold;
+  font-size: 16px;
+
+  min-height: 0;
+  min-width: 0;
+  /* padding: 3 1 3 1px;*/
+}
+
+
+/* =========================
+   WAYBAR WINDOW
+   ========================= */
+
+window#waybar {
+  background: @bg;
+  color: @fg;
+  margin: 5 5 5 5px;
+  /*border-right: 2px solid @fg;*/
+}
+
+
+/* =========================
+   MODULE CONTAINERS
+   ========================= */
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: transparent;
+  color: @fg;
+}
+
+
+/* =========================
+   BASE MODULE STYLE (EXTRA COMPACT)
+   ========================= */
+
+#gamma,
+#battery,
+#tray,
+#audio,
+#clock,
+#memory,
+#cpu,
+#disk,
+#network,
+#pulseaudio,
+#backlight,
+#power,
+#custom-*,
+#privacy,
+#idle_inhibitor {
+  background: @bg-alt;
+  color: @fg;
+
+  padding: 4px 0px;
+  margin: 1px 5px;
+
+  border-bottom: 3px solid @border-dark;
+  box-shadow: inset 0 1px 0 @border-light;
+
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+/*========================== 
+        CUSTOM FONTS
+   ========================= */
+
+#custom-cputemp,
+#cpu,
+#memory{
+  font-family: "Digital-7";
+}
+
+
+/* =========================
+   CLOCK 
+   ========================= */
+
+#clock {
+  font-family: "Digital-7 Mono";
+  font-size: 27px;
+  font-weight: bold;
+
+  /*border-bottom: 4px solid @border;*/
+}
+
+
+/* =========================
+   WORKSPACES
+   ========================= */
+
+#workspaces {
+  margin: 1px 3px;
+}
+
+#workspaces button {
+  background: @bg-alt;
+  color: @fg-faded;
+
+  padding: 5px 1px;
+  margin: 1px 0;
+
+  border-bottom: 2px solid @border-dark;
+  box-shadow: inset 0 1px 0 @border-light;
+
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+#workspaces button.active {
+  color: #555555;
+  border-top-color: #303030;
+}
+
+#workspaces button:hover {
+  background: @bg;
+  color: @fg;
+}
+
+
+/* =========================
+   TRAY
+   ========================= */
+
+#tray > .needs-attention {
+  border-bottom-color: @warn;
+}
+
+
+/* =========================
+   BATTERY STATES
+   ========================= */
+
+#battery.discharging.warning {
+  border-bottom-color: @warn;
+}
+
+#battery.discharging.critical {
+  border-bottom-color: @crit;
+  color: @crit;
+}
+
+
+/* =========================
+   TOOLTIP & MENU
+   ========================= */
+
+tooltip,
+menu {
+  background: @bg-alt;
+  color: @fg;
+
+  padding: 5px;
+  border-bottom: 2px solid @border-dark;
+}
+
+tooltip label,
+menu label {
+  color: @fg;
+}
+
+
+/* =========================
+   SLIDERS
+   ========================= */
+
+#pulseaudio-slider slider,
+#backlight-slider slider {
+  all: unset;
+  border-bottom: @bg-alt;
+}
+
+#pulseaudio-slider trough,
+#backlight-slider trough {
+  background: @bg;
+  border-bottom: @bg-alt;
+  min-height: 100px;
+}
+
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+  background: @accent;
+  min-width: 8px;
+  border-bottom: #303030;
+}
+
+
+/* =========================
+   INACTIVE STATES
+   ========================= */
+
+#idle_inhibitor.deactivated,
+#privacy.disabled {
+  color: @fg-faded;
+}
+
+/* =========================
+   Custom Padding For Vertical Icons
+   ========================= */
+
+#gamma,
+#battery,
+#tray,
+#audio,
+#clock,
+#memory,
+#cpu,
+#disk,
+#network,
+#pulseaudio,
+#backlight,
+#power,
+#custom-*,
+#privacy,
+#idle_inhibitor {
+
+}
+

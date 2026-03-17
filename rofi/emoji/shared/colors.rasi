@@ -1,19 +1,8 @@
 /**
  *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Colors
- *
- * Available Colors Schemes
- *
- * adapta    catppuccin    everforest    navy       paper
- * arc       cyberpunk     gruvbox       nord       solarized
- * black     dracula       lovelace      onedark    yousai
- * desert
+ * Theme  : Gruvfjord
+ * Source : ../../colors/gruvfjord.rasi
  *
  **/
 
-/* Import color-scheme from `colors` directory */
-
-@import "~/cloudwm/rofi/colors/achromatic.rasi"
+@import "../../colors/gruvfjord.rasi"

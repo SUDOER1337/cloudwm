@@ -1,0 +1,109 @@
+/**
+ *
+ * VSCodium workspace manager theme
+ *
+ **/
+
+configuration {
+    show-icons: false;
+}
+
+@import "../themes/shared/colors.rasi"
+@import "../themes/shared/fonts.rasi"
+
+* {
+    border-colour:               var(border);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(panel-soft);
+    normal-background:           var(panel);
+    normal-foreground:           var(foreground);
+    prompt-colour:               var(orange);
+    placeholder-colour:          var(foreground-muted);
+    card-background:             var(panel-soft);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(inverse-foreground);
+}
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       760px;
+    height:                      60%;
+    border:                      0px solid;
+    border-radius:               3px;
+    border-color:                @border-colour;
+    background-color:            @background-colour;
+    padding:                     0px;
+}
+
+mainbox {
+    spacing:                     16px;
+    padding:                     28px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    spacing:                     10px;
+    padding:                     16px;
+    border:                      0px solid;
+    border-radius:               3px;
+    border-color:                transparent;
+    background-color:            @alternate-background;
+    text-color:                  @foreground-colour;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color:            inherit;
+    text-color:                  @prompt-colour;
+}
+
+entry {
+    background-color:            inherit;
+    text-color:                  inherit;
+    placeholder:                 "search workspaces...";
+    placeholder-color:           @placeholder-colour;
+}
+
+listview {
+    columns:                     1;
+    lines:                       14;
+    cycle:                       true;
+    dynamic:                     true;
+    fixed-height:                true;
+    fixed-columns:               true;
+    scrollbar:                   false;
+    spacing:                     8px;
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+}
+
+element {
+    padding:                     12px;
+    border:                      0px solid;
+    border-radius:               3px;
+    border-color:                transparent;
+    background-color:            @card-background;
+    text-color:                  @foreground-colour;
+}
+
+element selected.normal {
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
+}
+
+message {
+    background-color:            transparent;
+}
+
+textbox {
+    padding:                     10px;
+    background-color:            @card-background;
+    text-color:                  @foreground-colour;
+    border-radius:               3px;
+    markup:                      true;
+}

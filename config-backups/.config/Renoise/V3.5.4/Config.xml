@@ -6,10 +6,10 @@
     <UIScaleFactor>112.5%</UIScaleFactor>
 <!--Window Metrics-->
     <WindowedMode>false</WindowedMode>
-    <WindowedModePosition>28,51</WindowedModePosition>
-    <WindowedModeSize>1656,894</WindowedModeSize>
-    <WindowedModeIsMaximized>false</WindowedModeIsMaximized>
-    <FullScreenMonitorMatchPos>853,480</FullScreenMonitorMatchPos>
+    <WindowedModePosition>34,57</WindowedModePosition>
+    <WindowedModeSize>1656,892</WindowedModeSize>
+    <WindowedModeIsMaximized>true</WindowedModeIsMaximized>
+    <FullScreenMonitorMatchPos>1390,205</FullScreenMonitorMatchPos>
 <!--Window Performance-->
     <VisualEffects>true</VisualEffects>
     <EnableExternEditorKeyboardAccess>false</EnableExternEditorKeyboardAccess>
@@ -26,34 +26,20 @@
     <ApplyMouseWheelAcceleration>true</ApplyMouseWheelAcceleration>
 <!--Application Prefs-->
     <RecentFiles>
-      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/UntitiedBreakcore01.xrns</RecentFile>
-      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Dancecore Delightful ft. Adachi Rei.xrns</RecentFile>
-      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/The Disintegration Breaks.xrns</RecentFile>
-      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/The.xrns</RecentFile>
-      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Random Ass song.xrns</RecentFile>
-      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/random_god_flashcore.xrns</RecentFile>
-      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/AmbientBreakbeat01.xrns</RecentFile>
-      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Carbomb - Third Revelation [Nullfjord Mix].xrns</RecentFile>
-      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Hatebreak.xrns</RecentFile>
+      <RecentFile>/home/thinker/Music/REALLYREALLYGOODSONG.xrns</RecentFile>
+      <RecentFile>/home/thinker/Music/MATHBREAKEXPERIMENT01.xrns</RecentFile>
+      <RecentFile>/home/thinker/Music/CYBERGRIND_TEMPLETE.xrns</RecentFile>
       <RecentFile>/home/thinker/Music/FLESH BAGUETTE [GRINDULOID | GORELOID].xrns</RecentFile>
     </RecentFiles>
     <RecentLoadedFiles>
-      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Dancecore Delightful ft. Adachi Rei.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/The Disintegration Breaks.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/The.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Random Ass song.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/random_god_flashcore.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/AmbientBreakbeat01.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Carbomb - Third Revelation [Nullfjord Mix].xrns</RecentLoadedFile>
-      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Hatebreak.xrns</RecentLoadedFile>
+      <RecentLoadedFile>/home/thinker/Music/REALLYREALLYGOODSONG.xrns</RecentLoadedFile>
       <RecentLoadedFile>/home/thinker/Music/CYBERGRIND_TEMPLETE.xrns</RecentLoadedFile>
     </RecentLoadedFiles>
     <RecentSavedFiles>
-      <RecentSavedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/UntitiedBreakcore01.xrns</RecentSavedFile>
-      <RecentSavedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Carbomb - Third Revelation [Nullfjord Mix].xrns</RecentSavedFile>
-      <RecentSavedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Dancecore Delightful ft. Adachi Rei.xrns</RecentSavedFile>
-      <RecentSavedFile>/home/thinker/Music/FLESH BAGUETTE [GRINDULOID | GORELOID].xrns</RecentSavedFile>
+      <RecentSavedFile>/home/thinker/Music/REALLYREALLYGOODSONG.xrns</RecentSavedFile>
+      <RecentSavedFile>/home/thinker/Music/MATHBREAKEXPERIMENT01.xrns</RecentSavedFile>
       <RecentSavedFile>/home/thinker/Music/CYBERGRIND_TEMPLETE.xrns</RecentSavedFile>
+      <RecentSavedFile>/home/thinker/Music/FLESH BAGUETTE [GRINDULOID | GORELOID].xrns</RecentSavedFile>
     </RecentSavedFiles>
     <WarnAboutUnsavedDocumentChanges>true</WarnAboutUnsavedDocumentChanges>
     <QuitAndSaveBackupOnFatalError>true</QuitAndSaveBackupOnFatalError>
@@ -242,7 +228,7 @@
   <RightFrameIsVisible>true</RightFrameIsVisible>
   <UpperFrameHeight>176</UpperFrameHeight>
   <LowerFrameHeight>144</LowerFrameHeight>
-  <RightFrameWidth>232</RightFrameWidth>
+  <RightFrameWidth>224</RightFrameWidth>
   <LastActiveUpperFrameView>0</LastActiveUpperFrameView>
   <LastActiveMiddleFrameView>0</LastActiveMiddleFrameView>
   <LastActiveLowerFrameView>0</LastActiveLowerFrameView>
@@ -268,7 +254,7 @@
   <MixerViewDialogUpperFrameHeight>76</MixerViewDialogUpperFrameHeight>
 <!--Disk Browser-->
   <DiskBrowserIsVisible>true</DiskBrowserIsVisible>
-  <DiskBrowserDirTreeHeight>0</DiskBrowserDirTreeHeight>
+  <DiskBrowserDirTreeHeight>69</DiskBrowserDirTreeHeight>
   <DirectoryPresets>
     <DirectoryPreset>
       <DirectoryPreset>
@@ -280,8 +266,8 @@
         <SelectedNodeName>/run/media/thinker/DoNotOpen/MusicSamples/</SelectedNodeName>
       </DirectoryPreset>
       <DirectoryPreset>
-        <TreeInfo>?0?/mnt/Storages/Audio/STEMS/?1?ABOUT 1 HOUR INTO MAKING FLASHCORE?1?BirdBrain stems 160bpm Gmaj?1?Cadmium Color stems 148-182bpm Cmaj?1?Dance Delightful stems 170bpm F#maj?1?Erase the Memory (feat. Kasane Teto) [Breakbeat]?1?htdemucs?1?IGORRR - Meshuggah (Bleed Remix)?1?Kasane Teto - Ochame Kinou?1?Madoromi⧸足立レイ?1?mdx_extra_q?1?meganeko - The Cyber Grind?1?Meshuggah - Bleed?1?r4c stems 172bpm Dmin?1?vocals?1?weathergirl stems Gmin variable bpm?1?wsc stems 158bpm Gmaj-Amaj?1?Xanopticon Liminal Space The Slow Walk Down</TreeInfo>
-        <SelectedNodeName>/mnt/Storages/Audio/STEMS/</SelectedNodeName>
+        <TreeInfo>?0?/?1?boot?1?dev?1?etc?1?home?1?lost+found?1?mnt?1?opt?1?proc?1?root?1?run?1?srv?1?sys?1?tmp?1?usr?1?var</TreeInfo>
+        <SelectedNodeName>/</SelectedNodeName>
       </DirectoryPreset>
       <DirectoryPreset/>
     </DirectoryPreset>
@@ -306,20 +292,20 @@
   </DirectoryPresets>
   <LastBrowsedDirectories>
     <LastBrowsedDirectory>
-      <TreeInfo>?0?/run/media/thinker/DoNotOpen/MusicSamples/Amenbreak/rhythm-lab.com_amen_vol.1/rhythm-lab.com_amen_vol.1/WAV/?1?peaks</TreeInfo>
-      <SelectedNodeName>/run/media/thinker/DoNotOpen/MusicSamples/Amenbreak/rhythm-lab.com_amen_vol.1/rhythm-lab.com_amen_vol.1/WAV/</SelectedNodeName>
+      <TreeInfo>?0?/run/media/thinker/DoNotOpen/?1?.Trash-1000?1?0BIK?1?3D?1?Access?1?Algodoo?1?Apps?1?Audio?1?audiostem?1?BitrateBrew?1?Blender?1?Breakcore Gives Me Wood - Various _– Breakcore Gives Me Wood?1?Brickmason - Caroline- Another Aperture Experience?1?ChillMusic?1?cloudwm-main?1?codes?1?converted?1?Cybergrinds?1?DaveNBambi?1?DAWPlugins?1?DB.2-1_ธนโชติ เลขะสันต์?1?DeaDBeeF?1?Demucs-GUI_2.0a1_cpu?1?Distorted Eliminator?1?dj Skull Vomit - 10 Years (Full Discography)?1?Files?1?Music?1?Renoise?1?Renoise_Projects?1?System Volume Information</TreeInfo>
+      <SelectedNodeName>/run/media/thinker/DoNotOpen/Demucs-GUI_2.0a1_cpu/</SelectedNodeName>
     </LastBrowsedDirectory>
     <LastBrowsedDirectory>
-      <TreeInfo>?0?/usr/share/renoise-3.5.2/Library/Instruments/Granular/</TreeInfo>
-      <SelectedNodeName>/usr/share/renoise-3.5.2/Library/Instruments/Granular/</SelectedNodeName>
+      <TreeInfo>?0?/home/thinker/.local/opt/renoise-3.5.4/Resources/Library/</TreeInfo>
+      <SelectedNodeName>/home/thinker/.local/opt/renoise-3.5.4/Resources/Library/Instruments/</SelectedNodeName>
     </LastBrowsedDirectory>
     <LastBrowsedDirectory>
-      <TreeInfo>?0?/usr/share/renoise-3.5.2/Library/?1?Effect Chains?1?Effect Presets?1?Instruments?1?Modulation Sets?1?Multi-Samples?1?Phrases?1?Phrase Scripts?1?Samples?1?Songs</TreeInfo>
-      <SelectedNodeName>/usr/share/renoise-3.5.2/Library/Samples/</SelectedNodeName>
+      <TreeInfo>?0?/home/thinker/.local/opt/renoise-3.5.4/Resources/Library/?1?Effect Chains?1?Effect Presets?1?Instruments?1?Modulation Sets?1?Multi-Samples?1?Phrases?1?Phrase Scripts?1?Samples?1?Songs</TreeInfo>
+      <SelectedNodeName>/home/thinker/.local/opt/renoise-3.5.4/Resources/Library/Samples/</SelectedNodeName>
     </LastBrowsedDirectory>
     <LastBrowsedDirectory>
-      <TreeInfo>?0?/usr/share/renoise-3.5.2/?1?3rdParty?1?Library?1?Schemas?1?Scripts?1?Skin?1?Stylesheets?1?Themes</TreeInfo>
-      <SelectedNodeName>/usr/share/renoise-3.5.2/Library/</SelectedNodeName>
+      <TreeInfo>?0?/home/thinker/.local/opt/renoise-3.5.4/Resources/?1?3rdParty?1?Library?1?Schemas?1?Scripts?1?Skin?1?Stylesheets?1?Themes</TreeInfo>
+      <SelectedNodeName>/home/thinker/.local/opt/renoise-3.5.4/Resources/Library/</SelectedNodeName>
     </LastBrowsedDirectory>
   </LastBrowsedDirectories>
   <FileListShowAllOptions>
@@ -475,7 +461,7 @@
     <PresetChooserDialogSize>634,344</PresetChooserDialogSize>
 <!--GUI-->
     <ShowTooltips>true</ShowTooltips>
-    <LastShownPreferencePane>5</LastShownPreferencePane>
+    <LastShownPreferencePane>7</LastShownPreferencePane>
 <!--Keyboard Focus-->
     <LockFocusToMiddleFrame>true</LockFocusToMiddleFrame>
 <!--Keyboard/Mouse-->
@@ -648,6 +634,11 @@
         <FavoriteDisplayName>ROTT</FavoriteDisplayName>
         <PresetDisplayName>Dynamics/ROTT</PresetDisplayName>
         <PresetLibrary>Bundled Content</PresetLibrary>
+      </NativeDevicePref>
+      <NativeDevicePref>
+        <Identifier>Multitap</Identifier>
+        <IsFavorite>true</IsFavorite>
+        <FavoriteDisplayName>Multitap Delay</FavoriteDisplayName>
       </NativeDevicePref>
     </NativeDevicePrefs>
 <!--Formula Editor-->
@@ -973,8 +964,8 @@
     <SamplePropertiesExpanded>false</SamplePropertiesExpanded>
 <!--Macro Mapping-->
     <MacroMappingDialogMaximized>false</MacroMappingDialogMaximized>
-    <MacroMappingDialogPosition>-1,-1</MacroMappingDialogPosition>
-    <MacroMappingDialogSize>-1,-1</MacroMappingDialogSize>
+    <MacroMappingDialogPosition>692,451</MacroMappingDialogPosition>
+    <MacroMappingDialogSize>472,178</MacroMappingDialogSize>
 <!--Phrase Script Editor-->
     <PhraseScriptEditorFontSize>11</PhraseScriptEditorFontSize>
     <PhraseScriptEditorAutoCommit>true</PhraseScriptEditorAutoCommit>
@@ -1091,7 +1082,7 @@
     <SnapMode>0 Crossing</SnapMode>
     <RecordDialogPosition>797,468</RecordDialogPosition>
     <UndoInSampleEditor>true</UndoInSampleEditor>
-    <RenderSlicesUseInstrumentColumn>false</RenderSlicesUseInstrumentColumn>
+    <RenderSlicesUseInstrumentColumn>true</RenderSlicesUseInstrumentColumn>
     <RenderSlicesLinesPerBeat>8</RenderSlicesLinesPerBeat>
     <RenderSlicesDelayValueQuantum>1</RenderSlicesDelayValueQuantum>
     <RenderSampleFxUseTrackDsps>true</RenderSampleFxUseTrackDsps>
@@ -1123,21 +1114,21 @@
   </MidiIO>
   <AudioIO>
 <!--Devices-->
-    <ActiveDeviceType>1</ActiveDeviceType>
+    <ActiveDeviceType>0</ActiveDeviceType>
     <ActiveInputDriverIndices>
-      <ActiveInputDriverIndex>-1</ActiveInputDriverIndex>
+      <ActiveInputDriverIndex>0</ActiveInputDriverIndex>
       <ActiveInputDriverIndex>4</ActiveInputDriverIndex>
     </ActiveInputDriverIndices>
     <ActiveInputDriverNames>
-      <ActiveInputDriverName/>
+      <ActiveInputDriverName>default (System Default Device)</ActiveInputDriverName>
       <ActiveInputDriverName>32 Channels</ActiveInputDriverName>
     </ActiveInputDriverNames>
     <ActiveOutputDriverIndices>
-      <ActiveOutputDriverIndex>1</ActiveOutputDriverIndex>
+      <ActiveOutputDriverIndex>0</ActiveOutputDriverIndex>
       <ActiveOutputDriverIndex>4</ActiveOutputDriverIndex>
     </ActiveOutputDriverIndices>
     <ActiveOutputDriverNames>
-      <ActiveOutputDriverName>hw:Device,0 (USB Audio)</ActiveOutputDriverName>
+      <ActiveOutputDriverName>default (System Default Device)</ActiveOutputDriverName>
       <ActiveOutputDriverName>32 Channels</ActiveOutputDriverName>
     </ActiveOutputDriverNames>
     <BufferLengths>

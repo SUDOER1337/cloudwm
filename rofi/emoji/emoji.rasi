@@ -11,9 +11,9 @@
 configuration {
 	modi:                       "emoji,nerdy";
   show-icons:                 false;
-  display-nerdy:              "󰓠 ";
-  display-emoji:              "󰞅 ";
-	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+  display-nerdy:              "󰓠  Nerdfonts symbols";
+  display-emoji:              "󰞅  Emojis";
+	drun-display-format:        "{name} ── [<span weight='light' size='small'><i>({generic})</i></span>]";
 	window-format:              "{w} · {c} · {t}";
 }
 
@@ -22,29 +22,34 @@ configuration {
 @import                          "shared/fonts.rasi"
 
 * {
-    border-colour:               var(selected);
-    handle-colour:               var(foreground);
+    border-colour:               var(border);
+    handle-colour:               var(blue-deep);
     background-colour:           var(background);
     foreground-colour:           var(foreground);
-    alternate-background:        var(background-alt);
-    normal-background:           var(background);
+    alternate-background:        var(panel-soft);
+    normal-background:           transparent;
     normal-foreground:           var(foreground);
-    urgent-background:           var(urgent);
-    urgent-foreground:           var(background);
-    active-background:           var(active);
-    active-foreground:           var(background);
+    urgent-background:           var(rose);
+    urgent-foreground:           var(inverse-foreground);
+    active-background:           var(sage);
+    active-foreground:           var(inverse-foreground);
     selected-normal-background:  var(selected);
-    selected-normal-foreground:  var(background);
-    selected-urgent-background:  var(active);
-    selected-urgent-foreground:  var(background);
-    selected-active-background:  var(urgent);
-    selected-active-foreground:  var(background);
-    alternate-normal-background: var(background);
-    alternate-normal-foreground: var(foreground);
-    alternate-urgent-background: var(urgent);
-    alternate-urgent-foreground: var(background);
-    alternate-active-background: var(active);
-    alternate-active-foreground: var(background);
+    selected-normal-foreground:  var(inverse-foreground);
+    selected-urgent-background:  var(rose);
+    selected-urgent-foreground:  var(inverse-foreground);
+    selected-active-background:  var(selection-soft);
+    selected-active-foreground:  var(inverse-foreground);
+    alternate-normal-background: var(panel-soft);
+    alternate-normal-foreground: var(foreground-muted);
+    alternate-urgent-background: var(rose);
+    alternate-urgent-foreground: var(inverse-foreground);
+    alternate-active-background: var(panel-soft);
+    alternate-active-foreground: var(green-soft);
+    card-background:             var(panel);
+    input-background:            var(panel);
+    mode-background:             var(overlay);
+    prompt-colour:               var(orange);
+    placeholder-colour:          var(foreground-muted);
 }
 
 /*****----- Main Window -----*****/
@@ -54,8 +59,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    height:                      70%;
-    width:                       900px;
+    height:                      74%;
+    width:                       980px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -63,45 +68,36 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      2px solid;
-    border-radius:               0px;
+    border:                      0px solid;
+    border-radius:               3px;
     border-color:                @border-colour;
     cursor:                      "default";
-    /* Backgroud Colors */
     background-color:            @background-colour;
-    /* Backgroud Image */
-    //background-image:          url("/path/to/image.png", none);
-    /* Simple Linear Gradient */
-    //background-image:          linear-gradient(red, orange, pink, purple);
-    /* Directional Linear Gradient */
-    //background-image:          linear-gradient(to bottom, pink, yellow, magenta);
-    /* Angle Linear Gradient */
-    //background-image:          linear-gradient(45, cyan, purple, indigo);
 }
 
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     15px;
+    spacing:                     18px;
     margin:                      0px;
-    padding:                     45px;
+    padding:                     28px;
     border:                      0px solid;
-    border-radius:               0px 0px 0px 0px;
+    border-radius:               3px;
     border-color:                @border-colour;
     background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+    children:                    [ "inputbar", "mode-switcher", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     14px;
     margin:                      0px;
-    padding:                     0px;
+    padding:                     16px;
     border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @border-colour;
-    background-color:            transparent;
+    border-radius:               3px;
+    border-color:                transparent;
+    background-color:            @input-background;
     text-color:                  @foreground-colour;
     children:                    [ "prompt", "entry" ];
 }
@@ -109,22 +105,22 @@ inputbar {
 prompt {
     enabled:                     true;
     background-color:            inherit;
-    text-color:                  inherit;
+    text-color:                  @prompt-colour;
 }
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "::";
+    str:                         "󰇛";
     background-color:            inherit;
-    text-color:                  inherit;
+    text-color:                  var(gold-soft);
 }
 entry {
     enabled:                     true;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "search...";
-    placeholder-color:           inherit;
+    placeholder:                 "search...  Ctrl+Tab 󰇛 switch mode";
+    placeholder-color:           @placeholder-colour;
 }
 num-filtered-rows {
     enabled:                     true;
@@ -164,11 +160,11 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     6px;
+    spacing:                     12px;
     margin:                      0px;
-    padding:                     0px;
+    padding:                     2px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               3px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -177,25 +173,25 @@ listview {
 scrollbar {
     handle-width:                5px ;
     handle-color:                @handle-colour;
-    border-radius:               0px;
+    border-radius:               3px;
     background-color:            @alternate-background;
 }
 
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     14px;
     margin:                      0px;
-    padding:                     5px;
+    padding:                     14px;
     border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @border-colour;
-    background-color:            transparent;
+    border-radius:               3px;
+    border-color:                transparent;
+    background-color:            @card-background;
     text-color:                  @foreground-colour;
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            var(normal-background);
+    background-color:            @card-background;
     text-color:                  var(normal-foreground);
 }
 element normal.urgent {
@@ -207,8 +203,8 @@ element normal.active {
     text-color:                  var(active-foreground);
 }
 element selected.normal {
-    background-color:            var(normal-foreground);
-    text-color:                  var(normal-background);
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
 }
 element selected.urgent {
     background-color:            var(selected-urgent-background);
@@ -231,11 +227,11 @@ element alternate.active {
     text-color:                  var(alternate-active-foreground);
 }
 element-icon {
-    background-color:            @background-colour;
-    border-radius:               0px;
+    background-color:            transparent;
+    border-radius:               3px;
     padding:                     0px;
     text-color:                  inherit;
-    size:                        40px;
+    size:                        32px;
     cursor:                      inherit;
 }
 element-text {
@@ -250,37 +246,37 @@ element-text {
 /*****----- Mode Switcher -----*****/
 mode-switcher{
     enabled:                     true;
-    spacing:                     7px;
+    spacing:                     15px;
     margin:                      0px;
-    padding:                     0px;
+    padding:                     6px;
     border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @border-colour;
+    border-radius:               3px;
+    border-color:                transparent;
     background-color:            transparent;
     text-color:                  @foreground-colour;
 }
 button {
-
-    padding:                     15px;
+    padding:                     14px;
     border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @border-colour;
-    background-color:            @alternate-background;
-    text-color:                  inherit;
+    border-radius:               3px;
+    border-color:                transparent;
+    background-color:            var(panel-soft);
+    text-color:                  var(plum-soft);
     cursor:                      pointer;
 }
 button selected {
-    background-color:            var(selected-normal-background);
-    text-color:                  var(selected-normal-foreground);
+    background-color:            var(tab-active);
+    text-color:                  var(tab-active-foreground);
+    border-color:                transparent;
 }
 
 /*****----- Message -----*****/
 message {
-    enabled:                     true;
+    enabled:                     false;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px 0px 0px 0px;
+    border-radius:               3px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -288,7 +284,7 @@ message {
 textbox {
     padding:                     8px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               3px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
@@ -302,8 +298,8 @@ textbox {
 error-message {
     padding:                     10px;
     border:                      0px solid;
-    border-radius:               4px;
-    border-color:                @border-colour;
-    background-color:            @background-colour;
+    border-radius:               3px;
+    border-color:                transparent;
+    background-color:            @card-background;
     text-color:                  @foreground-colour;
 }

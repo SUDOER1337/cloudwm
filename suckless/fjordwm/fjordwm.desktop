@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=fjordwm
+Comment=FjordWM X11 session
+Exec=start-fjordwm
+TryExec=start-fjordwm
+Type=Application

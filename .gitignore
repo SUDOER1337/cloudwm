@@ -67,3 +67,7 @@ __pycache__/
 *.rej
 *.orig
 suckless/cloudwm/cloudwm
+suckless/dwl/dwl
+suckless/dwl/config.h
+suckless/dwl/*-protocol.h
+/config-backups/.config/mpd/playlists

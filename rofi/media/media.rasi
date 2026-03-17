@@ -1,0 +1,102 @@
+/**
+ *
+ * Rofi media controller theme
+ *
+ **/
+
+configuration {
+    show-icons: false;
+}
+
+@import "../controlcenter/shared/colors.rasi"
+@import "../controlcenter/shared/fonts.rasi"
+
+* {
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(panel-soft);
+    normal-background:           var(panel);
+    normal-foreground:           var(foreground);
+    prompt-colour:               var(orange);
+    card-background:             var(panel);
+    panel-background:            var(panel-soft);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(inverse-foreground);
+    border-colour:               var(border);
+}
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       560px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      2px solid;
+    border-radius:               3px;
+    border-color:                @border-colour;
+    background-color:            @background-colour;
+}
+
+mainbox {
+    spacing:                     12px;
+    padding:                     22px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    spacing:                     10px;
+    padding:                     12px 14px;
+    border-radius:               3px;
+    background-color:            @panel-background;
+    text-color:                  @foreground-colour;
+    children:                    [ "prompt" ];
+}
+
+prompt {
+    background-color:            transparent;
+    text-color:                  @prompt-colour;
+}
+
+message {
+    padding:                     14px;
+    border-radius:               3px;
+    background-color:            @panel-background;
+    text-color:                  @foreground-colour;
+}
+
+textbox {
+    background-color:            transparent;
+    text-color:                  inherit;
+    markup:                      true;
+}
+
+listview {
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     false;
+    scrollbar:                   false;
+    spacing:                     6px;
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+}
+
+element {
+    padding:                     10px 12px;
+    border-radius:               3px;
+    background-color:            @card-background;
+    text-color:                  @normal-foreground;
+}
+
+element selected.normal {
+    background-color:            @selected-normal-background;
+    text-color:                  @selected-normal-foreground;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+}

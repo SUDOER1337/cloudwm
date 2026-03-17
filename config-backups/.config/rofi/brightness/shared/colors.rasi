@@ -10,10 +10,10 @@
  * adapta    catppuccin    everforest    navy       paper
  * arc       cyberpunk     gruvbox       nord       solarized
  * black     dracula       lovelace      onedark    yousai
- * desert
+ * gruvfjord
  *
  **/
 
 /* Import color-scheme from `colors` directory */
 
-@import "~/cloudwm/rofi/colors/achromatic.rasi"
+@import "~/.config/rofi/colors/gruvfjord.rasi"

@@ -1,0 +1,27 @@
+@theme "~/.config/rofi/config.rasi"
+
+* {
+    font: "JetBrainsMono Nerd Font Bold 10";
+}
+
+window {
+    width: 72%;
+    height: 52%;
+}
+
+mainbox {
+    padding: 32px;
+}
+
+listview {
+    columns: 2;
+    lines: 6;
+    dynamic: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 10px;
+}
+
+element {
+    padding: 8px;
+}

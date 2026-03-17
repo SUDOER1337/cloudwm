@@ -3,7 +3,7 @@
 /* appearance */
 #include <X11/XF86keysym.h>
 static const unsigned int borderpx        = 2;
-static const int          user_bh         = 27;
+static const int          user_bh         = 38;
 static const int          swallowfloating = 0;
 static const unsigned int snap            = 1;
 static const unsigned int gappoh          = 20;
@@ -14,15 +14,18 @@ static int                smartgaps       = 0;
 static const int          showbar         = 1;
 static const int          topbar          = 1;
 static const int          horizpadbar     = 10;
-static const int          vertpadbar      = 5;
+static const int          vertpadbar      = 1;
 static const int          vertpad         = 0;
 static const int          sidepad         = 0;
 static const char         buttonbar[]     = " ";
 
-/* altbar (polybar) integration */
+/* altbar (eww bar for X11 / polybar fallback) */
 static const int          usealtbar       = 1;
-static const char         altbarclass[]   = "Polybar";
-static const char         altbarcmd[]     = "$HOME/fjordwm/polybar/launch-top-focus.sh &";
+static const char         altbarclass[]   = "eww";
+static const char         altbarcmd[]     = "$HOME/fjordwm/eww/x11-startup.sh &";
+/* polybar fallback (set usealtbar to 1 and change altbarcmd to enable)
+   static const char         altbarcmd[]     = "$HOME/fjordwm/polybar/launch-top-focus.sh &";
+*/
 
 /*systray*/
 static const unsigned int systraypinning          = 0;

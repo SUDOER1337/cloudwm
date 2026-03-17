@@ -8,7 +8,7 @@
     draw_borders: false,
     browser_column_widths: [20, 38, 42],
     background_color: None,
-    text_color: None,
+    text_color: "#ab9c8e",
     header_background_color: "#32302f",
     modal_background_color: None,
     modal_backdrop: false,
@@ -99,8 +99,8 @@
         (
             prop: (
                 kind: Property(Title),
-                style: (fg: "#d5c4a1"),
-                default: (kind: Text("Unknown"), style: (fg: "#d5c4a1")),
+                style: (fg: "#b9a58b"),
+                default: (kind: Text("Unknown"), style: (fg: "#b9a58b")),
             ),
             label_prop: (kind: Text("󰎈 Title"), style: (fg: "#8f9a52", modifiers: "Bold")),
             width: "56%",
@@ -168,8 +168,8 @@
                 ),
                 (
                     kind: Property(Song(Title)),
-                    style: (fg: "#d5c4a1", modifiers: "Bold"),
-                    default: (kind: Text("No Song"), style: (fg: "#d5c4a1", modifiers: "Bold")),
+                    style: (fg: "#c7b5a2", modifiers: "Bold"),
+                    default: (kind: Text("No Song"), style: (fg: "#c7b5a2", modifiers: "Bold")),
                 ),
                 (
                     kind: Text("  ·  "),
@@ -220,7 +220,7 @@
             content: [
                 (kind: Property(Status(Elapsed)), style: (fg: "#7c9a92", modifiers: "Bold")),
                 (kind: Text(" / "), style: (fg: "#7c6f64", modifiers: "Dim")),
-                (kind: Property(Status(Duration)), style: (fg: "#bdae93")),
+                (kind: Property(Status(Duration)), style: (fg: "#ab9c8e")),
                 (
                     kind: Group([
                         (kind: Text("  ·  "), style: (fg: "#7c6f64", modifiers: "Dim")),

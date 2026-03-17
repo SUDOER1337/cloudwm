@@ -1,27 +1,32 @@
 #!/bin/bash
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+ROFI_SCRIPT_DIR="$SCRIPT_DIR"
+# shellcheck source=../scripts/rofi-common.sh
+. "$SCRIPT_DIR/../scripts/rofi-common.sh"
+
 notes_dir="$HOME/Documents/Notes/"
-theme_dir="$HOME/cloudwm/rofi/note/"
-theme='note'
+THEME_PATH=$(rofi_theme_path "note")
 
 NOTES_FILE="${notes_dir}/notes.txt"
 mkdir -p "$notes_dir"
 touch "$NOTES_FILE"
 
 rofi_cc() {
-    rofi -dmenu -p "$2" -theme "${theme_dir}/${theme}.rasi"
+    rofi -dmenu -p "$2" $(rofi_vim_keybindings_dmenu) -theme "$THEME_PATH"
 }
 
 CHOICE=$( (echo " Add New Note"; cat "$NOTES_FILE") | rofi_cc "Notes" )
 [ -z "$CHOICE" ] && exit 0
 
 if [[ "$CHOICE" == " Add New Note" ]]; then
-    NEW_NOTE=$(rofi_cc "New note:")
+    NEW_NOTE=$(rofi_cc "New note 󰇛")
     [ -n "$NEW_NOTE" ] && echo "$NEW_NOTE" >> "$NOTES_FILE"
 elif grep -Fxq "$CHOICE" "$NOTES_FILE"; then
     ACTION=$(echo -e "󰏫 Edit\n󰖭 Delete" | rofi_cc "Action")
     case "$ACTION" in
         "󰏫 Edit")
-            NEW_TEXT=$(rofi_cc "Edit:")
+            NEW_TEXT=$(rofi_cc "Edit 󰇛")
             [ -n "$NEW_TEXT" ] && sed -i "s|^$CHOICE\$|$NEW_TEXT|" "$NOTES_FILE"
             ;;
         "󰖭 Delete")
@@ -29,4 +34,3 @@ elif grep -Fxq "$CHOICE" "$NOTES_FILE"; then
             ;;
     esac
 fi
-

@@ -1,127 +1,146 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
   "logo": {
+    "source": "auto",
     "padding": {
       "top": 2,
       "left": 1,
-      "right": 2
+      "right": 4
     }
   },
+
   "display": {
-    "separator": "  "
+    "separator": "| ",
+    "brightColor": false,
+    "color": {
+      "keys": "38;2;189;170;127",
+      "title": "38;2;217;204;190",
+      "output": "38;2;211;195;171",
+      "separator": "38;2;77;74;72"
+    }
   },
+
   "modules": [
-    // Title
+    {
+      "type": "break"
+    },
+    {
+      "type": "break"
+    },
     {
       "type": "title",
-      "format": "{#1}╭───────────── {#}{user-name-colored}"
+      "format": "{#38;2;89;102;30} {#38;2;168;153;132}  {user-name} {#38;2;89;102;105}──────────────────┐"
     },
-    // System Information
     {
       "type": "custom",
-      "format": "{#1}│ {#}System Information"
+      "format": "{#38;2;89;102;105}├─ {#38;2;189;170;127} System Information"
     },
     {
       "type": "os",
-      "key": "{#separator}│  {#keys}󰍹 OS"
+      "key": "{#38;2;77;74;72}│ {#38;2;199;171;138}──[  OS ",
+      "keyWidth": 17
     },
     {
       "type": "kernel",
-      "key": "{#separator}│  {#keys}󰒋 Kernel"
+      "key": "{#38;2;77;74;72}│ {#38;2;179;120;125}──[  Kernel ",
+      "format": "{release}",
+      "keyWidth": 17
     },
     {
       "type": "uptime",
-      "key": "{#separator}│  {#keys}󰅐 Uptime"
+      "key": "{#38;2;77;74;72}│ {#38;2;177;154;166}──[  Uptime ",
+      "format": "{?days}{days}d {?}{hours}h {minutes}m",
+      "keyWidth": 17
     },
     {
       "type": "packages",
-      "key": "{#separator}│  {#keys}󰏖 Packages",
-      "format": "{all}"
+      "key": "{#38;2;77;74;72}│ {#38;2;152;176;140}──[ 󰏖 Pkgs ",
+      "format": "{all}",
+      "keyWidth": 17
     },
     {
       "type": "custom",
-      "format": "{#1}│"
-    },
-    // Desktop Environment
-    {
-      "type": "custom",
-      "format": "{#1}│ {#}Desktop Environment"
-    },
-    {
-      "type": "de",
-      "key": "{#separator}│  {#keys}󰧨 DE"
+      "format": "{#38;2;89;102;105}├─ {#38;2;143;174;181} Desktop Environment"
     },
     {
       "type": "wm",
-      "key": "{#separator}│  {#keys}󱂬 WM"
-    },
-    {
-      "type": "wmtheme",
-      "key": "{#separator}│  {#keys}󰉼 Theme"
+      "key": "{#38;2;77;74;72}│ {#38;2;143;174;181}──[  WM ",
+      "keyWidth": 17
     },
     {
       "type": "display",
-      "key": "{#separator}│  {#keys}󰹑 Resolution"
+      "key": "{#38;2;77;74;72}│ {#38;2;138;156;170}──[  Display ",
+      "format": "{width}x{height} @ {refresh-rate} Hz",
+      "keyWidth": 17
     },
     {
       "type": "shell",
-      "key": "{#separator}│  {#keys}󰞷 Shell"
+      "key": "{#38;2;77;74;72}│ {#38;2;176;172;175}──[  Shell ",
+      "keyWidth": 17
     },
     {
       "type": "terminalfont",
-      "key": "{#separator}│  {#keys}󰛖 Font"
+      "key": "{#38;2;77;74;72}│ {#38;2;156;181;184}──[  Font ",
+      "format": "{/name}{-}{/}{name}{?size} {size}{?}",
+      "keyWidth": 17
     },
     {
       "type": "custom",
-      "format": "{#1}│"
-    },
-    // Hardware Information
-    {
-      "type": "custom",
-      "format": "{#1}│ {#}Hardware Information"
+      "format": "{#38;2;89;102;105}├─ {#38;2;138;156;170}󰻠 Hardware Information"
     },
     {
       "type": "cpu",
-      "key": "{#separator}│  {#keys}󰻠 CPU"
+      "key": "{#38;2;77;74;72}│ {#38;2;199;171;138}──[ 󰻠 CPU ",
+      "format": "{name}",
+      "keyWidth": 17
     },
     {
       "type": "gpu",
-      "key": "{#separator}│  {#keys}󰢮 GPU"
+      "key": "{#38;2;77;74;72}│ {#38;2;183;134;139}──[ 󰢮 GPU ",
+      "format": "{name}",
+      "keyWidth": 17
     },
     {
       "type": "memory",
-      "key": "{#separator}│  {#keys}󰍛 Memory"
+      "key": "{#38;2;77;74;72}│ {#38;2;174;177;153}──[ 󰍛 Memory ",
+      "format": "{used} / {total} ──[{percentage}]",
+      "keyWidth": 17
+    },
+        {
+      "type": "disk",
+      "key": "{#38;2;77;74;72}│ {#38;2;176;172;175}──[ 󰟒 Home ",
+      "folders": "/home",
+      "format": "{size-used} | {size-total} ──[{size-percentage}] ",
+      "keyWidth": 17
     },
     {
       "type": "disk",
-      "key": "{#separator}│  {#keys}󰋊 Root",
-      "folders": "/"
+      "key": "{#38;2;77;74;72}│ {#38;2;199;171;138}──[ 󰋊 Root ",
+      "folders": "/",
+      "format": "{size-used} | {size-total} ──[{size-percentage}] ",
+      "keyWidth": 17
     },
     {
       "type": "disk",
-      "key": "{#separator}│  {#keys}󰋊 Storages",
-      "folders": "/mnt/Storages"
+      "key": "{#38;2;77;74;72}│ {#38;2;149;177;182}──[ 󰉋 Storage ",
+      "folders": "/mnt/Storages",
+      "format": "{size-used} | {size-total} ──[{size-percentage}] ",
+      "keyWidth": 17
     },
-    {
-      "type": "disk",
-      "key": "{#separator}│  {#keys}󰋊 Home",
-      "folders": "/home"
-    },
-    {
-      "type": "custom",
-      "format": "{#1}│"
-    },
-    // Colors
     {
       "type": "colors",
-      "key": "{#separator}│",
-      "symbol": "circle"
+      "key": "{#38;2;77;74;72}│ {#38;2;149;177;182}",
+      "keyWidth": 17,
+      "paddingLeft": 0,
+      "symbol": "square"
     },
-    // Footer
     {
       "type": "custom",
-      "format": "{#1}╰───────────────────────────────╯"
+      "format": "{#38;2;89;102;105}└──────────────────────────────────────────────┘"
+    },
+    {
+      "type": "break"
     }
   ]
 }
-

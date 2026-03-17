@@ -1,0 +1,134 @@
+configuration {
+    show-icons:     false;
+}
+
+@import "../themes/shared/colors.rasi"
+@import "../themes/shared/fonts.rasi"
+
+* {
+    border-colour:               var(border);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(panel-soft);
+    normal-background:           var(panel);
+    normal-foreground:           var(foreground);
+    prompt-colour:               var(orange);
+    placeholder-colour:          var(placeholder);
+    card-background:             var(panel);
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(inverse-foreground);
+    active-background:           var(green);
+    active-foreground:           var(inverse-foreground);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(inverse-foreground);
+    selected-urgent-background:  var(orange);
+    selected-urgent-foreground:  var(inverse-foreground);
+    selected-active-background:  var(selection-soft);
+    selected-active-foreground:  var(inverse-foreground);
+    alternate-normal-background: var(panel-soft);
+    alternate-normal-foreground: var(foreground-muted);
+}
+
+window {
+    transparency:     "real";
+    location:         center;
+    anchor:           center;
+    fullscreen:       false;
+    width:            700px;
+    height:           560px;
+    border:           2px solid;
+    border-radius:    3px;
+    border-color:     @border-colour;
+    background-color: @background-colour;
+}
+
+mainbox {
+    spacing:          14px;
+    padding:          32px;
+    background-color: transparent;
+    children:         [ "inputbar", "listview" ];
+}
+
+inputbar {
+    spacing:          4px;
+    padding:          14px;
+    border-radius:    3px;
+    background-color: @alternate-background;
+    text-color:       @foreground-colour;
+    children:         [ "textbox-window-label", "entry" ];
+}
+
+textbox-window-label {
+    expand:           false;
+    padding:          0px;
+    background-color: inherit;
+    text-color:       @prompt-colour;
+    str:              "   windows :: ";
+}
+
+entry {
+    background-color: inherit;
+    text-color:       inherit;
+    placeholder:      "type a number or title...";
+    placeholder-color: @placeholder-colour;
+}
+
+listview {
+    columns:          1;
+    lines:            15;
+    cycle:            true;
+    dynamic:          true;
+    fixed-height:     true;
+    scrollbar:        false;
+    spacing:          6px;
+    background-color: transparent;
+    text-color:       @foreground-colour;
+}
+
+element {
+    spacing:          10px;
+    padding:          10px;
+    border-radius:    3px;
+    background-color: @card-background;
+    text-color:       @foreground-colour;
+    children:         [ "element-text" ];
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    highlight:        inherit;
+    cursor:           inherit;
+    vertical-align:   0.5;
+    horizontal-align: 0.0;
+}
+
+element normal.normal {
+    background-color: var(normal-background);
+    text-color:       var(normal-foreground);
+}
+
+element normal.urgent {
+    background-color: var(urgent-background);
+    text-color:       var(urgent-foreground);
+}
+
+element normal.active {
+    background-color: var(active-background);
+    text-color:       var(active-foreground);
+}
+
+element selected.normal {
+    background-color: var(selected-normal-background);
+    text-color:       var(selected-normal-foreground);
+}
+
+element selected.urgent {
+    background-color: var(selected-urgent-background);
+    text-color:       var(selected-urgent-foreground);
+}
+
+element selected.active {
+    background-color: var(selected-active-background);
+    text-color:       var(selected-active-foreground);
+}

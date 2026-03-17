@@ -1,0 +1,13 @@
+Recovered on 2026-03-17.
+
+Sources:
+- Live config: ~/.config/waybar/
+- Historical snapshots: ~/.local/state/nvim/undo/
+
+Notes:
+- Found undo entries for deleted cloudwm waybar files:
+  - /home/thinker/.local/state/nvim/undo/%home%thinker%cloudwm%waybar%fjordwl-config.jsonc
+  - /home/thinker/.local/state/nvim/undo/%home%thinker%cloudwm%waybar%fjordwl-style.css
+  - /home/thinker/.local/state/nvim/undo/%home%thinker%cloudwm%waybar%fjordwl-window-title.sh
+  - /home/thinker/.local/state/nvim/undo/%home%thinker%cloudwm%waybar%fjordwl-media-status.sh
+  These exist but could not be directly rehydrated to text without the original buffer state.

@@ -4,7 +4,7 @@ set -euo pipefail
 # -----------------------------
 # Backup root folder
 # -----------------------------
-BACKUP_ROOT="$HOME/cloudwm/config-backups"
+BACKUP_ROOT="$HOME/fjordwm/config-backups"
 
 # apps.conf location
 CONF_FILE="$BACKUP_ROOT/apps.conf"

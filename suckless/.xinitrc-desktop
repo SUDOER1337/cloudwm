@@ -1,5 +1,5 @@
 #!/bin/sh
-# ~/.xinitrc - auto-start apps and settings for cloudwm
+# ~/.xinitrc - auto-start apps and settings for fjordwm
 set -eu
 
 # Enter a dedicated DBus session before starting any daemons.
@@ -37,9 +37,9 @@ fi
 #
 export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 export XDG_SESSION_TYPE=x11
-export XDG_CURRENT_DESKTOP=dwm
-export XDG_SESSION_DESKTOP=dwm
-export WM_NICKNAME=cloudwm
+export XDG_CURRENT_DESKTOP=fjordwm
+export XDG_SESSION_DESKTOP=fjordwm
+export WM_NICKNAME=fjordwm
 export XDG_MENU_PREFIX=arch-
 
 export GTK_IM_MODULE=fcitx
@@ -110,7 +110,7 @@ run_once nm-applet
 # run_once blueman-applet
 
 # Your custom stuff (start once)
-[ -x "$HOME/cloudwm/scripts/autolock.sh" ] && run_once "$HOME/cloudwm/scripts/autolock.sh"
+[ -x "$HOME/fjordwm/scripts/autolock.sh" ] && run_once "$HOME/fjordwm/scripts/autolock.sh"
 [ -x /opt/Synergy/synergy-service ] && run_once /opt/Synergy/synergy-service
 
 # --- Tray/UX apps ---
@@ -137,10 +137,11 @@ run_once slstatus
 run_once fantech-driver preset
 
 # Wallpaper
-command -v feh >/dev/null 2>&1 && feh --bg-scale "$HOME/cloudwm/wallpapers/forest1.jpg" || true
+command -v feh >/dev/null 2>&1 && feh --bg-scale "$HOME/fjordwm/wallpapers/forest1.jpg" || true
 
 # Give background daemons a moment (optional; usually not needed)
 # sleep 1
 
 # --- Start WM ---
-exec cloudwm
+[ -x "$HOME/.local/bin/fjordwm" ] && exec "$HOME/.local/bin/fjordwm"
+exec fjordwm

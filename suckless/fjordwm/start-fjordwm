@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ -x "$HOME/fjordwm/scripts/start-fjordwm.sh" ]]; then
+    exec "$HOME/fjordwm/scripts/start-fjordwm.sh"
+fi
+
+if [[ -x "$HOME/.xinitrc" ]]; then
+    exec "$HOME/.xinitrc"
+fi
+
+if [[ -f "$HOME/.xinitrc" ]]; then
+    exec /bin/sh "$HOME/.xinitrc"
+fi
+
+exec fjordwm

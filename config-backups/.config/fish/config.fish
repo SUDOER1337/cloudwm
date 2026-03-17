@@ -22,6 +22,11 @@ function fish_mode_prompt
 end
 
 # pnpm
+set -gx LOCAL_BIN "$HOME/.local/bin"
+if not contains -- $LOCAL_BIN $PATH
+    set -gx PATH "$LOCAL_BIN" $PATH
+end
+
 set -gx PNPM_HOME "/home/thinker/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
@@ -47,7 +52,7 @@ set -U fish_color_operator FE8019
 set -U fish_color_escape B16286
 set -U fish_color_autosuggestion 7C6F64
 
-# === Aliases ===
+# === Aliases (Practical) ===
 alias ls "exa --icons --group-directories-first"
 alias ll "exa -lh --icons"
 alias la "exa -lha --icons"
@@ -55,12 +60,16 @@ alias cat bat
 alias vim nvim
 alias cls clear
 alias sudo doas
+alias dwl /usr/bin/dwl
 
 # === Git Quick ===
 alias gs "git status"
 alias ga "git add"
 alias gc "git commit"
 alias gp "git push"
+
+# Quick build/install helper for the fjordwm tree (updates via sudo)
+alias fjordwm-build "cd ~/fjordwm/suckless/fjordwm; sudo make clean install fjordwm"
 
 # === Better cd ===
 function ..
@@ -89,14 +98,23 @@ function ardour-helper --wraps ~/.local/bin/ardour-helper
     command bash ~/.local/bin/ardour-helper $argv
 end
 
-# ─── Autostart X on TTY1 ─────────────────────────────────────────────
-if test (tty) = /dev/tty1
-    # Prevent infinite loops when X exits
-    if not set -q DISPLAY
-        fastfetch
-        exec startx
+function dwl-start --description "Start packaged dwl with kitty on a TTY"
+    if test (count $argv) -gt 0
+        command dbus-run-session /usr/bin/dwl $argv
+        return
     end
+
+    command dbus-run-session /usr/bin/dwl -s kitty
 end
+
+# ─── Autostart X on TTY1 ─────────────────────────────────────────────
+#if test (tty) = /dev/tty1
+   # Prevent infinite loops when X exits
+   #    if not set -q DISPLAY
+   #     fastfetch
+   #     exec startx
+   # end
+   #end
 
 # OpenClaw Completion
 source "/home/thinker/.openclaw/completions/openclaw.fish"

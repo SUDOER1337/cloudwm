@@ -1,24 +1,17 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-## Author : Aditya Shakya (adi1090x)
-## Github : @adi1090x
-## Edited by SUDOER1337 for Hyprland, AwesomeWM, and dwm & cloudwm Support
-#
-## Rofi   : Power Menu
-#
-## Available Styles
-#
-## style-1   style-2   style-3   style-4   style-5
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+ROFI_SCRIPT_DIR="$SCRIPT_DIR"
+# shellcheck source=../scripts/rofi-common.sh
+. "$SCRIPT_DIR/../scripts/rofi-common.sh"
 
-# Current Theme
-dir="$HOME/cloudwm/rofi/powermenu/"
-theme='powermenu'
+THEME_PATH=$(rofi_theme_path "powermenu")
+LOCK_WRAPPER=$(fjordwm_script_path "lock-wrapper.sh")
 
-# CMDs
-uptime="[`uptime -p | sed -e 's/up //g'`]"
-host=`hostname`
+uptime="[$(uptime -p | sed -e 's/up //g')]"
+host=$(hostname)
 
-# Options
 shutdown='⏻ Shutdown'
 reboot=' Reboot'
 lock=' Lock'
@@ -27,15 +20,40 @@ logout='󰗽 Logout'
 yes=' Yes'
 no='󰜺 No'
 
-# Rofi CMD
+notify() {
+    if command -v notify-send >/dev/null 2>&1; then
+        notify-send "$1" "$2" >/dev/null 2>&1 || true
+    fi
+}
+
+is_process_running() {
+    pgrep -x "$1" >/dev/null 2>&1
+}
+
+pause_media() {
+    if command -v playerctl >/dev/null 2>&1; then
+        playerctl pause >/dev/null 2>&1 || true
+    elif command -v mpc >/dev/null 2>&1; then
+        mpc -q pause >/dev/null 2>&1 || true
+    fi
+}
+
+mute_audio() {
+    if command -v wpctl >/dev/null 2>&1; then
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ 1 >/dev/null 2>&1 || true
+    elif command -v amixer >/dev/null 2>&1; then
+        amixer set Master mute >/dev/null 2>&1 || true
+    fi
+}
+
 rofi_cmd() {
     rofi -dmenu \
         -p "$host" \
-        -mesg "Uptime: $uptime" \
-        -theme ${dir}/${theme}.rasi
+        -mesg "Uptime 󰇛 $uptime" \
+        $(rofi_vim_keybindings) \
+        -theme "$THEME_PATH"
 }
 
-# Confirmation CMD
 confirm_cmd() {
     rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
         -theme-str 'mainbox {children: [ "message", "listview" ];}' \
@@ -45,103 +63,126 @@ confirm_cmd() {
         -dmenu \
         -p 'Confirmation' \
         -mesg 'Are you Sure?' \
-        -theme ${dir}/${theme}.rasi
+        $(rofi_vim_keybindings) \
+        -theme "$THEME_PATH"
 }
 
-# Ask for confirmation
 confirm_exit() {
-    echo -e "$yes\n$no" | confirm_cmd
+    printf '%b\n' "$yes\n$no" | confirm_cmd
 }
 
-# Pass variables to rofi dmenu
 run_rofi() {
-    echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+    printf '%b\n' "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
-# cloudwm/dwm logout logic
-cloudwm_logout() {
-    if pgrep -x "cloudwm" > /dev/null; then
-        # Send SIGTERM to cloudwm to log out
-        pkill -x cloudwm
-        notify-send "cloudwm" "Logged out successfully."
-    elif pgrep -x "dwm" > /dev/null; then
-        # Fallback for classic dwm binary name
-        pkill -x dwm
-        notify-send "dwm" "Logged out successfully."
+fjordwm_logout() {
+    if is_process_running "fjordwm"; then
+        pkill -x "fjordwm"
+        notify "fjordwm" "Logged out successfully."
+    elif is_process_running "dwm"; then
+        pkill -x "dwm"
+        notify "dwm" "Logged out successfully."
     else
-        notify-send "cloudwm" "cloudwm/dwm not running. Cannot logout."
+        notify "fjordwm" "fjordwm/dwm is not running."
     fi
 }
 
-# Execute Command
-run_cmd() {
-    selected="$(confirm_exit)"
-    if [[ "$selected" == "$yes" ]]; then
-        if [[ $1 == '--shutdown' ]]; then
-            systemctl poweroff
-        elif [[ $1 == '--reboot' ]]; then
-            systemctl reboot
-        elif [[ $1 == '--suspend' ]]; then
-            mpc -q pause
-            amixer set Master mute
-            systemctl suspend
-            slock
-        elif [[ "$1" == '--logout' ]]; then
-            notify-send "Rofi Logout" "Attempting logout... Detected DESKTOP_SESSION=$DESKTOP_SESSION, XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP"
+wayland_logout() {
+    if command -v loginctl >/dev/null 2>&1 && [[ -n "${XDG_SESSION_ID:-}" ]]; then
+        loginctl terminate-session "$XDG_SESSION_ID"
+    elif is_process_running "fjordwl"; then
+        pkill -x "fjordwl"
+    elif is_process_running "dwl"; then
+        pkill -x "dwl"
+    else
+        notify "fjordwl" "fjordwl/dwl is not running."
+    fi
+}
 
-            if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
-                openbox --exit
-            elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
-                bspc quit
-            elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
-                i3-msg exit
-            elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
-                qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-            elif [[ "$DESKTOP_SESSION" == 'awesome' || "$XDG_CURRENT_DESKTOP" == "awesome" || "$(pgrep -x awesome)" ]]; then
-                if command -v awesome-client &> /dev/null; then
-                    if awesome-client 'awesome.quit()'; then
-                        notify-send "AwesomeWM" "Logout successful."
-                    else
-                        notify-send "AwesomeWM" "Logout failed. awesome-client returned error."
-                    fi
-                else
-                    notify-send "AwesomeWM" "awesome-client not found in PATH."
-                fi
-            elif [[ "$XDG_CURRENT_DESKTOP" == "Hyprland" || "$DESKTOP_SESSION" == "hyprland" ]]; then
-                if command -v hyprctl &> /dev/null; then
-                    if hyprctl dispatch exit; then
-                        notify-send "Hyprland" "Logout successful via hyprctl."
-                    else
-                        notify-send "Hyprland" "Logout failed. hyprctl dispatch exit returned error."
-                    fi
-                else
-                    notify-send "Hyprland" "hyprctl not found. Cannot logout safely."
-                fi
-            elif [[ "$DESKTOP_SESSION" == 'cloudwm' || "$XDG_CURRENT_DESKTOP" == "cloudwm" || "$(pgrep -x cloudwm)" || "$DESKTOP_SESSION" == 'dwm' || "$XDG_CURRENT_DESKTOP" == "dwm" || "$(pgrep -x dwm)" ]]; then
-                cloudwm_logout
-            else
-                notify-send "Logout" "No known WM detected. Please check your config."
-            fi
+logout_current_session() {
+    notify "Rofi Logout" "DESKTOP_SESSION=${DESKTOP_SESSION:-}  XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP:-}"
+
+    if [[ "${DESKTOP_SESSION:-}" == "openbox" ]]; then
+        openbox --exit
+    elif [[ "${DESKTOP_SESSION:-}" == "bspwm" ]]; then
+        bspc quit
+    elif [[ "${DESKTOP_SESSION:-}" == "i3" ]]; then
+        i3-msg exit
+    elif [[ "${DESKTOP_SESSION:-}" == "plasma" ]]; then
+        qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+    elif [[ "${DESKTOP_SESSION:-}" == "awesome" || "${XDG_CURRENT_DESKTOP:-}" == "awesome" ]] || is_process_running "awesome"; then
+        if command -v awesome-client >/dev/null 2>&1; then
+            awesome-client 'awesome.quit()' >/dev/null 2>&1 || notify "AwesomeWM" "Logout failed."
+        else
+            notify "AwesomeWM" "awesome-client is not installed."
         fi
+    elif [[ "${XDG_CURRENT_DESKTOP:-}" == "Hyprland" || "${DESKTOP_SESSION:-}" == "hyprland" ]]; then
+        if command -v hyprctl >/dev/null 2>&1; then
+            hyprctl dispatch exit >/dev/null 2>&1 || notify "Hyprland" "Logout failed."
+        else
+            notify "Hyprland" "hyprctl is not installed."
+        fi
+    elif [[ "${DESKTOP_SESSION:-}" == "fjordwl" || "${XDG_CURRENT_DESKTOP:-}" == "fjordwl" || "${XDG_SESSION_DESKTOP:-}" == "fjordwl" || "${DESKTOP_SESSION:-}" == "dwl" || "${XDG_CURRENT_DESKTOP:-}" == "dwl" || "${XDG_SESSION_DESKTOP:-}" == "dwl" ]] || is_process_running "fjordwl" || is_process_running "dwl"; then
+        wayland_logout
+    elif [[ "${DESKTOP_SESSION:-}" == "fjordwm" || "${XDG_CURRENT_DESKTOP:-}" == "fjordwm" || "${DESKTOP_SESSION:-}" == "dwm" || "${XDG_CURRENT_DESKTOP:-}" == "dwm" ]] || is_process_running "fjordwm" || is_process_running "dwm"; then
+        fjordwm_logout
+    else
+        notify "Logout" "No known WM detected."
     fi
 }
 
-# Actions
-chosen="$(run_rofi)"
-case ${chosen} in
-    $shutdown)
+run_suspend() {
+    pause_media
+    mute_audio
+
+    if fjordwm_is_wayland_session; then
+        "$LOCK_WRAPPER" --daemonize >/dev/null 2>&1 || "$LOCK_WRAPPER" >/dev/null 2>&1 || true
+    else
+        "$LOCK_WRAPPER" >/dev/null 2>&1 || true
+    fi
+
+    systemctl suspend
+}
+
+run_cmd() {
+    local selected
+
+    selected=$(confirm_exit)
+    if [[ "$selected" != "$yes" ]]; then
+        return 0
+    fi
+
+    case "$1" in
+        --shutdown)
+            systemctl poweroff
+            ;;
+        --reboot)
+            systemctl reboot
+            ;;
+        --suspend)
+            run_suspend
+            ;;
+        --logout)
+            logout_current_session
+            ;;
+    esac
+}
+
+chosen=$(run_rofi)
+case "$chosen" in
+    "$shutdown")
         run_cmd --shutdown
         ;;
-    $reboot)
+    "$reboot")
         run_cmd --reboot
         ;;
-    $lock)
-        "$HOME/cloudwm/scripts/lock-wrapper.sh"
+    "$lock")
+        "$LOCK_WRAPPER"
         ;;
-    $suspend)
+    "$suspend")
         run_cmd --suspend
         ;;
-   $logout)
+    "$logout")
         run_cmd --logout
         ;;
 esac

@@ -67,7 +67,7 @@ static const struct arg args[] = {
     /*{ run_command, "%s ]", "sh -c 'playerctl metadata --format \"[ 󰝚
        {{title}}\" || echo [ No music '" },*/
     {run_command, "[   %s ]",
-     "timeout 0.35s $HOME/cloudwm/scripts/cpu_status.sh || echo n/a"},
+     "timeout 0.35s $HOME/fjordwm/scripts/cpu_status.sh || echo n/a"},
     {ram_used, "[   %s ]", NULL},
     /*{ run_command, "[ %s ]",      "xkb-switch" },*/
     {run_command, "[   %s ]",

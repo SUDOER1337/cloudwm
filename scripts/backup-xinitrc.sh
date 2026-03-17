@@ -78,7 +78,7 @@ switch_to_laptop() {
         echo "📝 Creating laptop configuration..."
         cat > "$LAPTOP_CONFIG" << 'EOF'
 #!/bin/bash
-# ~/.xinitrc - laptop configuration for cloudwm
+# ~/.xinitrc - laptop configuration for fjordwm
 
 # ─── Environment Variables ─────────────────────────────────────────────
 
@@ -87,8 +87,8 @@ eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
 # Make sure environment variables are sane
 export XDG_SESSION_TYPE=x11
-export XDG_CURRENT_DESKTOP=cloudwm
-export XDG_SESSION_DESKTOP=cloudwm
+export XDG_CURRENT_DESKTOP=fjordwm
+export XDG_SESSION_DESKTOP=fjordwm
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 export XCURSOR_THEME=Bibata-Modern-Classic
@@ -114,7 +114,7 @@ export KDE_SESSION_VERSION=5
 /usr/lib/polkit-kde-authentication-agent-1 &
 /usr/lib/xdg-desktop-portal-gtk &
 /usr/lib/xdg-desktop-portal &
-~/cloudwm/scripts/autolock.sh &
+~/fjordwm/scripts/autolock.sh &
 udiskie &
 kdeconnectd &
 
@@ -153,11 +153,11 @@ blueman-applet &
 # ─── Start Window Manager ────────────────────────────────────────────
 
 # Wallpaper
-feh --bg-scale ~/cloudwm/wallpapers/forest1.jpg
+feh --bg-scale ~/fjordwm/wallpapers/forest1.jpg
 
 sleep 1
 
-exec cloudwm
+exec fjordwm
 EOF
         echo "✓ Created laptop configuration"
     fi

@@ -1,10 +1,18 @@
 #!/bin/bash
 
 # --------- Config ---------
-: "${ROFI_THEME:=~/.config/rofi/timer/timer.rasi}"
-ROFI_CMD="rofi -theme ${ROFI_THEME}"
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+ROFI_SCRIPT_DIR="$SCRIPT_DIR"
+# shellcheck source=../scripts/rofi-common.sh
+. "$SCRIPT_DIR/../scripts/rofi-common.sh"
+
+: "${ROFI_THEME:=$(rofi_theme_path "timer")}"
 TIMER_FILE="/tmp/pomodoro_timer.json"
 TIMER_PID_FILE="/tmp/pomodoro_timer_pids"
+
+rofi_cmd() {
+  rofi -theme "$ROFI_THEME" $(rofi_vim_keybindings) "$@"
+}
 
 # --------- Kill All Timers (Handle early) ---------
 if [[ "$1" == "kill" ]]; then
@@ -33,7 +41,7 @@ PRESETS=(
   " Custom Input"
 )
 
-CHOICE=$(printf '%s\n' "${PRESETS[@]}" | $ROFI_CMD -dmenu -p " 󰥔 Choose a timer !")
+CHOICE=$(printf '%s\n' "${PRESETS[@]}" | rofi_cmd -dmenu -p " 󰥔 Choose a timer !")
 [[ -z "$CHOICE" ]] && exit 1
 
 # --------- Time Parsing ---------
@@ -51,7 +59,7 @@ parse_time() {
 }
 
 if [[ "$CHOICE" == *"Custom Input"* ]]; then
-  TIME_INPUT=$($ROFI_CMD -dmenu -p "Enter time (e.g. 5m, 30s, 1h):")
+  TIME_INPUT=$(rofi -theme "$ROFI_THEME" $(rofi_vim_keybindings_dmenu) -dmenu -p "Enter time (e.g. 5m, 30s, 1h) 󰇛")
   [[ -z "$TIME_INPUT" ]] && exit 1
   parse_time "$TIME_INPUT"
   TITLE="Custom ($TIME_INPUT)"
@@ -96,4 +104,3 @@ notify-send "󱎫 Timer started" "$TITLE"
 ) &
 
 echo $! >> "$TIMER_PID_FILE"
-

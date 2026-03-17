@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=fjordwl
+Comment=FjordWM Wayland session
+Exec=start-fjordwl
+TryExec=start-fjordwl
+Type=Application

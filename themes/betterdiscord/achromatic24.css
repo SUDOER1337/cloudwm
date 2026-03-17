@@ -1,0 +1,241 @@
+/**
+ * @name achromatic24
+ * @description system24 but in a low-color achromatic style and Iosevka.
+ * @author refact0r
+ * @modifier sudoer1337
+ * @version 1.0.0
+*/
+
+/* import base system24 styles */
+@import url('https://refact0r.github.io/system24/build/system24.css');
+
+body {
+    --font: 'IosevkaTerm Nerd Font';
+    --code-font: 'IosevkaTerm Nerd Font';
+    font-weight: 700;
+    letter-spacing: -0.05ch;
+
+    --gap: 12px;
+    --divider-thickness: 4px;
+    --border-thickness: 4px;
+    --border-hover-transition: 0.2s ease;
+
+    --animations: on;
+    --list-item-transition: 0.2s ease;
+    --dms-icon-svg-transition: 0.4s ease;
+
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: on;
+
+    --custom-window-controls: off;
+    --window-control-size: 14px;
+
+    --custom-dms-icon: off;
+    --dms-icon-svg-url: url('');
+    --dms-icon-svg-size: 90%;
+    --dms-icon-color-before: var(--icon-secondary);
+    --dms-icon-color-after: var(--white);
+    --custom-dms-background: off;
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    --dms-background-color: #bbbbbb;
+
+    --background-image: off;
+    --background-image-url: url('');
+
+    --transparency-tweaks: off;
+    --remove-bg-layer: off;
+    --panel-blur: off;
+    --blur-amount: 12px;
+    --bg-floating: var(--bg-3);
+
+    --small-user-panel: on;
+    --unrounding: on;
+
+    --custom-spotify-bar: on;
+    --ascii-titles: off;
+    --ascii-loader: system24;
+
+    --panel-labels: on;
+    --label-color: var(--text-muted);
+    --label-font-weight: 700;
+}
+
+/* Make most UI text bold, but keep code readable */
+button,
+input,
+textarea,
+select,
+[class*="title_"],
+[class*="header_"],
+[class*="label_"],
+[class*="name_"],
+[class*="username_"],
+[class*="description_"],
+[class*="topic_"],
+[class*="messageContent_"],
+[class*="channelName_"],
+[class*="subtext_"],
+[class*="text_"],
+[class*="link_"] {
+    font-weight: 700 !important;
+}
+
+code,
+pre,
+[class*="code_"],
+[class*="markup_"] code,
+[class*="editor_"] {
+    font-weight: 500 !important;
+}
+
+/* Achromatic color palette */
+:root {
+    --colors: on;
+
+    /* text */
+    --text-0: #1d2021;      /* text on bright elements */
+    --text-1: #928374;      /* primary text */
+    --text-2: #928374;      /* headers/important */
+    --text-3: #928374;      /* normal text/chat text */
+    --text-4: #928374;      /* icons/channels */
+    --text-5: #7c6f64;      /* muted/timestamps */
+
+    /* backgrounds */
+    --bg-1: #312f2f;
+    --bg-2: #312f2f;
+    --bg-3: #312f2f;
+    --bg-4: #312f2f;
+    --hover: rgba(214,209,209,0.08);
+    --active: rgba(214,209,209,0.14);
+    --active-2: rgba(214,209,209,0.22);
+    --message-hover: var(--hover);
+
+    /* keep accents neutral and close to the text scale */
+    --accent-1: #716c6c;
+    --accent-2: #898383;
+    --accent-3: #a19b9b;
+    --accent-4: #b9b2b2;
+    --accent-5: #d1c9c9;
+    --accent-new: #ddd6d6;
+    --mention: linear-gradient(to right, rgba(214,209,209,0.12) 40%, transparent);
+    --mention-hover: linear-gradient(to right, rgba(214,209,209,0.18) 40%, transparent);
+    --reply: linear-gradient(to right, rgba(214,209,209,0.12) 40%, transparent);
+    --reply-hover: linear-gradient(to right, rgba(214,209,209,0.18) 40%, transparent);
+
+    /* muted semantic states */
+    --online: #7d8f6c;
+    --dnd: #9a6a60;
+    --idle: #a48c5f;
+    --streaming: #766d89;
+    --offline: #5f5954;
+
+    /* borders */
+    --border-light: var(--hover);
+    --border: var(--active);
+    --border-hover: #c5bfbf;
+    --button-border: rgba(255,255,255,0.1);
+
+    /* semantic ramps keep meaning without becoming loud */
+    --red-1: #d1c9c9;
+    --red-2: #c1b9b9;
+    --red-3: #b1aaaa;
+    --red-4: #a19b9b;
+    --red-5: #918b8b;
+
+    --green-1: #d1c9c9;
+    --green-2: #c1b9b9;
+    --green-3: #b1aaaa;
+    --green-4: #a19b9b;
+    --green-5: #918b8b;
+
+    --blue-1: #d1c9c9;
+    --blue-2: #c1b9b9;
+    --blue-3: #b1aaaa;
+    --blue-4: #a19b9b;
+    --blue-5: #918b8b;
+
+    --yellow-1: #d1c9c9;
+    --yellow-2: #c1b9b9;
+    --yellow-3: #b1aaaa;
+    --yellow-4: #a19b9b;
+    --yellow-5: #918b8b;
+
+    --purple-1: #d1c9c9;
+    --purple-2: #c1b9b9;
+    --purple-3: #b1aaaa;
+    --purple-4: #a19b9b;
+    --purple-5: #918b8b;
+
+    /* Discord UI tokens that bypass the system24 text variables */
+    --header-primary: var(--text-1);
+    --header-secondary: var(--text-5);
+    --text-normal: var(--text-1);
+    --text-muted: var(--text-5);
+    --channels-default: var(--text-1);
+    --channel-icon: var(--text-1);
+    --interactive-normal: var(--text-1);
+    --interactive-hover: var(--text-1);
+    --interactive-active: var(--text-1);
+    --interactive-muted: var(--text-5);
+    --background-modifier-hover: var(--hover);
+    --background-modifier-active: var(--active);
+    --background-modifier-selected: var(--active);
+}
+
+/* Force the home/private-channel list to use the theme colors */
+[class*="privateChannels"] [class*="link_"],
+[class*="privateChannels"] [class^="link_"] {
+    color: var(--text-1) !important;
+}
+
+[class*="privateChannels"] [class*="icon_"],
+[class*="privateChannels"] [class^="icon_"],
+[class*="privateChannels"] svg {
+    color: var(--text-1) !important;
+}
+
+[class*="privateChannels"] [aria-selected="true"],
+[class*="privateChannels"] [class*="selected"] {
+    background: var(--active) !important;
+    color: var(--text-1) !important;
+}
+
+[class*="privateChannels"] [aria-selected="true"] svg,
+[class*="privateChannels"] [class*="selected"] svg {
+    color: var(--text-1) !important;
+}
+
+/* Fix dark link text */
+:root {
+    --link-color: #d6d1d1;
+}
+
+/* General links */
+a,
+[href],
+[class*="anchor_"],
+[class^="anchor_"],
+[class*="link_"],
+[class^="link_"] {
+    color: #d6d1d1 !important;
+}
+
+/* Hover state */
+a:hover,
+[href]:hover,
+[class*="anchor_"]:hover,
+[class^="anchor_"]:hover,
+[class*="link_"]:hover,
+[class^="link_"]:hover {
+    color: #efebeb !important;
+}
+
+/* Markdown/message links specifically */
+.markup_f8f345 a,
+.messageContent_f9f2ca a,
+.anchorUnderlineOnHover__03b72 {
+    color: #d6d1d1 !important;
+}

@@ -16,5 +16,7 @@ theme='emoji'
 
 ## Run
 rofi \
+    -kb-mode-next "Control+Tab" \
+    -kb-mode-previous "" \
     -show emoji \
     -theme ${dir}/${theme}.rasi

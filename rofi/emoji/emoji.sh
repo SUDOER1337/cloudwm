@@ -11,10 +11,16 @@
 ## style-6     style-7     style-8     style-9     style-10
 ## style-11    style-12    style-13    style-14    style-15
 
-dir="$HOME/cloudwm/rofi/emoji/"
-theme='emoji'
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+ROFI_SCRIPT_DIR="$SCRIPT_DIR"
+# shellcheck source=../scripts/rofi-common.sh
+. "$SCRIPT_DIR/../scripts/rofi-common.sh"
 
-## Run
+THEME_PATH=$(rofi_theme_path "emoji")
+
 rofi \
+    -kb-mode-next "Control+Tab" \
+    -kb-mode-previous "" \
+    $(rofi_vim_keybindings) \
     -show emoji \
-    -theme ${dir}/${theme}.rasi
+    -theme "$THEME_PATH"

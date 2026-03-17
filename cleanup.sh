@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Cleaning cloudwm project..."
+echo "Cleaning fjordwm project..."
 
 # Remove build artifacts
 echo "Removing object files..."

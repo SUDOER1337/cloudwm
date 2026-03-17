@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol name="pointer_constraints_unstable_v1">
+  <interface name="zwp_pointer_constraints_v1" version="1">
+    <description summary="protocol for constraining pointer motions">
+      This protocol specifies a set of interfaces used for adding
+      constraints to the motion of a pointer.
+    </description>
+
+    <enum name="error">
+      <entry name="already_constrained" value="1"
+        summary="pointer constraint already requested on that surface"/>
+    </enum>
+
+    <enum name="lifetime">
+      <entry name="oneshot" value="1"
+        summary="the pointer constraint is defunct once deactivated"/>
+      <entry name="persistent" value="2"
+        summary="the pointer constraint may reactivate"/>
+    </enum>
+  </interface>
+</protocol>

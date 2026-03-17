@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # ────────────────────────────────
-# ~/cloudwm/scripts/auto-lock.sh
-# CloudWM AutoLock + DPMS Manager
+# ~/fjordwm/scripts/auto-lock.sh
+# FjordWM AutoLock + DPMS Manager
 # ────────────────────────────────
 
 # --- CONFIG -----------------------------------------------------
-LOCKER="$HOME/cloudwm/scripts/lock-wrapper.sh"  # safe lock wrapper
+LOCKER="$HOME/fjordwm/scripts/lock-wrapper.sh"  # safe lock wrapper
 LOCK_DELAY=1                 # Minutes before auto-lock
 NOTIFY_BEFORE=30             # Seconds before locking
 DPMS_TIMERS="600 900 1200"   # Screen standby/suspend/off (in seconds)

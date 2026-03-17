@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-# CloudWM Configuration Restore Script
+# FjordWM Configuration Restore Script
 # Restores configurations from backup archives
 
-BACKUP_DIR="$HOME/.config/cloudwm-backups"
+BACKUP_DIR="$HOME/.config/fjordwm-backups"
 
-echo "🔄 CloudWM Configuration Restore"
+echo "🔄 FjordWM Configuration Restore"
 echo "=============================="
 
 # Check if backup directory exists
@@ -17,7 +17,7 @@ fi
 
 # List available backups
 echo "📋 Available backups:"
-backups=($(ls -t "$BACKUP_DIR"/cloudwm-backup-*.tar.gz 2>/dev/null))
+backups=($(ls -t "$BACKUP_DIR"/fjordwm-backup-*.tar.gz 2>/dev/null))
 
 if [[ ${#backups[@]} -eq 0 ]]; then
     echo "  No backups found"

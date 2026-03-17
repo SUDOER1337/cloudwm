@@ -1,0 +1,128 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "margin-bottom": 0,
+  "spacing": 0,
+  "reload_style_on_change": true,
+
+  "modules-left": [
+    "custom/launcher",
+    "dwl/tags",
+    "custom/windows"
+  ],
+
+  "modules-center": [
+    "custom/media"
+  ],
+
+  "modules-right": [
+    "custom/updates",
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "clock",
+    "tray",
+    "custom/power"
+  ],
+
+  "dwl/tags": {
+    "num-tags": 6,
+    "tag-labels": ["󰖟", "", "", "", "", ""]
+  },
+
+  "custom/launcher": {
+    "exec": "printf ' 󰣇 '",
+    "interval": 3600,
+    "tooltip": false,
+    "on-click": "$HOME/fjordwm/rofi/runner/runner.sh"
+  },
+
+  "custom/windows": {
+    "exec": "$HOME/fjordwm/waybar/fjordwl-window-title.sh",
+    "return-type": "json",
+    "format": "{text}",
+    "interval": 1,
+    "hide-empty-text": false,
+    "max-length": 45,
+    "expand": true,
+    "tooltip": true
+  },
+
+  "custom/media": {
+    "exec": "$HOME/fjordwm/waybar/fjordwl-media-status.sh",
+    "return-type": "json",
+    "interval": 1,
+    "max-length": 88,
+    "tooltip": true,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "$HOME/fjordwm/rofi/media/media.sh",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+
+  "custom/updates": {
+    "exec": "$HOME/fjordwm/scripts/updatecheck.sh --count",
+    "interval": 600,
+    "format": " 󰚰 {}",
+    "tooltip": false,
+    "on-click": "$HOME/fjordwm/scripts/updatecheck.sh --update"
+  },
+
+  "network": {
+    "format-wifi": " 󰖩 {essid}",
+    "format-ethernet": " 󰈀 {ifname}",
+    "format-disconnected": " 󰖪 offline",
+    "tooltip-format": "{ifname}  {ipaddr}",
+    "on-click": "nm-connection-editor"
+  },
+
+  "pulseaudio": {
+    "scroll-step": 1,
+    "format": "{icon} {volume}%",
+    "format-muted": " 󰝟 mute",
+    "format-icons": {
+      "default": [" 󰕿", " 󰖀", " 󰕾"]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+
+  "backlight": {
+    "format": " 󰃞 {percent}%",
+    "tooltip": false
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " 󰂄 {capacity}%",
+    "format-plugged": " 󰂄 {capacity}%",
+    "format-icons": [" 󰁺", " 󰁻", " 󰁼", " 󰁽", " 󰁹"]
+  },
+
+  "clock": {
+    "interval": 1,
+    "format": " 󰥔 {:%a %d %b  %H:%M:%S}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\\n<tt>{calendar}</tt>"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 6
+  },
+
+  "custom/power": {
+    "exec": "printf ' ⏻ '",
+    "interval": 3600,
+    "tooltip": false,
+    "on-click": "$HOME/fjordwm/rofi/powermenu/powermenu.sh"
+  }
+}
