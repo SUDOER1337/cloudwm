@@ -37,7 +37,7 @@ window {
     width:            700px;
     height:           560px;
     border:           2px solid;
-    border-radius:    3px;
+    border-radius:    0px;
     border-color:     @border-colour;
     background-color: @background-colour;
 }
@@ -52,7 +52,7 @@ mainbox {
 inputbar {
     spacing:          4px;
     padding:          14px;
-    border-radius:    3px;
+    border-radius:    0px;
     background-color: @alternate-background;
     text-color:       @foreground-colour;
     children:         [ "textbox-window-label", "entry" ];
@@ -88,7 +88,7 @@ listview {
 element {
     spacing:          10px;
     padding:          10px;
-    border-radius:    3px;
+    border-radius:    0px;
     background-color: @card-background;
     text-color:       @foreground-colour;
     children:         [ "element-text" ];

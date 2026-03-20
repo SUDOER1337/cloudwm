@@ -1,9 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
-/* appearance */
+// --- Appearance ---
 #include <X11/XF86keysym.h>
-static const unsigned int borderpx        = 2;
-static const int          user_bh         = 38;
+static const unsigned int borderpx        = 3;  //border size in pixels
+static const int          user_bh         = 26; //bar height , 0 = auto
 static const int          swallowfloating = 0;
 static const unsigned int snap            = 1;
 static const unsigned int gappoh          = 20;
@@ -13,21 +13,13 @@ static const unsigned int gappiv          = 2;
 static int                smartgaps       = 0;
 static const int          showbar         = 1;
 static const int          topbar          = 1;
-static const int          horizpadbar     = 10;
+static const int          horizpadbar     = 2;
 static const int          vertpadbar      = 1;
 static const int          vertpad         = 0;
 static const int          sidepad         = 0;
 static const char         buttonbar[]     = " ";
 
-/* altbar (eww bar for X11 / polybar fallback) */
-static const int          usealtbar       = 1;
-static const char         altbarclass[]   = "eww";
-static const char         altbarcmd[]     = "$HOME/fjordwm/eww/x11-startup.sh &";
-/* polybar fallback (set usealtbar to 1 and change altbarcmd to enable)
-   static const char         altbarcmd[]     = "$HOME/fjordwm/polybar/launch-top-focus.sh &";
-*/
-
-/*systray*/
+// --- System Tray ---
 static const unsigned int systraypinning          = 0;
 static const unsigned int systrayonleft           = 0;
 static const unsigned int systrayspacing          = 8;
@@ -39,20 +31,17 @@ static const char *fonts[] = {
     "Iosevka Nerd Font:size=11:style=ExtraBold", "Noto Sans Thai:size=11",
     "Noto Color Emoji:pixelsize=10:antialias=true:autohint=true",
     "Material Design Icons Desktop:size=11"};
-static const char dmenufont[] = "Iosevka Nerd Font:size=11";
+static const char dmenufont[] = "Iosevka Nerd Font:size=11:style=ExtraBold";
 
-// [ Backgrounds and UI ]
+// --- Backgrounds and UI ---
 
-// static const char col_back[] = "#303030";
-// static const char col_back[] = "#323232";
 static const char col_back[]  = "#292828";
-static const char col_tagfg[] = "#C0AF8B";
+static const char col_tagfg[] = "#c0b091";
 
 static const char col_gray1[] = "#353535";
 static const char col_gray2[] = "#444444";
 static const char col_gray3[] = "#C0AF8B";
 static const char col_gray4[] = "#9A8B78";
-////////////////////////////////////////////
 
 // --- Accent Colors ---
 
@@ -63,14 +52,12 @@ static const char col_4[] = "#6F6C5E";
 static const char col_5[] = "#556C59";
 static const char col_6[] = "#7A7468";
 
-////////////////////////////////////////////
-
 static const char *colors[][3] = {
-    /*               fg           bg            border   */
-    [SchemeNorm] = {col_gray3, col_back, col_gray2},
+    //-------------|fg---------|bg--------|border
+    [SchemeNorm] = {col_gray3, col_back,  col_gray2},
     [SchemeBtn]  = {col_gray3, col_gray2, col_gray2},
-    [SchemeLt]   = {col_gray4, col_back, col_gray2},
-    [SchemeSel]  = {col_gray4, col_5, col_5},
+    [SchemeLt]   = {col_gray4, col_back,  col_gray2},
+    [SchemeSel]  = {col_gray4, col_5,     col_5},
 };
 
 static const char *tagsel[][2] = {
@@ -78,7 +65,7 @@ static const char *tagsel[][2] = {
     {col_tagfg, col_4}, {col_tagfg, col_5}, {col_tagfg, col_6},
 };
 
-/* scratchpads */
+// --- Scratchpads ---
 typedef struct
 {
     const char *name;
@@ -92,7 +79,7 @@ static Sp   scratchpads[] = {
     {"spmpd", spcmd2},
 };
 
-/* tagging */
+// --- Tags ---
 
 static char *tags[] = {"[ 󰇧  Web ]", "[   Term ]",  "[   Make ]",
                        "[ 󱌣  Dev ]", "[ 󰍡  Talk ]", "[ 󰠮  Note ]"};
@@ -159,15 +146,16 @@ static void setgaps2(const Arg *arg)
     setgaps(8, 8, 2, 2);
 }
 
-// ULTRAGAPPY
+// really gappy
 static void setgaps3(const Arg *arg)
 {
     setgaps(20, 25, 2, 2);
 }
 
 static const Layout layouts[] = {
-    {"[@]", spiral},   {"[]", tile},     {"//", NULL},
-    {"[\\]", dwindle}, {"[M]", monocle}, {"|M|", centeredmaster},
+    {"[@]", spiral},  {"[]", tile}, {"//", NULL},
+    {"[\\]", dwindle}, {"[M]", monocle},
+    {"|M|", centeredmaster},
     {NULL, NULL},
 };
 
@@ -198,8 +186,8 @@ static const char *rofi_powermenu[] = {
     "sh", "-c", "$HOME/fjordwm/rofi/powermenu/powermenu.sh", NULL};
 static const char *rofi_calc[] = {"sh", "-c", "$HOME/fjordwm/rofi/calc/calc.sh",
                                   NULL};
-static const char *rofi_controlcenter[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/controlcenter/controlcenter.sh", NULL};
+static const char *rofi_utility[] = {
+    "sh", "-c", "$HOME/fjordwm/rofi/utility/utility.sh", NULL};
 static const char *rofi_brightness[] = {
     "sh", "-c", "$HOME/fjordwm/rofi/brightness/brightness.sh", NULL};
 static const char *rofi_note[] = {"sh", "-c", "$HOME/fjordwm/rofi/note/note.sh",
@@ -237,7 +225,7 @@ static const char *vol_mute[] = {"wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@",
 static const Key keys[] = {
 
     /* Rofi Menus */
-    {MODKEY | ShiftMask, XK_o, spawn, {.v = rofi_controlcenter}},
+    {MODKEY | ShiftMask, XK_o, spawn, {.v = rofi_utility}},
     {MODKEY, XK_r, spawn, {.v = rofi_runner}},
     {MODKEY, XK_period, spawn, {.v = rofi_emoji}},
     {MODKEY, XK_c, spawn, {.v = rofi_calc}},
@@ -297,9 +285,6 @@ static const Key keys[] = {
     {MODKEY | ControlMask, XK_g, setgaps3, {0}},
 
     /*{MODKEY|ShiftMask,             XK_q,      quit,           {0}},*/
-
-    {MODKEY, XK_F1, view, {.ui = 1 << 0}},
-    {MODKEY, XK_F2, view, {.ui = 1 << 8}}, // Windows tag
 
     /* Tags */
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)

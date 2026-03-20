@@ -63,7 +63,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      2px solid;
-    border-radius:               12px;
+    border-radius:               0px;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
@@ -78,7 +78,7 @@ mainbox {
     margin:                      0px;
     padding:                     24px;
     border:                      0px solid;
-    border-radius:               10px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     children:                    [ "dashboard" ];
@@ -116,7 +116,7 @@ guide-column {
     margin:                      0px;
     padding:                     16px;
     border:                      1px solid;
-    border-radius:               10px;
+    border-radius:               0px;
     border-color:                var(border-muted);
     background-color:            var(panel);
 }
@@ -147,7 +147,7 @@ guide-examples {
     margin:                      0px;
     padding:                     12px;
     border:                      1px solid;
-    border-radius:               10px;
+    border-radius:               0px;
     border-color:                var(border-muted);
     background-color:            var(overlay);
 }
@@ -175,7 +175,7 @@ inputbar {
     margin:                      0px;
     padding:                     16px;
     border:                      1px solid;
-    border-radius:               8px;
+    border-radius:               0px;
     border-color:                var(border-muted);
     background-color:            var(overlay);
     text-color:                  @foreground-colour;
@@ -247,7 +247,7 @@ listview {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               8px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -256,7 +256,7 @@ listview {
 scrollbar {
     handle-width:                5px ;
     handle-color:                @handle-colour;
-    border-radius:               3px;
+    border-radius:               0px;
     background-color:            @alternate-background;
 }
 
@@ -268,7 +268,7 @@ element {
     margin:                      0px;
     padding:                     10px 12px;
     border:                      1px solid;
-    border-radius:               8px;
+    border-radius:               0px;
     border-color:                var(border-muted);
     background-color:            var(overlay);
     text-color:                  @foreground-colour;
@@ -312,7 +312,7 @@ element alternate.active {
 }
 element-icon {
     background-color:            transparent;
-    border-radius:               8px;
+    border-radius:               0px;
     padding:                     8px;
     text-color:                  var(blue);
     size:                        20px;
@@ -335,7 +335,7 @@ mode-switcher{
     margin:                      0px;
     padding:                     6px;
     border:                      0px solid;
-    border-radius:               6px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background-alt;
     text-color:                  @foreground-colour;
@@ -344,7 +344,7 @@ button {
 
     padding:                     15px;
     border:                      0px solid;
-    border-radius:               6px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background-alt;
     text-color:                  var(plum-soft);
@@ -361,7 +361,7 @@ message {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               10px;
+    border-radius:               0px;
     border-color:                var(border-muted);
     background-color:            transparent;
     text-color:                  var(foreground);
@@ -369,7 +369,7 @@ message {
 textbox {
     padding:                     10px 12px;
     border:                      1px solid;
-    border-radius:               8px;
+    border-radius:               0px;
     border-color:                var(border-muted);
     background-color:            var(panel-raised);
     text-color:                  var(foreground);
@@ -383,7 +383,7 @@ textbox {
 error-message {
     padding:                     10px;
     border:                      0px solid;
-    border-radius:               8px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background-colour;
     text-color:                  @foreground-colour;

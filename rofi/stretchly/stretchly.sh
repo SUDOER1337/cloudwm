@@ -20,7 +20,7 @@ fi
 options="$toggle_label\n Take a Mini Break\n Take a Long Break\n Preferences\n Reset Breaks"
 
 # === Show Rofi menu ===
-choice=$(echo -e "$options" | rofi -dmenu -p "Stretchly" $(rofi_vim_keybindings_dmenu) -theme "$THEME_PATH")
+choice=$(echo -e "$options" | rofi -dmenu -p "Stretchly" $(rofi_vim_keybindings_selection) -theme "$THEME_PATH")
 
 # === Handle selection ===
 case "$choice" in

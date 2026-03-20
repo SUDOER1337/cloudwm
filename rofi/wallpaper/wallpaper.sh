@@ -255,7 +255,7 @@ run_rofi_index() {
     i
     -p
     "$prompt"
-    $(rofi_vim_keybindings)
+    $(rofi_vim_keybindings_selection)
     -theme
     "$ROFI_THEME"
   )

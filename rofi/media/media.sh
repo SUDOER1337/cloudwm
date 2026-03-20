@@ -150,7 +150,7 @@ run_rofi() {
             -markup-rows \
             -p "  Media" \
             -mesg "$(build_media_message)" \
-            $(rofi_vim_keybindings) \
+            $(rofi_vim_keybindings_selection) \
             -theme "$THEME_PATH"
 }
 

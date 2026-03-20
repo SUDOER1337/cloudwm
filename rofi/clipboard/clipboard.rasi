@@ -2,8 +2,8 @@ configuration {
     show-icons: false;
 }
 
-@import "../controlcenter/shared/colors.rasi"
-@import "../controlcenter/shared/fonts.rasi"
+@import "../utility/shared/colors.rasi"
+@import "../utility/shared/fonts.rasi"
 
 * {
     font:                        "Iosevka Nerd Font Bold 12";
@@ -29,7 +29,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      2px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background-colour;
 }
@@ -44,7 +44,7 @@ mainbox {
 inputbar {
     spacing:                     10px;
     padding:                     14px 16px;
-    border-radius:               3px;
+    border-radius:               0px;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
     children:                    [ "prompt", "entry" ];
@@ -79,7 +79,7 @@ listview {
 scrollbar {
     handle-width:                0px;
     handle-color:                @handle-colour;
-    border-radius:               3px;
+    border-radius:               0px;
     background-color:            @alternate-background;
 }
 
@@ -88,7 +88,7 @@ element {
     children:                    [ "element-text" ];
     padding:                     10px 12px;
     border:                      1px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                @border-muted-colour;
     background-color:            @normal-background;
     text-color:                  @normal-foreground;

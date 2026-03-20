@@ -38,7 +38,7 @@ window {
     width:                       500px;
     padding:                     22px;
     border:                      2px solid;
-    border-radius:               14px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background-colour;
 }
@@ -53,7 +53,7 @@ inputbar {
     spacing:                     10px;
     padding:                     14px 16px;
     border:                      1px solid;
-    border-radius:               12px;
+    border-radius:               0px;
     border-color:                @border-muted-colour;
     background-color:            @panel-colour;
     text-color:                  @foreground-colour;
@@ -87,7 +87,7 @@ message {
 textbox {
     padding:                     12px 14px;
     border:                      0px;
-    border-radius:               12px;
+    border-radius:               0px;
     background-color:            @panel-soft-colour;
     text-color:                  @foreground-soft-colour;
 }
@@ -109,7 +109,7 @@ listview {
 element {
     padding:                     11px 14px;
     border:                      0px;
-    border-radius:               10px;
+    border-radius:               0px;
     background-color:            transparent;
     text-color:                  @foreground-colour;
     cursor:                      pointer;
@@ -146,7 +146,7 @@ element-text {
 error-message {
     padding:                     14px;
     border:                      0px;
-    border-radius:               12px;
+    border-radius:               0px;
     background-color:            @panel-colour;
     text-color:                  @foreground-colour;
 }

@@ -33,7 +33,7 @@ window {
     width:                       760px;
     height:                      60%;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background-colour;
     padding:                     0px;
@@ -50,7 +50,7 @@ inputbar {
     spacing:                     10px;
     padding:                     16px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                transparent;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
@@ -85,7 +85,7 @@ listview {
 element {
     padding:                     12px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                transparent;
     background-color:            @card-background;
     text-color:                  @foreground-colour;
@@ -104,6 +104,6 @@ textbox {
     padding:                     10px;
     background-color:            @card-background;
     text-color:                  @foreground-colour;
-    border-radius:               3px;
+    border-radius:               0px;
     markup:                      true;
 }

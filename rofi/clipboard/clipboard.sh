@@ -14,7 +14,7 @@ if fjordwm_is_wayland_session && command -v cliphist >/dev/null 2>&1 && command 
             -i \
             -no-custom \
             -p " Clipboard" \
-            $(rofi_vim_keybindings) \
+            $(rofi_vim_keybindings_text) \
             -theme "$THEME_PATH"
     ) || exit 0
 
@@ -41,7 +41,7 @@ exec rofi \
     -i \
     -no-custom \
     -eh 10 \
-    $(rofi_vim_keybindings) \
+    $(rofi_vim_keybindings_text) \
     -sorting-method "fzf" \
     -p " Clipboard" \
     -theme "$THEME_PATH"

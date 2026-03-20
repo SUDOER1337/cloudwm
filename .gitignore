@@ -71,3 +71,40 @@ suckless/dwl/dwl
 suckless/dwl/config.h
 suckless/dwl/*-protocol.h
 /config-backups/.config/mpd/playlists
+config-backups/.config/ardour9/recent
+*.js
+config-backups/.config/discord/0.0.129/modules/discord_game_utils/package.json
+*.node
+config-backups/.local/share/nvim/lazy/
+config-backups/.local/share/nvim/site/
+config-backups/.local/share/nvim/nvnotify1/
+config-backups/.config/vesktop/sessionData/
+config-backups/.config/Stretchly/.org.chromium.Chromium.*
+config-backups/.config/Stretchly/Cache/
+config-backups/.config/Stretchly/Code Cache/
+config-backups/.config/Stretchly/Cookies
+config-backups/.config/Stretchly/Cookies-journal
+config-backups/.config/Stretchly/Crashpad/
+config-backups/.config/Stretchly/DIPS*
+config-backups/.config/Stretchly/DawnGraphiteCache/
+config-backups/.config/Stretchly/DawnWebGPUCache/
+config-backups/.config/Stretchly/GPUCache/
+config-backups/.config/Stretchly/Dictionaries/
+config-backups/.config/Stretchly/Local Storage/
+config-backups/.config/Stretchly/Network Persistent State
+config-backups/.config/Stretchly/Preferences
+config-backups/.config/Stretchly/Session Storage/
+config-backups/.config/Stretchly/Shared Dictionary/
+config-backups/.config/Stretchly/SharedStorage*
+config-backups/.config/Stretchly/Singleton*
+config-backups/.config/Stretchly/TransportSecurity
+config-backups/.config/Stretchly/Trust Tokens*
+config-backups/.config/mpd/mpd.db
+config-backups/.config/mpd/mpd.state
+config-backups/.config/Renoise/**/Log.txt
+config-backups/.config/ardour9/recent
+config-backups/.config/fish/fishd.tmp.*
+config-backups/.config/fish/fish_variables*
+config-backups/.config/fish/config.fish.bak.*
+config-backups/.config/nemo/bookmark-metadata
+config-backups/.local/share/fish/fish_history

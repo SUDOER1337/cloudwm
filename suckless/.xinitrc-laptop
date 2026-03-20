@@ -33,12 +33,12 @@ nm-applet &
 greenclip daemon &
 
 # Run autolock script in background
-~/fjordwm/scripts/autolock.sh &
+~/cloudwm/scripts/autolock.sh &
 
 # Run Bluetooth auto-pause script in background
-~/fjordwm/scripts/bt-autopause.sh &
+~/cloudwm/scripts/bt-autopause.sh &
 
 # using slock login screen lol
 slock
-# Finally, start fjordwm
-exec fjordwm
+# Finally, start cloudwm
+exec cloudwm

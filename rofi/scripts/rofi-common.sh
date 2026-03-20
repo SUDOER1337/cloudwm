@@ -70,7 +70,7 @@ fjordwm_mako_config_path() {
     printf '%s/mako/config\n' "$FJORDWM_ROOT"
 }
 
-rofi_vim_keybindings() {
+rofi_vim_keybindings_selection() {
     printf "%s\n" \
         "-kb-row-up" "k" \
         "-kb-row-down" "j" \
@@ -78,8 +78,18 @@ rofi_vim_keybindings() {
         "-kb-row-right" "l"
 }
 
+rofi_vim_keybindings_text() {
+    printf "%s\n" \
+        "-kb-row-up" "Alt+k" \
+        "-kb-row-down" "Alt+j" \
+        "-kb-row-left" "Alt+h" \
+        "-kb-row-right" "Alt+l"
+}
+
+rofi_vim_keybindings() {
+    rofi_vim_keybindings_text
+}
+
 rofi_vim_keybindings_dmenu() {
-    # No vim keybindings for dmenu mode to avoid hjkl interfering with text input
-    # Users can still search using "/" which rofi supports natively
-    :
+    rofi_vim_keybindings_text
 }

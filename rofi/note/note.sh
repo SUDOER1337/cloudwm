@@ -13,7 +13,7 @@ mkdir -p "$notes_dir"
 touch "$NOTES_FILE"
 
 rofi_cc() {
-    rofi -dmenu -p "$2" $(rofi_vim_keybindings_dmenu) -theme "$THEME_PATH"
+    rofi -dmenu -p "$2" $(rofi_vim_keybindings_text) -theme "$THEME_PATH"
 }
 
 CHOICE=$( (echo " Add New Note"; cat "$NOTES_FILE") | rofi_cc "Notes" )

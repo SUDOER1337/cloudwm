@@ -1,10 +1,57 @@
-<img src="fjordwm.png" alt="fjordwm logo" width="100%">
-
-# customized renamed dwm build
-
 fjordwm is a customized version of suckless dwm with patches, themes, and scripts.
 Forked from namishh's bedwm.
-The repo also includes an optional `dwl` path for Wayland builds.
+
+Screenshots
+----------
+
+| Terminal Setup | Development |
+|----------------|-------------|
+| ![Terminal Setup](screenshots/terminals.gif) | ![Development](screenshots/fjordwm-vscodium.png) |
+
+| Application Launcher | Lock Screen |
+|---------------------|-------------|
+| ![Application Launcher](screenshots/rofilauncher.gif) | ![Lock Screen](screenshots/slock.png) |
+
+Configuration
+-------------
+Edit suckless/fjordwm/config.h for colors, keybindings, layouts, and rules.
+Edit suckless/dwl/config.def.h for the baseline `dwl` configuration, and `suckless/dwl/config.mk` for build flags such as XWayland.
+
+Profiles
+--------
+- Desktop: all status bar modules enabled
+- Laptop: optimized settings for battery life
+
+Applied Patches
+---------------
+- `actualfullscreen`
+- `autostart`
+- `barheight`
+- `barpadding`
+- `cfacts`
+- `cyclelayouts`
+- `pertag`
+- `scratchpads`
+- `status2d`
+- `statusbutton`
+- `statuscmd`
+- `statuspadding`
+- `swallow`
+- `systray`
+- `systray-iconsize`
+- `underline-tags`
+- `vanitygaps`
+
+Included Features
+-----------------
+- Alternative tag labels via `alttags`
+- Per-tag color styling for the active tag palette
+- No separate window-title area in the bar
+- Layout set includes `tile`, `floating`, `monocle`, `spiral`, `dwindle`, and `centeredmaster`
+- Floating scratchpads are centered when shown
+- Floating windows are re-centered when geometry would push them off-screen
+
+
 
 Requirements
 ------------
@@ -63,14 +110,17 @@ Skipping `wallpapers/` and `screenshots/` reduces download size, but you will no
 The setup script supports both interactive and flag-driven installs:
 
     ./setup.sh --task all --profile desktop --yes
+    ./setup.sh --task config --configs rofi,kitty,nvim
+    ./setup.sh --task config --configs all --yes
     ./setup.sh --task packages --wm dwl --yes
     ./setup.sh --task build --wm dwl --yes
     ./setup.sh --task betterdiscord --yes
 
 Available tasks:
-- `all`: packages, build, shell setup, and post-setup tasks
+- `all`: packages, build, selected config install, shell setup, and post-setup tasks
 - `packages`: install packages only
 - `build`: build the selected window-manager stack
+- `config`: install config backups from `config-backups/` using `all` or a selected subset
 - `shell`: install the fish shell configuration
 - `post`: apply GUI-only post-setup tweaks
 - `betterdiscord`: install Discord, install/update BetterDiscord, and apply the bundled theme
@@ -80,63 +130,23 @@ Available window-manager targets:
 - `dwl`: Wayland compositor only, installed locally by default
 - `both`: build both stacks; `--profile` is still required for the `fjordwm` side
 
-Screenshots
-----------
-
-| Terminal Setup | Development |
-|----------------|-------------|
-| ![Terminal Setup](screenshots/terminals.gif) | ![Development](screenshots/fjordwm-vscodium.png) |
-
-| Application Launcher | Lock Screen |
-|---------------------|-------------|
-| ![Application Launcher](screenshots/rofilauncher.gif) | ![Lock Screen](screenshots/slock.png) |
-
-Configuration
--------------
-Edit suckless/fjordwm/config.h for colors, keybindings, layouts, and rules.
-Edit suckless/dwl/config.def.h for the baseline `dwl` configuration, and `suckless/dwl/config.mk` for build flags such as XWayland.
-
-Profiles
---------
-- Desktop: all status bar modules enabled
-- Laptop: optimized settings for battery life
-
-Patches
--------
-
-| Patch | Description |
-|-------|-------------|
-| ActualFullscreen | Proper fullscreen without decorations |
-| AltTagsDecoration | Alternative tag decoration |
-| Alwayscenter | Center new windows |
-| BarPadding | Padding around status bar |
-| BarHeight | Customizable bar height |
-| Cfacts | Client factoring for resizing |
-| CycleLayouts | Cycle through layouts |
-| NoTitle | Remove window titles |
-| RainbowTags | Colored tag indicators |
-| ScratchPads | Dropdown terminal and music player |
-| Status2d | Enhanced status bar graphics |
-| StatusButton | Clickable status items |
-| StatusPadding | Padding around status text |
-| StatusCmd | Custom status commands |
-| Swallow | Parent-child window management |
-| Systray-Iconsize | Customizable tray icons |
-| UnderlineTags | Underline active tags |
-| Vanitygaps | Configurable window gaps |
-
 Components
 ----------
 - Window manager: dwm with patches
 - Wayland compositor: fjordwl (local dwl fork) with XWayland enabled in `config.mk`
-- Status bars: **eww** on fjordwm (X11), Waybar on fjordwl by default (Polybar available as fallback)
+- Status bars: native `dwm` bar on fjordwm (X11), Waybar on fjordwl by default
 - Notifications: dunst on fjordwm, swaync on fjordwl by default
-- Application launcher: rofi with custom themes
+- Application launcher: rofi with custom themes and a Utility menu
 - GTK theme: Carbon-Square
 - BetterDiscord theme: bundled `achromatic24` theme + `custom.css`
 - Terminal: kitty
 - Compositor: picom
 - Lock screen: slock
+
+Rofi Navigation
+---------------
+- Selection-only rofi menus use plain `h/j/k/l` for list navigation in addition to arrow keys.
+- Launchers and text-entry rofi prompts use `Alt+h/j/k/l` so typing `h`, `j`, `k`, and `l` still works normally.
 
 Recommendations
 --------------
@@ -173,14 +183,7 @@ Build fails with permissions:
     chmod +x ~/fjordwm/scripts/*.sh
 
 Status bar not updating:
-    killall eww && ~/.fjordwm/eww/x11-startup.sh &
-
-eww bar issues:
-    ~/fjordwm/eww/verify-setup.sh  # Run verification script
-    eww --config ~/fjordwm/eww logs  # Check eww logs
-
-Need the old fjordwl widgets:
-    ./eww/scripts/start.sh
+    cd ~/fjordwm/suckless/fjordwm && make clean install
 
 GTK theme missing:
     cp -r ~/fjordwm/themes/Carbon-Square ~/.themes/
@@ -191,11 +194,10 @@ Keybindings not working:
 
 Files
 -----
-- suckless/fjordwm/config.h - main configuration (now uses eww bar)
+- suckless/fjordwm/config.h - main configuration for fjordwm and its native bar
 - suckless/dwl/config.def.h - baseline dwl configuration
 - suckless/dwl/config.mk - dwl build flags and XWayland toggle
 - suckless/install-betterdiscord.sh - BetterDiscord installer and theme sync
 - scripts/ - utility scripts
-- eww/ - eww bar configuration for X11/dwm with widgets and startup scripts
 - rofi/ - application launcher and larger menu configurations
 - themes/ - GTK theme files

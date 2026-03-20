@@ -21,6 +21,6 @@ THEME_PATH=$(rofi_theme_path "emoji")
 rofi \
     -kb-mode-next "Control+Tab" \
     -kb-mode-previous "" \
-    $(rofi_vim_keybindings) \
+    $(rofi_vim_keybindings_text) \
     -show emoji \
     -theme "$THEME_PATH"

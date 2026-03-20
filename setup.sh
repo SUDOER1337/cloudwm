@@ -15,15 +15,17 @@ TASK=""
 PROFILE=""
 ASSUME_YES=false
 WM_TARGET="fjordwm"
+CONFIG_SELECTION=""
 
 usage() {
     cat <<'EOF'
-Usage: ./setup.sh [--task TASK] [--profile PROFILE] [--wm TARGET] [--yes]
+Usage: ./setup.sh [--task TASK] [--profile PROFILE] [--wm TARGET] [--configs ITEMS] [--yes]
 
 Tasks:
-  all       Run packages, build, shell setup, and post-setup tasks
+  all       Run packages, build, config install, shell setup, and post-setup tasks
   packages  Install required packages
   build     Build and install the selected window-manager stack
+  config    Install selected configuration backups
   shell     Install the fish shell configuration
   post      Run desktop-session post-setup tasks
   betterdiscord  Install BetterDiscord and the bundled fjordwm theme
@@ -36,6 +38,7 @@ Options:
   --task TASK         Select which task to run
   --profile PROFILE   Build profile for fjordwm/both build/all tasks
   --wm TARGET         fjordwm, dwl, or both
+  --configs ITEMS     all or a comma-separated config list for config/all
   --yes, -y           Run without confirmation prompts
   --help, -h          Show this message
 EOF
@@ -54,7 +57,7 @@ is_interactive() {
 
 validate_task() {
     case "$1" in
-        all|packages|build|shell|post|betterdiscord) return 0 ;;
+        all|packages|build|config|shell|post|betterdiscord) return 0 ;;
         *)
             echo "Invalid task: $1"
             return 1
@@ -124,6 +127,7 @@ prompt_task() {
             "all: Run all tasks" \
             "packages: Install packages" \
             "build: Build and install the selected WM stack" \
+            "config: Install selected configs" \
             "shell: Setup fish shell" \
             "post: Run post-setup tasks" \
             "betterdiscord: Install BetterDiscord and theme" |
@@ -135,6 +139,34 @@ prompt_task() {
         echo "No task selected."
         exit 1
     fi
+}
+
+available_configs() {
+    grep -Ev '^\s*(#|$)' "$ROOT_DIR/config-backups/apps.conf" | cut -d= -f1
+}
+
+prompt_configs() {
+    local selection
+
+    ensure_fzf
+    selection="$(
+        {
+            printf '%s\n' all
+            available_configs
+        } | fzf --multi --prompt="Select configs (TAB marks, ENTER confirms): " --height=60% --border
+    )"
+
+    if [[ -z "$selection" ]]; then
+        echo "No configs selected."
+        exit 1
+    fi
+
+    if grep -qx 'all' <<< "$selection"; then
+        CONFIG_SELECTION="all"
+        return
+    fi
+
+    CONFIG_SELECTION="$(paste -sd, <<< "$selection")"
 }
 
 prompt_profile() {
@@ -186,6 +218,18 @@ parse_args() {
                 WM_TARGET="${1#*=}"
                 shift
                 ;;
+            --configs)
+                [[ $# -ge 2 ]] || {
+                    echo "--configs requires a value."
+                    exit 1
+                }
+                CONFIG_SELECTION="$2"
+                shift 2
+                ;;
+            --configs=*)
+                CONFIG_SELECTION="${1#*=}"
+                shift
+                ;;
             --yes|-y)
                 ASSUME_YES=true
                 shift
@@ -222,15 +266,23 @@ resolve_inputs() {
 
     if [[ "$TASK" == "all" || "$TASK" == "build" ]] && wm_requires_profile; then
         if [[ -n "$PROFILE" ]]; then
-            return
-        fi
-
-        if [[ "$ASSUME_YES" == true ]] || ! is_interactive; then
+            :
+        elif [[ "$ASSUME_YES" == true ]] || ! is_interactive; then
             echo "--profile is required for task '$TASK' when building '$WM_TARGET' in non-interactive mode."
             exit 1
+        else
+            prompt_profile
         fi
+    fi
 
-        prompt_profile
+    if [[ "$TASK" == "all" || "$TASK" == "config" ]]; then
+        if [[ -n "$CONFIG_SELECTION" ]]; then
+            :
+        elif [[ "$ASSUME_YES" == true ]] || ! is_interactive; then
+            CONFIG_SELECTION="all"
+        else
+            prompt_configs
+        fi
     fi
 }
 
@@ -293,6 +345,12 @@ run_build() {
     run_script build-suckless.sh "${args[@]}"
 }
 
+run_configs() {
+    local args=(--apps "$CONFIG_SELECTION")
+
+    run_script install-configs.sh "${args[@]}"
+}
+
 run_shell() {
     local args=()
 
@@ -330,6 +388,7 @@ case "$TASK" in
     all)
         run_packages
         run_build
+        run_configs
         run_shell
         run_post
         ;;
@@ -338,6 +397,9 @@ case "$TASK" in
         ;;
     build)
         run_build
+        ;;
+    config)
+        run_configs
         ;;
     shell)
         run_shell

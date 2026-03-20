@@ -221,7 +221,7 @@ static const Button buttons[] = {
     /* click                event mask      button          function argument */
     {ClkButton, 0, Button1, spawn, {.v = btncmd}},
     {ClkLtSymbol, 0, Button1, setlayout, {0}},
-    {ClkLtSymbol, 0, Button3, setlayout, {.v = &layouts[2]}},
+    {ClkLtSymbol, 0, Button3, setlayout, {.v = &layouts[1]}},
     {ClkStatusText, 0, Button1, spawn, {.v = statuscmd}},
     {ClkStatusText, 0, Button2, spawn, {.v = statuscmd}},
     {ClkStatusText, 0, Button3, spawn, {.v = statuscmd}},

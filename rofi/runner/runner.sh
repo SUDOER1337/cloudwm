@@ -22,5 +22,5 @@ THEME_PATH=$(rofi_theme_path "runner")
 rofi \
     -show drun \
     -markup \
-    $(rofi_vim_keybindings) \
+    $(rofi_vim_keybindings_text) \
     -theme "$THEME_PATH"

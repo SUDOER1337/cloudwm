@@ -23,5 +23,5 @@ ROFI_CALC_HINT='Enter a qalc expression. The guide panel lists supported symbols
 rofi \
     -mesg "$ROFI_CALC_HINT" \
     -show calc \
-    $(rofi_vim_keybindings_dmenu) \
+    $(rofi_vim_keybindings_text) \
     -theme "$THEME_PATH"

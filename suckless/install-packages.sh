@@ -46,7 +46,6 @@ FJORDWM_REPO_PKGS=(
 FJORDWL_REPO_PKGS=(
     brightnessctl
     cliphist
-    eww
     foot
     grim
     libinput

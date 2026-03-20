@@ -61,7 +61,7 @@ if ! selected_index=$(
     printf '%s\n' "${entries[@]}" | rofi \
         -dmenu \
         -i \
-        $(rofi_vim_keybindings) \
+        $(rofi_vim_keybindings_selection) \
         -no-custom \
         -format i \
         -theme "$THEME_PATH"

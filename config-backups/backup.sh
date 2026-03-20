@@ -9,6 +9,8 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 BACKUP_ROOT="$SCRIPT_DIR"
 CONFIG_BACKUP="$BACKUP_ROOT/.config"
+HOME_BACKUP="$BACKUP_ROOT/home"
+LOCAL_SHARE_BACKUP="$BACKUP_ROOT/.local/share"
 CONF_FILE="$BACKUP_ROOT/apps.conf"
 XINITRC_SRC="$HOME/.xinitrc"
 XINITRC_DESKTOP="$PROJECT_ROOT/suckless/.xinitrc-desktop"
@@ -17,6 +19,54 @@ XINITRC_DESKTOP_REL="suckless/.xinitrc-desktop"
 XINITRC_LAPTOP_REL="suckless/.xinitrc-laptop"
 
 mkdir -p "$CONFIG_BACKUP"
+mkdir -p "$HOME_BACKUP"
+mkdir -p "$LOCAL_SHARE_BACKUP"
+
+backup_path() {
+    local src="$1"
+    local dest
+    local rel
+
+    if [[ ! -e "$src" ]]; then
+        echo "  ⚠ Skipping missing path: $src"
+        return
+    fi
+
+    case "$src" in
+        "$HOME/.config/"*)
+            rel="${src#$HOME/.config/}"
+            dest="$CONFIG_BACKUP/$rel"
+            echo "  → .config/$rel"
+            ;;
+        "$HOME/.local/share/"*)
+            rel="${src#$HOME/.local/share/}"
+            dest="$LOCAL_SHARE_BACKUP/$rel"
+            echo "  → .local/share/$rel"
+            ;;
+        "$HOME/"*)
+            rel="${src#$HOME/}"
+            dest="$HOME_BACKUP/$rel"
+            echo "  → home/$rel"
+            ;;
+        *)
+            echo "  ⚠ Skipping unsupported path outside \$HOME: $src"
+            return
+            ;;
+    esac
+
+    if [[ -d "$src" ]]; then
+        mkdir -p "$dest"
+        rsync -aAX --delete \
+            --info=stats1 \
+            "$src/" "$dest/"
+        return
+    fi
+
+    mkdir -p "$(dirname "$dest")"
+    rsync -aAX \
+        --info=stats1 \
+        "$src" "$dest"
+}
 
 sync_laptop_exports_from_desktop() {
     local desktop_file="$1"
@@ -141,27 +191,7 @@ for line in "${APPS[@]}"; do
     for raw in "${PARTS[@]}"; do
         # Expand $HOME, etc.
         SRC="$(eval echo "$raw")"
-
-        # Only accept ~/.config paths
-        if [[ "$SRC" != "$HOME/.config/"* ]]; then
-            continue
-        fi
-
-        if [[ ! -d "$SRC" ]]; then
-            echo "  ⚠ Skipping non-directory: $SRC"
-            continue
-        fi
-
-        REL="${SRC#$HOME/.config/}"
-        DEST="$CONFIG_BACKUP/$REL"
-
-        mkdir -p "$DEST"
-
-        echo "  → .config/$REL"
-
-        rsync -aAX --delete \
-            --info=stats1 \
-            "$SRC/" "$DEST/"
+        backup_path "$SRC"
     done
 done
 

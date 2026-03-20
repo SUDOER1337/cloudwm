@@ -130,7 +130,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *runnercmd[] = {"sh", "-c", "$HOME/fjordwm/rofi/runner/runner.sh", NULL};
-static const char *controlcentercmd[] = {"sh", "-c", "$HOME/fjordwm/rofi/controlcenter/controlcenter.sh", NULL};
+static const char *utilitycmd[] = {"sh", "-c", "$HOME/fjordwm/rofi/utility/utility.sh", NULL};
 static const char *emojicmd[] = {"sh", "-c", "$HOME/fjordwm/rofi/emoji/emoji.sh", NULL};
 static const char *calccmd[] = {"sh", "-c", "$HOME/fjordwm/rofi/calc/calc.sh", NULL};
 static const char *powermenucmd[] = {"sh", "-c", "$HOME/fjordwm/rofi/powermenu/powermenu.sh", NULL};
@@ -170,7 +170,7 @@ static const char *volmutecmd[] = {"wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", 
 static const Key keys[] = {
 	/* launchers */
 	{ MODKEY,                                 XKB_KEY_r,           spawn,               {.v = runnercmd} },
-	{ MODKEY|WLR_MODIFIER_SHIFT,              XKB_KEY_O,           spawn,               {.v = controlcentercmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT,              XKB_KEY_O,           spawn,               {.v = utilitycmd} },
 	{ MODKEY,                                 XKB_KEY_period,      spawn,               {.v = emojicmd} },
 	{ MODKEY,                                 XKB_KEY_c,           spawn,               {.v = calccmd} },
 	{ MODKEY,                                 XKB_KEY_d,           spawn,               {.v = swayncpanelcmd} },

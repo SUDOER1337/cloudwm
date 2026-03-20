@@ -40,7 +40,7 @@ rofi_pick_index() {
     shift 2
 
     local selection
-    if ! selection=$(printf '%s\n' "$@" | rofi -dmenu -i -format i -p "$prompt" -mesg "$message" $(rofi_vim_keybindings) -theme "$THEME_PATH"); then
+    if ! selection=$(printf '%s\n' "$@" | rofi -dmenu -i -format i -p "$prompt" -mesg "$message" $(rofi_vim_keybindings_selection) -theme "$THEME_PATH"); then
         return 1
     fi
 
@@ -52,7 +52,7 @@ rofi_input() {
     local prompt=$1
     local value
 
-    if ! value=$(printf '' | rofi -dmenu -p "$prompt" $(rofi_vim_keybindings_dmenu) -theme "$THEME_PATH"); then
+    if ! value=$(printf '' | rofi -dmenu -p "$prompt" $(rofi_vim_keybindings_text) -theme "$THEME_PATH"); then
         return 1
     fi
 

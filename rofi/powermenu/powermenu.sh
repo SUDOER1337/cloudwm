@@ -50,7 +50,7 @@ rofi_cmd() {
     rofi -dmenu \
         -p "$host" \
         -mesg "Uptime 󰇛 $uptime" \
-        $(rofi_vim_keybindings) \
+        $(rofi_vim_keybindings_selection) \
         -theme "$THEME_PATH"
 }
 
@@ -63,7 +63,7 @@ confirm_cmd() {
         -dmenu \
         -p 'Confirmation' \
         -mesg 'Are you Sure?' \
-        $(rofi_vim_keybindings) \
+        $(rofi_vim_keybindings_selection) \
         -theme "$THEME_PATH"
 }
 

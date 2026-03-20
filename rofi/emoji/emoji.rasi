@@ -69,7 +69,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                @border-colour;
     cursor:                      "default";
     background-color:            @background-colour;
@@ -82,7 +82,7 @@ mainbox {
     margin:                      0px;
     padding:                     28px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     children:                    [ "inputbar", "mode-switcher", "listview" ];
@@ -95,7 +95,7 @@ inputbar {
     margin:                      0px;
     padding:                     16px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                transparent;
     background-color:            @input-background;
     text-color:                  @foreground-colour;
@@ -164,7 +164,7 @@ listview {
     margin:                      0px;
     padding:                     2px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -173,7 +173,7 @@ listview {
 scrollbar {
     handle-width:                5px ;
     handle-color:                @handle-colour;
-    border-radius:               3px;
+    border-radius:               0px;
     background-color:            @alternate-background;
 }
 
@@ -184,7 +184,7 @@ element {
     margin:                      0px;
     padding:                     14px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                transparent;
     background-color:            @card-background;
     text-color:                  @foreground-colour;
@@ -228,7 +228,7 @@ element alternate.active {
 }
 element-icon {
     background-color:            transparent;
-    border-radius:               3px;
+    border-radius:               0px;
     padding:                     0px;
     text-color:                  inherit;
     size:                        32px;
@@ -250,7 +250,7 @@ mode-switcher{
     margin:                      0px;
     padding:                     6px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                transparent;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -258,7 +258,7 @@ mode-switcher{
 button {
     padding:                     14px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                transparent;
     background-color:            var(panel-soft);
     text-color:                  var(plum-soft);
@@ -276,7 +276,7 @@ message {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -284,7 +284,7 @@ message {
 textbox {
     padding:                     8px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
@@ -298,7 +298,7 @@ textbox {
 error-message {
     padding:                     10px;
     border:                      0px solid;
-    border-radius:               3px;
+    border-radius:               0px;
     border-color:                transparent;
     background-color:            @card-background;
     text-color:                  @foreground-colour;

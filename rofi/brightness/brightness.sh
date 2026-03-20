@@ -28,7 +28,7 @@ DDC_MODEL=""
 DDC_CONNECTOR=""
 
 rofi_cmd() {
-    rofi -theme "$ROFI_THEME" $(rofi_vim_keybindings) "$@"
+    rofi -theme "$ROFI_THEME" $(rofi_vim_keybindings_text) "$@"
 }
 
 show_error() {
