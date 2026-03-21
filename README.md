@@ -20,8 +20,8 @@ Edit suckless/dwl/config.def.h for the baseline `dwl` configuration, and `suckle
 Profiles
 --------
 - Desktop: all status bar modules enabled
-- Laptop: optimized settings for battery life
-
+- Laptop: fewer status bar modules
+  
 Applied Patches
 ---------------
 - `actualfullscreen`
