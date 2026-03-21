@@ -1,7 +1,7 @@
 fjordwm is a customized version of suckless dwm with patches, themes, and scripts.
 Forked from namishh's bedwm.
 
-Screenshots
+Screenshots (outdated !)
 ----------
 
 | Terminal Setup | Development |
