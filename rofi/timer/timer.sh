@@ -59,7 +59,7 @@ parse_time() {
 }
 
 if [[ "$CHOICE" == *"Custom Input"* ]]; then
-  TIME_INPUT=$(rofi -theme "$ROFI_THEME" $(rofi_vim_keybindings_text) -dmenu -p "Enter time (e.g. 5m, 30s, 1h) 󰇛")
+  TIME_INPUT=$(rofi -theme "$ROFI_THEME" $(rofi_vim_keybindings_text) -dmenu -p "Enter time (e.g. 5m, 30s, 1h) :")
   [[ -z "$TIME_INPUT" ]] && exit 1
   parse_time "$TIME_INPUT"
   TITLE="Custom ($TIME_INPUT)"

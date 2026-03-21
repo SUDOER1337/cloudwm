@@ -237,9 +237,9 @@ is_shuffle_running() {
 
 shuffle_status() {
   if is_shuffle_running; then
-    printf 'Shuffle 󰇛 running every %ss\n' "$SHUFFLE_INTERVAL"
+    printf 'Shuffle : running every %ss\n' "$SHUFFLE_INTERVAL"
   else
-    printf '%s\n' "Shuffle 󰇛 stopped"
+    printf '%s\n' "Shuffle : stopped"
   fi
 }
 
@@ -347,7 +347,7 @@ pick_wallpaper() {
     menu_entries+=("$(basename "$wallpaper")  [$(pretty_path "$(dirname "$wallpaper")")]")
   done
 
-  index="$(printf '%s\n' "${menu_entries[@]}" | run_rofi_index "Pick wallpaper" "Sources 󰇛 $(describe_wallpaper_dirs)")" || return 0
+  index="$(printf '%s\n' "${menu_entries[@]}" | run_rofi_index "Pick wallpaper" "Sources : $(describe_wallpaper_dirs)")" || return 0
   [ -n "$index" ] || return 0
 
   apply_selected_wallpaper "${WALLPAPER_FILES[$index]}"
@@ -426,7 +426,7 @@ show_menu() {
   local index
 
   status_message="$(shuffle_status)"
-  status_message="$status_message"$'\n'"Sources 󰇛 $(describe_wallpaper_dirs)"
+  status_message="$status_message"$'\n'"Sources : $(describe_wallpaper_dirs)"
 
   index="$(printf '%s\n' "${actions[@]}" | run_rofi_index "Wallpaper" "$status_message")" || exit 0
   [ -n "$index" ] || exit 0

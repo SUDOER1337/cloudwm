@@ -110,7 +110,7 @@ prompt {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "󰇛";
+    str:                         ":";
     background-color:            inherit;
     text-color:                  var(gold-soft);
 }
@@ -119,7 +119,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "search...  Ctrl+Tab 󰇛 switch mode";
+    placeholder:                 "search...  Ctrl+Tab : switch mode";
     placeholder-color:           @placeholder-colour;
 }
 num-filtered-rows {

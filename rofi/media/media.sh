@@ -11,8 +11,9 @@ play_pause='  Play/Pause'
 next_track='  Next'
 previous_track='  Previous'
 stop_playback='  Stop'
+switch_player='󰓦  Switch Player'
 open_rmpc='  Open rmpc'
-refresh_info='  Refresh Info'
+selected_player=''
 
 notify_media() {
     if command -v notify-send >/dev/null 2>&1; then
@@ -27,31 +28,53 @@ escape_markup() {
         -e 's/>/\&gt;/g'
 }
 
-format_duration() {
-    value=$1
+message_label() {
+    printf '<span alpha="80%%"><b>%s:</b></span>' "$1"
+}
 
-    case $value in
-        ''|*[!0-9.]*)
-            return 1
+format_status() {
+    status=$1
+
+    case $status in
+        Playing)
+            printf '<span foreground="#98c379"> %s</span>' "$(escape_markup "$status")"
+            ;;
+        Paused)
+            printf '<span foreground="#e5c07b"> %s</span>' "$(escape_markup "$status")"
+            ;;
+        Stopped)
+            printf '<span foreground="#e06c75"> %s</span>' "$(escape_markup "$status")"
+            ;;
+        *)
+            printf '<span foreground="#abb2bf">󰎇 %s</span>' "$(escape_markup "${status:-Unknown}")"
             ;;
     esac
+}
 
-    seconds=${value%.*}
+format_track() {
+    title=$1
+    artist=$2
 
-    if [ -z "$seconds" ]; then
+    printf '<b>%s</b>' "$(escape_markup "$title")"
+
+    if [ -n "$artist" ]; then
+        printf ' <span alpha="65%%">by %s</span>' "$(escape_markup "$artist")"
+    fi
+}
+
+
+list_players() {
+    if ! command -v playerctl >/dev/null 2>&1; then
         return 1
     fi
 
-    if [ "$seconds" -ge 3600 ]; then
-        printf '%d:%02d:%02d\n' \
-            "$((seconds / 3600))" \
-            "$(((seconds % 3600) / 60))" \
-            "$((seconds % 60))"
-    else
-        printf '%02d:%02d\n' \
-            "$((seconds / 60))" \
-            "$((seconds % 60))"
-    fi
+    playerctl --list-all 2>/dev/null
+}
+
+player_exists() {
+    target_player=$1
+    [ -n "$target_player" ] || return 1
+    list_players | grep -Fx -- "$target_player" >/dev/null 2>&1
 }
 
 active_player() {
@@ -59,14 +82,21 @@ active_player() {
         return 1
     fi
 
-    player=$(playerctl metadata --format '{{playerName}}' 2>/dev/null | head -n1)
-
-    if [ -z "$player" ]; then
-        player=$(playerctl -l 2>/dev/null | head -n1)
+    if player_exists "$selected_player"; then
+        printf '%s\n' "$selected_player"
+        return 0
     fi
 
-    if [ -n "$player" ]; then
-        printf '%s\n' "$player"
+    playing_player=$(playerctl --all-players metadata --format '{{playerName}} {{status}}' 2>/dev/null | \
+        awk '$2 == "Playing" { print $1; exit }')
+    if [ -n "$playing_player" ]; then
+        printf '%s\n' "$playing_player"
+        return 0
+    fi
+
+    first_player=$(list_players | head -n1)
+    if [ -n "$first_player" ]; then
+        printf '%s\n' "$first_player"
         return 0
     fi
 
@@ -102,39 +132,18 @@ Use <i>Refresh Info</i> after a player appears.'
     status=$(player_status "$player")
     artist=$(player_metadata "$player" '{{artist}}')
     title=$(player_metadata "$player" '{{title}}')
-    album=$(player_metadata "$player" '{{album}}')
-    position_raw=$(playerctl --player="$player" position 2>/dev/null)
-    length_us=$(playerctl --player="$player" metadata mpris:length 2>/dev/null)
 
-    [ -n "$artist" ] || artist="Unknown Artist"
     [ -n "$title" ] || title="Unknown Title"
+    [ -n "$artist" ] || artist="Unknown Artist"
 
-    player_line="<b>Player 󰇛</b> $(escape_markup "$player")"
-    status_line="<b>Status 󰇛</b> $(escape_markup "${status:-Unknown}")"
-    track_line="<b>Track 󰇛</b> $(escape_markup "$artist") - $(escape_markup "$title")"
+    player_line="$(message_label "Player") $(escape_markup "$player")"
+    status_line="$(message_label "Status") $(format_status "$status")"
+    track_line="$(message_label "Track") $(format_track "$title" "$artist")"
 
-    if [ -n "$album" ]; then
-        album_line="<b>Album 󰇛</b> $(escape_markup "$album")"
-    else
-        album_line="<b>Album 󰇛</b> <i>Unavailable</i>"
-    fi
-
-    if position_fmt=$(format_duration "${position_raw:-}"); then
-        if [ -n "$length_us" ] && length_fmt=$(format_duration "$((length_us / 1000000))"); then
-            time_line="<b>Time 󰇛</b> $position_fmt / $length_fmt"
-        else
-            time_line="<b>Time 󰇛</b> $position_fmt"
-        fi
-    else
-        time_line="<b>Time 󰇛</b> <i>Unavailable</i>"
-    fi
-
-    printf '%s\n%s\n%s\n%s\n%s\n' \
+    printf '%s\n%s\n%s\n' \
         "$player_line" \
         "$status_line" \
-        "$track_line" \
-        "$album_line" \
-        "$time_line"
+        "$track_line"
 }
 
 run_rofi() {
@@ -143,8 +152,9 @@ run_rofi() {
         "$next_track" \
         "$previous_track" \
         "$stop_playback" \
+        "$switch_player" \
         "$open_rmpc" \
-        "$refresh_info" | \
+        | \
         rofi -dmenu \
             -i \
             -markup-rows \
@@ -152,6 +162,40 @@ run_rofi() {
             -mesg "$(build_media_message)" \
             $(rofi_vim_keybindings_selection) \
             -theme "$THEME_PATH"
+}
+
+choose_player() {
+    current_player=$(active_player 2>/dev/null)
+    players=$(list_players)
+
+    if [ -z "$players" ]; then
+        notify_media "No MPRIS players available."
+        return 1
+    fi
+
+    choices=$(printf '%s\n' "$players" | while IFS= read -r player; do
+        if [ "$player" = "$current_player" ]; then
+            printf '● %s\n' "$player"
+        else
+            printf '○ %s\n' "$player"
+        fi
+    done)
+
+    selection=$(printf '%s\n' "$choices" | \
+        rofi -dmenu \
+            -i \
+            -p "󰓦  Player" \
+            $(rofi_vim_keybindings_selection) \
+            -theme "$THEME_PATH")
+
+    [ -n "$selection" ] || return 1
+
+    selected_player=${selection#? }
+    if ! player_exists "$selected_player"; then
+        notify_media "Selected player is no longer available."
+        selected_player=''
+        return 1
+    fi
 }
 
 run_player_action() {
@@ -207,12 +251,13 @@ while :; do
         "$stop_playback")
             run_player_action "stop"
             ;;
+        "$switch_player")
+            choose_player
+            ;;
         "$open_rmpc")
             if launch_rmpc; then
                 exit 0
             fi
-            ;;
-        "$refresh_info")
             ;;
         *)
             exit 0

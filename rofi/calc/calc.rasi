@@ -191,7 +191,7 @@ prompt {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "󰇛";
+    str:                         ":";
     background-color:            inherit;
     text-color:                  var(gold-soft);
     font:                        "Iosevka Nerd Font Bold 17";
@@ -202,7 +202,7 @@ entry {
     text-color:                  inherit;
     cursor:                      text;
     font:                        "Iosevka Nerd Font Bold 20";
-    placeholder:                 "Try 󰇛 sin(pi/2) + 2^8 or 1 km to m";
+    placeholder:                 "Try : sin(pi/2) + 2^8 or 1 km to m";
     placeholder-color:           var(foreground-muted);
 }
 num-filtered-rows {

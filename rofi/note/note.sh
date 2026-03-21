@@ -20,13 +20,13 @@ CHOICE=$( (echo " Add New Note"; cat "$NOTES_FILE") | rofi_cc "Notes" )
 [ -z "$CHOICE" ] && exit 0
 
 if [[ "$CHOICE" == " Add New Note" ]]; then
-    NEW_NOTE=$(rofi_cc "New note 󰇛")
+    NEW_NOTE=$(rofi_cc "New note :")
     [ -n "$NEW_NOTE" ] && echo "$NEW_NOTE" >> "$NOTES_FILE"
 elif grep -Fxq "$CHOICE" "$NOTES_FILE"; then
     ACTION=$(echo -e "󰏫 Edit\n󰖭 Delete" | rofi_cc "Action")
     case "$ACTION" in
         "󰏫 Edit")
-            NEW_TEXT=$(rofi_cc "Edit 󰇛")
+            NEW_TEXT=$(rofi_cc "Edit :")
             [ -n "$NEW_TEXT" ] && sed -i "s|^$CHOICE\$|$NEW_TEXT|" "$NOTES_FILE"
             ;;
         "󰖭 Delete")

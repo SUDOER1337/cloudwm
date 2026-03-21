@@ -49,7 +49,7 @@ mute_audio() {
 rofi_cmd() {
     rofi -dmenu \
         -p "$host" \
-        -mesg "Uptime 󰇛 $uptime" \
+        -mesg "Uptime : $uptime" \
         $(rofi_vim_keybindings_selection) \
         -theme "$THEME_PATH"
 }

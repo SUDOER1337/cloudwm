@@ -107,7 +107,7 @@ prompt {
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "󰇛";
+    str:                         ":";
     background-color:            inherit;
     text-color:                  var(gold-soft);
 }
