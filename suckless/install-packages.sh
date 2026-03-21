@@ -75,6 +75,7 @@ FJORDWL_REPO_PKGS=(
 OPTIONAL_PKGS=(
     deadbeef
     deadbeef-mpris2-plugin
+    sddm
     stretchly-bin
 )
 

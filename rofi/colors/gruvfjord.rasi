@@ -1,46 +1,48 @@
 /**
  *
- * Theme  : rmpc Gruvfjord
- * Source : /home/thinker/.config/rmpc/themes/gruvfjord.ron
+ * Theme  : Gruvfjord
  *
  **/
 
 * {
     background:               #282828;
     background-alt:           #32302F;
-    foreground:               #AB9C8E;
-    foreground-soft:          #C7B5A2;
-    foreground-muted:         #928374;
-    selected:                 #D5C4A1;
-    selected-overlay:         rgba(213,196,161,0.10);
-    selection-soft:           #C7B5A2;
-    active:                   #8F9A52;
-    urgent:                   #9F5656;
-    accent:                   #458588;
-    accent-soft:              #7C9A92;
-    gold:                     #D79921;
-    gold-soft:                #B57614;
-    orange:                   #D79921;
-    orange-soft:              #C18F41;
-    green:                    #8F9A52;
-    green-soft:               #A3B36A;
-    blue:                     #83A598;
-    blue-deep:                #458588;
-    cyan:                     #458588;
-    sage:                     #8F9A52;
-    rose:                     #9F5656;
-    rose-soft:                #B56C6C;
-    plum:                     #B16286;
-    plum-soft:                #C285A4;
+    foreground:               #D4BE98;
+    foreground-soft:          #DDC7A1;
+    foreground-muted:         #A89984;
+    selected:                 #E2CCA9;
+    selected-overlay:         rgba(226,204,169,0.10);
+    selection-soft:           #D8C19A;
+    active:                   #A9B665;
+    urgent:                   #B16A5B;
+    accent:                   #7B8F7A;
+    accent-soft:              #A3BE8C;
+    gold:                     #D8A657;
+    gold-soft:                #C08F45;
+    orange:                   #E78A4E;
+    orange-soft:              #D8A072;
+    green:                    #A9B665;
+    green-soft:               #BBC77A;
+    blue:                     #87938A;
+    blue-deep:                #66756D;
+    blue-bright:              #2596be;
+    cyan:                     #7F9487;
+    cyan-deep:                #66756D;
+    sage:                     #A3BE8C;
+    rose:                     #A47C68;
+    rose-deep:                #733a3a;
+    rose-soft:                #B79484;
+    plum:                     #8D7A72;
+    plum-soft:                #A39088;
     border:                   #7C6F64;
     border-muted:             #5A524C;
     overlay:                  #1D2021;
     panel:                    #32302F;
     panel-soft:               #3C3836;
     panel-raised:             #504945;
-    tab-active:               #C7B5A2;
+    tab-active:               #DDC7A1;
     tab-active-foreground:    #282828;
-    tab-inactive-foreground:  #928374;
-    placeholder:              #7C9A92;
+    tab-inactive-foreground:  #A89984;
+    placeholder:              #87938A;
     inverse-foreground:       #282828;
 }

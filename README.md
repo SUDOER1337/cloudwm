@@ -161,6 +161,7 @@ Recommendations
 | flameshot | Screenshots | flameshot |
 | udiskie | USB auto-mount | udiskie |
 | rmpc | Rust TUI MPD client | mpd rmpc mpd-mpris |
+| sddm | Display manager for X11/Wayland session selection | sddm |
 
 Build
 -----
@@ -174,6 +175,17 @@ For the Wayland path:
     ./suckless/build-suckless.sh --wm dwl --install-mode local --yes
 
 The `dwl` build installs the compositor into `~/.local/bin` and the session file into `~/.local/share/wayland-sessions` when using local mode.
+
+SDDM
+----
+If you want a display manager, install `sddm` and enable it:
+
+    ./suckless/install-packages.sh --wm both --optional sddm
+    sudo systemctl enable --now sddm.service
+
+`fjordwm` installs an X11 session into `xsessions/`, and `fjordwl` installs a Wayland session into `wayland-sessions/`, so both show up in SDDM after installation.
+
+Under SDDM, the `fjordwm` session now starts through the bundled session script instead of `~/.xinitrc`. `startx` still uses `~/.xinitrc`, so manual X11 startup remains unchanged.
 
 Troubleshooting
 ---------------

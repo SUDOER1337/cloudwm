@@ -81,17 +81,18 @@ textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         " POWERMENU";
-    padding:                     10px 14px;
+    padding:                     7px 14px;
+    border-bottom:               2px;
     border-radius:               0px;
-    background-color:            @surface-colour;
-    text-color:                  @label-colour;
+    background-color:            var(rose);
+    text-color:                  var(foreground-soft);
 }
 prompt {
     enabled:                     true;
-    padding:                     10px;
+    padding:                     7px 14px;
     border-radius:               0px;
-    background-color:            @card-colour;
-    text-color:                  @prompt-colour;
+    background-color:            var(cyan-deep);
+    text-color:                  var(foreground-soft);
 }
 
 /*****----- Message -----*****/
