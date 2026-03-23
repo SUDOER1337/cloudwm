@@ -9,7 +9,7 @@
     <WindowedModePosition>34,57</WindowedModePosition>
     <WindowedModeSize>1656,892</WindowedModeSize>
     <WindowedModeIsMaximized>true</WindowedModeIsMaximized>
-    <FullScreenMonitorMatchPos>856,504</FullScreenMonitorMatchPos>
+    <FullScreenMonitorMatchPos>856,497</FullScreenMonitorMatchPos>
 <!--Window Performance-->
     <VisualEffects>true</VisualEffects>
     <EnableExternEditorKeyboardAccess>false</EnableExternEditorKeyboardAccess>
@@ -26,33 +26,32 @@
     <ApplyMouseWheelAcceleration>true</ApplyMouseWheelAcceleration>
 <!--Application Prefs-->
     <RecentFiles>
-      <RecentFile>/mnt/Storages/RenoiseProjects/RIDDIMBREAKCORE.xrns</RecentFile>
-      <RecentFile>/mnt/Storages/RenoiseProjects/f300621824.xrns</RecentFile>
-      <RecentFile>/mnt/Storages/RenoiseProjects/Recovered_Signal.xrns</RecentFile>
-      <RecentFile>/mnt/Storages/RenoiseProjects/HeatAbnormal.xrns</RecentFile>
+      <RecentFile>/mnt/Storages/RenoiseProjects/Insect Warfare Repulsed by Radiation cybergrind bootleg.xrns</RecentFile>
+      <RecentFile>/mnt/Storages/RenoiseProjects/idklol.xrns</RecentFile>
       <RecentFile>/mnt/Storages/RenoiseProjects/BreakbeatRenoiseSample.xrns</RecentFile>
-      <RecentFile>/mnt/Storages/RenoiseProjects/AccidentalBanger.xrns</RecentFile>
       <RecentFile>/mnt/Storages/RenoiseProjects/f93960192.xrns</RecentFile>
-      <RecentFile>/mnt/Storages/RenoiseProjects/CorruptedEradicatorMKIIButCybergrind.xrns</RecentFile>
-      <RecentFile>/mnt/Storages/RenoiseProjects/f132130112.xrns</RecentFile>
       <RecentFile>/mnt/Storages/RenoiseProjects/f132135328.xrns</RecentFile>
+      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/AmbientBreakbeat01.xrns</RecentFile>
+      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Carbomb - Third Revelation [Nullfjord Mix].xrns</RecentFile>
+      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Dancecore Delightful ft. Adachi Rei.xrns</RecentFile>
+      <RecentFile>/run/media/thinker/DoNotOpen/Renoise_Projects/WhatEverThisIs.xrns</RecentFile>
+      <RecentFile>/mnt/Storages/RenoiseProjects/ConcerteSandwich.xrns</RecentFile>
     </RecentFiles>
     <RecentLoadedFiles>
-      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/RIDDIMBREAKCORE.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/f300621824.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/Recovered_Signal.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/HeatAbnormal.xrns</RecentLoadedFile>
+      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/Insect Warfare Repulsed by Radiation cybergrind bootleg.xrns</RecentLoadedFile>
+      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/idklol.xrns</RecentLoadedFile>
       <RecentLoadedFile>/mnt/Storages/RenoiseProjects/BreakbeatRenoiseSample.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/AccidentalBanger.xrns</RecentLoadedFile>
       <RecentLoadedFile>/mnt/Storages/RenoiseProjects/f93960192.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/CorruptedEradicatorMKIIButCybergrind.xrns</RecentLoadedFile>
-      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/f132130112.xrns</RecentLoadedFile>
       <RecentLoadedFile>/mnt/Storages/RenoiseProjects/f132135328.xrns</RecentLoadedFile>
+      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/AmbientBreakbeat01.xrns</RecentLoadedFile>
+      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Carbomb - Third Revelation [Nullfjord Mix].xrns</RecentLoadedFile>
+      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/Dancecore Delightful ft. Adachi Rei.xrns</RecentLoadedFile>
+      <RecentLoadedFile>/run/media/thinker/DoNotOpen/Renoise_Projects/WhatEverThisIs.xrns</RecentLoadedFile>
+      <RecentLoadedFile>/mnt/Storages/RenoiseProjects/ConcerteSandwich.xrns</RecentLoadedFile>
     </RecentLoadedFiles>
     <RecentSavedFiles>
+      <RecentSavedFile>/mnt/Storages/RenoiseProjects/Insect Warfare Repulsed by Radiation cybergrind bootleg.xrns</RecentSavedFile>
       <RecentSavedFile>/mnt/Storages/RenoiseProjects/RIDDIMBREAKCORE.xrns</RecentSavedFile>
-      <RecentSavedFile>/mnt/Storages/RenoiseProjects/f300621824.xrns</RecentSavedFile>
-      <RecentSavedFile>/mnt/Storages/RenoiseProjects/f221942144.xrns</RecentSavedFile>
       <RecentSavedFile>/mnt/Storages/RenoiseProjects/AccidentalBanger.xrns</RecentSavedFile>
     </RecentSavedFiles>
     <WarnAboutUnsavedDocumentChanges>true</WarnAboutUnsavedDocumentChanges>
@@ -232,7 +231,7 @@
   </GlobalViewPresets>
 <!--Frame Visibility-->
   <UpperFrameVisibilities>
-    <UpperFrameVisibility>false</UpperFrameVisibility>
+    <UpperFrameVisibility>true</UpperFrameVisibility>
     <UpperFrameVisibility>false</UpperFrameVisibility>
   </UpperFrameVisibilities>
   <LowerFrameVisibilities>
@@ -243,7 +242,7 @@
   <UpperFrameHeight>176</UpperFrameHeight>
   <LowerFrameHeight>144</LowerFrameHeight>
   <RightFrameWidth>224</RightFrameWidth>
-  <LastActiveUpperFrameView>0</LastActiveUpperFrameView>
+  <LastActiveUpperFrameView>1</LastActiveUpperFrameView>
   <LastActiveMiddleFrameView>0</LastActiveMiddleFrameView>
   <LastActiveLowerFrameView>0</LastActiveLowerFrameView>
 <!--Instrument Box-->
@@ -261,10 +260,10 @@
 <!--Detached Mixer View-->
   <MixerViewDetached>false</MixerViewDetached>
   <MixerViewDialogMaximized>false</MixerViewDialogMaximized>
-  <MixerViewDialogPosition>584,200</MixerViewDialogPosition>
+  <MixerViewDialogPosition>556,150</MixerViewDialogPosition>
   <MixerViewDialogSize>601,589</MixerViewDialogSize>
   <MixerViewDialogUpperFrameVisible>false</MixerViewDialogUpperFrameVisible>
-  <MixerViewDialogLowerFrameVisible>true</MixerViewDialogLowerFrameVisible>
+  <MixerViewDialogLowerFrameVisible>false</MixerViewDialogLowerFrameVisible>
   <MixerViewDialogUpperFrameHeight>76</MixerViewDialogUpperFrameHeight>
 <!--Disk Browser-->
   <DiskBrowserIsVisible>true</DiskBrowserIsVisible>
@@ -657,6 +656,11 @@
         <IsFavorite>true</IsFavorite>
         <FavoriteDisplayName>Multitap Delay</FavoriteDisplayName>
       </NativeDevicePref>
+      <NativeDevicePref>
+        <Identifier>Distortion 2</Identifier>
+        <IsFavorite>true</IsFavorite>
+        <FavoriteDisplayName>Distortion</FavoriteDisplayName>
+      </NativeDevicePref>
     </NativeDevicePrefs>
 <!--Formula Editor-->
     <FormulaEditorDialogPosition>-1,-1</FormulaEditorDialogPosition>
@@ -920,7 +924,7 @@
   </SongViewsPrefs>
   <PatternEditorPrefs>
 <!--Pattern Sequencer / Matrix-->
-    <PatternMatrixIsVisible>true</PatternMatrixIsVisible>
+    <PatternMatrixIsVisible>false</PatternMatrixIsVisible>
     <PatternMatrixShowTrackNames>true</PatternMatrixShowTrackNames>
     <PatternMatrixShowTrackMeters>true</PatternMatrixShowTrackMeters>
     <PatternMatrixShowTrackColors>true</PatternMatrixShowTrackColors>
@@ -982,7 +986,7 @@
 <!--Macro Mapping-->
     <MacroMappingDialogMaximized>false</MacroMappingDialogMaximized>
     <MacroMappingDialogPosition>692,451</MacroMappingDialogPosition>
-    <MacroMappingDialogSize>472,178</MacroMappingDialogSize>
+    <MacroMappingDialogSize>472,176</MacroMappingDialogSize>
 <!--Phrase Script Editor-->
     <PhraseScriptEditorFontSize>11</PhraseScriptEditorFontSize>
     <PhraseScriptEditorAutoCommit>true</PhraseScriptEditorAutoCommit>

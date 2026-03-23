@@ -1,1 +1,5 @@
-/usr/share/themes/Breeze/gtk-4.0/gtk.css
+@import 'colors.css';
+
+* {
+    font-weight: bold;
+}

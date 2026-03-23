@@ -110,7 +110,7 @@ run_once nm-applet
 # run_once blueman-applet
 
 # Your custom stuff (start once)
-[ -x "$HOME/fjordwm/scripts/autolock.sh" ] && run_once "$HOME/cloudwm/scripts/autolock.sh"
+[ -x "$HOME/fjordwm/scripts/autolock.sh" ] && run_once "$HOME/fjordwm/scripts/autolock.sh"
 [ -x /opt/Synergy/synergy-service ] && run_once /opt/Synergy/synergy-service
 
 # --- Tray/UX apps ---
@@ -142,5 +142,5 @@ command -v feh >/dev/null 2>&1 && feh --bg-scale "$HOME/fjordwm/wallpapers/fores
 # sleep 1
 
 # --- Start WM ---
-[ -x "$HOME/.local/bin/fjordwm" ] && exec "$HOME/.local/bin/cloudwm"
+[ -x "$HOME/.local/bin/fjordwm" ] && exec "$HOME/.local/bin/fjordwm"
 exec fjordwm
