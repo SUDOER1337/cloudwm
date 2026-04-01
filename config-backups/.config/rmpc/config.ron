@@ -43,18 +43,11 @@
             ",":       VolumeDown,
             "s":       Stop,
             ".":       VolumeUp,
-            "<Tab>":   NextTab,
-            "<S-Tab>": PreviousTab,
-            "1":       SwitchToTab("󰡎"),
-            "2":       SwitchToTab(" Directories"),
-            "3":       SwitchToTab(" Artists"),
-            "4":       SwitchToTab(" Album Artists"),
-            "5":       SwitchToTab(" Albums"),
-            "6":       SwitchToTab(" Playlists"),
-            "7":       SwitchToTab(" Search"),
-            "8":       SwitchToTab("󰨖 Lyrics"),
-            "!":       SwitchToTab("󰎇"),
-            "@":       SwitchToTab("󰡎"),
+            "1":       SwitchToTab("Player"),
+            "2":       SwitchToTab("Compact"),
+            "3":       SwitchToTab("Browser"),
+            "4":       SwitchToTab("Search"),
+            "!":       SwitchToTab("Lyrics"),
             "q":       Quit,
             ">":       NextTrack,
             "p":       TogglePause,
@@ -132,207 +125,7 @@
     ),
     tabs: [
         (
-            name: " Queue",
-            pane: Split(
-                direction: Vertical,
-                panes: [
-                    (
-                        size: "1",
-                        pane: Pane(Empty()),
-                    ),
-                    (
-                        size: "100%",
-                        pane: Split(
-                            direction: Horizontal,
-                            panes: [
-                                (
-                                    size: "1",
-                                    pane: Pane(Empty()),
-                                ),
-                                (
-                                    size: "35%",
-                                    pane: Split(
-                                        direction: Vertical,
-                                        panes: [
-                                            (
-                                                size: "100%",
-                                                pane: Pane(AlbumArt),
-                                            ),
-                                            (
-                                                size: "1",
-                                                pane: Pane(Empty()),
-                                            ),
-                                            (
-                                                size: "8",
-                                                pane: Split(
-                                                    direction: Vertical,
-                                                    panes: [
-                                                        (
-                                                            size: "2",
-                                                            pane: Pane(Lyrics),
-                                                        ),
-                                                        (
-                                                            size: "1",
-                                                            pane: Pane(Empty()),
-                                                        ),
-                                                        (
-                                                            size: "100%",
-                                                            pane: Split(
-                                                                direction: Horizontal,
-                                                                panes: [
-                                                                    (
-                                                                        size: "2",
-                                                                        pane: Pane(Empty()),
-                                                                    ),
-                                                                    (
-                                                                        size: "100%",
-                                                                        pane: Pane(Cava),
-                                                                    ),
-                                                                    (
-                                                                        size: "2",
-                                                                        pane: Pane(Empty()),
-                                                                    ),
-                                                                ],
-                                                            ),
-                                                        ),
-                                                    ],
-                                                ),
-                                            ),
-                                        ],
-                                    ),
-                                ),
-                                (
-                                    size: "2",
-                                    pane: Pane(Empty()),
-                                ),
-                                (
-                                    size: "62%",
-                                    pane: Split(
-                                        direction: Vertical,
-                                        panes: [
-                                            (
-                                                size: "1",
-                                                pane: Pane(QueueHeader()),
-                                            ),
-                                            (
-                                                size: "100%",
-                                                pane: Pane(Queue),
-                                            ),
-                                        ],
-                                    ),
-                                ),
-                                (
-                                    size: "1",
-                                    pane: Pane(Empty()),
-                                ),
-                            ],
-                        ),
-                    ),
-                    (
-                        size: "1",
-                        pane: Pane(Empty()),
-                    ),
-                    (
-                        size: "2",
-                        pane: Pane(ProgressBar),
-                    ),
-                ],
-            ),
-        ),
-        (
-            name: "󰡎",
-            pane: Split(
-                direction: Vertical,
-                panes: [
-                    (
-                        size: "1",
-                        pane: Pane(Empty()),
-                    ),
-                    (
-                        size: "100%",
-                        pane: Split(
-                            direction: Horizontal,
-                            panes: [
-                                (
-                                    size: "1",
-                                    pane: Pane(Empty()),
-                                ),
-                                (
-                                    size: "35%",
-                                    pane: Split(
-                                        direction: Vertical,
-                                        panes: [
-                                            (
-                                                size: "100%",
-                                                pane: Pane(AlbumArt),
-                                            ),
-                                            (
-                                                size: "1",
-                                                pane: Pane(Empty()),
-                                            ),
-                                            (
-                                                size: "8",
-                                                pane: Split(
-                                                    direction: Horizontal,
-                                                    panes: [
-                                                        (
-                                                            size: "2",
-                                                            pane: Pane(Empty()),
-                                                        ),
-                                                        (
-                                                            size: "100%",
-                                                            pane: Pane(Lyrics),
-                                                        ),
-                                                        (
-                                                            size: "2",
-                                                            pane: Pane(Empty()),
-                                                        ),
-                                                    ],
-                                                ),
-                                            ),
-                                        ],
-                                    ),
-                                ),
-                                (
-                                    size: "2",
-                                    pane: Pane(Empty()),
-                                ),
-                                (
-                                    size: "62%",
-                                    pane: Split(
-                                        direction: Vertical,
-                                        panes: [
-                                            (
-                                                size: "1",
-                                                pane: Pane(QueueHeader()),
-                                            ),
-                                            (
-                                                size: "100%",
-                                                pane: Pane(Queue),
-                                            ),
-                                        ],
-                                    ),
-                                ),
-                                (
-                                    size: "1",
-                                    pane: Pane(Empty()),
-                                ),
-                            ],
-                        ),
-                    ),
-                    (
-                        size: "1",
-                        pane: Pane(Empty()),
-                    ),
-                    (
-                        size: "2",
-                        pane: Pane(ProgressBar),
-                    ),
-                ],
-            ),
-        ),
-        (
-            name: "󰎇",
+            name: "Player",
             pane: Split(
                 direction: Vertical,
                 panes: [
@@ -392,15 +185,59 @@
             ),
         ),
         (
-            name: " Directories",
+            name: "Compact",
             pane: Split(
-                size: "100%",
                 direction: Vertical,
-                panes: [(pane: Pane(Directories), size: "100%")],
+                panes: [
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "100%",
+                        pane: Split(
+                            direction: Vertical,
+                            panes: [
+                                (
+                                    size: "50%",
+                                    pane: Pane(AlbumArt),
+                                ),
+                                (
+                                    size: "2",
+                                    pane: Pane(Empty()),
+                                ),
+                                (
+                                    size: "50%",
+                                    pane: Split(
+                                        direction: Vertical,
+                                        panes: [
+                                            (
+                                                size: "1",
+                                                pane: Pane(QueueHeader()),
+                                            ),
+                                            (
+                                                size: "100%",
+                                                pane: Pane(Queue),
+                                            ),
+                                        ],
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ),
+                    (
+                        size: "1",
+                        pane: Pane(Empty()),
+                    ),
+                    (
+                        size: "2",
+                        pane: Pane(ProgressBar),
+                    ),
+                ],
             ),
         ),
         (
-            name: " Artists",
+            name: "Browser",
             pane: Split(
                 size: "100%",
                 direction: Vertical,
@@ -408,31 +245,7 @@
             ),
         ),
         (
-            name: " Album Artists",
-            pane: Split(
-                size: "100%",
-                direction: Vertical,
-                panes: [(pane: Pane(AlbumArtists), size: "100%")],
-            ),
-        ),
-        (
-            name: " Albums",
-            pane: Split(
-                size: "100%",
-                direction: Vertical,
-                panes: [(pane: Pane(Albums), size: "100%")],
-            ),
-        ),
-        (
-            name: " Playlists",
-            pane: Split(
-                size: "100%",
-                direction: Vertical,
-                panes: [(pane: Pane(Playlists), size: "100%")],
-            ),
-        ),
-        (
-            name: " Search",
+            name: "Search",
             pane: Split(
                 size: "100%",
                 direction: Vertical,
@@ -440,7 +253,7 @@
             ),
         ),
         (
-            name: "󰨖 Lyrics",
+            name: "Lyrics",
             pane: Split(
                 direction: Vertical,
                 panes: [
@@ -451,14 +264,10 @@
                     (
                         size: "100%",
                         pane: Split(
-                            direction: Horizontal,
+                            direction: Vertical,
                             panes: [
                                 (
-                                    size: "1",
-                                    pane: Pane(Empty()),
-                                ),
-                                (
-                                    size: "35%",
+                                    size: "50%",
                                     pane: Pane(AlbumArt),
                                 ),
                                 (
@@ -466,12 +275,8 @@
                                     pane: Pane(Empty()),
                                 ),
                                 (
-                                    size: "62%",
+                                    size: "50%",
                                     pane: Pane(Lyrics),
-                                ),
-                                (
-                                    size: "1",
-                                    pane: Pane(Empty()),
                                 ),
                             ],
                         ),
