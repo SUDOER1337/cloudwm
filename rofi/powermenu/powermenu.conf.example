@@ -1,0 +1,10 @@
+# Optional backend-specific logout overrides for powermenu.sh.
+# Copy this file to powermenu.conf and uncomment the backends you want to replace.
+#
+# Supported backends:
+#   OPENBOX BSPWM I3 PLASMA AWESOME HYPRLAND FJORDWL DWL FJORDWM DWM UNKNOWN
+#
+# Examples:
+# LOGOUT_CMD_FJORDWL='mmsg -q'
+# LOGOUT_CMD_HYPRLAND='hyprctl dispatch exit'
+# LOGOUT_CMD_UNKNOWN='loginctl terminate-session "$XDG_SESSION_ID"'

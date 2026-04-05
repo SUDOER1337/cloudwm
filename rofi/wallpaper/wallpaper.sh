@@ -21,6 +21,16 @@ ROFI_THEME="${ROFI_THEME:-$(rofi_theme_path "wallpaper")}"
 FEH_OPTS="${FEH_OPTS:---bg-fill}"
 SHUFFLE_INTERVAL="${SHUFFLE_INTERVAL:-530}"
 SHUFFLE_RETRY_DELAY="${SHUFFLE_RETRY_DELAY:-60}"
+AWWW_TRANSITION_TYPE="${AWWW_TRANSITION_TYPE:-random}"
+AWWW_TRANSITION_DURATION="${AWWW_TRANSITION_DURATION:-3}"
+AWWW_TRANSITION_FPS="${AWWW_TRANSITION_FPS:-30}"
+AWWW_TRANSITION_STEP="${AWWW_TRANSITION_STEP:-}"
+AWWW_RESIZE="${AWWW_RESIZE:-crop}"
+AWWW_FILTER="${AWWW_FILTER:-Lanczos3}"
+AWWW_TRANSITION_ANGLE="${AWWW_TRANSITION_ANGLE:-}"
+AWWW_TRANSITION_POS="${AWWW_TRANSITION_POS:-}"
+AWWW_TRANSITION_BEZIER="${AWWW_TRANSITION_BEZIER:-}"
+AWWW_TRANSITION_WAVE="${AWWW_TRANSITION_WAVE:-}"
 
 WALLPAPER_FILES=()
 
@@ -66,50 +76,69 @@ require_graphical_session() {
 
 require_wallpaper_backend() {
   if fjordwm_is_wayland_session; then
-    if command -v swww >/dev/null 2>&1 || command -v swaybg >/dev/null 2>&1; then
+    if command -v awww >/dev/null 2>&1 && command -v awww-daemon >/dev/null 2>&1; then
       return 0
     fi
 
-    printf '%s\n' "Missing Wayland wallpaper backend: install swww or swaybg." >&2
+    printf '%s\n' "Missing Wayland wallpaper backend: install awww and awww-daemon." >&2
     exit 1
   fi
 
   require_command feh
 }
 
-ensure_swww_daemon() {
+ensure_awww_daemon() {
   local attempt
 
-  if ! pgrep -u "$UID" -x swww-daemon >/dev/null 2>&1; then
-    swww-daemon >/dev/null 2>&1 &
-    disown
+  if awww query >/dev/null 2>&1; then
+    return 0
   fi
 
-  for attempt in 1 2 3 4 5; do
-    if swww query >/dev/null 2>&1; then
+  nohup awww-daemon >/dev/null 2>&1 &
+  disown
+
+  for attempt in {1..30}; do
+    sleep 0.1
+    if awww query >/dev/null 2>&1; then
       return 0
     fi
-    sleep 0.2
   done
 
-  printf '%s\n' "swww-daemon did not become ready." >&2
-  exit 1
+  printf '%s\n' "Failed to start awww-daemon." >&2
+  return 1
+}
+
+set_awww_wallpaper() {
+  local wallpaper=$1
+  local -a awww_cmd=(
+    awww
+    img
+    --resize
+    "$AWWW_RESIZE"
+    --filter
+    "$AWWW_FILTER"
+    --transition-type
+    "$AWWW_TRANSITION_TYPE"
+    --transition-duration
+    "$AWWW_TRANSITION_DURATION"
+    --transition-fps
+    "$AWWW_TRANSITION_FPS"
+  )
+
+  [ -n "$AWWW_TRANSITION_STEP" ] && awww_cmd+=(--transition-step "$AWWW_TRANSITION_STEP")
+  [ -n "$AWWW_TRANSITION_ANGLE" ] && awww_cmd+=(--transition-angle "$AWWW_TRANSITION_ANGLE")
+  [ -n "$AWWW_TRANSITION_POS" ] && awww_cmd+=(--transition-pos "$AWWW_TRANSITION_POS")
+  [ -n "$AWWW_TRANSITION_BEZIER" ] && awww_cmd+=(--transition-bezier "$AWWW_TRANSITION_BEZIER")
+  [ -n "$AWWW_TRANSITION_WAVE" ] && awww_cmd+=(--transition-wave "$AWWW_TRANSITION_WAVE")
+
+  ensure_awww_daemon
+  "${awww_cmd[@]}" "$wallpaper" >/dev/null 2>&1
 }
 
 set_wayland_wallpaper() {
   local wallpaper=$1
 
-  if command -v swww >/dev/null 2>&1; then
-    ensure_swww_daemon
-    swww img "$wallpaper" \
-      --transition-type simple \
-      --transition-duration 1 >/dev/null 2>&1
-    return 0
-  fi
-
-  pkill -u "$UID" -x swaybg >/dev/null 2>&1 || true
-  swaybg -i "$wallpaper" -m fill >/dev/null 2>&1 &
-  disown
+  set_awww_wallpaper "$wallpaper"
 }
 
 set_x11_wallpaper() {

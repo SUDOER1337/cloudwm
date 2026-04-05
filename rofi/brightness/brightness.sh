@@ -340,7 +340,6 @@ choose_target() {
         rows+=("$(target_label "$index")")
     done
 
-                -${single_newline}
     if ! selection=$(printf '%s\n' "${rows[@]}" | rofi_cmd -dmenu -i -format i -only-match -p "󰍹  Display" -mesg "Choose which display to control."); then
         return 1
     fi
