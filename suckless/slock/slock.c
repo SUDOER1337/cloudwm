@@ -30,9 +30,9 @@
 static XftFont        *timefont = NULL;
 static XftFont        *datefont = NULL;
 static pthread_mutex_t mutex    = PTHREAD_MUTEX_INITIALIZER;
+static volatile int   running   = 1;
 
 char *argv0;
-
 enum
 {
     INIT,
@@ -77,6 +77,78 @@ static void drawindicator(Display *dpy, struct lock *lock, int len);
 #ifdef __linux__
 static void dontkillme(void);
 #endif
+
+static void cleanup(Display *dpy, struct lock **locks, int nscreens, pthread_t thread_id)
+{
+    int s;
+    
+    /* Stop background thread if running */
+    if (thread_id != 0) {
+        pthread_mutex_lock(&mutex);
+        running = 0;
+        pthread_mutex_unlock(&mutex);
+        
+        /* Give thread a chance to exit gracefully */
+        usleep(25000); /* 25ms - minimal delay */
+        
+        /* Force join if still running */
+        pthread_join(thread_id, NULL);
+    }
+    
+    /* Cleanup fonts */
+    if (timefont) {
+        XftFontClose(dpy, timefont);
+        timefont = NULL;
+    }
+    if (datefont) {
+        XftFontClose(dpy, datefont);
+        datefont = NULL;
+    }
+    
+    /* Cleanup locks */
+    if (locks) {
+        for (s = 0; s < nscreens; s++) {
+            if (locks[s]) {
+                if (locks[s]->xftdraw) {
+                    XftDrawDestroy(locks[s]->xftdraw);
+                }
+                
+                Colormap colormap = DefaultColormap(dpy, locks[s]->screen);
+                Visual  *visual   = DefaultVisual(dpy, locks[s]->screen);
+                XftColorFree(dpy, visual, colormap, &locks[s]->tmcol);
+                XftColorFree(dpy, visual, colormap, &locks[s]->dtcol);
+                
+                if (locks[s]->gc) {
+                    XFreeGC(dpy, locks[s]->gc);
+                }
+                if (locks[s]->pmap) {
+                    XFreePixmap(dpy, locks[s]->pmap);
+                }
+                if (locks[s]->bgmap) {
+                    XFreePixmap(dpy, locks[s]->bgmap);
+                }
+                if (locks[s]->win) {
+                    XDestroyWindow(dpy, locks[s]->win);
+                }
+                
+                free(locks[s]);
+            }
+        }
+        free(locks);
+    }
+    
+    /* Cleanup image */
+    if (image) {
+        imlib_context_set_image(image);
+        imlib_free_image();
+        image = NULL;
+    }
+    
+    /* Close display */
+    if (dpy) {
+        XCloseDisplay(dpy);
+    }
+}
 
 static void die(const char *errstr, ...)
 {
@@ -216,7 +288,6 @@ static void drawindicator(Display *dpy, struct lock *lock, int len)
     XSetForeground(dpy, lock->gc, lock->colors[INPUT]);
 
     /* Draw dots for each character typed */
-    // XFontStruct *font = XLoadQueryFont(dpy, message_font);
     XFontStruct *font = XLoadQueryFont(dpy, "fixed");
     if (font)
     {
@@ -229,23 +300,16 @@ static void drawindicator(Display *dpy, struct lock *lock, int len)
             /* Draw asterisk for each character */
             XDrawString(dpy, lock->win, lock->gc, char_x, char_y, "*", 1);
         }
-        XFreeFont(dpy, font);
-    }
 
-    /* If more characters than max_dots, show "..." */
-    if (len > max_dots)
-    {
-        int ellipsis_x = start_x + (max_dots * dot_spacing) - 20;
-        int ellipsis_y = y + indicator_height / 2;
-
-        XFontStruct *font = XLoadQueryFont(dpy, "fixed");
-        if (font)
+        /* If more characters than max_dots, show "..." */
+        if (len > max_dots)
         {
-            XSetFont(dpy, lock->gc, font->fid);
+            int ellipsis_x = start_x + (max_dots * dot_spacing) - 20;
+            int ellipsis_y = y + indicator_height / 2;
             XDrawString(dpy, lock->win, lock->gc, ellipsis_x, ellipsis_y, "...",
                         3);
-            XFreeFont(dpy, font);
         }
+        XFreeFont(dpy, font);
     }
 }
 
@@ -341,9 +405,15 @@ static void *thread_wrapper(void *arg)
 {
     struct thw_args *args   = (struct thw_args *)arg;
     long long        tm_tmr = 0, dt_tmr = 0;
-    while (1)
+    
+    while (running)
     {
         pthread_mutex_lock(&mutex);
+        if (!running) {
+            pthread_mutex_unlock(&mutex);
+            break;
+        }
+        
         for (int i = 0; i < args->nscreens; ++i)
         {
             if (tm_tmr <= 0)
@@ -358,9 +428,16 @@ static void *thread_wrapper(void *arg)
             };
         };
         pthread_mutex_unlock(&mutex);
+        
+        if (!running) break;
+        
         sleep(tw_refr_int);
         tm_tmr -= tw_refr_int;
         dt_tmr -= tw_refr_int;
+        
+        /* Prevent underflow */
+        if (tm_tmr < 0) tm_tmr = 0;
+        if (dt_tmr < 0) dt_tmr = 0;
     };
 
     return NULL;
@@ -371,15 +448,13 @@ static void readpw(Display *dpy, struct xrandr *rr, struct lock **locks,
 {
     XRRScreenChangeNotifyEvent *rre;
     char                        buf[32], passwd[256], *inputhash;
-    int                         num, screen, running, failure, oldc;
-    unsigned int                len, color;
+    int                         num, screen, running;
+    unsigned int                len;
     KeySym                      ksym;
     XEvent                      ev;
 
     len     = 0;
     running = 1;
-    failure = 0;
-    oldc    = INIT;
 
     while (running)
     {
@@ -411,15 +486,17 @@ static void readpw(Display *dpy, struct xrandr *rr, struct lock **locks,
                 case XK_Return:
                     passwd[len] = '\0';
                     errno       = 0;
-                    if (!(inputhash = crypt(passwd, hash)))
+                    if (!(inputhash = crypt(passwd, hash))) {
                         fprintf(stderr, "slock: crypt: %s\n", strerror(errno));
-                    else
+                        running = 1; /* Treat crypt failure as authentication failure */
+                    } else {
                         running = !!strcmp(inputhash, hash);
+                    }
 
                     if (running)
                     {
+                        // Wrong password - brief feedback
                         XBell(dpy, 100);
-                        failure = 1;
 
                         pthread_mutex_lock(&mutex);
                         for (screen = 0; screen < nscreens; screen++)
@@ -443,7 +520,12 @@ static void readpw(Display *dpy, struct xrandr *rr, struct lock **locks,
                         }
                         pthread_mutex_unlock(&mutex);
                         XSync(dpy, 0);
-                        usleep(2500000);
+                        usleep(500000); // Brief 0.5s delay for wrong password
+                    }
+                    else
+                    {
+                        // Correct password - immediate unlock
+                        // No visual feedback needed for instant response
                     }
                     explicit_bzero(&passwd, sizeof(passwd));
                     len = 0;
@@ -469,9 +551,6 @@ static void readpw(Display *dpy, struct xrandr *rr, struct lock **locks,
                     break;
                 }
 
-                color =
-                    len ? INPUT : ((failure || failonclear) ? FAILED : INIT);
-
                 pthread_mutex_lock(&mutex);
                 for (screen = 0; screen < nscreens; screen++)
                 {
@@ -492,7 +571,6 @@ static void readpw(Display *dpy, struct xrandr *rr, struct lock **locks,
                     XFlush(dpy);
                 }
                 pthread_mutex_unlock(&mutex);
-                oldc = color;
             }
             else if (rr->active && ev.type == rr->evbase + RRScreenChangeNotify)
             {
@@ -503,12 +581,17 @@ static void readpw(Display *dpy, struct xrandr *rr, struct lock **locks,
                     if (locks[screen]->win == rre->window)
                     {
                         if (rre->rotation == RR_Rotate_90 ||
-                            rre->rotation == RR_Rotate_270)
+                            rre->rotation == RR_Rotate_270) {
                             XResizeWindow(dpy, locks[screen]->win, rre->height,
                                           rre->width);
-                        else
+                            locks[screen]->w = rre->height;
+                            locks[screen]->h = rre->width;
+                        } else {
                             XResizeWindow(dpy, locks[screen]->win, rre->width,
                                           rre->height);
+                            locks[screen]->w = rre->width;
+                            locks[screen]->h = rre->height;
+                        }
 
                         XClearWindow(dpy, locks[screen]->win);
                         draw_time(dpy, locks[screen]);
@@ -527,22 +610,6 @@ static void readpw(Display *dpy, struct xrandr *rr, struct lock **locks,
                     XRaiseWindow(dpy, locks[screen]->win);
             }
         }
-
-        // Auto-update clock every minute
-        time_t     t       = time(NULL);
-        struct tm *tm_info = localtime(&t);
-
-        pthread_mutex_lock(&mutex);
-        for (screen = 0; screen < nscreens; screen++)
-        {
-            draw_time(dpy, locks[screen]);
-            draw_date(dpy, locks[screen]);
-            drawmessage(dpy, locks[screen], lock_message);
-            if (len > 0)
-                drawindicator(dpy, locks[screen], len);
-            XFlush(dpy);
-        }
-        pthread_mutex_unlock(&mutex);
 
         usleep(50000); // Small delay to reduce CPU usage
     }
@@ -574,7 +641,8 @@ static struct lock *lockscreen(Display *dpy, struct xrandr *rr, int screen)
         imlib_context_set_colormap(DefaultColormap(dpy, lock->screen));
         imlib_context_set_drawable(lock->bgmap);
         imlib_render_image_on_drawable(0, 0);
-        imlib_free_image();
+        if (image)
+            imlib_free_image();
     }
     else
     {
@@ -583,9 +651,16 @@ static struct lock *lockscreen(Display *dpy, struct xrandr *rr, int screen)
 
     for (i = 0; i < NUMCOLS; i++)
     {
-        XAllocNamedColor(dpy, DefaultColormap(dpy, lock->screen), colorname[i],
-                         &color, &dummy);
-        lock->colors[i] = color.pixel;
+        if (!XAllocNamedColor(dpy, DefaultColormap(dpy, lock->screen), colorname[i],
+                              &color, &dummy))
+        {
+            /* Fallback to default colors if allocation fails */
+            lock->colors[i] = (i == FAILED) ? 0xFF0000 : 0xFFFFFF; /* Red for failed, white for others */
+        }
+        else
+        {
+            lock->colors[i] = color.pixel;
+        }
     }
 
     /* Create graphics context for drawing text */
@@ -711,30 +786,28 @@ int main(int argc, char **argv)
             errno ? strerror(errno) : "group entry not found");
     dgid = grp->gr_gid;
 
-#ifdef __linux__
-    dontkillme();
-#endif
-
     hash  = gethash();
     errno = 0;
     if (!crypt("", hash))
         die("slock: crypt: %s\n", strerror(errno));
 
+#ifdef __linux__
+    dontkillme();
+#endif
+
     XInitThreads();
 
     if (!(dpy = XOpenDisplay(NULL)))
         die("slock: cannot open display\n");
-
-    /* drop privileges */
-    if (setgroups(0, NULL) < 0)
-        die("slock: setgroups: %s\n", strerror(errno));
-    if (setgid(dgid) < 0)
-        die("slock: setgid: %s\n", strerror(errno));
-    if (setuid(duid) < 0)
-        die("slock: setuid: %s\n", strerror(errno));
-
     /*Create screenshot Image*/
     Screen *scr = ScreenOfDisplay(dpy, DefaultScreen(dpy));
+    
+    /* Validate screen dimensions to prevent memory exhaustion */
+    if (scr->width > 10000 || scr->height > 10000 || 
+        scr->width <= 0 || scr->height <= 0) {
+        die("slock: invalid screen dimensions: %dx%d\n", scr->width, scr->height);
+    }
+    
     image       = imlib_create_image(scr->width, scr->height);
     imlib_context_set_image(image);
     imlib_context_set_display(dpy);
@@ -758,35 +831,43 @@ int main(int argc, char **argv)
     int width  = scr->width;
     int height = scr->height;
 
-    for (int y = 0; y < height; y += pixelSize)
-    {
-        for (int x = 0; x < width; x += pixelSize)
+    /* Validate inputs to prevent overflow and division by zero */
+    if (pixelSize <= 0 || pixelSize > 100 || 
+        width > 10000 || height > 10000 ||
+        width <= 0 || height <= 0) {
+        /* Skip pixelation if parameters are invalid */
+    } else {
+        for (int y = 0; y < height; y += pixelSize)
         {
-            int red   = 0;
-            int green = 0;
-            int blue  = 0;
-
-            Imlib_Color  pixel;
-            Imlib_Color *pp;
-            pp = &pixel;
-            for (int j = 0; j < pixelSize && j < height; j++)
+            for (int x = 0; x < width; x += pixelSize)
             {
-                for (int i = 0; i < pixelSize && i < width; i++)
+                int red   = 0;
+                int green = 0;
+                int blue  = 0;
+                int pixel_count = 0;
+
+                Imlib_Color  pixel;
+                Imlib_Color *pp;
+                pp = &pixel;
+                for (int j = 0; j < pixelSize && (y + j) < height; j++)
                 {
-                    imlib_image_query_pixel(x + i, y + j, pp);
-                    red += pixel.red;
-                    green += pixel.green;
-                    blue += pixel.blue;
+                    for (int i = 0; i < pixelSize && (x + i) < width; i++)
+                    {
+                        imlib_image_query_pixel(x + i, y + j, pp);
+                        red += pixel.red;
+                        green += pixel.green;
+                        blue += pixel.blue;
+                        pixel_count++;
+                    }
                 }
+                if (pixel_count > 0) {
+                    red /= pixel_count;
+                    green /= pixel_count;
+                    blue /= pixel_count;
+                }
+                imlib_context_set_color(red, green, blue, pixel.alpha);
+                imlib_image_fill_rectangle(x, y, pixelSize, pixelSize);
             }
-            red /= (pixelSize * pixelSize);
-            green /= (pixelSize * pixelSize);
-            blue /= (pixelSize * pixelSize);
-            imlib_context_set_color(red, green, blue, pixel.alpha);
-            imlib_image_fill_rectangle(x, y, pixelSize, pixelSize);
-            red   = 0;
-            green = 0;
-            blue  = 0;
         }
     }
 #endif
@@ -808,8 +889,18 @@ int main(int argc, char **argv)
     XSync(dpy, 0);
 
     /* did we manage to lock everything? */
-    if (nlocks != nscreens)
+    if (nlocks != nscreens) {
+        cleanup(dpy, locks, nlocks, 0);
         return 1;
+    }
+
+    /* NOW drop privileges after screen locking is complete */
+    if (setgroups(0, NULL) < 0)
+        die("slock: setgroups: %s\n", strerror(errno));
+    if (setgid(dgid) < 0)
+        die("slock: setgid: %s\n", strerror(errno));
+    if (setuid(duid) < 0)
+        die("slock: setuid: %s\n", strerror(errno));
 
     /* run post-lock command */
     if (argc > 0)
@@ -829,31 +920,40 @@ int main(int argc, char **argv)
     if (!timefont || !datefont)
     {
         fprintf(stderr, "slock: failed to load fonts\n");
+        cleanup(dpy, locks, nlocks, 0);
         return 1;
     };
 
     /* everything is now blank. Wait for the correct password */
     pthread_t       thread_id;
     struct thw_args args = {dpy, nscreens, locks};
-    pthread_create(&thread_id, NULL, thread_wrapper, &args);
+    int thread_err = pthread_create(&thread_id, NULL, thread_wrapper, &args);
+    if (thread_err != 0) {
+        fprintf(stderr, "slock: failed to create thread: %s\n", strerror(thread_err));
+        /* Continue without thread - time/date won't update */
+        thread_id = 0;
+    }
 
     readpw(dpy, &rr, locks, nscreens, hash);
 
-    /* Cleanup */
-    if (timefont)
-        XftFontClose(dpy, timefont);
-    if (datefont)
-        XftFontClose(dpy, datefont);
-    for (s = 0; s < nscreens; s++)
-    {
-        if (locks[s]->xftdraw)
-            XftDrawDestroy(locks[s]->xftdraw);
-
-        Colormap colormap = DefaultColormap(dpy, locks[s]->screen);
-        Visual  *visual   = DefaultVisual(dpy, locks[s]->screen);
-        XftColorFree(dpy, visual, colormap, &locks[s]->tmcol);
-        XftColorFree(dpy, visual, colormap, &locks[s]->dtcol);
+    /* Signal thread to stop and wait for cleanup */
+    if (thread_id != 0) {
+        pthread_mutex_lock(&mutex);
+        running = 0;
+        pthread_mutex_unlock(&mutex);
+        
+        /* Give thread a chance to exit gracefully */
+        usleep(50000); /* 50ms - much faster */
+        
+        /* Force join if still running */
+        thread_err = pthread_join(thread_id, NULL);
+        if (thread_err != 0) {
+            fprintf(stderr, "slock: thread join failed: %s\n", strerror(thread_err));
+        }
     }
+
+    /* Comprehensive cleanup */
+    cleanup(dpy, locks, nscreens, thread_id);
 
     return 0;
 }

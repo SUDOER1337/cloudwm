@@ -15,9 +15,9 @@ INCS = -I. -I/usr/include -I${X11INC} -I/usr/include/freetype2
 LIBS = -L/usr/lib -lc -lcrypt -L${X11LIB} -lX11 -lXext -lXrandr -lImlib2 -lXft -lfontconfig -lfreetype
 
 # flags
-CPPFLAGS = -DVERSION=\"${VERSION}\" -D_DEFAULT_SOURCE -DHAVE_SHADOW_H
-CFLAGS = -std=c99 -pedantic -Wall -Ofast ${INCS} ${CPPFLAGS}
-LDFLAGS = -s ${LIBS}
+CPPFLAGS = -DVERSION=\"${VERSION}\" -D_DEFAULT_SOURCE -DHAVE_SHADOW_H -D_FORTIFY_SOURCE=2
+CFLAGS = -std=c99 -pedantic -Wall -Wextra -O2 -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIE ${INCS} ${CPPFLAGS}
+LDFLAGS = -pie -Wl,-z,relro -Wl,-z,now ${LIBS}
 COMPATSRC = explicit_bzero.c
 
 # On OpenBSD and Darwin remove -lcrypt from LIBS

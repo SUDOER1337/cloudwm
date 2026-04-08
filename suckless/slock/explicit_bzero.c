@@ -6,10 +6,24 @@
 
 #include <string.h>
 
-__attribute__((weak)) void __explicit_bzero_hook(void *buf, size_t len) {}
+__attribute__((weak)) void __explicit_bzero_hook(void *buf, size_t len) {
+    (void)buf;
+    (void)len;
+}
 
 void explicit_bzero(void *buf, size_t len)
 {
-    memset(buf, 0, len);
+    /* Use volatile pointer to prevent optimization */
+    volatile unsigned char *p = buf;
+    size_t i;
+    
+    if (len > 0) {
+        for (i = 0; i < len; i++) {
+            p[i] = 0;
+        }
+        /* Additional memory barrier */
+        __asm__ __volatile__("" : : "r"(p) : "memory");
+    }
+    
     __explicit_bzero_hook(buf, len);
 }
