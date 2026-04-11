@@ -8,14 +8,13 @@ Screenshots (outdated !)
 |----------------|-------------|
 | ![Terminal Setup](screenshots/terminals.gif) | ![Development](screenshots/fjordwm-vscodium.png) |
 
-| Application Launcher | Lock Screen |
-|---------------------|-------------|
-| ![Application Launcher](screenshots/rofilauncher.gif) | ![Lock Screen](screenshots/slock.png) |
+| Lock Screen |
+|--------------|
+| ![Lock Screen](screenshots/slock.png) |
 
 Configuration
 -------------
 Edit suckless/fjordwm/config.h for colors, keybindings, layouts, and rules.
-Edit suckless/dwl/config.def.h for the baseline `dwl` configuration, and `suckless/dwl/config.mk` for build flags such as XWayland.
 
 Profiles
 --------
@@ -183,7 +182,7 @@ If you want a display manager, install `sddm` and enable it:
     ./suckless/install-packages.sh --wm both --optional sddm
     sudo systemctl enable --now sddm.service
 
-`fjordwm` installs an X11 session into `xsessions/`, and `fjordwl` installs a Wayland session into `wayland-sessions/`, so both show up in SDDM after installation.
+`fjordwm` installs an X11 session into `xsessions/`
 
 Under SDDM, the `fjordwm` session now starts through the bundled session script instead of `~/.xinitrc`. `startx` still uses `~/.xinitrc`, so manual X11 startup remains unchanged.
 
@@ -207,9 +206,6 @@ Keybindings not working:
 Files
 -----
 - suckless/fjordwm/config.h - main configuration for fjordwm and its native bar
-- suckless/dwl/config.def.h - baseline dwl configuration
-- suckless/dwl/config.mk - dwl build flags and XWayland toggle
 - suckless/install-betterdiscord.sh - BetterDiscord installer and theme sync
 - scripts/ - utility scripts
-- rofi/ - application launcher and larger menu configurations
 - themes/ - GTK theme files

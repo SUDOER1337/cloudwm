@@ -179,29 +179,29 @@ static const Layout layouts[] = {
 /* commands (use $HOME for portability) */
 
 static const char *rofi_runner[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/runner/runner.sh", NULL};
+    "sh", "-c", "$HOME/.config/rofi/runner/runner.sh", NULL};
 static const char *rofi_emoji[] = {"sh", "-c",
-                                   "$HOME/fjordwm/rofi/emoji/emoji.sh", NULL};
+                                   "$HOME/.config/rofi/emoji/emoji.sh", NULL};
 static const char *rofi_powermenu[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/powermenu/powermenu.sh", NULL};
-static const char *rofi_calc[] = {"sh", "-c", "$HOME/fjordwm/rofi/calc/calc.sh",
+    "sh", "-c", "$HOME/.config/rofi/powermenu/powermenu.sh", NULL};
+static const char *rofi_calc[] = {"sh", "-c", "$HOME/.config/rofi/calc/calc.sh",
                                   NULL};
 static const char *rofi_utility[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/utility/utility.sh", NULL};
+    "sh", "-c", "$HOME/.config/rofi/utility/utility.sh", NULL};
 static const char *rofi_brightness[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/brightness/brightness.sh", NULL};
-static const char *rofi_note[] = {"sh", "-c", "$HOME/fjordwm/rofi/note/note.sh",
+    "sh", "-c", "$HOME/.config/rofi/brightness/brightness.sh", NULL};
+static const char *rofi_note[] = {"sh", "-c", "$HOME/.config/rofi/note/note.sh",
                                   NULL};
 static const char *rofi_stretchly[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/stretchly/stretchly.sh", NULL};
+    "sh", "-c", "$HOME/.config/rofi/stretchly/stretchly.sh", NULL};
 static const char *rofi_wallpaper[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/wallpaper/wallpaper.sh", NULL};
+    "sh", "-c", "$HOME/.config/rofi/wallpaper/wallpaper.sh", NULL};
 static const char *rofi_bluetooth[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/bluetooth/rofi-bluetooth", NULL};
+    "sh", "-c", "$HOME/.config/rofi/bluetooth/rofi-bluetooth", NULL};
 static const char *rofi_clipboard[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/clipboard/clipboard.sh", NULL};
+    "sh", "-c", "$HOME/.config/rofi/clipboard/clipboard.sh", NULL};
 static const char *rofi_media[] = {
-    "sh", "-c", "$HOME/fjordwm/rofi/media/media.sh", NULL};
+    "sh", "-c", "$HOME/.config/rofi/media/media.sh", NULL};
 
 /* playerctl commands */
 static const char *playerctl_playpause[] = {"playerctl", "play-pause", NULL};
@@ -277,7 +277,7 @@ static const Key keys[] = {
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
     {MODKEY, XK_F11, togglefullscr, {0}},
     {MODKEY, XK_Return, zoom, {0}},
-    {Mod1Mask, XK_Tab, spawn, SHCMD("$HOME/fjordwm/rofi/windows/windows.sh")},
+    {Mod1Mask, XK_Tab, spawn, SHCMD("$HOME/.config/rofi/windows/windows.sh")},
     {MODKEY | ShiftMask, XK_q, killclient, {0}},
 
     {MODKEY, XK_g, setgaps1, {0}},    

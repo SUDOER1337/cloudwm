@@ -1,8 +1,0 @@
-/**
- *
- * Theme  : Gruvfjord
- * Source : ../../colors/gruvfjord.rasi
- *
- **/
-
-@import "../../colors/gruvfjord.rasi"
